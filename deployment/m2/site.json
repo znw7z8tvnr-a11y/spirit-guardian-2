@@ -1,14 +1,15 @@
 {
   "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
-  "deployment_id": "appgdep_6ae230a4e66c819189bd66f4bbd775e6",
-  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_243c286f5dac8191a9961afed7982d90",
+  "deployment_id": "appgdep_6ae23ca929b08191837b595108d1ff18",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_96b01b90cdc481919ab022f570b52d12",
   "status": "succeeded",
   "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
   "audience": "owner-private",
   "game_source_commit": "b8d77143c0815fe79eeea26e542abbe7b23460a2",
-  "hosting_source_commit": "d51621f3f1a7afc750210e92f786e94766132b68",
+  "hosting_source_commit": "30e05169788fa44379c662b4b1c779402e8ff11f",
   "ci_run": 40735480303,
   "build_origin": "local Godot 4.6.3 export; same source passes GitHub Actions",
   "ci_artifact": 12837481831,
-  "release": "M2.1 touch optimization"
+  "release": "M2.1 touch optimization",
+  "lab_metadata": "lab.json"
 }

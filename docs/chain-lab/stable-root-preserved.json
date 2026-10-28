@@ -1,0 +1,23 @@
+{
+  "stable_root_files_unchanged": true,
+  "files": {
+    "index.js": "e3f56ee40e6f84371053db06692cfac15e2c8659547b11c6b2dfa1996dabd981",
+    "index.png": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
+    "build-info.json": "d768ed1d4101fec136a99aacd7f017b018e730e83998397e2343ec1547759c21",
+    "index.icon.png": "08808dd5397e9a502cb3624944151f87a9705b5b66b5c365c5ca4c6ab51525f5",
+    "index.pck": "f48ca5ea5470311310656582adcaa7fd9645bc2cd75c0146bab78c74e8f9fae9",
+    "FONT-LICENSE.txt": "aaa4d68d667c16a22e28f7f2724b61d24e8a3c047dc64a5ccdc1cae74c08941d",
+    "index.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+    "index.html": "56ec24a917c3cf524cfad568c1d2423e9a922eb3bd3d339e1e8b8088576ae036",
+    "index.wasm.part01.bin": "a1b595b2760f9f435ae460dd99e9a86865c39776411313814f568843ad33d80c",
+    "index.png.import": "db4012e94e0d9d3a116f3495a27d299bf35c91b4138110020e11ca7e6535f42d",
+    "index.apple-touch-icon.png.import": "dc62f5fbb0775bc6e1f4e332dbf204acf80527800af3a0d34c747e092a4cc07e",
+    "wasm-stream.js": "110fb7b3bb4a6ec21dbb6438f818b6415934036d610b73e12b67fd47d43b080c",
+    "index.wasm.part02.bin": "87c80233ed7f42c6f0e3effa8365421a667abac775ff085b2b7dd1b127bb0cf2",
+    "index.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+    "index.icon.png.import": "2250c5790752da3ea2a5bd985c3c947b51c96cdfcd18699f402f90f3cc037be2",
+    "index.wasm.part00.bin": "fb4235838cdaa306805993e0d7d21946297ad2c96a21292ba2b229375d964049",
+    "index.apple-touch-icon.png": "9b374ecbc8558f480421e646f38aaa8a69d5b1d65ff7b48d0735da214c46773a",
+    "FONT-INFO.json": "45ac57ff257eb51e4271127eae76ec1155104d957e390ba5f96881d23e4030ed"
+  }
+}

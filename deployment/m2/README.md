@@ -22,3 +22,7 @@
 - 正式站瀏覽器自動化受環境憑證鏈限制，未停用TLS驗證，未宣稱正式站遠端互動或Safari已通過。
 - `qa/local.json`及其中截圖為早期M2分段wasm包測試的歷史紀錄。本次M2.1重新測試原始Web匯出；分段載入器未改，另核對正式站資源完整性。
 - iPad Safari真機、長跑效能、瀏覽器儲存／音訊仍待實測。美術仍為暫用素材；只保存配置，未保存完整戰局。
+
+## 獨立連鎖試驗室
+
+新增 https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/ ，發布識別資料見lab.json。原M2.1根入口18檔案未改，兩個入口共用雜湊完全相同的引擎分段；試驗室載入獨立PCK。測試範圍與限制見docs/CHAIN_LAB.md。

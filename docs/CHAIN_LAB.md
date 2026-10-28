@@ -39,3 +39,9 @@ SpiritGuardian-Godot-ChainLab.zip 是可直接匯入的完整專案，打包時�
 Linux Chromium軟體WebGL橫1180×820／直820×1180，實際觸控測試初始奧彈、配置／背包、禁止技能直連、唯一物品隨機排列、返回、節奏、暫停及連鎖命中。實際遊戲截圖與報告位於docs/chain-lab/，不是概念圖。
 
 待完成：第二把魔杖、擴格道具、詞條、每三波／Boss隨機獎勵及保底、完整可視化連線圖、完整紀錄書整理、戰局存檔、完整20波平衡、iPad Safari真機與正式美術。試驗版不表示這些已完成；M2.1既有系統留在原入口。
+
+## 發布與交付驗證
+
+已通過GitHub Actions完整流程： https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/40743445356 。包含128項引擎檢查、原M2.1及試驗室各自Web匯出與觸控測試、ZIP封裝。Artifact名稱godot-chain-lab-delivery。
+
+本機另將試驗專案ZIP解壓後實際匯入並啟動240幀，無Godot ERROR。lab-web-raw.json為原始匯出測試；lab-web-smoke.json為實際部署包（/lab/共用原引擎分段）的雙方向觸控測試。stable-root-preserved.json核對原M2.1根入口18檔案完全未變。正式站以TLS驗證核對兩個入口、引擎雜湊及PCK；未因本機網頁測試而宣稱線上Safari互動已通過。

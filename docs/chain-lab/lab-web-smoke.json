@@ -1,0 +1,780 @@
+{
+  "landscape": {
+    "viewport": {
+      "width": 1180,
+      "height": 820
+    },
+    "initial": {
+      "arrange_disabled": true,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          328,
+          779,
+          152,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Kit": [
+          484,
+          779,
+          152,
+          72
+        ],
+        "Pause": [
+          796,
+          779,
+          152,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          952,
+          779,
+          152,
+          72
+        ],
+        "Slot 0": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 1": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 2": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 3": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 4": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 5": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 6": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 7": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 8": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 9": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          779,
+          152,
+          72
+        ]
+      },
+      "capacity": 10,
+      "casts": 0,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "enemies": 0,
+      "hp": 100,
+      "kills": 0,
+      "kit": false,
+      "paused": false,
+      "resonances": 0,
+      "retargets": 0,
+      "rolls": 0,
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "tempo": 0,
+      "viewport": [
+        1280,
+        889
+      ],
+      "wave": 0
+    },
+    "final": {
+      "arrange_disabled": true,
+      "buttons": {
+        "Arrange": [
+          420,
+          105,
+          152,
+          72
+        ],
+        "Configure": [
+          328,
+          779,
+          152,
+          72
+        ],
+        "Connect": [
+          420,
+          294,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          294,
+          152,
+          72
+        ],
+        "Done": [
+          108,
+          105,
+          152,
+          72
+        ],
+        "Equip": [
+          108,
+          294,
+          152,
+          72
+        ],
+        "Kit": [
+          484,
+          779,
+          152,
+          72
+        ],
+        "Pause": [
+          796,
+          779,
+          152,
+          72
+        ],
+        "Random": [
+          264,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          952,
+          779,
+          152,
+          72
+        ],
+        "Slot 0": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 1": [
+          372,
+          382,
+          224,
+          96
+        ],
+        "Slot 2": [
+          600,
+          382,
+          224,
+          96
+        ],
+        "Slot 3": [
+          828,
+          382,
+          224,
+          96
+        ],
+        "Slot 4": [
+          1056,
+          382,
+          224,
+          96
+        ],
+        "Slot 5": [
+          144,
+          482,
+          224,
+          96
+        ],
+        "Slot 6": [
+          372,
+          482,
+          224,
+          96
+        ],
+        "Slot 7": [
+          600,
+          482,
+          224,
+          96
+        ],
+        "Slot 8": [
+          828,
+          482,
+          224,
+          96
+        ],
+        "Slot 9": [
+          1056,
+          482,
+          224,
+          96
+        ],
+        "Source": [
+          264,
+          294,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          779,
+          152,
+          72
+        ]
+      },
+      "capacity": 10,
+      "casts": 4,
+      "discovered": [],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 1,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 2,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        }
+      ],
+      "edit_open": false,
+      "enemies": 3,
+      "hp": 100,
+      "kills": 2,
+      "kit": true,
+      "paused": false,
+      "resonances": 0,
+      "retargets": 0,
+      "rolls": 0,
+      "selected": 3,
+      "slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        -1,
+        -1
+      ],
+      "tempo": 2,
+      "viewport": [
+        1280,
+        889
+      ],
+      "wave": 1
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "lab feature-scene export",
+      "arcane-only ten-slot start",
+      "unknown recipe gate",
+      "training kit inventory",
+      "slot selection",
+      "reject skill-to-skill link",
+      "legal unique-item random arrangement",
+      "close editor and resume",
+      "tempo presets",
+      "pause/resume",
+      "actual chained impacts in battle"
+    ],
+    "limit": "Linux Chromium software WebGL touch emulation; no Safari or iPad performance claim"
+  },
+  "portrait": {
+    "viewport": {
+      "width": 820,
+      "height": 1180
+    },
+    "initial": {
+      "arrange_disabled": true,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          328,
+          1731,
+          152,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Kit": [
+          484,
+          1731,
+          152,
+          72
+        ],
+        "Pause": [
+          796,
+          1731,
+          152,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          952,
+          1731,
+          152,
+          72
+        ],
+        "Slot 0": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 1": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 2": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 3": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 4": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 5": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 6": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 7": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 8": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 9": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          1731,
+          152,
+          72
+        ]
+      },
+      "capacity": 10,
+      "casts": 0,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "enemies": 0,
+      "hp": 100,
+      "kills": 0,
+      "kit": false,
+      "paused": false,
+      "resonances": 0,
+      "retargets": 0,
+      "rolls": 0,
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "tempo": 0,
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wave": 0
+    },
+    "final": {
+      "arrange_disabled": true,
+      "buttons": {
+        "Arrange": [
+          420,
+          105,
+          152,
+          72
+        ],
+        "Configure": [
+          328,
+          1731,
+          152,
+          72
+        ],
+        "Connect": [
+          420,
+          294,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          294,
+          152,
+          72
+        ],
+        "Done": [
+          108,
+          105,
+          152,
+          72
+        ],
+        "Equip": [
+          108,
+          294,
+          152,
+          72
+        ],
+        "Kit": [
+          484,
+          1731,
+          152,
+          72
+        ],
+        "Pause": [
+          796,
+          1731,
+          152,
+          72
+        ],
+        "Random": [
+          264,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          952,
+          1731,
+          152,
+          72
+        ],
+        "Slot 0": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 1": [
+          372,
+          382,
+          224,
+          96
+        ],
+        "Slot 2": [
+          144,
+          482,
+          224,
+          96
+        ],
+        "Slot 3": [
+          372,
+          482,
+          224,
+          96
+        ],
+        "Slot 4": [
+          144,
+          582,
+          224,
+          96
+        ],
+        "Slot 5": [
+          372,
+          582,
+          224,
+          96
+        ],
+        "Slot 6": [
+          144,
+          682,
+          224,
+          96
+        ],
+        "Slot 7": [
+          372,
+          682,
+          224,
+          96
+        ],
+        "Slot 8": [
+          144,
+          782,
+          224,
+          96
+        ],
+        "Slot 9": [
+          372,
+          782,
+          224,
+          96
+        ],
+        "Source": [
+          264,
+          294,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          1731,
+          152,
+          72
+        ]
+      },
+      "capacity": 10,
+      "casts": 3,
+      "discovered": [],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 1,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 2,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        }
+      ],
+      "edit_open": false,
+      "enemies": 1,
+      "hp": 100,
+      "kills": 2,
+      "kit": true,
+      "paused": false,
+      "resonances": 0,
+      "retargets": 1,
+      "rolls": 0,
+      "selected": 3,
+      "slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        -1,
+        -1
+      ],
+      "tempo": 2,
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wave": 1
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "lab feature-scene export",
+      "arcane-only ten-slot start",
+      "unknown recipe gate",
+      "training kit inventory",
+      "slot selection",
+      "reject skill-to-skill link",
+      "legal unique-item random arrangement",
+      "close editor and resume",
+      "tempo presets",
+      "pause/resume",
+      "actual chained impacts in battle"
+    ],
+    "limit": "Linux Chromium software WebGL touch emulation; no Safari or iPad performance claim"
+  }
+}

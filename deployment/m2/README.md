@@ -4,11 +4,11 @@
 
 此站為 Sites 私人網站，使用擁有者的 ChatGPT 帳號登入。原遊戲網址 https://znw7z8tvnr-a11y.github.io/spirit-guardian-2/ 保持不變；其 Pages 設定仍為 main 分支根目錄、legacy build，未切換來源、覆蓋 index.html 或合併 main。
 
-遊戲來源：GitHub commit `831d14318f02e526d3bb174fa83abfc8b01ed2a3`，Actions run `40721247540` 成功（57 引擎檢查及 WebGL 觸控 smoke），artifact `12830312750`。下載的原 artifact SHA-256 已比對官方 digest：`e76c6d80c66151960334aa250c651b2b16e8c74841529ce87e6cdb87cf955232`。
+目前為 M2 繁中版，來源 commit、發布識別資料見 `site.json`；源碼位於 `godot/m2-zh-hant`。使用本機官方 Godot 4.6.3 匯出，78項引擎檢查及橫／直向 WebGL 觸控測試紀錄見 `docs/m2-zh/`。原 M2 英文版 CI run 40721247540 為歷史版本。
 
 ## 部署方式
 
-`prepare_site.py <artifact.zip> <site-directory>` 取出 CI 的 `dist/SpiritGuardian-Web-M2.zip`。為符合靜態主機單檔限制，37,700,666 bytes 的 wasm 分成3個最多12MiB的檔案，由 `wasm-stream.js` 還原成串流 Response 供原 Godot loader 使用。串流後SHA-256與原wasm完全相同；index.pck、引擎JS與遊戲GDScript不改動。只修改HTML語言／標題及新增串流載入器。
+`prepare_site.py <web.zip> <site-directory> --source-commit <完整SHA> --web-zip` 使用已驗證的繁中 Web ZIP；省略 `--web-zip` 時讀取 Actions artifact 內的 `dist/SpiritGuardian-Web-M2-zh-Hant.zip`。為符合靜態主機單檔限制，37,700,666 bytes 的 wasm 分成3個最多12MiB的檔案，由 `wasm-stream.js` 還原成串流 Response 供原 Godot loader 使用。串流後SHA-256與原wasm完全相同；index.pck、引擎JS與遊戲GDScript不改動。只修改HTML語言／標題及新增串流載入器。
 
 發布成功的 Site／version／deployment ID及來源SHA見 `site.json`。這些是識別資料，不含任何憑證。沿用相同 Site ID 更新，不要再建立另一個同名Site。
 
@@ -18,7 +18,7 @@
 
 - `test_static.py --directory <dist> --report <report.json>`：實際部署包的Linux Chromium軟體WebGL，橫1180×820及豎820×1180通過出怪、觸控暫停／恢復、速度、法術選擇、連鎖增刪復原、配置儲存／重開、音效開關；0 pageerror／Godot runtime ERROR，3個wasm分段皆200。
 - `qa/local.json` 為本地部署包測試，`qa/landscape-game.png` 是本地實際Godot WebGL截圖，非概念圖、非正式站遠端截圖、非iPad實機截圖。
-- 正式站以現有owner-private測試授權及TLS驗證讀取：HTML200、三段wasm200且逐段與合併hash一致、PCK與CI原檔一致，證據 `qa/live-assets.json`。憑證未寫入報告。
+- 正式站以現有owner-private測試授權及TLS驗證讀取：HTML200、三段wasm200且逐段與合併hash一致、PCK與本機匯出原檔一致，證據 `qa/live-assets.json`。憑證未寫入報告。
 - 正式站瀏覽器自動化遇到測試環境的 `ERR_CERT_AUTHORITY_INVALID`。已嘗試臨時匯入環境CA，仍未通過；沒有停用TLS驗證或宣稱遠端互動已通過。本地部署包互動與正式站檔案完整性各自通過。
 - iPad Safari真機操作、長跑記憶體、瀏覽器儲存／音訊仍需擁有者實測。開啟網址若要求登入，使用建立本專案的ChatGPT帳號。
 

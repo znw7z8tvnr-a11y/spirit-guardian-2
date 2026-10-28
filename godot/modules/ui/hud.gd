@@ -21,6 +21,8 @@ var root: Control
 
 func _ready() -> void:
  root = Control.new()
+ # Load after editor asset import; project-wide startup themes load too early.
+ root.theme = load("res://localization/zh_hant_theme.tres")
  root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  root.mouse_filter = Control.MOUSE_FILTER_IGNORE
  add_child(root)

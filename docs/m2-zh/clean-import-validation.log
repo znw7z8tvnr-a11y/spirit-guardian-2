@@ -1,0 +1,7 @@
+import PASS
+integration PASS
+18 checks passed; {'enemies': 2, 'hp': 66.0, 'kills': 54, 'over': False, 'projectiles': 2, 'wave': 4}
+modules PASS
+39 checks passed; {}
+localization PASS
+21 checks passed; {}

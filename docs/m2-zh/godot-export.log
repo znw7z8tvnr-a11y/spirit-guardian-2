@@ -9,6 +9,12 @@ Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
 [  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
 [92m[ DONE ][39m [1mfirst_scan_filesystem[22m
 [0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (3 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | index.apple-touch-icon.png[39m[0m
+[  25% ] [90m[1m_update_scan_actions[22m | index.icon.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | index.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
 [   0% ] [90m[1msavepack[22m | Started Packing (102 steps)[39m[0m
 [   1% ] [90m[1msavepack[22m | Storing File: res://assets/fonts/FONT_INFO.json[39m[0m
 [   2% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/SpiritGuardianTC-Regular.otf-2b687df31d150189e2b1f4371f8ec971.fontdata[39m[0m
@@ -23,10 +29,10 @@ Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
 [  10% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/boss_hydra.webp.import[39m[0m
 [  12% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/boss_lava.webp-8388c78d5c0cbad42c2aad9a66181cf8.ctex[39m[0m
 [  12% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/boss_lava.webp.import[39m[0m
-[  14% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/boss_witch.webp-5c0fb3ae44e81f3b694a00ad3c9f7433.ctex[39m[0m
-[  14% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/boss_witch.webp.import[39m[0m
-[  16% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/enemy_demon.webp-98feaa4cc3c0b2dffc9e3a6a41f5e31e.ctex[39m[0m
-[  16% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/enemy_demon.webp.import[39m[0m
+[  13% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/boss_witch.webp-5c0fb3ae44e81f3b694a00ad3c9f7433.ctex[39m[0m
+[  13% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/boss_witch.webp.import[39m[0m
+[  15% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/enemy_demon.webp-98feaa4cc3c0b2dffc9e3a6a41f5e31e.ctex[39m[0m
+[  15% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/enemy_demon.webp.import[39m[0m
 [  17% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/enemy_knight.webp-a1f8e2529253bd13db5e68d3acf8204d.ctex[39m[0m
 [  17% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/enemy_knight.webp.import[39m[0m
 [  19% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/enemy_wolf.webp-3d08588b202833664c952d2b97b74eb3.ctex[39m[0m
@@ -37,55 +43,56 @@ Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
 [  23% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/icebolt.webp.import[39m[0m
 [  25% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/iceburst.webp-4c32eff4775e20e346aaccf4a0d547e1.ctex[39m[0m
 [  25% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/iceburst.webp.import[39m[0m
-[  27% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/lightning.webp-a95e79f04b9fc5920cb353ac9fcae9eb.ctex[39m[0m
-[  27% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/lightning.webp.import[39m[0m
-[  29% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/meteor.webp-59068ae7c71cb7eb664a5cbef7d14705.ctex[39m[0m
-[  29% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/meteor.webp.import[39m[0m
-[  31% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/platform.webp-fd5e897dfdcf1c55364081b98d76ac7b.ctex[39m[0m
-[  31% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/platform.webp.import[39m[0m
-[  33% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/poison.webp-c948d588ca33b5020a67a88fdb1f8ef2.ctex[39m[0m
-[  33% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/poison.webp.import[39m[0m
+[  26% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/lightning.webp-a95e79f04b9fc5920cb353ac9fcae9eb.ctex[39m[0m
+[  26% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/lightning.webp.import[39m[0m
+[  28% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/meteor.webp-59068ae7c71cb7eb664a5cbef7d14705.ctex[39m[0m
+[  28% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/meteor.webp.import[39m[0m
+[  30% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/platform.webp-fd5e897dfdcf1c55364081b98d76ac7b.ctex[39m[0m
+[  30% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/platform.webp.import[39m[0m
+[  32% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/poison.webp-c948d588ca33b5020a67a88fdb1f8ef2.ctex[39m[0m
+[  32% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/poison.webp.import[39m[0m
 [  33% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/terrain.png-10211058e2625f4bcaba8b6f8df92aec.ctex[39m[0m
 [  33% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/terrain.png.import[39m[0m
 [  35% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/tower_guardian.webp-0feae5e516752df413939f79904f1a70.ctex[39m[0m
 [  35% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/tower_guardian.webp.import[39m[0m
 [  37% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/voidburst.webp-7c91b669ded39b8ea4fdd71e696213d9.ctex[39m[0m
 [  37% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/voidburst.webp.import[39m[0m
-[  39% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/walk_armored.webp-e613c257d151d149784d626087b1a1c8.ctex[39m[0m
-[  39% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/walk_armored.webp.import[39m[0m
-[  41% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/walk_boss.webp-42a9d16da797b5a175efc083816327a4.ctex[39m[0m
-[  41% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/walk_boss.webp.import[39m[0m
-[  43% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/walk_elite.webp-171c90b6da6ae73a78ccb74354996033.ctex[39m[0m
-[  43% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/walk_elite.webp.import[39m[0m
-[  45% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/walk_grunt.webp-8123d9705be48548ab41f424ac89ef7f.ctex[39m[0m
-[  45% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/walk_grunt.webp.import[39m[0m
-[  47% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/walk_shaman.webp-bdc59c1d9f4757af7530a4a54429da75.ctex[39m[0m
-[  47% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/walk_shaman.webp.import[39m[0m
-[  49% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/walk_swift.webp-7d4245dd600fed790c2ddb55871a4549.ctex[39m[0m
-[  49% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/walk_swift.webp.import[39m[0m
+[  38% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/walk_armored.webp-e613c257d151d149784d626087b1a1c8.ctex[39m[0m
+[  38% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/walk_armored.webp.import[39m[0m
+[  40% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/walk_boss.webp-42a9d16da797b5a175efc083816327a4.ctex[39m[0m
+[  40% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/walk_boss.webp.import[39m[0m
+[  42% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/walk_elite.webp-171c90b6da6ae73a78ccb74354996033.ctex[39m[0m
+[  42% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/walk_elite.webp.import[39m[0m
+[  44% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/walk_grunt.webp-8123d9705be48548ab41f424ac89ef7f.ctex[39m[0m
+[  44% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/walk_grunt.webp.import[39m[0m
+[  46% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/walk_shaman.webp-bdc59c1d9f4757af7530a4a54429da75.ctex[39m[0m
+[  46% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/walk_shaman.webp.import[39m[0m
+[  48% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/walk_swift.webp-7d4245dd600fed790c2ddb55871a4549.ctex[39m[0m
+[  48% ] [90m[1msavepack[22m | Storing File: res://assets/legacy/walk_swift.webp.import[39m[0m
 [  50% ] [90m[1msavepack[22m | Storing File: res://data/resonance_profiles.json[39m[0m
-[  52% ] [90m[1msavepack[22m | Storing File: res://data/supplement_catalog.json[39m[0m
-[  54% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/index.apple-touch-icon.png-aebfb1e41ce4a993e231d731c37e24be.ctex[39m[0m
-[  54% ] [90m[1msavepack[22m | Storing File: res://export/web/index.apple-touch-icon.png.import[39m[0m
-[  56% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/index.icon.png-71c9d3338695ba24c45c706011eaad77.ctex[39m[0m
-[  56% ] [90m[1msavepack[22m | Storing File: res://export/web/index.icon.png.import[39m[0m
-[  58% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/index.png-c2d8175aa2006ac735a751c5803e019d.ctex[39m[0m
-[  58% ] [90m[1msavepack[22m | Storing File: res://export/web/index.png.import[39m[0m
-[  60% ] [90m[1msavepack[22m | Storing File: res://localization/zh_hant.gdc[39m[0m
+[  51% ] [90m[1msavepack[22m | Storing File: res://data/supplement_catalog.json[39m[0m
+[  53% ] [90m[1msavepack[22m | Storing File: res://export/web/FONT-INFO.json[39m[0m
+[  55% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/index.apple-touch-icon.png-aebfb1e41ce4a993e231d731c37e24be.ctex[39m[0m
+[  55% ] [90m[1msavepack[22m | Storing File: res://export/web/index.apple-touch-icon.png.import[39m[0m
+[  57% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/index.icon.png-71c9d3338695ba24c45c706011eaad77.ctex[39m[0m
+[  57% ] [90m[1msavepack[22m | Storing File: res://export/web/index.icon.png.import[39m[0m
+[  59% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/index.png-c2d8175aa2006ac735a751c5803e019d.ctex[39m[0m
+[  59% ] [90m[1msavepack[22m | Storing File: res://export/web/index.png.import[39m[0m
+[  61% ] [90m[1msavepack[22m | Storing File: res://localization/zh_hant.gdc[39m[0m
 [  62% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-6626b9232ede7ddbb249bc9ab960321d-zh_hant_theme.res[39m[0m
 [  64% ] [90m[1msavepack[22m | Storing File: res://localization/zh_TW.po[39m[0m
 [  66% ] [90m[1msavepack[22m | Storing File: res://modules/arena/arena.gdc[39m[0m
-[  66% ] [90m[1msavepack[22m | Storing File: res://modules/audio/audio.gdc[39m[0m
-[  68% ] [90m[1msavepack[22m | Storing File: res://modules/boss/boss.gdc[39m[0m
-[  70% ] [90m[1msavepack[22m | Storing File: res://modules/chain_graph/chain_graph.gdc[39m[0m
-[  72% ] [90m[1msavepack[22m | Storing File: res://modules/combat_fx/combat_fx.gdc[39m[0m
+[  67% ] [90m[1msavepack[22m | Storing File: res://modules/audio/audio.gdc[39m[0m
+[  69% ] [90m[1msavepack[22m | Storing File: res://modules/boss/boss.gdc[39m[0m
+[  71% ] [90m[1msavepack[22m | Storing File: res://modules/chain_graph/chain_graph.gdc[39m[0m
+[  73% ] [90m[1msavepack[22m | Storing File: res://modules/combat_fx/combat_fx.gdc[39m[0m
 [  74% ] [90m[1msavepack[22m | Storing File: res://modules/enemy/enemy.gdc[39m[0m
 [  76% ] [90m[1msavepack[22m | Storing File: res://modules/enemy/steering.gdc[39m[0m
 [  78% ] [90m[1msavepack[22m | Storing File: res://modules/progression/progression.gdc[39m[0m
 [  80% ] [90m[1msavepack[22m | Storing File: res://modules/resonance/resonance.gdc[39m[0m
 [  82% ] [90m[1msavepack[22m | Storing File: res://modules/save_system/save_system.gdc[39m[0m
-[  83% ] [90m[1msavepack[22m | Storing File: res://modules/spell/catalog.gdc[39m[0m
-[  85% ] [90m[1msavepack[22m | Storing File: res://modules/spell/combat_resolver.gdc[39m[0m
+[  84% ] [90m[1msavepack[22m | Storing File: res://modules/spell/catalog.gdc[39m[0m
+[  86% ] [90m[1msavepack[22m | Storing File: res://modules/spell/combat_resolver.gdc[39m[0m
 [  87% ] [90m[1msavepack[22m | Storing File: res://modules/spell/projectile.gdc[39m[0m
 [  89% ] [90m[1msavepack[22m | Storing File: res://modules/tower/tower.gdc[39m[0m
 [  91% ] [90m[1msavepack[22m | Storing File: res://modules/ui/chain_editor.gdc[39m[0m

@@ -21,3 +21,5 @@ Godot 4.6.3 Compatibility：匯入、18項戰鬥、39項模組與21項中文化�
 ## 下一階段
 
 依 iPad 實機回報調整字級、觸控目標與連鎖圖操作；再逐一補齊完整法術／共振行為、Boss招式與完整戰局存檔。原功能缺口仍見 M2_MODULES.md，中文化不代表已完成全部移植。
+
+GitHub Actions 已通過： https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/40733196340 。此流程從乾淨 checkout 完成目錄匯入、78項引擎檢查、Web匯出、雙方向觸控測試與ZIP封裝；Artifact 名稱 godot-m2-delivery。試玩站使用同源碼的本機測試匯出。

@@ -41,20 +41,34 @@ jobs:
           if rg 'SCRIPT ERROR|ERROR:' docs/m2-1/godot-export.log; then exit 1; fi
           cp godot/assets/fonts/OFL.txt godot/export/web/FONT-LICENSE.txt
           cp godot/assets/fonts/FONT_INFO.json godot/export/web/FONT-INFO.json
+      - name: Export separate Chain Lab
+        run: |
+          mkdir -p godot/export/lab
+          godot --headless --path godot --export-release "Web Chain Lab" > docs/chain-lab/godot-lab-export.log 2>&1
+          if rg "SCRIPT ERROR|ERROR:" docs/chain-lab/godot-lab-export.log; then exit 1; fi
+          cp godot/assets/fonts/OFL.txt godot/export/lab/FONT-LICENSE.txt
+          cp godot/assets/fonts/FONT_INFO.json godot/export/lab/FONT-INFO.json
       - name: Browser test dependencies
         run: |
           python3 -m pip install playwright==1.62.0
           python3 -m playwright install --with-deps chromium
       - name: WebGL touch smoke
         run: python3 tools/test_web.py
+      - name: Chain Lab WebGL touch smoke
+        run: python3 tools/test_chain_lab_web.py
       - name: Package importable project and Web build
-        run: python3 tools/package_project.py
+        run: |
+          python3 tools/package_project.py
+          python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-m2-delivery
+          name: godot-chain-lab-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
             docs/m2-1/*.json
             docs/m2-1/*.png
+            docs/chain-lab/*.log
+            docs/chain-lab/*.json
+            docs/chain-lab/*.png
           if-no-files-found: error

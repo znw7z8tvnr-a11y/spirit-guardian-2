@@ -1,5 +1,7 @@
 # 靈境守衛 Spirit Guardian — Godot M2.1 觸控版
 
+[獨立連鎖戰鬥試驗室](https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/) · [試驗規則與限制](docs/CHAIN_LAB.md)
+
 [開啟 M2 網頁試玩（需以擁有者 ChatGPT 帳號登入）](https://spirit-guardian-m2-play.trylook.chatgpt.site) · [部署與驗證紀錄](deployment/m2/README.md)
 
 原來27個HTML全部保留；本次11個補充附件原樣存於 `reference_modules/`。Godot在 `godot/`，分支 `godot/m2-1-ipad`，延續M1而不覆蓋原遊戲入口。

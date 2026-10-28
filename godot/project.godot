@@ -2,6 +2,7 @@ config_version=5
 [application]
 config/name="Spirit Guardian — Modules M2"
 run/main_scene="res://scenes/main.tscn"
+run/main_scene.chain_lab="res://experiments/chain_lab/main.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 [display]
 window/size/viewport_width=1280

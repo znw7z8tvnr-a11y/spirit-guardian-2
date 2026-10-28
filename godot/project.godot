@@ -17,3 +17,9 @@ renderer/rendering_method.mobile="gl_compatibility"
 textures/default_filters/use_nearest_mipmap_filter=false
 [input_devices]
 pointing/emulate_mouse_from_touch=true
+
+[gui]
+theme/custom="res://localization/zh_hant_theme.tres"
+[internationalization]
+locale/translations=PackedStringArray("res://localization/zh_TW.po")
+locale/fallback="zh_TW"

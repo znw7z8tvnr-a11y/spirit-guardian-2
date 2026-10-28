@@ -1,4 +1,5 @@
 extends Node2D
+const Zh = preload("res://localization/zh_hant.gd")
 const Arena = preload("res://modules/arena/arena.gd")
 const Tower = preload("res://modules/tower/tower.gd")
 const Enemy = preload("res://modules/enemy/enemy.gd")
@@ -56,6 +57,7 @@ var web_debug := false
 var debug_clock := 0.0
 
 func _ready() -> void:
+ TranslationServer.set_locale("zh_TW")
  rng.seed = 3201
  if OS.has_feature("web"):
   web_debug = bool(JavaScriptBridge.eval("new URLSearchParams(location.search).get('debug') === '1'"))
@@ -90,7 +92,7 @@ func _ready() -> void:
  set_process(false)
  hud.diagnostic_tick.connect(_process)
  hud.chain_requested.connect(open_chain)
- hud.audio_requested.connect(func():audio.muted=not audio.muted;hud.buttons["Audio: off"].text="Audio: off" if audio.muted else "Audio: on")
+ hud.audio_requested.connect(func():audio.muted=not audio.muted;hud.buttons["Audio: off"].text=Zh.ui("Audio: off" if audio.muted else "Audio: on"))
  graph_editor=ChainEditor.new()
  hud.root.add_child(graph_editor)
  graph_editor.setup(chain)
@@ -204,7 +206,7 @@ func toggle_pause() -> void:
   return
  paused = not paused
  get_tree().paused = paused
- hud.pause_button.text = "Resume" if paused else "Pause"
+ hud.pause_button.text = Zh.ui("Resume" if paused else "Pause")
  refresh_hud()
  if web_debug:
   JavaScriptBridge.eval("window.SG_M1_STATE.paused = " + JSON.stringify(paused))
@@ -214,14 +216,14 @@ func cycle_speed() -> void:
   return
  speed = 2.0 if speed == 1.0 else 1.0
  Engine.time_scale = speed
- hud.speed_button.text = "%dx" % int(speed)
+ hud.speed_button.text = "%d×" % int(speed)
  if web_debug:
   JavaScriptBridge.eval("window.SG_M1_STATE.speed = " + JSON.stringify(speed))
 
 func game_over() -> void:
  over = true
  get_tree().paused = true
- hud.message.text = "The crystal has fallen — Restart to defend again."
+ hud.message.text = "守護水晶已破碎。按「重新開始」再挑戰一次。"
  hud.wave_button.disabled = true
 
 func restart() -> void:
@@ -233,9 +235,9 @@ func refresh_hud() -> void:
  hud.update_status(wave, kills, tower.hp, selected)
  hud.wave_button.disabled = over or paused or reward_open or graph_editor.visible or remaining > 0
  var boss := enemies.get_children().filter(func(e):return e.kind==5 and not e.dead)
- hud.boss_status.text="" if boss.is_empty() else "%s • Phase %d • HP %d / %d • %s" % [["Crystal King","Nightmare","Star Colossus"][boss[0].boss_kind],boss[0].phase,boss[0].hp,boss[0].max_hp,"WARNING" if boss[0].warning>0 else ""]
+ hud.boss_status.text="" if boss.is_empty() else "%s・第 %d 階段・生命 %d／%d　%s" % [Zh.BOSS_NAMES[boss[0].boss_kind],boss[0].phase,boss[0].hp,boss[0].max_hp,"攻擊預警！" if boss[0].warning>0 else ""]
  if not over:
-  hud.message.text = "Paused" if paused else ("Next wave available • Survivors remain" if remaining == 0 and enemies.get_child_count() > 0 else "Defend the crystal • Select a spell below")
+  hud.message.text = "戰鬥已暫停" if paused else ("可提前開波・場上仍有敵人" if remaining == 0 and enemies.get_child_count() > 0 else "守護水晶・點選下方法術切換主攻")
 
 func _notification(what: int) -> void:
  if what == NOTIFICATION_APPLICATION_FOCUS_OUT and is_instance_valid(hud) and not paused and not over and not reward_open and (not is_instance_valid(graph_editor) or not graph_editor.visible):
@@ -257,6 +259,11 @@ func _process(delta: float) -> void:
    var rect: Rect2 = debug_buttons[key].get_global_rect()
    bounds[key] = [rect.get_center().x, rect.get_center().y, rect.size.x, rect.size.y]
   state["buttons"] = bounds
+  var labels: Dictionary={}
+  for key in debug_buttons:labels[key]=debug_buttons[key].text
+  state["labels"]=labels
+  state["locale"]=TranslationServer.get_locale()
+  state["status_text"]=hud.status.text
   state["viewport"] = [get_viewport_rect().size.x, get_viewport_rect().size.y]
   JavaScriptBridge.eval("window.SG_M1_STATE = " + JSON.stringify(state))
 
@@ -321,7 +328,7 @@ func close_chain() -> void:
  for child in hud.root.get_children():
   if child is VBoxContainer:child.show()
  get_tree().paused=paused
- if not saved:hud.message.text="Build save failed; export JSON to keep a backup."
+ if not saved:hud.message.text="配置儲存失敗，請匯出配置備份。"
  publish_debug()
  if reward_count>0:call_deferred("offer_reward")
 
@@ -334,7 +341,7 @@ func create_rewards() -> void:
  var box:=VBoxContainer.new();reward_panel.add_child(box)
  reward_label=Label.new();box.add_child(reward_label)
  reward_choices=HBoxContainer.new();box.add_child(reward_choices)
- reward_reroll=Button.new();reward_reroll.text="Reroll (1)";reward_reroll.custom_minimum_size.y=48;box.add_child(reward_reroll)
+ reward_reroll=Button.new();reward_reroll.text="重抽（剩餘 1 次）";reward_reroll.custom_minimum_size.y=48;box.add_child(reward_reroll)
  reward_reroll.pressed.connect(func():if progression.reroll():render_rewards())
  reward_panel.hide()
 
@@ -349,16 +356,17 @@ func offer_reward() -> void:
  publish_debug()
 
 func render_rewards() -> void:
- reward_label.text="GROWTH • Choose one • Legendary pity %d / 7" % progression.pity
+ reward_label.text="成長三選一｜傳說保底進度 %d／7" % progression.pity
  for node in reward_choices.get_children():
   reward_choices.remove_child(node);node.queue_free()
  for i in progression.options.size():
   var option: Dictionary=progression.options[i]
   var column:=VBoxContainer.new();reward_choices.add_child(column)
-  var button:=Button.new();button.text=str(option.key)+" +"+str(option.power)+"\n"+str(option.tier);button.custom_minimum_size=Vector2(210,100);column.add_child(button)
+  var button:=Button.new();button.text=Zh.spell(str(option.key))+" ＋"+str(option.power)+"\n"+Zh.rarity(str(option.tier));button.custom_minimum_size=Vector2(210,100);column.add_child(button)
   button.pressed.connect(func():choose_reward(i))
-  var lock:=Button.new();lock.text="Locked" if progression.locked==i else "Lock";lock.custom_minimum_size.y=48;column.add_child(lock)
+  var lock:=Button.new();lock.text="已鎖定" if progression.locked==i else "鎖定";lock.custom_minimum_size.y=48;column.add_child(lock)
   lock.pressed.connect(func():progression.locked=-1 if progression.locked==i else i;render_rewards())
+ reward_reroll.text="重抽（剩餘 %d 次）" % progression.rerolls
  reward_reroll.disabled=progression.rerolls<=0
 
 func choose_reward(index: int) -> void:

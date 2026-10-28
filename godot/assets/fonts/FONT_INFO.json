@@ -1,0 +1,12 @@
+{
+  "derived_family": "Spirit Guardian TC",
+  "source_family": "Noto Sans CJK TC Regular",
+  "source_url": "https://github.com/notofonts/noto-cjk",
+  "source_file_sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a",
+  "source_collection_index": 3,
+  "license": "SIL Open Font License 1.1",
+  "modified": "Subset for UI and renamed; glyph outlines unchanged",
+  "characters": 419,
+  "bytes": 206152,
+  "sha256": "977a0a1555585a1328ebe13dacc0b7eda6063ce075bf940f61a9d3b046b40b86"
+}

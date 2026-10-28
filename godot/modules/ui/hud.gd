@@ -1,4 +1,5 @@
 extends CanvasLayer
+const Zh = preload("res://localization/zh_hant.gd")
 signal pause_requested
 signal speed_requested
 signal wave_requested
@@ -30,7 +31,7 @@ func _ready() -> void:
  top.offset_top = 24
  root.add_child(top)
  var title := Label.new()
- title.text = "SPIRIT GUARDIAN  /  M2"
+ title.text = "靈境守衛｜M2 繁中試玩"
  title.add_theme_font_size_override("font_size", 24)
  top.add_child(title)
  status = Label.new()
@@ -41,7 +42,7 @@ func _ready() -> void:
  health.show_percentage = false
  top.add_child(health)
  var note := Label.new()
- note.text = "TEMP ART • Graph build save only • Full run save pending"
+ note.text = "暫用美術・目前僅儲存連鎖配置"
  note.add_theme_font_size_override("font_size", 14)
  top.add_child(note)
  boss_status=Label.new()
@@ -83,14 +84,14 @@ func _ready() -> void:
 func make_button(text: String, parent: Node) -> Button:
  var button := Button.new()
  buttons[text] = button
- button.text = text
+ button.text = Zh.ui(text)
  button.custom_minimum_size = Vector2(112, 48)
  button.add_theme_font_size_override("font_size", 18)
  parent.add_child(button)
  return button
 
 func update_status(wave: int, kills: int, hp: float, selected: StringName) -> void:
- status.text = "Wave %d   /   Kills %d   /   Crystal %d / 100   /   %s" % [wave, kills, hp, String(selected).capitalize()]
+ status.text = "第 %d 波　／　擊殺 %d　／　水晶生命 %d／100　／　%s" % [wave, kills, hp, Zh.spell(String(selected))]
  health.value = hp
 
 func _process(delta: float) -> void:

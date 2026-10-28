@@ -1,0 +1,58 @@
+msgid ""
+msgstr ""
+"Language: zh_TW\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Zoom In"
+msgstr "放大"
+
+msgid "Zoom Out"
+msgstr "縮小"
+
+msgid "Reset Zoom"
+msgstr "重設縮放"
+
+msgid "Toggle Grid"
+msgstr "顯示／隱藏格線"
+
+msgid "Toggle Grid Snapping"
+msgstr "切換格線吸附"
+
+msgid "Toggle Minimap"
+msgstr "顯示／隱藏小地圖"
+
+msgid "Enable snapping."
+msgstr "啟用格線吸附。"
+
+msgid "Toggle the visual grid."
+msgstr "顯示或隱藏格線。"
+
+msgid "Toggle the minimap."
+msgstr "顯示或隱藏小地圖。"
+
+msgid "Cut"
+msgstr "剪下"
+
+msgid "Copy"
+msgstr "複製"
+
+msgid "Paste"
+msgstr "貼上"
+
+msgid "Select All"
+msgstr "全選"
+
+msgid "Clear"
+msgstr "清除"
+
+msgid "Undo"
+msgstr "復原"
+
+msgid "Redo"
+msgstr "重做"
+
+msgid "Delete"
+msgstr "刪除"
+
+msgid "Duplicate"
+msgstr "複製節點"

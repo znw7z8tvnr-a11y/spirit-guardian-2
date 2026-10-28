@@ -1,0 +1,718 @@
+{
+  "landscape": {
+    "viewport": {
+      "width": 1180,
+      "height": 820
+    },
+    "initial": {
+      "buttons": {
+        "1x": [
+          570,
+          829,
+          136,
+          72
+        ],
+        "Arcane": [
+          570,
+          753,
+          136,
+          72
+        ],
+        "Audio: off": [
+          640,
+          640,
+          136,
+          72
+        ],
+        "Beam": [
+          1130,
+          753,
+          136,
+          72
+        ],
+        "Chain": [
+          500,
+          640,
+          136,
+          72
+        ],
+        "Fire": [
+          150,
+          753,
+          136,
+          72
+        ],
+        "Ice": [
+          290,
+          753,
+          136,
+          72
+        ],
+        "Lightning": [
+          430,
+          753,
+          136,
+          72
+        ],
+        "Meteor": [
+          850,
+          753,
+          136,
+          72
+        ],
+        "Next wave": [
+          710,
+          829,
+          136,
+          72
+        ],
+        "Nova": [
+          990,
+          753,
+          136,
+          72
+        ],
+        "Pause": [
+          430,
+          829,
+          136,
+          72
+        ],
+        "Performance": [
+          780,
+          640,
+          136,
+          72
+        ],
+        "Poison": [
+          710,
+          753,
+          136,
+          72
+        ],
+        "Restart": [
+          850,
+          829,
+          136,
+          72
+        ]
+      },
+      "chain_casts": 4,
+      "damage": 207,
+      "edges": [
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 2,
+          "to": 5
+        }
+      ],
+      "element": "fire",
+      "enemies": 1,
+      "finishers": 2,
+      "fps": 16,
+      "fusions": 4,
+      "graph_open": false,
+      "graph_scroll": [
+        0,
+        0
+      ],
+      "hp": 100,
+      "kills": 4,
+      "labels": {
+        "1x": "1×",
+        "Arcane": "奧術飛彈",
+        "Audio: off": "音效：關",
+        "Beam": "聚焦光束",
+        "Chain": "寶石連鎖",
+        "Fire": "爆裂火球",
+        "Ice": "寒冰長槍",
+        "Lightning": "連鎖雷電",
+        "Meteor": "流星雨",
+        "Next wave": "提前開波",
+        "Nova": "冰霜新星",
+        "Pause": "暫停",
+        "Performance": "效能：關",
+        "Poison": "毒霧",
+        "Restart": "重新開始"
+      },
+      "link_hint": "選擇節點的起點，再選目標；取消不會改動配置。",
+      "locale": "zh_TW",
+      "nodes": 5,
+      "over": false,
+      "paused": false,
+      "pending_source": -1,
+      "performance_visible": false,
+      "reward_open": false,
+      "shots": 1,
+      "speed": 1,
+      "spell_columns": 8,
+      "status_text": "第 1 波　／　擊殺 4　／　水晶生命 100／100　／　爆裂火球",
+      "viewport": [
+        1280,
+        889
+      ],
+      "wave": 1
+    },
+    "restart": {
+      "buttons": {
+        "1x": [
+          570,
+          829,
+          136,
+          72
+        ],
+        "Arcane": [
+          570,
+          753,
+          136,
+          72
+        ],
+        "Audio: off": [
+          640,
+          640,
+          136,
+          72
+        ],
+        "Beam": [
+          1130,
+          753,
+          136,
+          72
+        ],
+        "Chain": [
+          500,
+          640,
+          136,
+          72
+        ],
+        "Fire": [
+          150,
+          753,
+          136,
+          72
+        ],
+        "Ice": [
+          290,
+          753,
+          136,
+          72
+        ],
+        "Lightning": [
+          430,
+          753,
+          136,
+          72
+        ],
+        "Meteor": [
+          850,
+          753,
+          136,
+          72
+        ],
+        "Next wave": [
+          710,
+          829,
+          136,
+          72
+        ],
+        "Nova": [
+          990,
+          753,
+          136,
+          72
+        ],
+        "Pause": [
+          430,
+          829,
+          136,
+          72
+        ],
+        "Performance": [
+          780,
+          640,
+          136,
+          72
+        ],
+        "Poison": [
+          710,
+          753,
+          136,
+          72
+        ],
+        "Restart": [
+          850,
+          829,
+          136,
+          72
+        ]
+      },
+      "chain_casts": 0,
+      "damage": 0,
+      "edges": [
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 2,
+          "to": 5
+        }
+      ],
+      "element": "fire",
+      "enemies": 0,
+      "finishers": 0,
+      "fps": 12,
+      "fusions": 0,
+      "graph_open": false,
+      "graph_scroll": [
+        0,
+        0
+      ],
+      "hp": 100,
+      "kills": 0,
+      "labels": {
+        "1x": "1×",
+        "Arcane": "奧術飛彈",
+        "Audio: off": "音效：關",
+        "Beam": "聚焦光束",
+        "Chain": "寶石連鎖",
+        "Fire": "爆裂火球",
+        "Ice": "寒冰長槍",
+        "Lightning": "連鎖雷電",
+        "Meteor": "流星雨",
+        "Next wave": "提前開波",
+        "Nova": "冰霜新星",
+        "Pause": "暫停",
+        "Performance": "效能：關",
+        "Poison": "毒霧",
+        "Restart": "重新開始"
+      },
+      "link_hint": "選擇節點的起點，再選目標；取消不會改動配置。",
+      "locale": "zh_TW",
+      "nodes": 6,
+      "over": false,
+      "paused": false,
+      "pending_source": -1,
+      "performance_visible": false,
+      "reward_open": false,
+      "shots": 0,
+      "speed": 1,
+      "spell_columns": 8,
+      "status_text": "第 0 波　／　擊殺 0　／　水晶生命 100／100　／　爆裂火球",
+      "viewport": [
+        1280,
+        889
+      ],
+      "wave": 0
+    },
+    "pageerrors": [],
+    "console": [
+      {
+        "type": "log",
+        "text": "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org"
+      },
+      {
+        "type": "log",
+        "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+      },
+      {
+        "type": "log",
+        "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+      }
+    ],
+    "passed": [
+      "WebGL boot",
+      "spawns",
+      "touch pause/resume",
+      "touch speed",
+      "touch ice/arcane selection",
+      "touch restart",
+      "Traditional Chinese HUD and graph labels",
+      "graph modal",
+      "touch add/undo/redo",
+      "two-tap connect/disconnect and cycle rejection",
+      "44 CSS pixel battle targets",
+      "portrait four-column layout",
+      "performance display toggle",
+      "build save and scene reload"
+    ],
+    "limitations": "Software WebGL on Linux Chromium; no Safari/device performance claim"
+  },
+  "portrait": {
+    "viewport": {
+      "width": 820,
+      "height": 1180
+    },
+    "initial": {
+      "buttons": {
+        "1x": [
+          540,
+          1781,
+          196,
+          72
+        ],
+        "Arcane": [
+          940,
+          1629,
+          196,
+          72
+        ],
+        "Audio: off": [
+          640,
+          1516,
+          196,
+          72
+        ],
+        "Beam": [
+          940,
+          1705,
+          196,
+          72
+        ],
+        "Chain": [
+          440,
+          1516,
+          196,
+          72
+        ],
+        "Fire": [
+          340,
+          1629,
+          196,
+          72
+        ],
+        "Ice": [
+          540,
+          1629,
+          196,
+          72
+        ],
+        "Lightning": [
+          740,
+          1629,
+          196,
+          72
+        ],
+        "Meteor": [
+          540,
+          1705,
+          196,
+          72
+        ],
+        "Next wave": [
+          740,
+          1781,
+          196,
+          72
+        ],
+        "Nova": [
+          740,
+          1705,
+          196,
+          72
+        ],
+        "Pause": [
+          340,
+          1781,
+          196,
+          72
+        ],
+        "Performance": [
+          840,
+          1516,
+          196,
+          72
+        ],
+        "Poison": [
+          340,
+          1705,
+          196,
+          72
+        ],
+        "Restart": [
+          940,
+          1781,
+          196,
+          72
+        ]
+      },
+      "chain_casts": 4,
+      "damage": 207,
+      "edges": [
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 2,
+          "to": 5
+        }
+      ],
+      "element": "fire",
+      "enemies": 1,
+      "finishers": 2,
+      "fps": 21,
+      "fusions": 4,
+      "graph_open": false,
+      "graph_scroll": [
+        0,
+        0
+      ],
+      "hp": 100,
+      "kills": 4,
+      "labels": {
+        "1x": "1×",
+        "Arcane": "奧術飛彈",
+        "Audio: off": "音效：關",
+        "Beam": "聚焦光束",
+        "Chain": "寶石連鎖",
+        "Fire": "爆裂火球",
+        "Ice": "寒冰長槍",
+        "Lightning": "連鎖雷電",
+        "Meteor": "流星雨",
+        "Next wave": "提前開波",
+        "Nova": "冰霜新星",
+        "Pause": "暫停",
+        "Performance": "效能：關",
+        "Poison": "毒霧",
+        "Restart": "重新開始"
+      },
+      "link_hint": "選擇節點的起點，再選目標；取消不會改動配置。",
+      "locale": "zh_TW",
+      "nodes": 5,
+      "over": false,
+      "paused": false,
+      "pending_source": -1,
+      "performance_visible": false,
+      "reward_open": false,
+      "shots": 1,
+      "speed": 1,
+      "spell_columns": 4,
+      "status_text": "第 1 波　／　擊殺 4　／　水晶生命 100／100　／　爆裂火球",
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wave": 1
+    },
+    "restart": {
+      "buttons": {
+        "1x": [
+          540,
+          1781,
+          196,
+          72
+        ],
+        "Arcane": [
+          940,
+          1629,
+          196,
+          72
+        ],
+        "Audio: off": [
+          640,
+          1516,
+          196,
+          72
+        ],
+        "Beam": [
+          940,
+          1705,
+          196,
+          72
+        ],
+        "Chain": [
+          440,
+          1516,
+          196,
+          72
+        ],
+        "Fire": [
+          340,
+          1629,
+          196,
+          72
+        ],
+        "Ice": [
+          540,
+          1629,
+          196,
+          72
+        ],
+        "Lightning": [
+          740,
+          1629,
+          196,
+          72
+        ],
+        "Meteor": [
+          540,
+          1705,
+          196,
+          72
+        ],
+        "Next wave": [
+          740,
+          1781,
+          196,
+          72
+        ],
+        "Nova": [
+          740,
+          1705,
+          196,
+          72
+        ],
+        "Pause": [
+          340,
+          1781,
+          196,
+          72
+        ],
+        "Performance": [
+          840,
+          1516,
+          196,
+          72
+        ],
+        "Poison": [
+          340,
+          1705,
+          196,
+          72
+        ],
+        "Restart": [
+          940,
+          1781,
+          196,
+          72
+        ]
+      },
+      "chain_casts": 0,
+      "damage": 0,
+      "edges": [
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 2,
+          "to": 5
+        }
+      ],
+      "element": "fire",
+      "enemies": 0,
+      "finishers": 0,
+      "fps": 19,
+      "fusions": 0,
+      "graph_open": false,
+      "graph_scroll": [
+        0,
+        0
+      ],
+      "hp": 100,
+      "kills": 0,
+      "labels": {
+        "1x": "1×",
+        "Arcane": "奧術飛彈",
+        "Audio: off": "音效：關",
+        "Beam": "聚焦光束",
+        "Chain": "寶石連鎖",
+        "Fire": "爆裂火球",
+        "Ice": "寒冰長槍",
+        "Lightning": "連鎖雷電",
+        "Meteor": "流星雨",
+        "Next wave": "提前開波",
+        "Nova": "冰霜新星",
+        "Pause": "暫停",
+        "Performance": "效能：關",
+        "Poison": "毒霧",
+        "Restart": "重新開始"
+      },
+      "link_hint": "選擇節點的起點，再選目標；取消不會改動配置。",
+      "locale": "zh_TW",
+      "nodes": 6,
+      "over": false,
+      "paused": false,
+      "pending_source": -1,
+      "performance_visible": false,
+      "reward_open": false,
+      "shots": 0,
+      "speed": 1,
+      "spell_columns": 4,
+      "status_text": "第 0 波　／　擊殺 0　／　水晶生命 100／100　／　爆裂火球",
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wave": 0
+    },
+    "pageerrors": [],
+    "console": [
+      {
+        "type": "log",
+        "text": "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org"
+      },
+      {
+        "type": "log",
+        "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+      },
+      {
+        "type": "log",
+        "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+      }
+    ],
+    "passed": [
+      "WebGL boot",
+      "spawns",
+      "touch pause/resume",
+      "touch speed",
+      "touch ice/arcane selection",
+      "touch restart",
+      "Traditional Chinese HUD and graph labels",
+      "graph modal",
+      "touch add/undo/redo",
+      "two-tap connect/disconnect and cycle rejection",
+      "44 CSS pixel battle targets",
+      "portrait four-column layout",
+      "performance display toggle",
+      "build save and scene reload"
+    ],
+    "limitations": "Software WebGL on Linux Chromium; no Safari/device performance claim"
+  }
+}

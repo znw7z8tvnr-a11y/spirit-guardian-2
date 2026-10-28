@@ -1,0 +1,272 @@
+[
+  {
+    "file": "attacks-v20.html",
+    "bytes": 22861,
+    "sha256": "04f19db2824794e3ad0c6f9e3e72b6c418054fb937fe056e0a0527bb0dcf4ebd",
+    "git_blob": "1cbb78cc757b2dfc0aef07238aa791eca701efbb",
+    "title": "靈境守衛 V20｜22 法術實體化",
+    "inline_scripts": 1,
+    "embedded_images": 0,
+    "syntax_errors": []
+  },
+  {
+    "file": "attacks-v3.html",
+    "bytes": 16886,
+    "sha256": "120f6a9f37b779f343b26e3fd049d32a10e0592965be27e4a13963b440b5ba22",
+    "git_blob": "73bc089c411903f0a441cc12e4267d3288fbe886",
+    "title": "靈境守衛｜法術實體化 V3",
+    "inline_scripts": 1,
+    "embedded_images": 0,
+    "syntax_errors": []
+  },
+  {
+    "file": "attacks-v8.html",
+    "bytes": 27698,
+    "sha256": "776e5bab506c4cd9d45f0fc0b56ba8202ed63baee02d19d6bd5a6abfb6ace2d8",
+    "git_blob": "b9b6ce601294553d87ac23aea14fcd640a34ac22",
+    "title": "靈境守衛｜法術實體化 V8",
+    "inline_scripts": 1,
+    "embedded_images": 0,
+    "syntax_errors": []
+  },
+  {
+    "file": "attacks.html",
+    "bytes": 21321,
+    "sha256": "64e2a49109a685336de3b0c5b17a406433d2a81058087c9b954eaf8b3d2c5c50",
+    "git_blob": "680d0d221053bd0ad319f3c286ebeba7848868f8",
+    "title": "靈境守衛｜22 法術實戰特效試演場",
+    "inline_scripts": 1,
+    "embedded_images": 0,
+    "syntax_errors": []
+  },
+  {
+    "file": "attacks_v14.html",
+    "bytes": 37557,
+    "sha256": "ea5900171bdd1bfaf8abec7b5c57b2b84e8da2ed3fbacd444dd949a10f937141",
+    "git_blob": "76dee7f26a6f0496cf76241a000d19ee6eb4634a",
+    "title": "靈境守衛｜法術實體化 V14",
+    "inline_scripts": 1,
+    "embedded_images": 0,
+    "syntax_errors": []
+  },
+  {
+    "file": "index.html",
+    "bytes": 3569248,
+    "sha256": "f3a239a94ff956e88bedcbc52ff17ba4598858ef2719cf7284d3d7ed7f5d4ba4",
+    "git_blob": "fca6cb40a355e078304faba0721c5958e07bbb56",
+    "title": "靈境守衛 · P5 魔法現象重製試玩",
+    "inline_scripts": 3,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "index_attack_test.html",
+    "bytes": 3573628,
+    "sha256": "a14da2127986d62136e260fdc4e99f98a0bca971998c6ad87c323efd0f4cbc20",
+    "git_blob": "6707d68d2314840640f9680dfc5cb1c95ac96179",
+    "title": "靈境守衛 · P5 魔法現象重製試玩",
+    "inline_scripts": 3,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v24.html",
+    "bytes": 16246,
+    "sha256": "d2d2f8d16251a1f4912050d452a371fa76ea89664d9b7c6ea336b705cdc9b15e",
+    "git_blob": "a5de972165979f2527fca796a374b039a5d160f0",
+    "title": "靈境守衛｜V24 法術實體化",
+    "inline_scripts": 1,
+    "embedded_images": 0,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v28.html",
+    "bytes": 20388,
+    "sha256": "473d94bf78c2dd30862bd2c451ebf6382d6327f66f11c3f1afe46987d875b490",
+    "git_blob": "5da559ef0129bb68ac2655905be2ca286b9b1548",
+    "title": "靈境守衛 V28｜水晶王國守衛戰",
+    "inline_scripts": 1,
+    "embedded_images": 0,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v28_1_fixed.html",
+    "bytes": 20755,
+    "sha256": "fbdae99792bc1c0bc8d35344eb77fe48f8ab339ab883b9a2d9b28c11e8a7b925",
+    "git_blob": "2f855af16b053086c5f707e4a634a44464adab61",
+    "title": "靈境守衛 V28.1｜水晶王國守衛戰",
+    "inline_scripts": 1,
+    "embedded_images": 0,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v29_fixed.html",
+    "bytes": 23786,
+    "sha256": "0c1cdae231697726396a8f05c57afbf55068d182d11e31ce9573340aaa487efc",
+    "git_blob": "f68bf3adaf7b5cf644c01c3b3a11a71563a881f7",
+    "title": "靈境守衛｜V29 像素共鳴圖鑑・修復版",
+    "inline_scripts": 1,
+    "embedded_images": 0,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v30_integrated_test.html",
+    "bytes": 3576101,
+    "sha256": "28f85416f9a39a0bb112855b914fd02a3b371dc21e80be023038b5af12e68851",
+    "git_blob": "784d2e9f822b8731d4dd38667ab5ec0f79cb4bd6",
+    "title": "靈境守衛 · V30 特效融合測試版",
+    "inline_scripts": 3,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v31_10_crisp_controls.html",
+    "bytes": 3605751,
+    "sha256": "367ffe9c90558cec74794b5f1b630fac1f5426183df6d576eb5c8d6600cc27bb",
+    "git_blob": "296141a99d3035f7d55f8a946dfd029a61b070b2",
+    "title": "靈境守衛 V31.10 · 清晰操作列版",
+    "inline_scripts": 8,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v31_3_test.html",
+    "bytes": 3587791,
+    "sha256": "9061ca31519236a4ffa6701309b630177745ae50835c45e9bd3f9616d46079de",
+    "git_blob": "b398b1c7c6452f1945b11afe12e1fd337fff2987",
+    "title": "V31.1 · 靈境守衛 · 穩定核心測試版",
+    "inline_scripts": 7,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v31_3_vfx.html",
+    "bytes": 3587791,
+    "sha256": "9061ca31519236a4ffa6701309b630177745ae50835c45e9bd3f9616d46079de",
+    "git_blob": "b398b1c7c6452f1945b11afe12e1fd337fff2987",
+    "title": "V31.1 · 靈境守衛 · 穩定核心測試版",
+    "inline_scripts": 7,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v31_4_combat_vfx_test.html",
+    "bytes": 3592235,
+    "sha256": "aea229eb86a66608e0a9e7c106325bced3f1ee7b28f80e272a31fc379dd91857",
+    "git_blob": "9a2d0f179c686c93851f3b47c394028cab022b2e",
+    "title": "V31.1 · 靈境守衛 · 穩定核心測試版",
+    "inline_scripts": 7,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v31_6_quality_upgrade.html",
+    "bytes": 3597170,
+    "sha256": "1a7d6803cac40cdef52409441ac9740d7d734e657e4212bfe3abf0df7d44fbf9",
+    "git_blob": "efbda96113839357f57c8194507259258121eca8",
+    "title": "靈境守衛 V31.6 · 戰鬥品質進階版",
+    "inline_scripts": 7,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v31_7_1_reviewed.html",
+    "bytes": 3601963,
+    "sha256": "7edbde30df13bb4ac95a6ff21c9a230a9707098eccdcd065a30e559b817c714f",
+    "git_blob": "32a75728e36e3c121b4cc3540f4add2f1d311c9a",
+    "title": "靈境守衛 V31.7.1 · 穩定品質版",
+    "inline_scripts": 8,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v31_9_refined.html",
+    "bytes": 3603722,
+    "sha256": "9201a26a0c752f7e11d51d4b2c8bfe28078912528e609722225d479800bf3fc6",
+    "git_blob": "f062866ce4c55281c20cf3d6d8b2316faec0c5dc",
+    "title": "靈境守衛 V31.9 · 柔和鏡頭版",
+    "inline_scripts": 8,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v31_integrated_test.html",
+    "bytes": 3577738,
+    "sha256": "4b26a59f3c4d13209f50103cacb0d16d7057b0e9cda144314d765caee4041f10",
+    "git_blob": "8da1f8478fe8c9aa4ee6cbfe995be1f956de92dc",
+    "title": "V31 · 靈境守衛 · V30 特效融合測試版",
+    "inline_scripts": 4,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v32_ab_background_test.html",
+    "bytes": 3702272,
+    "sha256": "fd2716bc49e53a7077ad0c650b934d31e362c33486ae280b9690c8a1d5fed87a",
+    "git_blob": "f71d6e900e458d66dc7e7884e01b2a15416d5e3f",
+    "title": "靈境守衛｜融合測試版 V32",
+    "inline_scripts": 20,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v32_fusion_test.html",
+    "bytes": 3700612,
+    "sha256": "65904eb75260dde46dea863b34ac3c0f8680d26947f35fc2c0df7e1368799503",
+    "git_blob": "e48cd9d7da2ef443c1a32c9c6784fe5280f1dad2",
+    "title": "靈境守衛｜融合測試版 V32",
+    "inline_scripts": 19,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v33_tower_depth_test.html",
+    "bytes": 3702510,
+    "sha256": "3638cf90503ae7866ee33cb92a29eca78037b1ba530d41e3abcc0f667d41f20f",
+    "git_blob": "9d36440b1c061ac3135ffa338e05f4c05dfd7cda",
+    "title": "靈境守衛｜V33 守護塔景深測試",
+    "inline_scripts": 19,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v34_ab_altar_test.html",
+    "bytes": 3705586,
+    "sha256": "69f4f9957a0065a10598912a5304b6e321d8d2794784c485a122aa625fa35cd4",
+    "git_blob": "9841619e6b31ae7a1448e963a0513e035f5b5c3a",
+    "title": "靈境守衛｜融合測試版 V32",
+    "inline_scripts": 20,
+    "embedded_images": 47,
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_web25d_v1.html",
+    "bytes": 13192,
+    "sha256": "310eefcda5d5e099e5353bd2d8374a74bb95b8bb218ae177dd8558529cc00217",
+    "git_blob": "ff692931f5193b369ddeff36774d0318d96037ac",
+    "title": "靈境守衛｜Web 2.5D 原型 V1",
+    "inline_scripts": 1,
+    "embedded_images": 0,
+    "syntax_errors": []
+  },
+  {
+    "file": "v26_effect_preview.html",
+    "bytes": 17577,
+    "sha256": "0f8b6e04e4008f4d17bbe5fd5f5ea4b2b39a43af876828c8a83a435f09fc3386",
+    "git_blob": "bae0ccd6d1bf7978f2c61c06da29fffaf3eb67cd",
+    "title": "靈境守衛｜V26 史詩打擊感預覽",
+    "inline_scripts": 1,
+    "embedded_images": 0,
+    "syntax_errors": []
+  },
+  {
+    "file": "v28.html",
+    "bytes": 20755,
+    "sha256": "fbdae99792bc1c0bc8d35344eb77fe48f8ab339ab883b9a2d9b28c11e8a7b925",
+    "git_blob": "2f855af16b053086c5f707e4a634a44464adab61",
+    "title": "靈境守衛 V28.1｜水晶王國守衛戰",
+    "inline_scripts": 1,
+    "embedded_images": 0,
+    "syntax_errors": []
+  }
+]

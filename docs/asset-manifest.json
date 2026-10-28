@@ -1,0 +1,155 @@
+[
+  {
+    "file": "godot/assets/legacy/arena.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "arena",
+    "sha256": "544933c61a0e0814cc616ba220f258c0d1bf243327ce350540f8f9ca27cf284a",
+    "size": [
+      1304,
+      978
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/tower_guardian.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "tower_guardian",
+    "sha256": "80a8c484a40369922689ab71f30497ab974decf8a4cd2c874c4b3d0b81c8c891",
+    "size": [
+      342,
+      360
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/enemy_demon.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "enemy_demon",
+    "sha256": "27e320050bf132f9c868c3bd9458e4b1f6157a8e4e188058c031394864c51f6a",
+    "size": [
+      230,
+      211
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/enemy_wolf.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "enemy_wolf",
+    "sha256": "f4ed074f4c8e34925b1245b80820aa4fbd7b76b55250e521d07482172dd5bb1e",
+    "size": [
+      230,
+      209
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/enemy_knight.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "enemy_knight",
+    "sha256": "89481fd9fa3a9c9db1e7599f97c15ac31d77374651d36915d78cf1ea3152b67b",
+    "size": [
+      230,
+      187
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/fireball.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "fireball",
+    "sha256": "a56838af47c00c5cb13ecacf576db5e9a25f10b04afde7b6c7c3e0ec9c2337ad",
+    "size": [
+      300,
+      132
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/icebolt.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "icebolt",
+    "sha256": "070df4cb54e43b259a40e92a82ab8c79dd29024d88b098b99ad781f8397744ee",
+    "size": [
+      300,
+      115
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/lightning.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "lightning",
+    "sha256": "3fe8b903c32da0fc5b35b65ec5fd95be8580b7fdd50d42641f096c5a9fb71b19",
+    "size": [
+      300,
+      112
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/arcane.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "arcane",
+    "sha256": "a794789aa661c2a10081bff343f11e3fac0de909b37b9b97e880ed23e9a7911b",
+    "size": [
+      300,
+      113
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/walk_grunt.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "walk_grunt",
+    "sha256": "b9883b5f97bc8152c331147abfe6539b0f51889432ad30c9e93212e36aecd9ab",
+    "size": [
+      1280,
+      160
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/walk_swift.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "walk_swift",
+    "sha256": "fb13743395ad81de413193d70051d86130ab1e4d6abcd024f921b684e3d8433c",
+    "size": [
+      1280,
+      160
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/walk_armored.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "walk_armored",
+    "sha256": "4ea69393a4da8dafcfc11da7a2123faf43f57a2f7f128729940244bf6af9bc83",
+    "size": [
+      1280,
+      160
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/platform.webp",
+    "source": "spirit_guardian_v32_fusion_test.html",
+    "key": "platform",
+    "sha256": "b6ae62fc7a47e3a6cf9f7b0f3a3cb5d2684b48b2f50ef3ec4fbe311974ccb2a6",
+    "size": [
+      193,
+      300
+    ],
+    "license": "UNVERIFIED: temporary internal migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/terrain.png",
+    "source": "spirit_guardian_v32_fusion_test.html: SGBackground.canvas.toDataURL()",
+    "size": [
+      1280,
+      720
+    ],
+    "sha256": "0364c60c811d595ecf6b5560754d38c7a3331d846558c4d498e0991b12109d17",
+    "license": "UNVERIFIED: temporary internal migration reference"
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "checks": [
+    "tower starts at 100 HP",
+    "first wave schedules 11 enemies",
+    "real physics loop spawns enemies",
+    "AI moves toward tower",
+    "pause freezes enemy simulation",
+    "speed control sets engine scale",
+    "fire projectile hits and kills through physics",
+    "ice projectile hits and kills through physics",
+    "lightning projectile hits and kills through physics",
+    "arcane projectile hits and kills through physics",
+    "ice status slows movement",
+    "enemy melee damages tower HP",
+    "early wave cannot discard unspawned enemies",
+    "early wave preserves living survivors",
+    "zero HP enters game over and freezes combat",
+    "restart reloads clean game and time scale",
+    "60 simulated seconds: normal loop spawns, casts and scores",
+    "entity caps remain bounded"
+  ],
+  "engine": "4.6.3-stable (official)",
+  "failures": [],
+  "soak": {
+    "enemies": 7,
+    "hp": 64.0,
+    "kills": 31,
+    "over": false,
+    "projectiles": 1,
+    "wave": 3
+  }
+}

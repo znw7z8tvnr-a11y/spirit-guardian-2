@@ -1,0 +1,132 @@
+{
+  "index.html": {
+    "title": "靈境守衛 · P5 魔法現象重製試玩",
+    "state": "play",
+    "wave": 1,
+    "kills": 0,
+    "enemies": 4,
+    "chain": null,
+    "bossAPI": false,
+    "backgroundAPI": false,
+    "images": 0,
+    "diagnostics": null,
+    "pause": "pause",
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_v32_fusion_test.html": {
+    "title": "靈境守衛｜融合測試版 V32",
+    "state": "play",
+    "wave": 1,
+    "kills": 1,
+    "enemies": 2,
+    "chain": null,
+    "bossAPI": true,
+    "backgroundAPI": true,
+    "images": 0,
+    "diagnostics": {
+      "version": "V31.1",
+      "errors": [
+        {
+          "time": "2026-10-28T14:38:32.465Z",
+          "type": "error",
+          "message": "Uncaught ReferenceError: sg7Resonance is not defined",
+          "stack": "http://127.0.0.1:8765/spirit_guardian_v32_fusion_test.html:1330:16 ReferenceError: sg7Resonance is not defined\n    at http://127.0.0.1:8765/spirit_guardian_v32_fusion_test.html:1330:16\n    at http://127.0.0.1:8765/spirit_guardian_v32_fusion_test.html:1337:3"
+        },
+        {
+          "time": "2026-10-28T14:38:32.466Z",
+          "type": "error",
+          "message": "Uncaught TypeError: Cannot set properties of null (setting 'value')",
+          "stack": "http://127.0.0.1:8765/spirit_guardian_v32_fusion_test.html:1391:22 TypeError: Cannot set properties of null (setting 'value')\n    at http://127.0.0.1:8765/spirit_guardian_v32_fusion_test.html:1391:22\n    at http://127.0.0.1:8765/spirit_guardian_v32_fusion_test.html:1467:3"
+        }
+      ],
+      "canvas": {
+        "width": 1180,
+        "height": 820
+      }
+    },
+    "pause": "pause",
+    "errors": [
+      "sg7Resonance is not defined",
+      "Cannot set properties of null (setting 'value')"
+    ],
+    "errorCount": 2
+  },
+  "spirit_guardian_v33_tower_depth_test.html": {
+    "title": "靈境守衛｜V33 守護塔景深測試",
+    "state": "play",
+    "wave": 1,
+    "kills": 0,
+    "enemies": 2,
+    "chain": null,
+    "bossAPI": true,
+    "backgroundAPI": true,
+    "images": 0,
+    "diagnostics": {
+      "version": "V31.1",
+      "errors": [
+        {
+          "time": "2026-10-28T14:38:32.539Z",
+          "type": "error",
+          "message": "Uncaught ReferenceError: sg7Resonance is not defined",
+          "stack": "http://127.0.0.1:8765/spirit_guardian_v33_tower_depth_test.html:1365:16 ReferenceError: sg7Resonance is not defined\n    at http://127.0.0.1:8765/spirit_guardian_v33_tower_depth_test.html:1365:16\n    at http://127.0.0.1:8765/spirit_guardian_v33_tower_depth_test.html:1372:3"
+        },
+        {
+          "time": "2026-10-28T14:38:32.541Z",
+          "type": "error",
+          "message": "Uncaught TypeError: Cannot set properties of null (setting 'value')",
+          "stack": "http://127.0.0.1:8765/spirit_guardian_v33_tower_depth_test.html:1426:22 TypeError: Cannot set properties of null (setting 'value')\n    at http://127.0.0.1:8765/spirit_guardian_v33_tower_depth_test.html:1426:22\n    at http://127.0.0.1:8765/spirit_guardian_v33_tower_depth_test.html:1502:3"
+        }
+      ],
+      "canvas": {
+        "width": 1180,
+        "height": 820
+      }
+    },
+    "pause": "pause",
+    "errors": [
+      "sg7Resonance is not defined",
+      "Cannot set properties of null (setting 'value')"
+    ],
+    "errorCount": 2
+  },
+  "spirit_guardian_v34_ab_altar_test.html": {
+    "title": "靈境守衛｜融合測試版 V32",
+    "state": "play",
+    "wave": 1,
+    "kills": 0,
+    "enemies": 3,
+    "chain": null,
+    "bossAPI": true,
+    "backgroundAPI": true,
+    "images": 0,
+    "diagnostics": {
+      "version": "V31.1",
+      "errors": [
+        {
+          "time": "2026-10-28T14:38:32.474Z",
+          "type": "error",
+          "message": "Uncaught ReferenceError: sg7Resonance is not defined",
+          "stack": "http://127.0.0.1:8765/spirit_guardian_v34_ab_altar_test.html:1330:16 ReferenceError: sg7Resonance is not defined\n    at http://127.0.0.1:8765/spirit_guardian_v34_ab_altar_test.html:1330:16\n    at http://127.0.0.1:8765/spirit_guardian_v34_ab_altar_test.html:1337:3"
+        },
+        {
+          "time": "2026-10-28T14:38:32.476Z",
+          "type": "error",
+          "message": "Uncaught TypeError: Cannot set properties of null (setting 'value')",
+          "stack": "http://127.0.0.1:8765/spirit_guardian_v34_ab_altar_test.html:1391:22 TypeError: Cannot set properties of null (setting 'value')\n    at http://127.0.0.1:8765/spirit_guardian_v34_ab_altar_test.html:1391:22\n    at http://127.0.0.1:8765/spirit_guardian_v34_ab_altar_test.html:1467:3"
+        }
+      ],
+      "canvas": {
+        "width": 1180,
+        "height": 820
+      }
+    },
+    "pause": "pause",
+    "backgroundMode": "module",
+    "errors": [
+      "sg7Resonance is not defined",
+      "Cannot set properties of null (setting 'value')"
+    ],
+    "errorCount": 2
+  }
+}

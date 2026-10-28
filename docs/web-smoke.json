@@ -1,0 +1,322 @@
+{
+  "landscape": {
+    "viewport": {
+      "width": 1180,
+      "height": 820
+    },
+    "initial": {
+      "buttons": {
+        "1x": [
+          582,
+          841,
+          112,
+          48
+        ],
+        "Arcane": [
+          814,
+          789,
+          112,
+          48
+        ],
+        "Fire": [
+          466,
+          789,
+          112,
+          48
+        ],
+        "Ice": [
+          582,
+          789,
+          112,
+          48
+        ],
+        "Lightning": [
+          698,
+          789,
+          112,
+          48
+        ],
+        "Next wave": [
+          698,
+          841,
+          112,
+          48
+        ],
+        "Pause": [
+          466,
+          841,
+          112,
+          48
+        ],
+        "Restart": [
+          814,
+          841,
+          112,
+          48
+        ]
+      },
+      "element": "fire",
+      "enemies": 3,
+      "hp": 100,
+      "kills": 1,
+      "over": false,
+      "paused": false,
+      "shots": 1,
+      "speed": 1,
+      "viewport": [
+        1280,
+        889
+      ],
+      "wave": 1
+    },
+    "restart": {
+      "buttons": {
+        "1x": [
+          582,
+          841,
+          112,
+          48
+        ],
+        "Arcane": [
+          814,
+          789,
+          112,
+          48
+        ],
+        "Fire": [
+          466,
+          789,
+          112,
+          48
+        ],
+        "Ice": [
+          582,
+          789,
+          112,
+          48
+        ],
+        "Lightning": [
+          698,
+          789,
+          112,
+          48
+        ],
+        "Next wave": [
+          698,
+          841,
+          112,
+          48
+        ],
+        "Pause": [
+          466,
+          841,
+          112,
+          48
+        ],
+        "Restart": [
+          814,
+          841,
+          112,
+          48
+        ]
+      },
+      "element": "fire",
+      "enemies": 0,
+      "hp": 100,
+      "kills": 0,
+      "over": false,
+      "paused": false,
+      "shots": 0,
+      "speed": 1,
+      "viewport": [
+        1280,
+        889
+      ],
+      "wave": 0
+    },
+    "pageerrors": [],
+    "console": [
+      {
+        "type": "log",
+        "text": "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org"
+      },
+      {
+        "type": "log",
+        "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+      },
+      {
+        "type": "log",
+        "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+      }
+    ],
+    "passed": [
+      "WebGL boot",
+      "spawns",
+      "touch pause/resume",
+      "touch speed",
+      "touch ice/arcane selection",
+      "touch restart"
+    ],
+    "limitations": "Software WebGL on Linux Chromium; no Safari/device performance claim"
+  },
+  "portrait": {
+    "viewport": {
+      "width": 820,
+      "height": 1180
+    },
+    "initial": {
+      "buttons": {
+        "1x": [
+          582,
+          1793,
+          112,
+          48
+        ],
+        "Arcane": [
+          814,
+          1741,
+          112,
+          48
+        ],
+        "Fire": [
+          466,
+          1741,
+          112,
+          48
+        ],
+        "Ice": [
+          582,
+          1741,
+          112,
+          48
+        ],
+        "Lightning": [
+          698,
+          1741,
+          112,
+          48
+        ],
+        "Next wave": [
+          698,
+          1793,
+          112,
+          48
+        ],
+        "Pause": [
+          466,
+          1793,
+          112,
+          48
+        ],
+        "Restart": [
+          814,
+          1793,
+          112,
+          48
+        ]
+      },
+      "element": "fire",
+      "enemies": 3,
+      "hp": 100,
+      "kills": 1,
+      "over": false,
+      "paused": false,
+      "shots": 1,
+      "speed": 1,
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wave": 1
+    },
+    "restart": {
+      "buttons": {
+        "1x": [
+          582,
+          1793,
+          112,
+          48
+        ],
+        "Arcane": [
+          814,
+          1741,
+          112,
+          48
+        ],
+        "Fire": [
+          466,
+          1741,
+          112,
+          48
+        ],
+        "Ice": [
+          582,
+          1741,
+          112,
+          48
+        ],
+        "Lightning": [
+          698,
+          1741,
+          112,
+          48
+        ],
+        "Next wave": [
+          698,
+          1793,
+          112,
+          48
+        ],
+        "Pause": [
+          466,
+          1793,
+          112,
+          48
+        ],
+        "Restart": [
+          814,
+          1793,
+          112,
+          48
+        ]
+      },
+      "element": "fire",
+      "enemies": 0,
+      "hp": 100,
+      "kills": 0,
+      "over": false,
+      "paused": false,
+      "shots": 0,
+      "speed": 1,
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wave": 0
+    },
+    "pageerrors": [],
+    "console": [
+      {
+        "type": "log",
+        "text": "Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org"
+      },
+      {
+        "type": "log",
+        "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+      },
+      {
+        "type": "log",
+        "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+      }
+    ],
+    "passed": [
+      "WebGL boot",
+      "spawns",
+      "touch pause/resume",
+      "touch speed",
+      "touch ice/arcane selection",
+      "touch restart"
+    ],
+    "limitations": "Software WebGL on Linux Chromium; no Safari/device performance claim"
+  }
+}

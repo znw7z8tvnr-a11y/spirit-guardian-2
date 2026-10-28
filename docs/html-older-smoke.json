@@ -1,0 +1,83 @@
+{
+  "index.html": {
+    "title": "靈境守衛 · P5 魔法現象重製試玩",
+    "state": "play",
+    "wave": 1,
+    "kills": 0,
+    "enemies": 3,
+    "chain": null,
+    "bossAPI": false,
+    "backgroundAPI": false,
+    "images": 0,
+    "diagnostics": null,
+    "pause": "pause",
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_v31_10_crisp_controls.html": {
+    "title": "靈境守衛 V31.10 · 清晰操作列版",
+    "state": "play",
+    "wave": 1,
+    "kills": 0,
+    "enemies": 2,
+    "chain": null,
+    "bossAPI": false,
+    "backgroundAPI": false,
+    "images": 0,
+    "diagnostics": {
+      "version": "V31.1",
+      "errors": [],
+      "canvas": {
+        "width": 1180,
+        "height": 820
+      }
+    },
+    "pause": "pause",
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_v31_9_refined.html": {
+    "title": "靈境守衛 V31.9 · 柔和鏡頭版",
+    "state": "play",
+    "wave": 1,
+    "kills": 0,
+    "enemies": 2,
+    "chain": null,
+    "bossAPI": false,
+    "backgroundAPI": false,
+    "images": 0,
+    "diagnostics": {
+      "version": "V31.1",
+      "errors": [],
+      "canvas": {
+        "width": 1180,
+        "height": 820
+      }
+    },
+    "pause": "pause",
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_v31_7_1_reviewed.html": {
+    "title": "靈境守衛 V31.7.1 · 穩定品質版",
+    "state": "play",
+    "wave": 1,
+    "kills": 0,
+    "enemies": 3,
+    "chain": null,
+    "bossAPI": false,
+    "backgroundAPI": false,
+    "images": 0,
+    "diagnostics": {
+      "version": "V31.1",
+      "errors": [],
+      "canvas": {
+        "width": 1180,
+        "height": 820
+      }
+    },
+    "pause": "pause",
+    "errors": [],
+    "errorCount": 0
+  }
+}

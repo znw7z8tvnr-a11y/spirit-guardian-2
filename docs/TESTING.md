@@ -1,5 +1,7 @@
 # M1 測試與交付紀錄
 
+> 此文件保留M1當時狀態；M2實際接入與最新限制見 [M2_MODULES.md](M2_MODULES.md) 與 [M2_TESTING.md](M2_TESTING.md)。
+
 日期 2026-10-28。環境：Linux、官方 Godot 4.6.3.stable.official.7d41c59c4、GDScript、Compatibility；Web 使用同版本官方 single-thread / no GDExtension export template，Chromium headless（軟體 WebGL）。這不是 iPad Safari 真機測試。
 
 ## 已通過

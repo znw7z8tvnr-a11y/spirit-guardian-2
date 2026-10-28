@@ -1,8 +1,8 @@
-name: Godot M1 validation and Web build
+name: Godot M2 validation and Web build
 on:
   push:
     branches: ['godot/**']
-    paths: ['godot/**', 'tools/**', '.github/workflows/godot-m1.yml']
+    paths: ['godot/**', 'tools/**', 'reference_modules/**', '.github/workflows/godot-m1.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -28,13 +28,17 @@ jobs:
           echo /tmp/godot >> "$GITHUB_PATH"
           curl -fL --retry 3 -o /tmp/templates.tpz "https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_export_templates.tpz"
           unzip -j -q /tmp/templates.tpz 'templates/web_*' -d "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable"
+      - name: Verify source-derived catalogs
+        run: |
+          python3 tools/build_supplement_catalog.py
+          git diff --exit-code -- godot/data docs/m2/asset-manifest.json
       - name: Import and engine integration
         run: python3 tools/check_godot.py
       - name: Export single-thread Web
         run: |
           mkdir -p godot/export/web
-          godot --headless --path godot --export-release Web > docs/godot-export.log 2>&1
-          if rg 'SCRIPT ERROR|ERROR:' docs/godot-export.log; then exit 1; fi
+          godot --headless --path godot --export-release Web > docs/m2/godot-export.log 2>&1
+          if rg 'SCRIPT ERROR|ERROR:' docs/m2/godot-export.log; then exit 1; fi
       - name: Browser test dependencies
         run: |
           python3 -m pip install playwright==1.62.0
@@ -45,11 +49,10 @@ jobs:
         run: python3 tools/package_project.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-m1-delivery
+          name: godot-m2-delivery
           path: |
             dist/*.zip
-            docs/godot-*.log
-            docs/godot-integration.json
-            docs/web-smoke.json
-            docs/godot-web-*.png
+            docs/m2/*.log
+            docs/m2/*.json
+            docs/m2/*.png
           if-no-files-found: error

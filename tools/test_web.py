@@ -2,6 +2,8 @@
 import asyncio,functools,http.server,json,os,pathlib,threading
 from playwright.async_api import async_playwright
 ROOT=pathlib.Path(__file__).resolve().parents[1]
+REPORT=ROOT/'docs/m2'
+REPORT.mkdir(parents=True,exist_ok=True)
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=str(ROOT/'godot/export/web')))
 threading.Thread(target=server.serve_forever,daemon=True).start()
 async def main():
@@ -29,15 +31,24 @@ async def main():
    await tap('Pause');paused=await state();assert paused['paused'],paused
    await tap('Pause');assert not (await state())['paused']
    await tap('1x');assert (await state())['speed']==2
+   await tap('Chain');assert (await state())['graph_open']
+   before=(await state())['nodes']
+   await page.screenshot(path=str(REPORT/('graph-before-'+label+'.png')))
+   print('GRAPH_STATE',await state(),flush=True)
+   await tap('Add');assert (await state())['nodes']==before+1
+   await tap('Undo');assert (await state())['nodes']==before
+   await tap('Redo');assert (await state())['nodes']==before+1
+   await page.screenshot(path=str(REPORT/('graph-'+label+'.png')))
+   await tap('Done');assert not (await state())['graph_open']
    await tap('Ice');assert (await state())['element']=='ice'
    await tap('Arcane');assert (await state())['element']=='arcane'
-   await page.screenshot(path=str(ROOT/'docs'/('godot-web-'+label+'.png')))
-   await tap('Restart');await page.wait_for_timeout(800);restarted=await state();assert restarted['speed']==1 and restarted['element']=='fire' and restarted['hp']==100
+   await page.screenshot(path=str(REPORT/('godot-web-'+label+'.png')))
+   await tap('Restart');await page.wait_for_timeout(800);restarted=await state();assert restarted['speed']==1 and restarted['element']=='fire' and restarted['hp']==100 and restarted['nodes']==before+1
    assert not errors,errors
    engine_errors=[v for v in logs if 'SCRIPT ERROR' in v['text'] or v['text'].startswith('ERROR:')]
    assert not engine_errors,engine_errors
-   results[label]={'viewport':size,'initial':initial,'restart':restarted,'pageerrors':errors,'console':logs,'passed':['WebGL boot','spawns','touch pause/resume','touch speed','touch ice/arcane selection','touch restart'],'limitations':'Software WebGL on Linux Chromium; no Safari/device performance claim'}
+   results[label]={'viewport':size,'initial':initial,'restart':restarted,'pageerrors':errors,'console':logs,'passed':['WebGL boot','spawns','touch pause/resume','touch speed','touch ice/arcane selection','touch restart','graph modal','touch add/undo/redo','build save and scene reload'],'limitations':'Software WebGL on Linux Chromium; no Safari/device performance claim'}
    await page.close()
   await browser.close()
-  (ROOT/'docs/web-smoke.json').write_text(json.dumps(results,ensure_ascii=False,indent=2));print(json.dumps({k:v['passed'] for k,v in results.items()},indent=2))
+  (REPORT/'web-smoke.json').write_text(json.dumps(results,ensure_ascii=False,indent=2));print(json.dumps({k:v['passed'] for k,v in results.items()},indent=2))
 asyncio.run(main())

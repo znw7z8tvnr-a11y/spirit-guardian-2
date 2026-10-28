@@ -1,0 +1,143 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (19 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[   5% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  10% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  15% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  20% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  25% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  30% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  35% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  40% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  45% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  55% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  60% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  65% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  70% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  75% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  80% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  85% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  90% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (31 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | arcane.webp[39m[0m
+[   3% ] [90m[1m_update_scan_actions[22m | arena.webp[39m[0m
+[   6% ] [90m[1m_update_scan_actions[22m | blade.webp[39m[0m
+[   9% ] [90m[1m_update_scan_actions[22m | boss_hydra.webp[39m[0m
+[  12% ] [90m[1m_update_scan_actions[22m | boss_lava.webp[39m[0m
+[  15% ] [90m[1m_update_scan_actions[22m | boss_witch.webp[39m[0m
+[  18% ] [90m[1m_update_scan_actions[22m | enemy_demon.webp[39m[0m
+[  21% ] [90m[1m_update_scan_actions[22m | enemy_knight.webp[39m[0m
+[  25% ] [90m[1m_update_scan_actions[22m | enemy_wolf.webp[39m[0m
+[  28% ] [90m[1m_update_scan_actions[22m | fireball.webp[39m[0m
+[  31% ] [90m[1m_update_scan_actions[22m | icebolt.webp[39m[0m
+[  34% ] [90m[1m_update_scan_actions[22m | iceburst.webp[39m[0m
+[  37% ] [90m[1m_update_scan_actions[22m | lightning.webp[39m[0m
+[  40% ] [90m[1m_update_scan_actions[22m | meteor.webp[39m[0m
+[  43% ] [90m[1m_update_scan_actions[22m | platform.webp[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | poison.webp[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | terrain.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | tower_guardian.webp[39m[0m
+[  56% ] [90m[1m_update_scan_actions[22m | voidburst.webp[39m[0m
+[  59% ] [90m[1m_update_scan_actions[22m | walk_armored.webp[39m[0m
+[  62% ] [90m[1m_update_scan_actions[22m | walk_boss.webp[39m[0m
+[  65% ] [90m[1m_update_scan_actions[22m | walk_elite.webp[39m[0m
+[  68% ] [90m[1m_update_scan_actions[22m | walk_grunt.webp[39m[0m
+[  71% ] [90m[1m_update_scan_actions[22m | walk_shaman.webp[39m[0m
+[  75% ] [90m[1m_update_scan_actions[22m | walk_swift.webp[39m[0m
+[  78% ] [90m[1m_update_scan_actions[22m | godot-web-landscape.png[39m[0m
+[  81% ] [90m[1m_update_scan_actions[22m | godot-web-portrait.png[39m[0m
+[  84% ] [90m[1m_update_scan_actions[22m | graph-before-landscape.png[39m[0m
+[  87% ] [90m[1m_update_scan_actions[22m | graph-before-portrait.png[39m[0m
+[  90% ] [90m[1m_update_scan_actions[22m | graph-landscape.png[39m[0m
+[  93% ] [90m[1m_update_scan_actions[22m | graph-portrait.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (31 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   3% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   6% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   9% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  12% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  15% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  18% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  21% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  25% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  28% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  31% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  34% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  37% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  40% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  43% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  46% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  50% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  53% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  56% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  59% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  62% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  65% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  68% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  71% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  75% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  78% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  81% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  84% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  87% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  90% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  93% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | graph-portrait.png[39m[0m
+[   3% ] [90m[1mreimport[22m | graph-landscape.png[39m[0m
+[   6% ] [90m[1mreimport[22m | graph-before-portrait.png[39m[0m
+[   9% ] [90m[1mreimport[22m | graph-before-landscape.png[39m[0m
+[  12% ] [90m[1mreimport[22m | godot-web-portrait.png[39m[0m
+[  15% ] [90m[1mreimport[22m | godot-web-landscape.png[39m[0m
+[  18% ] [90m[1mreimport[22m | walk_swift.webp[39m[0m
+[  21% ] [90m[1mreimport[22m | walk_shaman.webp[39m[0m
+[  25% ] [90m[1mreimport[22m | walk_grunt.webp[39m[0m
+[  28% ] [90m[1mreimport[22m | walk_elite.webp[39m[0m
+[  31% ] [90m[1mreimport[22m | walk_boss.webp[39m[0m
+[  34% ] [90m[1mreimport[22m | walk_armored.webp[39m[0m
+[  37% ] [90m[1mreimport[22m | voidburst.webp[39m[0m
+[  40% ] [90m[1mreimport[22m | tower_guardian.webp[39m[0m
+[  43% ] [90m[1mreimport[22m | terrain.png[39m[0m
+[  46% ] [90m[1mreimport[22m | poison.webp[39m[0m
+[  50% ] [90m[1mreimport[22m | platform.webp[39m[0m
+[  53% ] [90m[1mreimport[22m | meteor.webp[39m[0m
+[  56% ] [90m[1mreimport[22m | lightning.webp[39m[0m
+[  59% ] [90m[1mreimport[22m | iceburst.webp[39m[0m
+[  62% ] [90m[1mreimport[22m | icebolt.webp[39m[0m
+[  65% ] [90m[1mreimport[22m | fireball.webp[39m[0m
+[  68% ] [90m[1mreimport[22m | enemy_wolf.webp[39m[0m
+[  71% ] [90m[1mreimport[22m | enemy_knight.webp[39m[0m
+[  75% ] [90m[1mreimport[22m | enemy_demon.webp[39m[0m
+[  78% ] [90m[1mreimport[22m | boss_witch.webp[39m[0m
+[  81% ] [90m[1mreimport[22m | boss_lava.webp[39m[0m
+[  84% ] [90m[1mreimport[22m | boss_hydra.webp[39m[0m
+[  87% ] [90m[1mreimport[22m | blade.webp[39m[0m
+[  90% ] [90m[1mreimport[22m | arena.webp[39m[0m
+[  93% ] [90m[1mreimport[22m | arcane.webp[39m[0m
+[  96% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (31 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m

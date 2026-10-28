@@ -3,7 +3,11 @@ signal pause_requested
 signal speed_requested
 signal wave_requested
 signal restart_requested
+signal diagnostic_tick(delta: float)
+signal chain_requested
+signal audio_requested
 signal element_selected(element: StringName)
+var boss_status: Label
 var status: Label
 var health: ProgressBar
 var pause_button: Button
@@ -11,6 +15,7 @@ var speed_button: Button
 var message: Label
 var wave_button: Button
 var buttons := {}
+var extra_row: HBoxContainer
 var root: Control
 
 func _ready() -> void:
@@ -25,7 +30,7 @@ func _ready() -> void:
  top.offset_top = 24
  root.add_child(top)
  var title := Label.new()
- title.text = "SPIRIT GUARDIAN  /  M1"
+ title.text = "SPIRIT GUARDIAN  /  M2"
  title.add_theme_font_size_override("font_size", 24)
  top.add_child(title)
  status = Label.new()
@@ -36,24 +41,32 @@ func _ready() -> void:
  health.show_percentage = false
  top.add_child(health)
  var note := Label.new()
- note.text = "TEMP ART • Core combat prototype • No full save yet"
+ note.text = "TEMP ART • Graph build save only • Full run save pending"
  note.add_theme_font_size_override("font_size", 14)
  top.add_child(note)
+ boss_status=Label.new()
+ boss_status.add_theme_color_override("font_color",Color("ffa3b7"))
+ top.add_child(boss_status)
  var bottom := VBoxContainer.new()
  bottom.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
  bottom.offset_left = 24
  bottom.offset_right = -24
- bottom.offset_top = -156
+ bottom.offset_top = -208
  bottom.offset_bottom = -24
  bottom.alignment = BoxContainer.ALIGNMENT_END
  root.add_child(bottom)
+ extra_row = HBoxContainer.new()
+ extra_row.alignment = BoxContainer.ALIGNMENT_CENTER
+ bottom.add_child(extra_row)
+ make_button("Chain",extra_row).pressed.connect(func():chain_requested.emit())
+ make_button("Audio: off",extra_row).pressed.connect(func():audio_requested.emit())
  message = Label.new()
  message.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  bottom.add_child(message)
  var elements := HBoxContainer.new()
  elements.alignment = BoxContainer.ALIGNMENT_CENTER
  bottom.add_child(elements)
- for element in ["fire", "ice", "lightning", "arcane"]:
+ for element in ["fire", "ice", "lightning", "arcane", "poison", "meteor", "nova", "beam"]:
   var button := make_button(element.capitalize(), elements)
   button.pressed.connect(func(): element_selected.emit(StringName(element)))
  var controls := HBoxContainer.new()
@@ -79,3 +92,6 @@ func make_button(text: String, parent: Node) -> Button:
 func update_status(wave: int, kills: int, hp: float, selected: StringName) -> void:
  status.text = "Wave %d   /   Kills %d   /   Crystal %d / 100   /   %s" % [wave, kills, hp, String(selected).capitalize()]
  health.value = hp
+
+func _process(delta: float) -> void:
+ diagnostic_tick.emit(delta)

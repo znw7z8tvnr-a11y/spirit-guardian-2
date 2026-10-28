@@ -1,5 +1,7 @@
 # Godot 4 架構與下一階段介面
 
+> 此文件保留M1當時狀態；M2實際接入與最新限制見 [M2_MODULES.md](M2_MODULES.md) 與 [M2_TESTING.md](M2_TESTING.md)。
+
 使用 GDScript、Compatibility（gl_compatibility）、單執行緒 Web 匯出。M1 沒有外掛、C#、付費依賴或伺服器依賴。
 
 ```text

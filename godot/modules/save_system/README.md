@@ -1,3 +1,5 @@
-# save_system
+# save_system — M2
 
-尚未移植。契約、相依與驗收條件見 專案附帶的 ARCHITECTURE.md。不得將此目錄視為已完成模組。
+已接僅限連鎖配置的版本化 JSON 寫入／載入；無本局戰鬥續玩。
+
+完整範圍見專案 M2_MODULES.md。

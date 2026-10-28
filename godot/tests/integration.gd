@@ -18,6 +18,7 @@ func run() -> void:
  await frames(2)
  check(game.tower.hp == 100, "tower starts at 100 HP")
  game.intermission = 999
+ game.attack_clock = 999
  game.start_wave()
  check(game.wave == 1 and game.remaining == 11, "first wave schedules 11 enemies")
  await frames(180)
@@ -43,6 +44,7 @@ func run() -> void:
  for node in game.projectiles.get_children():
   node.queue_free()
  await frames(2)
+ game.attack_clock = 0
  for element in [&"fire", &"ice", &"lightning", &"arcane"]:
   game.selected = element
   var victim = game.spawn_enemy()
@@ -53,7 +55,7 @@ func run() -> void:
   await frames(100)
   check(game.kills == kills_before + 1, "%s projectile hits and kills through physics" % element)
  # Ice status must change movement, not merely change its appearance.
- var slow = game.spawn_enemy()
+ var slow = game.spawn_enemy(0)
  slow.position = game.CENTER + Vector2(400, 0)
  slow.speed = 60
  slow.take_damage(1, &"ice")
@@ -79,7 +81,9 @@ func run() -> void:
  game = current_scene
  check(not game.over and game.tower.hp == 100 and not paused and Engine.time_scale == 1, "restart reloads clean game and time scale")
  # Normal unmodified scene soak, driven by real engine ticks.
- await frames(3600)
+ for i in 3600:
+  if game.reward_open:game.choose_reward(0)
+  await frames(1)
  check(game.wave > 0 and game.kills > 0, "60 simulated seconds: normal loop spawns, casts and scores")
  check(game.enemies.get_child_count() <= 100 and game.projectiles.get_child_count() <= 64, "entity caps remain bounded")
  var result := {"engine": Engine.get_version_info().string, "checks": checks, "failures": failures, "soak": {"wave":game.wave,"kills":game.kills,"hp":game.tower.hp,"enemies":game.enemies.get_child_count(),"projectiles":game.projectiles.get_child_count(),"over":game.over}}

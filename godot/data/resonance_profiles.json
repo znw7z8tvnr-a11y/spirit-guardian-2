@@ -1,0 +1,1356 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "星核雷雨・1",
+      "parts": [
+        "fire",
+        "ice",
+        "lightning"
+      ],
+      "chance": 0.38,
+      "element": 0
+    },
+    {
+      "id": 2,
+      "name": "寒霜裁決・1",
+      "parts": [
+        "fire",
+        "ice",
+        "orbit"
+      ],
+      "chance": 0.43,
+      "element": 1
+    },
+    {
+      "id": 3,
+      "name": "虛界潮汐・1",
+      "parts": [
+        "fire",
+        "ice",
+        "summon"
+      ],
+      "chance": 0.48,
+      "element": 2
+    },
+    {
+      "id": 4,
+      "name": "日耀新星・1",
+      "parts": [
+        "fire",
+        "ice",
+        "meteor"
+      ],
+      "chance": 0.38,
+      "element": 3
+    },
+    {
+      "id": 5,
+      "name": "深淵回聲・1",
+      "parts": [
+        "fire",
+        "lightning",
+        "orbit"
+      ],
+      "chance": 0.43,
+      "element": 4
+    },
+    {
+      "id": 6,
+      "name": "星海審判・1",
+      "parts": [
+        "fire",
+        "lightning",
+        "summon"
+      ],
+      "chance": 0.48,
+      "element": 0
+    },
+    {
+      "id": 7,
+      "name": "破曉雷暴・1",
+      "parts": [
+        "fire",
+        "lightning",
+        "meteor"
+      ],
+      "chance": 0.38,
+      "element": 1
+    },
+    {
+      "id": 8,
+      "name": "幽焰漩渦・1",
+      "parts": [
+        "fire",
+        "poison",
+        "rate"
+      ],
+      "chance": 0.43,
+      "element": 2
+    },
+    {
+      "id": 9,
+      "name": "晶刃終幕・1",
+      "parts": [
+        "fire",
+        "poison",
+        "nova"
+      ],
+      "chance": 0.48,
+      "element": 3
+    },
+    {
+      "id": 10,
+      "name": "終焉守護・1",
+      "parts": [
+        "fire",
+        "split",
+        "orbit"
+      ],
+      "chance": 0.38,
+      "element": 4
+    },
+    {
+      "id": 11,
+      "name": "星核雷雨・2",
+      "parts": [
+        "fire",
+        "split",
+        "summon"
+      ],
+      "chance": 0.43,
+      "element": 0
+    },
+    {
+      "id": 12,
+      "name": "寒霜裁決・2",
+      "parts": [
+        "fire",
+        "split",
+        "meteor"
+      ],
+      "chance": 0.48,
+      "element": 1
+    },
+    {
+      "id": 13,
+      "name": "虛界潮汐・2",
+      "parts": [
+        "fire",
+        "orbit",
+        "summon"
+      ],
+      "chance": 0.38,
+      "element": 2
+    },
+    {
+      "id": 14,
+      "name": "日耀新星・2",
+      "parts": [
+        "fire",
+        "orbit",
+        "meteor"
+      ],
+      "chance": 0.43,
+      "element": 3
+    },
+    {
+      "id": 15,
+      "name": "深淵回聲・2",
+      "parts": [
+        "fire",
+        "rate",
+        "nova"
+      ],
+      "chance": 0.48,
+      "element": 4
+    },
+    {
+      "id": 16,
+      "name": "星海審判・2",
+      "parts": [
+        "fire",
+        "pierce",
+        "summon"
+      ],
+      "chance": 0.38,
+      "element": 0
+    },
+    {
+      "id": 17,
+      "name": "破曉雷暴・2",
+      "parts": [
+        "fire",
+        "pierce",
+        "meteor"
+      ],
+      "chance": 0.43,
+      "element": 1
+    },
+    {
+      "id": 18,
+      "name": "幽焰漩渦・2",
+      "parts": [
+        "fire",
+        "summon",
+        "meteor"
+      ],
+      "chance": 0.48,
+      "element": 2
+    },
+    {
+      "id": 19,
+      "name": "晶刃終幕・2",
+      "parts": [
+        "fire",
+        "shield",
+        "meteor"
+      ],
+      "chance": 0.38,
+      "element": 3
+    },
+    {
+      "id": 20,
+      "name": "終焉守護・2",
+      "parts": [
+        "ice",
+        "lightning",
+        "orbit"
+      ],
+      "chance": 0.43,
+      "element": 4
+    },
+    {
+      "id": 21,
+      "name": "星核雷雨・3",
+      "parts": [
+        "ice",
+        "lightning",
+        "summon"
+      ],
+      "chance": 0.48,
+      "element": 0
+    },
+    {
+      "id": 22,
+      "name": "寒霜裁決・3",
+      "parts": [
+        "ice",
+        "lightning",
+        "meteor"
+      ],
+      "chance": 0.38,
+      "element": 1
+    },
+    {
+      "id": 23,
+      "name": "虛界潮汐・3",
+      "parts": [
+        "ice",
+        "poison",
+        "rate"
+      ],
+      "chance": 0.43,
+      "element": 2
+    },
+    {
+      "id": 24,
+      "name": "日耀新星・3",
+      "parts": [
+        "ice",
+        "poison",
+        "nova"
+      ],
+      "chance": 0.48,
+      "element": 3
+    },
+    {
+      "id": 25,
+      "name": "深淵回聲・3",
+      "parts": [
+        "ice",
+        "split",
+        "orbit"
+      ],
+      "chance": 0.38,
+      "element": 4
+    },
+    {
+      "id": 26,
+      "name": "星海審判・3",
+      "parts": [
+        "ice",
+        "split",
+        "summon"
+      ],
+      "chance": 0.43,
+      "element": 0
+    },
+    {
+      "id": 27,
+      "name": "破曉雷暴・3",
+      "parts": [
+        "ice",
+        "split",
+        "meteor"
+      ],
+      "chance": 0.48,
+      "element": 1
+    },
+    {
+      "id": 28,
+      "name": "幽焰漩渦・3",
+      "parts": [
+        "ice",
+        "orbit",
+        "summon"
+      ],
+      "chance": 0.38,
+      "element": 2
+    },
+    {
+      "id": 29,
+      "name": "晶刃終幕・3",
+      "parts": [
+        "ice",
+        "orbit",
+        "meteor"
+      ],
+      "chance": 0.43,
+      "element": 3
+    },
+    {
+      "id": 30,
+      "name": "終焉守護・3",
+      "parts": [
+        "ice",
+        "rate",
+        "nova"
+      ],
+      "chance": 0.48,
+      "element": 4
+    },
+    {
+      "id": 31,
+      "name": "星核雷雨・4",
+      "parts": [
+        "ice",
+        "pierce",
+        "summon"
+      ],
+      "chance": 0.38,
+      "element": 0
+    },
+    {
+      "id": 32,
+      "name": "寒霜裁決・4",
+      "parts": [
+        "ice",
+        "pierce",
+        "meteor"
+      ],
+      "chance": 0.43,
+      "element": 1
+    },
+    {
+      "id": 33,
+      "name": "虛界潮汐・4",
+      "parts": [
+        "ice",
+        "summon",
+        "meteor"
+      ],
+      "chance": 0.48,
+      "element": 2
+    },
+    {
+      "id": 34,
+      "name": "日耀新星・4",
+      "parts": [
+        "ice",
+        "shield",
+        "meteor"
+      ],
+      "chance": 0.38,
+      "element": 3
+    },
+    {
+      "id": 35,
+      "name": "深淵回聲・4",
+      "parts": [
+        "lightning",
+        "poison",
+        "rate"
+      ],
+      "chance": 0.43,
+      "element": 4
+    },
+    {
+      "id": 36,
+      "name": "星海審判・4",
+      "parts": [
+        "lightning",
+        "poison",
+        "nova"
+      ],
+      "chance": 0.48,
+      "element": 0
+    },
+    {
+      "id": 37,
+      "name": "破曉雷暴・4",
+      "parts": [
+        "lightning",
+        "split",
+        "orbit"
+      ],
+      "chance": 0.38,
+      "element": 1
+    },
+    {
+      "id": 38,
+      "name": "幽焰漩渦・4",
+      "parts": [
+        "lightning",
+        "split",
+        "summon"
+      ],
+      "chance": 0.43,
+      "element": 2
+    },
+    {
+      "id": 39,
+      "name": "晶刃終幕・4",
+      "parts": [
+        "lightning",
+        "split",
+        "meteor"
+      ],
+      "chance": 0.48,
+      "element": 3
+    },
+    {
+      "id": 40,
+      "name": "終焉守護・4",
+      "parts": [
+        "lightning",
+        "orbit",
+        "summon"
+      ],
+      "chance": 0.38,
+      "element": 4
+    },
+    {
+      "id": 41,
+      "name": "星核雷雨・5",
+      "parts": [
+        "lightning",
+        "orbit",
+        "meteor"
+      ],
+      "chance": 0.43,
+      "element": 0
+    },
+    {
+      "id": 42,
+      "name": "寒霜裁決・5",
+      "parts": [
+        "lightning",
+        "rate",
+        "nova"
+      ],
+      "chance": 0.48,
+      "element": 1
+    },
+    {
+      "id": 43,
+      "name": "虛界潮汐・5",
+      "parts": [
+        "lightning",
+        "pierce",
+        "summon"
+      ],
+      "chance": 0.38,
+      "element": 2
+    },
+    {
+      "id": 44,
+      "name": "日耀新星・5",
+      "parts": [
+        "lightning",
+        "pierce",
+        "meteor"
+      ],
+      "chance": 0.43,
+      "element": 3
+    },
+    {
+      "id": 45,
+      "name": "深淵回聲・5",
+      "parts": [
+        "lightning",
+        "summon",
+        "meteor"
+      ],
+      "chance": 0.48,
+      "element": 4
+    },
+    {
+      "id": 46,
+      "name": "星海審判・5",
+      "parts": [
+        "lightning",
+        "shield",
+        "meteor"
+      ],
+      "chance": 0.38,
+      "element": 0
+    },
+    {
+      "id": 47,
+      "name": "破曉雷暴・5",
+      "parts": [
+        "poison",
+        "split",
+        "pierce"
+      ],
+      "chance": 0.43,
+      "element": 1
+    },
+    {
+      "id": 48,
+      "name": "幽焰漩渦・5",
+      "parts": [
+        "poison",
+        "split",
+        "shield"
+      ],
+      "chance": 0.48,
+      "element": 2
+    },
+    {
+      "id": 49,
+      "name": "晶刃終幕・5",
+      "parts": [
+        "poison",
+        "orbit",
+        "pierce"
+      ],
+      "chance": 0.38,
+      "element": 3
+    },
+    {
+      "id": 50,
+      "name": "終焉守護・5",
+      "parts": [
+        "poison",
+        "orbit",
+        "shield"
+      ],
+      "chance": 0.43,
+      "element": 4
+    }
+  ],
+  "profiles": [
+    {
+      "id": 1,
+      "name": "星核雷雨・1",
+      "type": 0,
+      "tier": 0,
+      "kind": "lightning",
+      "color": "#84e8ff",
+      "radius": 108,
+      "duration": 2.6,
+      "period": 0.78,
+      "power": 0.14,
+      "cap": 3,
+      "pattern": "nearest",
+      "reaction": 0,
+      "phase": 0
+    },
+    {
+      "id": 2,
+      "name": "寒霜裁決・1",
+      "type": 1,
+      "tier": 0,
+      "kind": "ice",
+      "color": "#b4edff",
+      "radius": 116,
+      "duration": 2.88,
+      "period": 0.72,
+      "power": 0.15300000000000002,
+      "cap": 4,
+      "pattern": "nearest",
+      "reaction": 1,
+      "phase": 7
+    },
+    {
+      "id": 3,
+      "name": "虛界潮汐・1",
+      "type": 2,
+      "tier": 0,
+      "kind": "arcane",
+      "color": "#ba9aff",
+      "radius": 124,
+      "duration": 3.16,
+      "period": 0.78,
+      "power": 0.166,
+      "cap": 5,
+      "pattern": "nearest",
+      "reaction": 2,
+      "phase": 3
+    },
+    {
+      "id": 4,
+      "name": "日耀新星・1",
+      "type": 3,
+      "tier": 0,
+      "kind": "fire",
+      "color": "#ffb36d",
+      "radius": 108,
+      "duration": 2.6,
+      "period": 0.72,
+      "power": 0.17900000000000002,
+      "cap": 6,
+      "pattern": "nearest",
+      "reaction": 3,
+      "phase": 10
+    },
+    {
+      "id": 5,
+      "name": "深淵回聲・1",
+      "type": 4,
+      "tier": 0,
+      "kind": "poison",
+      "color": "#94e3a1",
+      "radius": 116,
+      "duration": 2.88,
+      "period": 0.78,
+      "power": 0.14,
+      "cap": 7,
+      "pattern": "nearest",
+      "reaction": 0,
+      "phase": 6
+    },
+    {
+      "id": 6,
+      "name": "星海審判・1",
+      "type": 5,
+      "tier": 0,
+      "kind": "arcane",
+      "color": "#e9c5ff",
+      "radius": 124,
+      "duration": 3.16,
+      "period": 0.72,
+      "power": 0.15300000000000002,
+      "cap": 3,
+      "pattern": "nearest",
+      "reaction": 1,
+      "phase": 2
+    },
+    {
+      "id": 7,
+      "name": "破曉雷暴・1",
+      "type": 6,
+      "tier": 0,
+      "kind": "lightning",
+      "color": "#f5e58c",
+      "radius": 108,
+      "duration": 2.6,
+      "period": 0.78,
+      "power": 0.166,
+      "cap": 4,
+      "pattern": "nearest",
+      "reaction": 2,
+      "phase": 9
+    },
+    {
+      "id": 8,
+      "name": "幽焰漩渦・1",
+      "type": 7,
+      "tier": 0,
+      "kind": "fire",
+      "color": "#ff8868",
+      "radius": 116,
+      "duration": 2.88,
+      "period": 0.72,
+      "power": 0.17900000000000002,
+      "cap": 5,
+      "pattern": "nearest",
+      "reaction": 3,
+      "phase": 5
+    },
+    {
+      "id": 9,
+      "name": "晶刃終幕・1",
+      "type": 8,
+      "tier": 0,
+      "kind": "ice",
+      "color": "#a6e9ff",
+      "radius": 124,
+      "duration": 3.16,
+      "period": 0.78,
+      "power": 0.14,
+      "cap": 6,
+      "pattern": "nearest",
+      "reaction": 0,
+      "phase": 1
+    },
+    {
+      "id": 10,
+      "name": "終焉守護・1",
+      "type": 9,
+      "tier": 0,
+      "kind": "arcane",
+      "color": "#9bffe3",
+      "radius": 108,
+      "duration": 2.6,
+      "period": 0.72,
+      "power": 0.15300000000000002,
+      "cap": 7,
+      "pattern": "nearest",
+      "reaction": 1,
+      "phase": 8
+    },
+    {
+      "id": 11,
+      "name": "星核雷雨・2",
+      "type": 0,
+      "tier": 1,
+      "kind": "lightning",
+      "color": "#84e8ff",
+      "radius": 128,
+      "duration": 2.87,
+      "period": 0.725,
+      "power": 0.162,
+      "cap": 3,
+      "pattern": "furthest",
+      "reaction": 1,
+      "phase": 4
+    },
+    {
+      "id": 12,
+      "name": "寒霜裁決・2",
+      "type": 1,
+      "tier": 1,
+      "kind": "ice",
+      "color": "#b4edff",
+      "radius": 136,
+      "duration": 3.1500000000000004,
+      "period": 0.665,
+      "power": 0.17500000000000002,
+      "cap": 4,
+      "pattern": "furthest",
+      "reaction": 2,
+      "phase": 0
+    },
+    {
+      "id": 13,
+      "name": "虛界潮汐・2",
+      "type": 2,
+      "tier": 1,
+      "kind": "arcane",
+      "color": "#ba9aff",
+      "radius": 120,
+      "duration": 3.43,
+      "period": 0.725,
+      "power": 0.188,
+      "cap": 5,
+      "pattern": "furthest",
+      "reaction": 3,
+      "phase": 7
+    },
+    {
+      "id": 14,
+      "name": "日耀新星・2",
+      "type": 3,
+      "tier": 1,
+      "kind": "fire",
+      "color": "#ffb36d",
+      "radius": 128,
+      "duration": 2.87,
+      "period": 0.665,
+      "power": 0.201,
+      "cap": 6,
+      "pattern": "furthest",
+      "reaction": 0,
+      "phase": 3
+    },
+    {
+      "id": 15,
+      "name": "深淵回聲・2",
+      "type": 4,
+      "tier": 1,
+      "kind": "poison",
+      "color": "#94e3a1",
+      "radius": 136,
+      "duration": 3.1500000000000004,
+      "period": 0.725,
+      "power": 0.162,
+      "cap": 7,
+      "pattern": "furthest",
+      "reaction": 1,
+      "phase": 10
+    },
+    {
+      "id": 16,
+      "name": "星海審判・2",
+      "type": 5,
+      "tier": 1,
+      "kind": "arcane",
+      "color": "#e9c5ff",
+      "radius": 120,
+      "duration": 3.43,
+      "period": 0.665,
+      "power": 0.17500000000000002,
+      "cap": 3,
+      "pattern": "furthest",
+      "reaction": 2,
+      "phase": 6
+    },
+    {
+      "id": 17,
+      "name": "破曉雷暴・2",
+      "type": 6,
+      "tier": 1,
+      "kind": "lightning",
+      "color": "#f5e58c",
+      "radius": 128,
+      "duration": 2.87,
+      "period": 0.725,
+      "power": 0.188,
+      "cap": 4,
+      "pattern": "furthest",
+      "reaction": 3,
+      "phase": 2
+    },
+    {
+      "id": 18,
+      "name": "幽焰漩渦・2",
+      "type": 7,
+      "tier": 1,
+      "kind": "fire",
+      "color": "#ff8868",
+      "radius": 136,
+      "duration": 3.1500000000000004,
+      "period": 0.665,
+      "power": 0.201,
+      "cap": 5,
+      "pattern": "furthest",
+      "reaction": 0,
+      "phase": 9
+    },
+    {
+      "id": 19,
+      "name": "晶刃終幕・2",
+      "type": 8,
+      "tier": 1,
+      "kind": "ice",
+      "color": "#a6e9ff",
+      "radius": 120,
+      "duration": 3.43,
+      "period": 0.725,
+      "power": 0.162,
+      "cap": 6,
+      "pattern": "furthest",
+      "reaction": 1,
+      "phase": 5
+    },
+    {
+      "id": 20,
+      "name": "終焉守護・2",
+      "type": 9,
+      "tier": 1,
+      "kind": "arcane",
+      "color": "#9bffe3",
+      "radius": 128,
+      "duration": 2.87,
+      "period": 0.665,
+      "power": 0.17500000000000002,
+      "cap": 7,
+      "pattern": "furthest",
+      "reaction": 2,
+      "phase": 1
+    },
+    {
+      "id": 21,
+      "name": "星核雷雨・3",
+      "type": 0,
+      "tier": 2,
+      "kind": "lightning",
+      "color": "#84e8ff",
+      "radius": 148,
+      "duration": 3.14,
+      "period": 0.67,
+      "power": 0.184,
+      "cap": 3,
+      "pattern": "strongest",
+      "reaction": 2,
+      "phase": 8
+    },
+    {
+      "id": 22,
+      "name": "寒霜裁決・3",
+      "type": 1,
+      "tier": 2,
+      "kind": "ice",
+      "color": "#b4edff",
+      "radius": 132,
+      "duration": 3.42,
+      "period": 0.6100000000000001,
+      "power": 0.197,
+      "cap": 4,
+      "pattern": "strongest",
+      "reaction": 3,
+      "phase": 4
+    },
+    {
+      "id": 23,
+      "name": "虛界潮汐・3",
+      "type": 2,
+      "tier": 2,
+      "kind": "arcane",
+      "color": "#ba9aff",
+      "radius": 140,
+      "duration": 3.7,
+      "period": 0.67,
+      "power": 0.21,
+      "cap": 5,
+      "pattern": "strongest",
+      "reaction": 0,
+      "phase": 0
+    },
+    {
+      "id": 24,
+      "name": "日耀新星・3",
+      "type": 3,
+      "tier": 2,
+      "kind": "fire",
+      "color": "#ffb36d",
+      "radius": 148,
+      "duration": 3.14,
+      "period": 0.6100000000000001,
+      "power": 0.223,
+      "cap": 6,
+      "pattern": "strongest",
+      "reaction": 1,
+      "phase": 7
+    },
+    {
+      "id": 25,
+      "name": "深淵回聲・3",
+      "type": 4,
+      "tier": 2,
+      "kind": "poison",
+      "color": "#94e3a1",
+      "radius": 132,
+      "duration": 3.42,
+      "period": 0.67,
+      "power": 0.184,
+      "cap": 7,
+      "pattern": "strongest",
+      "reaction": 2,
+      "phase": 3
+    },
+    {
+      "id": 26,
+      "name": "星海審判・3",
+      "type": 5,
+      "tier": 2,
+      "kind": "arcane",
+      "color": "#e9c5ff",
+      "radius": 140,
+      "duration": 3.7,
+      "period": 0.6100000000000001,
+      "power": 0.197,
+      "cap": 3,
+      "pattern": "strongest",
+      "reaction": 3,
+      "phase": 10
+    },
+    {
+      "id": 27,
+      "name": "破曉雷暴・3",
+      "type": 6,
+      "tier": 2,
+      "kind": "lightning",
+      "color": "#f5e58c",
+      "radius": 148,
+      "duration": 3.14,
+      "period": 0.67,
+      "power": 0.21,
+      "cap": 4,
+      "pattern": "strongest",
+      "reaction": 0,
+      "phase": 6
+    },
+    {
+      "id": 28,
+      "name": "幽焰漩渦・3",
+      "type": 7,
+      "tier": 2,
+      "kind": "fire",
+      "color": "#ff8868",
+      "radius": 132,
+      "duration": 3.42,
+      "period": 0.6100000000000001,
+      "power": 0.223,
+      "cap": 5,
+      "pattern": "strongest",
+      "reaction": 1,
+      "phase": 2
+    },
+    {
+      "id": 29,
+      "name": "晶刃終幕・3",
+      "type": 8,
+      "tier": 2,
+      "kind": "ice",
+      "color": "#a6e9ff",
+      "radius": 140,
+      "duration": 3.7,
+      "period": 0.67,
+      "power": 0.184,
+      "cap": 6,
+      "pattern": "strongest",
+      "reaction": 2,
+      "phase": 9
+    },
+    {
+      "id": 30,
+      "name": "終焉守護・3",
+      "type": 9,
+      "tier": 2,
+      "kind": "arcane",
+      "color": "#9bffe3",
+      "radius": 148,
+      "duration": 3.14,
+      "period": 0.6100000000000001,
+      "power": 0.197,
+      "cap": 7,
+      "pattern": "strongest",
+      "reaction": 3,
+      "phase": 5
+    },
+    {
+      "id": 31,
+      "name": "星核雷雨・4",
+      "type": 0,
+      "tier": 3,
+      "kind": "lightning",
+      "color": "#84e8ff",
+      "radius": 144,
+      "duration": 3.41,
+      "period": 0.615,
+      "power": 0.20600000000000002,
+      "cap": 3,
+      "pattern": "weakest",
+      "reaction": 3,
+      "phase": 1
+    },
+    {
+      "id": 32,
+      "name": "寒霜裁決・4",
+      "type": 1,
+      "tier": 3,
+      "kind": "ice",
+      "color": "#b4edff",
+      "radius": 152,
+      "duration": 3.6900000000000004,
+      "period": 0.5549999999999999,
+      "power": 0.21900000000000003,
+      "cap": 4,
+      "pattern": "weakest",
+      "reaction": 0,
+      "phase": 8
+    },
+    {
+      "id": 33,
+      "name": "虛界潮汐・4",
+      "type": 2,
+      "tier": 3,
+      "kind": "arcane",
+      "color": "#ba9aff",
+      "radius": 160,
+      "duration": 3.97,
+      "period": 0.615,
+      "power": 0.232,
+      "cap": 5,
+      "pattern": "weakest",
+      "reaction": 1,
+      "phase": 4
+    },
+    {
+      "id": 34,
+      "name": "日耀新星・4",
+      "type": 3,
+      "tier": 3,
+      "kind": "fire",
+      "color": "#ffb36d",
+      "radius": 144,
+      "duration": 3.41,
+      "period": 0.5549999999999999,
+      "power": 0.24500000000000002,
+      "cap": 6,
+      "pattern": "weakest",
+      "reaction": 2,
+      "phase": 0
+    },
+    {
+      "id": 35,
+      "name": "深淵回聲・4",
+      "type": 4,
+      "tier": 3,
+      "kind": "poison",
+      "color": "#94e3a1",
+      "radius": 152,
+      "duration": 3.6900000000000004,
+      "period": 0.615,
+      "power": 0.20600000000000002,
+      "cap": 7,
+      "pattern": "weakest",
+      "reaction": 3,
+      "phase": 7
+    },
+    {
+      "id": 36,
+      "name": "星海審判・4",
+      "type": 5,
+      "tier": 3,
+      "kind": "arcane",
+      "color": "#e9c5ff",
+      "radius": 160,
+      "duration": 3.97,
+      "period": 0.5549999999999999,
+      "power": 0.21900000000000003,
+      "cap": 3,
+      "pattern": "weakest",
+      "reaction": 0,
+      "phase": 3
+    },
+    {
+      "id": 37,
+      "name": "破曉雷暴・4",
+      "type": 6,
+      "tier": 3,
+      "kind": "lightning",
+      "color": "#f5e58c",
+      "radius": 144,
+      "duration": 3.41,
+      "period": 0.615,
+      "power": 0.232,
+      "cap": 4,
+      "pattern": "weakest",
+      "reaction": 1,
+      "phase": 10
+    },
+    {
+      "id": 38,
+      "name": "幽焰漩渦・4",
+      "type": 7,
+      "tier": 3,
+      "kind": "fire",
+      "color": "#ff8868",
+      "radius": 152,
+      "duration": 3.6900000000000004,
+      "period": 0.5549999999999999,
+      "power": 0.24500000000000002,
+      "cap": 5,
+      "pattern": "weakest",
+      "reaction": 2,
+      "phase": 6
+    },
+    {
+      "id": 39,
+      "name": "晶刃終幕・4",
+      "type": 8,
+      "tier": 3,
+      "kind": "ice",
+      "color": "#a6e9ff",
+      "radius": 160,
+      "duration": 3.97,
+      "period": 0.615,
+      "power": 0.20600000000000002,
+      "cap": 6,
+      "pattern": "weakest",
+      "reaction": 3,
+      "phase": 2
+    },
+    {
+      "id": 40,
+      "name": "終焉守護・4",
+      "type": 9,
+      "tier": 3,
+      "kind": "arcane",
+      "color": "#9bffe3",
+      "radius": 144,
+      "duration": 3.41,
+      "period": 0.5549999999999999,
+      "power": 0.21900000000000003,
+      "cap": 7,
+      "pattern": "weakest",
+      "reaction": 0,
+      "phase": 9
+    },
+    {
+      "id": 41,
+      "name": "星核雷雨・5",
+      "type": 0,
+      "tier": 4,
+      "kind": "lightning",
+      "color": "#84e8ff",
+      "radius": 164,
+      "duration": 3.68,
+      "period": 0.56,
+      "power": 0.228,
+      "cap": 3,
+      "pattern": "random",
+      "reaction": 0,
+      "phase": 5
+    },
+    {
+      "id": 42,
+      "name": "寒霜裁決・5",
+      "type": 1,
+      "tier": 4,
+      "kind": "ice",
+      "color": "#b4edff",
+      "radius": 172,
+      "duration": 3.96,
+      "period": 0.5,
+      "power": 0.24100000000000002,
+      "cap": 4,
+      "pattern": "random",
+      "reaction": 1,
+      "phase": 1
+    },
+    {
+      "id": 43,
+      "name": "虛界潮汐・5",
+      "type": 2,
+      "tier": 4,
+      "kind": "arcane",
+      "color": "#ba9aff",
+      "radius": 156,
+      "duration": 4.24,
+      "period": 0.56,
+      "power": 0.254,
+      "cap": 5,
+      "pattern": "random",
+      "reaction": 2,
+      "phase": 8
+    },
+    {
+      "id": 44,
+      "name": "日耀新星・5",
+      "type": 3,
+      "tier": 4,
+      "kind": "fire",
+      "color": "#ffb36d",
+      "radius": 164,
+      "duration": 3.68,
+      "period": 0.5,
+      "power": 0.267,
+      "cap": 6,
+      "pattern": "random",
+      "reaction": 3,
+      "phase": 4
+    },
+    {
+      "id": 45,
+      "name": "深淵回聲・5",
+      "type": 4,
+      "tier": 4,
+      "kind": "poison",
+      "color": "#94e3a1",
+      "radius": 172,
+      "duration": 3.96,
+      "period": 0.56,
+      "power": 0.228,
+      "cap": 7,
+      "pattern": "random",
+      "reaction": 0,
+      "phase": 0
+    },
+    {
+      "id": 46,
+      "name": "星海審判・5",
+      "type": 5,
+      "tier": 4,
+      "kind": "arcane",
+      "color": "#e9c5ff",
+      "radius": 156,
+      "duration": 4.24,
+      "period": 0.5,
+      "power": 0.24100000000000002,
+      "cap": 3,
+      "pattern": "random",
+      "reaction": 1,
+      "phase": 7
+    },
+    {
+      "id": 47,
+      "name": "破曉雷暴・5",
+      "type": 6,
+      "tier": 4,
+      "kind": "lightning",
+      "color": "#f5e58c",
+      "radius": 164,
+      "duration": 3.68,
+      "period": 0.56,
+      "power": 0.254,
+      "cap": 4,
+      "pattern": "random",
+      "reaction": 2,
+      "phase": 3
+    },
+    {
+      "id": 48,
+      "name": "幽焰漩渦・5",
+      "type": 7,
+      "tier": 4,
+      "kind": "fire",
+      "color": "#ff8868",
+      "radius": 172,
+      "duration": 3.96,
+      "period": 0.5,
+      "power": 0.267,
+      "cap": 5,
+      "pattern": "random",
+      "reaction": 3,
+      "phase": 10
+    },
+    {
+      "id": 49,
+      "name": "晶刃終幕・5",
+      "type": 8,
+      "tier": 4,
+      "kind": "ice",
+      "color": "#a6e9ff",
+      "radius": 156,
+      "duration": 4.24,
+      "period": 0.56,
+      "power": 0.228,
+      "cap": 6,
+      "pattern": "random",
+      "reaction": 0,
+      "phase": 6
+    },
+    {
+      "id": 50,
+      "name": "終焉守護・5",
+      "type": 9,
+      "tier": 4,
+      "kind": "arcane",
+      "color": "#9bffe3",
+      "radius": 164,
+      "duration": 3.68,
+      "period": 0.5,
+      "power": 0.24100000000000002,
+      "cap": 7,
+      "pattern": "random",
+      "reaction": 1,
+      "phase": 2
+    }
+  ]
+}

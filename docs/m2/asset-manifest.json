@@ -1,0 +1,79 @@
+[
+  {
+    "file": "godot/assets/legacy/walk_shaman.webp",
+    "source": "reference_modules/spirit_guardian_enemy_ai_final.html",
+    "key": "walk_shaman",
+    "sha256": "1a4ff0aafa5352b7983fc240f84bec6f1a709acfd0c003bce87cce5485216153",
+    "license": "UNVERIFIED: temporary migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/walk_elite.webp",
+    "source": "reference_modules/spirit_guardian_enemy_ai_final.html",
+    "key": "walk_elite",
+    "sha256": "ca76f4cc9d89c4985b84f9df5f263f6257705d5702eb2f9e4c6df0b4d2538a48",
+    "license": "UNVERIFIED: temporary migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/walk_boss.webp",
+    "source": "reference_modules/spirit_guardian_enemy_ai_final.html",
+    "key": "walk_boss",
+    "sha256": "569823062dca9c473ccd49606fb7dc4f502840564618b6509175a3cf2774f1fc",
+    "license": "UNVERIFIED: temporary migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/boss_lava.webp",
+    "source": "reference_modules/spirit_guardian_enemy_ai_final.html",
+    "key": "boss_lava",
+    "sha256": "220d59de0c11550ffd993ea54f24e173f2ba5b51112ddb1dae7649b5b87155f7",
+    "license": "UNVERIFIED: temporary migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/boss_witch.webp",
+    "source": "reference_modules/spirit_guardian_enemy_ai_final.html",
+    "key": "boss_witch",
+    "sha256": "60ad8e019fdbd34f735a10e8c5998e305c1c510370074db0d0b66a674c43ac5f",
+    "license": "UNVERIFIED: temporary migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/boss_hydra.webp",
+    "source": "reference_modules/spirit_guardian_enemy_ai_final.html",
+    "key": "boss_hydra",
+    "sha256": "b70dad33274c4f1d69ba0c4d2db51b37bb5b1c3b65bf049e533285f75293dc79",
+    "license": "UNVERIFIED: temporary migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/poison.webp",
+    "source": "reference_modules/spirit_guardian_enemy_ai_final.html",
+    "key": "poison",
+    "sha256": "340592798f1794423221606c58b501893c70dedb1bcbb13409ff5d199063e172",
+    "license": "UNVERIFIED: temporary migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/meteor.webp",
+    "source": "reference_modules/spirit_guardian_enemy_ai_final.html",
+    "key": "meteor",
+    "sha256": "4bde567c09eb279752c9287a06dc986078d0180b1e35354fa86d21101db3b140",
+    "license": "UNVERIFIED: temporary migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/blade.webp",
+    "source": "reference_modules/spirit_guardian_enemy_ai_final.html",
+    "key": "blade",
+    "sha256": "2aa937e7c353b09a090fda40c4513f1bcd769d9e4d3a29bb29e8971b6606c6d3",
+    "license": "UNVERIFIED: temporary migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/iceburst.webp",
+    "source": "reference_modules/spirit_guardian_enemy_ai_final.html",
+    "key": "iceburst",
+    "sha256": "7d47d2a1fb907c849e004705eb0964d3cbaa9e6d8534c3ea5346abbf7ec4d8b1",
+    "license": "UNVERIFIED: temporary migration reference"
+  },
+  {
+    "file": "godot/assets/legacy/voidburst.webp",
+    "source": "reference_modules/spirit_guardian_enemy_ai_final.html",
+    "key": "voidburst",
+    "sha256": "cae25c954e02dc8fe36e031c0f096c9eba04cb1bd0ed2065dbb25b5d0e16c46e",
+    "license": "UNVERIFIED: temporary migration reference"
+  }
+]

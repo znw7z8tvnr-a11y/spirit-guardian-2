@@ -1,0 +1,214 @@
+{
+  "spirit_guardian_background_preview_v31_18.html": {
+    "title": "靈境守衛｜背景地圖 V31.18",
+    "state": null,
+    "enemies": null,
+    "chain": null,
+    "chainDebug": null,
+    "ui": false,
+    "audio": false,
+    "resonanceZones": false,
+    "combatFX": false,
+    "boss": null,
+    "background": true,
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_boss_v5_playable.html": {
+    "title": "靈境守衛｜Boss v5 獨立試玩",
+    "state": null,
+    "enemies": null,
+    "chain": null,
+    "chainDebug": null,
+    "ui": false,
+    "audio": false,
+    "resonanceZones": false,
+    "combatFX": false,
+    "boss": "5.0.0",
+    "background": false,
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_gem_chain_module_v9_integrated.html": {
+    "title": "靈境守衛｜寶石連鎖獨立模組 V9.0 整合候選版",
+    "state": "play",
+    "enemies": 16,
+    "chain": "9.0",
+    "chainDebug": {
+      "pending": 0,
+      "scheduled": 0,
+      "cast": 0,
+      "skipped": 0,
+      "resonances": 0,
+      "fusions": 0,
+      "peakPending": 0,
+      "finishers": 0,
+      "elementHits": 0
+    },
+    "ui": false,
+    "audio": false,
+    "resonanceZones": false,
+    "combatFX": false,
+    "boss": null,
+    "background": false,
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_enemy_ai_final.html": {
+    "title": "靈境守衛 V31.10 · 怪物AI v11 強化版",
+    "state": "play",
+    "enemies": 2,
+    "chain": null,
+    "chainDebug": {
+      "pending": 0,
+      "scheduled": 0,
+      "cast": 0,
+      "skipped": 0
+    },
+    "ui": false,
+    "audio": false,
+    "resonanceZones": false,
+    "combatFX": false,
+    "boss": null,
+    "background": false,
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_growth_rewards_v32_00_complete.html": {
+    "title": "靈境守衛 V31.30 · 成長獎勵深化版",
+    "state": "play",
+    "enemies": 2,
+    "chain": null,
+    "chainDebug": {
+      "pending": 0,
+      "scheduled": 0,
+      "cast": 0,
+      "skipped": 0
+    },
+    "ui": false,
+    "audio": false,
+    "resonanceZones": false,
+    "combatFX": false,
+    "boss": null,
+    "background": false,
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_module11_performance_audio_v10.html": {
+    "title": "靈境守衛 V31.10 · 清晰操作列版",
+    "state": "play",
+    "enemies": 2,
+    "chain": null,
+    "chainDebug": {
+      "pending": 0,
+      "scheduled": 0,
+      "cast": 0,
+      "skipped": 0
+    },
+    "ui": false,
+    "audio": true,
+    "resonanceZones": false,
+    "combatFX": false,
+    "boss": null,
+    "background": false,
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_ui_final_integrated.html": {
+    "title": "靈境守衛 V31.10 · 清晰操作列版",
+    "state": "play",
+    "enemies": 2,
+    "chain": null,
+    "chainDebug": {
+      "pending": 0,
+      "scheduled": 0,
+      "cast": 0,
+      "skipped": 0
+    },
+    "ui": true,
+    "audio": false,
+    "resonanceZones": false,
+    "combatFX": false,
+    "boss": null,
+    "background": false,
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_v1_8_optimized_interactive.html": {
+    "title": "靈境守衛 V1.7｜沉浸式互動展示",
+    "state": null,
+    "enemies": null,
+    "chain": null,
+    "chainDebug": null,
+    "ui": false,
+    "audio": false,
+    "resonanceZones": false,
+    "combatFX": false,
+    "boss": null,
+    "background": false,
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_v31_16_skills_final.html": {
+    "title": "靈境守衛 V31.16 · 清晰操作列版",
+    "state": "play",
+    "enemies": 2,
+    "chain": null,
+    "chainDebug": {
+      "pending": 0,
+      "scheduled": 0,
+      "cast": 0,
+      "skipped": 0
+    },
+    "ui": false,
+    "audio": false,
+    "resonanceZones": false,
+    "combatFX": false,
+    "boss": null,
+    "background": false,
+    "errors": [
+      "sg7Resonance is not defined"
+    ],
+    "errorCount": 1
+  },
+  "spirit_guardian_v31_10_enemy_ai_10passes.html": {
+    "title": "靈境守衛 V31.10 · 怪物AI十輪優化",
+    "state": "play",
+    "enemies": 2,
+    "chain": null,
+    "chainDebug": {
+      "pending": 0,
+      "scheduled": 0,
+      "cast": 0,
+      "skipped": 0
+    },
+    "ui": false,
+    "audio": false,
+    "resonanceZones": false,
+    "combatFX": false,
+    "boss": null,
+    "background": false,
+    "errors": [],
+    "errorCount": 0
+  },
+  "spirit_guardian_v31_30_combat_vfx_final.html": {
+    "title": "靈境守衛 V31.10 · 清晰操作列版",
+    "state": "play",
+    "enemies": 2,
+    "chain": null,
+    "chainDebug": {
+      "pending": 0,
+      "scheduled": 0,
+      "cast": 0,
+      "skipped": 0
+    },
+    "ui": false,
+    "audio": false,
+    "resonanceZones": false,
+    "combatFX": false,
+    "boss": null,
+    "background": false,
+    "errors": [],
+    "errorCount": 0
+  }
+}

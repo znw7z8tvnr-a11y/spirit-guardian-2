@@ -1,0 +1,169 @@
+[
+  {
+    "file": "spirit_guardian_enemy_ai_final.html",
+    "bytes": 3611484,
+    "sha256": "84f75ce1d85f0f088a2935342f8bedb729e5165b7e55be6537042d63b7279c4f",
+    "title": "靈境守衛 V31.10 · 怪物AI v11 強化版",
+    "script_count": 8,
+    "exact_scripts_already_in_v32": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_gem_chain_module_v9_integrated.html",
+    "bytes": 40928,
+    "sha256": "6e2a9443b709b87dc1ce79d0663d980d8a19a19333c0b27f5709746cbb49f02e",
+    "title": "靈境守衛｜寶石連鎖獨立模組 V9.0 整合候選版",
+    "script_count": 3,
+    "exact_scripts_already_in_v32": [
+      3
+    ],
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_ui_final_integrated.html",
+    "bytes": 3635373,
+    "sha256": "0d0676fa4e3ad02a785c7e26e09288c3f71b61463340b3b965cc4b14d70d810f",
+    "title": "靈境守衛 V31.10 · 清晰操作列版",
+    "script_count": 13,
+    "exact_scripts_already_in_v32": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_boss_v5_playable.html",
+    "bytes": 19985,
+    "sha256": "d49354a72f617335f171692901a32e7410ea09f57ebe18b58e5501af1499d840",
+    "title": "靈境守衛｜Boss v5 獨立試玩",
+    "script_count": 2,
+    "exact_scripts_already_in_v32": [
+      1
+    ],
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_module11_performance_audio_v10.html",
+    "bytes": 3621967,
+    "sha256": "df49e734534f456440a52a1fc9a9dc75cf292c2fec03ea4cdd7678f1f0cec64c",
+    "title": "靈境守衛 V31.10 · 清晰操作列版",
+    "script_count": 9,
+    "exact_scripts_already_in_v32": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v31_16_skills_final.html",
+    "bytes": 3614189,
+    "sha256": "42f2ea78917bb51b54afe2280726c8a1431f9a0279d86ab4f701bab8861d127f",
+    "title": "靈境守衛 V31.16 · 清晰操作列版",
+    "script_count": 9,
+    "exact_scripts_already_in_v32": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v31_30_combat_vfx_final.html",
+    "bytes": 3618295,
+    "sha256": "7bbf666bd601cbb14d12d3cc9374b6c39d1301b91214d18ab232076f7359754e",
+    "title": "靈境守衛 V31.10 · 清晰操作列版",
+    "script_count": 9,
+    "exact_scripts_already_in_v32": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9
+    ],
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_background_preview_v31_18.html",
+    "bytes": 19374,
+    "sha256": "7ddc4c3d314d343b7ce6b3a1fbf3fb8e10347debb90cf86c033835e982a05a37",
+    "title": "靈境守衛｜背景地圖 V31.18",
+    "script_count": 1,
+    "exact_scripts_already_in_v32": [],
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_growth_rewards_v32_00_complete.html",
+    "bytes": 3620269,
+    "sha256": "85bb7bc2e319a7aa5695c6fc3ddb504834ab5c45de48a16bb0d5076047b8934b",
+    "title": "靈境守衛 V31.30 · 成長獎勵深化版",
+    "script_count": 8,
+    "exact_scripts_already_in_v32": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v1_8_optimized_interactive.html",
+    "bytes": 552187,
+    "sha256": "3848d1399076e032c772dec231b28be8f28c5a02956a2ee928f3931a910bd215",
+    "title": "靈境守衛 V1.7｜沉浸式互動展示",
+    "script_count": 1,
+    "exact_scripts_already_in_v32": [],
+    "syntax_errors": []
+  },
+  {
+    "file": "spirit_guardian_v31_10_enemy_ai_10passes.html",
+    "bytes": 3607967,
+    "sha256": "f9760eb70bae4ca1cf9ea3b93bb57faec308732a527e43117a0eb4bfbd0138d6",
+    "title": "靈境守衛 V31.10 · 怪物AI十輪優化",
+    "script_count": 8,
+    "exact_scripts_already_in_v32": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "syntax_errors": []
+  }
+]

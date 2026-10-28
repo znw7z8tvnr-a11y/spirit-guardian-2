@@ -1,0 +1,292 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>靈境守衛｜背景地圖 V31.18</title><style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#080c19;color:#f6e5bd;font-family:system-ui,-apple-system,sans-serif}body{height:100vh}@supports(height:100dvh){body{height:100dvh}}canvas{width:100%;height:100%;display:block;touch-action:none}#tools{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;gap:8px;padding:9px;background:#0c142bd9;border:1px solid #b99d68;border-radius:12px;z-index:2}button{padding:10px 14px;background:#25324d;color:#f8e7c2;border:1px solid #8f9cbb;border-radius:9px;touch-action:manipulation;font-size:14px}button[aria-pressed="true"]{border-color:#83e5d4;background:#295c63;box-shadow:0 0 10px #56cfc755}#name{position:fixed;top:calc(14px + env(safe-area-inset-top));left:16px;color:#f9e5b3;text-shadow:0 2px 8px #000;font-weight:700;pointer-events:none}@media(max-width:450px){button{padding:8px;font-size:12px}#tools{gap:5px}}
+</style></head><body><canvas id="view" role="img" aria-label="靈境守衛的水晶祭壇奇幻背景地圖"></canvas><div id="name">靈境守衛 · 古代羅盤祭壇背景地圖 V31.18</div><div id="tools" role="group" aria-label="背景展示控制"><button id="high" aria-pressed="true">高畫質</button><button id="low" aria-pressed="false">省電</button><button id="pause" aria-pressed="false">暫停動畫</button></div><script>
+/** 靈境守衛 · 背景地圖獨立模組 (V31.18)
+ * 延續 V31.16：祭壇細節、羅盤刻度與邊緣自然碎石
+ * 使用：載入本檔後 SGBackground.draw(ctx, {width:1280,height:720,time:0,quality:'high'})
+ * 本檔不包含怪物、技能、Boss、UI 或遊戲主循環。
+ */
+(function(global){'use strict';
+const SIZE=Object.freeze({width:1280,height:720,cx:640,cy:360});
+const QUALITY=Object.freeze({LOW:'low',MEDIUM:'medium',HIGH:'high'});
+const arena=document.createElement('canvas');arena.width=1280;arena.height=720;
+const ac=arena.getContext('2d');
+function buildArena(){
+ ac.setTransform(1,0,0,1,0,0);ac.clearRect(0,0,arena.width,arena.height);
+ let seed=18427;const rnd=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296};
+ const g=ac.createRadialGradient(640,360,55,640,360,850);
+ g.addColorStop(0,'#292744');g.addColorStop(.48,'#161a30');g.addColorStop(1,'#070b16');ac.fillStyle=g;ac.fillRect(0,0,1280,720);
+ // Hand-built tile field, uneven stone outlines and fissures.
+ for(let y=-20;y<750;y+=48)for(let x=-20;x<1310;x+=48){
+  const dx=x,dy=y;const jitterX=(rnd()-.5)*5,jitterY=(rnd()-.5)*5;
+  ac.fillStyle=rnd()>.5?'#38374b16':'#80718a0b';ac.fillRect(dx+1,dy+1,46,46);
+  ac.strokeStyle=rnd()>.5?'#aa94ad1b':'#c6a47612';ac.lineWidth=1;
+  ac.strokeRect(dx+1+jitterX,dy+1+jitterY,46,46);
+  if(rnd()<.17){ac.beginPath();ac.moveTo(dx+4+rnd()*16,dy+3+rnd()*13);ac.lineTo(dx+10+rnd()*29,dy+15+rnd()*17);ac.lineTo(dx+22+rnd()*22,dy+28+rnd()*16);ac.strokeStyle='#080d1f88';ac.stroke()}
+ }
+ for(let i=0;i<105;i++){let x=rnd()*1280,y=rnd()*720,r=2+rnd()*8;ac.fillStyle=rnd()>.5?'#bca0c218':'#d5b87e16';ac.beginPath();ac.ellipse(x,y,r,r*.4,rnd()*3,0,Math.PI*2);ac.fill()}
+ // V31.18: cached environmental depth: carved border stones, mineral shards, floor inlays.
+ ac.save();
+ for(let i=0;i<170;i++){
+  const x=rnd()*1280,y=rnd()*720,dist=Math.hypot((x-640)/1.25,y-360);
+  if(dist<165)continue;
+  const r=2+rnd()*9,angle=rnd()*6.283;
+  ac.save();ac.translate(x,y);ac.rotate(angle);
+  ac.fillStyle=rnd()>.45?'#161d31a6':'#55516a66';
+  ac.beginPath();ac.moveTo(-r,0);ac.lineTo(-r*.3,-r*.65);ac.lineTo(r*.7,-r*.45);ac.lineTo(r,r*.22);ac.lineTo(0,r*.58);ac.closePath();ac.fill();
+  ac.strokeStyle='#c4b8c02b';ac.lineWidth=.8;ac.beginPath();ac.moveTo(-r*.3,-r*.65);ac.lineTo(r*.1,-r*.12);ac.lineTo(r*.7,-r*.45);ac.stroke();ac.restore();
+ }
+ // Four subtle diagonal runic causeways; all geometry is baked into static terrain.
+ ac.translate(640,360);
+ for(let k=0;k<4;k++){
+  ac.save();ac.rotate(Math.PI/4+k*Math.PI/2);
+  const grad=ac.createLinearGradient(0,-330,0,-110);grad.addColorStop(0,'#7a8fba08');grad.addColorStop(.5,'#a5b6e21c');grad.addColorStop(1,'#e6bc7028');
+  ac.fillStyle=grad;ac.beginPath();ac.moveTo(-32,-340);ac.lineTo(32,-340);ac.lineTo(23,-118);ac.lineTo(-23,-118);ac.closePath();ac.fill();
+  for(let n=0;n<7;n++){let yy=-325+n*29;ac.strokeStyle='#dfc48c2b';ac.lineWidth=1;ac.beginPath();ac.moveTo(-20,yy);ac.lineTo(20,yy);ac.stroke()}
+  ac.restore();
+ }
+ ac.restore();
+ // Cached soft illumination, no per-frame shadowBlur cost.
+ const halo=ac.createRadialGradient(640,360,25,640,360,255);
+ halo.addColorStop(0,'#f7d7a01a');halo.addColorStop(.35,'#b6a6ed12');halo.addColorStop(1,'#93b6ff00');
+ ac.fillStyle=halo;ac.fillRect(385,105,510,510);
+ // V31.18 environmental art pass: deterministic, baked into the static layer.
+ // 1. Irregular masonry seams; 2. micro-chips; 3. diagonal stone grain.
+ for(let i=0;i<250;i++){
+  const x=rnd()*1280,y=rnd()*720,dist=Math.hypot((x-640)*1.1,y-360);
+  if(dist<118)continue;
+  const length=4+rnd()*17,angle=rnd()*Math.PI*2;
+  ac.save();ac.translate(x,y);ac.rotate(angle);
+  ac.strokeStyle=rnd()>.45?'#d5c3b81a':'#050a1d52';ac.lineWidth=.5+rnd()*.7;
+  ac.beginPath();ac.moveTo(-length*.5,0);ac.lineTo(length*.5,-rnd()*2);ac.stroke();ac.restore();
+ }
+ // 4. Low-relief shattered architectural remnants near the perimeter.
+ const ruins=[[85,110,1],[1190,120,-1],[90,615,1],[1188,607,-1],[300,58,1],[975,664,-1]];
+ for(const [x,y,flip] of ruins){
+  ac.save();ac.translate(x,y);ac.rotate(flip*.22);
+  ac.fillStyle='#050a18a0';ac.beginPath();ac.ellipse(11,14,47,17,-.15,0,Math.PI*2);ac.fill();
+  ac.fillStyle='#34354b';ac.fillRect(-33,-12,65,22);ac.fillStyle='#575268';ac.fillRect(-35,-17,62,10);
+  ac.strokeStyle='#c4b69b66';ac.lineWidth=1;ac.strokeRect(-35,-17,62,10);
+  for(let j=0;j<3;j++){ac.strokeStyle='#10182cbb';ac.beginPath();ac.moveTo(-20+j*18,-15);ac.lineTo(-24+j*18,3);ac.stroke()}
+  ac.restore();
+ }
+ // 5. Sparse cyan mineral clusters on the outer edges, away from tower combat.
+ for(let i=0;i<24;i++){
+  const x=rnd()*1280,y=rnd()*720;
+  if(Math.hypot(x-640,y-360)<290)continue;
+  const h=4+rnd()*12;
+  ac.fillStyle='#66c4cc25';ac.beginPath();ac.ellipse(x,y,9,4,0,0,Math.PI*2);ac.fill();
+  ac.fillStyle=rnd()>.5?'#4e8d9b8c':'#8e91bc88';
+  ac.beginPath();ac.moveTo(x-4,y);ac.lineTo(x-2,y-h*.75);ac.lineTo(x+2,y-h);ac.lineTo(x+5,y-1);ac.closePath();ac.fill();
+  ac.strokeStyle='#b7f4ed55';ac.beginPath();ac.moveTo(x+2,y-h);ac.lineTo(x+1,y-2);ac.stroke();
+ }
+ // 6. Eight stone dais segments; 7. raised bevels; 8. engraved inner geometry.
+ ac.save();ac.translate(640,360);
+ for(let k=0;k<8;k++){
+  const a=(k+.5)*Math.PI/4;
+  ac.save();ac.rotate(a);
+  ac.fillStyle='#070c1b8a';ac.fillRect(-35,-122,70,16);
+  ac.fillStyle='#38364c';ac.fillRect(-34,-129,68,16);
+  ac.fillStyle='#696077';ac.fillRect(-34,-131,68,4);
+  ac.strokeStyle='#d9c08b5a';ac.lineWidth=1;ac.strokeRect(-34,-129,68,16);
+  ac.strokeStyle='#e7c88c60';ac.beginPath();ac.moveTo(-12,-123);ac.lineTo(0,-127);ac.lineTo(12,-123);ac.stroke();
+  ac.restore();
+ }
+ // 9. Faceted central plinth with a restrained inset halo.
+ const glow=ac.createRadialGradient(0,0,6,0,0,112);
+ glow.addColorStop(0,'#91dbe32d');glow.addColorStop(.58,'#91c4de0c');glow.addColorStop(1,'#91c4de00');
+ ac.fillStyle=glow;ac.fillRect(-112,-112,224,224);
+ ac.fillStyle='#090d20a8';ac.beginPath();ac.ellipse(0,14,75,37,0,0,Math.PI*2);ac.fill();
+ ac.fillStyle='#3a3850';ac.beginPath();ac.ellipse(0,2,69,34,0,0,Math.PI*2);ac.fill();
+ ac.strokeStyle='#b3a3bd8a';ac.lineWidth=2;ac.stroke();
+ ac.fillStyle='#292c47';ac.beginPath();ac.ellipse(0,-2,57,25,0,0,Math.PI*2);ac.fill();
+ ac.strokeStyle='#8ce4d785';ac.lineWidth=1.5;ac.stroke();
+ ac.restore();
+
+ // V31.18: layered ruins and carved altar architecture, baked once.
+ function stonePoly(points,face,edge){ac.beginPath();points.forEach(([x,y],i)=>i?ac.lineTo(x,y):ac.moveTo(x,y));ac.closePath();ac.fillStyle=face;ac.fill();if(edge){ac.strokeStyle=edge;ac.lineWidth=1.4;ac.stroke()}}
+ // Perimeter arcades: fractured pillars with shadow, visible caps, engraved faces.
+ const columns=[[145,178,1],[1134,180,-1],[150,535,1],[1125,540,-1],[410,70,1],[870,650,-1]];
+ for(const [x,y,flip] of columns){
+  ac.save();ac.translate(x,y);ac.scale(flip,1);
+  ac.fillStyle='#030713a3';ac.beginPath();ac.ellipse(19,19,53,19,-.17,0,Math.PI*2);ac.fill();
+  stonePoly([[-28,7],[-22,-31],[13,-41],[27,-17],[25,8]],'#27283e','#a39aa05e');
+  stonePoly([[-28,-31],[-13,-44],[26,-42],[13,-31]],'#62586d','#d7c2aa55');
+  stonePoly([[-22,-30],[-18,-9],[12,-12],[13,-31]],'#414056');
+  ac.strokeStyle='#b6a2a36a';ac.beginPath();ac.moveTo(-14,-28);ac.lineTo(-6,-18);ac.lineTo(-10,-7);ac.moveTo(6,-34);ac.lineTo(0,-22);ac.stroke();
+  ac.fillStyle='#a5d6dd40';ac.fillRect(-16,-25,3,11);ac.restore();
+ }
+ // Low-relief elevation bands kept outside the central play area.
+ for(const side of [-1,1]){
+  ac.save();ac.translate(640+side*505,360);ac.scale(side,1);
+  stonePoly([[-30,-96],[19,-119],[43,-83],[44,81],[20,113],[-30,96]],'#171b30b8','#857d9b4c');
+  stonePoly([[-30,-96],[19,-119],[43,-83],[-5,-62]],'#49445d88','#b7a4b044');
+  ac.restore();
+ }
+ // Architectural plinth: octagonal masonry sides and lit upper rim.
+ ac.save();ac.translate(640,360);
+ const oct=(r,y=0)=>Array.from({length:8},(_,i)=>{const a=Math.PI/8+i*Math.PI/4;return [Math.cos(a)*r,Math.sin(a)*r*.60+y]});
+ stonePoly(oct(98,18),'#080b1bb8');
+ stonePoly(oct(94,10),'#23243d','#a18f9b88');
+ stonePoly(oct(90,-3),'#4b465e','#e0c4a566');
+ stonePoly(oct(79,-7),'#262d47','#83d5d488');
+ ac.save();ac.shadowColor='#83e7d4';ac.shadowBlur=13;ac.strokeStyle='#a1f1e08c';ac.lineWidth=2;
+ ac.beginPath();ac.ellipse(0,-7,69,32,0,0,Math.PI*2);ac.stroke();ac.restore();
+ for(let i=0;i<8;i++){let a=i*Math.PI/4;ac.save();ac.rotate(a);ac.strokeStyle='#d8b8788c';ac.beginPath();ac.moveTo(-7,-69);ac.lineTo(0,-75);ac.lineTo(7,-69);ac.stroke();ac.restore()}
+ ac.restore();
+ // Warm/cool material lighting, painted into the static cache.
+ const light=ac.createRadialGradient(640,350,22,640,350,198);
+ light.addColorStop(0,'#9df2ec20');light.addColorStop(.45,'#8dc9e20b');light.addColorStop(1,'#8dc9e200');ac.fillStyle=light;ac.fillRect(430,140,420,420);
+
+ // 10. Edge lighting: retain legibility instead of stacking opaque darkness.
+ // Altar rings and runic compass are part of the terrain, not HUD.
+ ac.save();ac.translate(640,360);
+ ac.shadowColor="#e8c989";ac.shadowBlur=7;
+ for(const radius of [86,100,146,213,290]){ac.beginPath();ac.arc(0,0,radius,0,Math.PI*2);ac.strokeStyle=radius<150?'#d3ae6c55':'#af8d9950';ac.lineWidth=radius===100?3:1.5;ac.stroke()}
+ ac.shadowBlur=0;
+ for(let i=0;i<24;i++){let a=i*Math.PI/12;ac.save();ac.rotate(a);ac.fillStyle=i%3===0?'#f3d6a55c':'#bca8d340';ac.beginPath();ac.moveTo(0,-207);ac.lineTo(-5,-221);ac.lineTo(0,-231);ac.lineTo(5,-221);ac.closePath();ac.fill();ac.restore()}
+ for(let i=0;i<8;i++){let a=i*Math.PI/4;ac.save();ac.rotate(a);ac.strokeStyle='#e0b56c55';ac.strokeRect(-13,-137,26,26);ac.beginPath();ac.moveTo(0,-147);ac.lineTo(7,-137);ac.lineTo(0,-127);ac.lineTo(-7,-137);ac.closePath();ac.stroke();ac.restore()}
+ ac.restore();
+
+ // V31.18: restrained architectural detail pass; all strokes baked once.
+ // Distinct chipped edges, fine mortar, and tiny metal inlays around the altar.
+ ac.save();ac.translate(SIZE.cx,SIZE.cy);
+ for(let i=0;i<8;i++){
+   const angle=i*Math.PI/4;ac.save();ac.rotate(angle);
+   ac.fillStyle='#090f20b0';ac.beginPath();ac.ellipse(0,-162,18,5,0,0,Math.PI*2);ac.fill();
+   ac.fillStyle='#4a4458';ac.beginPath();ac.moveTo(-13,-170);ac.lineTo(-9,-181);ac.lineTo(8,-182);ac.lineTo(14,-169);ac.closePath();ac.fill();
+   ac.strokeStyle='#d6b87b83';ac.lineWidth=1;ac.beginPath();ac.moveTo(-9,-180);ac.lineTo(8,-181);ac.stroke();
+   ac.strokeStyle='#75dcd66b';ac.beginPath();ac.moveTo(0,-179);ac.lineTo(0,-173);ac.stroke();
+   ac.restore();
+ }
+ // Subtle compass ticks: static rather than animated, so combat remains legible.
+ for(let i=0;i<48;i++){
+   const a=i*Math.PI/24;const r=i%4===0?247:252;
+   ac.strokeStyle=i%4===0?'#dfc18b58':'#a6b8d42b';ac.lineWidth=i%4===0?1.4:.7;
+   ac.beginPath();ac.moveTo(Math.cos(a)*r,Math.sin(a)*r);
+   ac.lineTo(Math.cos(a)*(r+(i%4===0?11:5)),Math.sin(a)*(r+(i%4===0?11:5)));ac.stroke();
+ }
+ ac.restore();
+ // Perimeter moss and rubble; seeded and sparse, never placed near the altar.
+ for(let i=0;i<110;i++){
+   const x=rnd()*SIZE.width,y=rnd()*SIZE.height;
+   if(Math.hypot((x-SIZE.cx)*1.05,y-SIZE.cy)<325)continue;
+   const r=1.5+rnd()*5;
+   ac.fillStyle=rnd()<.45?'#5a796133':'#918a9b25';
+   ac.beginPath();ac.ellipse(x,y,r*1.7,r*.45,rnd()*3.14,0,Math.PI*2);ac.fill();
+ }
+ // V31.18: fractured perimeter inscriptions, tiny chips, and directional edge lighting.
+ ac.save();
+ for(let k=0;k<18;k++){
+   const side=k%4,offset=(k*173+53)%690;
+   const x=side<2?(side===0?52:1228):125+offset*1.45;
+   const y=side>=2?(side===2?52:668):35+offset;
+   if(x>1250||y>700)continue;
+   ac.save();ac.translate(x,y);ac.rotate((k%7-3)*.14);
+   ac.fillStyle='#111a2b';ac.beginPath();ac.ellipse(5,8,24,9,0,0,Math.PI*2);ac.fill();
+   ac.fillStyle='#454456';ac.beginPath();ac.moveTo(-17,0);ac.lineTo(-12,-8);ac.lineTo(11,-10);ac.lineTo(20,-2);ac.lineTo(15,5);ac.lineTo(-13,6);ac.closePath();ac.fill();
+   ac.strokeStyle='#b6a2a05c';ac.lineWidth=1.2;ac.beginPath();ac.moveTo(-12,-6);ac.lineTo(11,-8);ac.stroke();
+   ac.strokeStyle='#74b4b766';ac.beginPath();ac.moveTo(-5,-3);ac.lineTo(0,0);ac.lineTo(6,-4);ac.stroke();ac.restore();
+ }
+ ac.restore();
+ // Central concentric wear rings with deliberately broken strokes.
+ ac.save();ac.translate(SIZE.cx,SIZE.cy);
+ for(let ring=0;ring<3;ring++){
+   const r=173+ring*31;
+   for(let j=0;j<12;j++){
+     const a=j*Math.PI/6+ring*.21;
+     ac.beginPath();ac.arc(0,0,r,a,a+.23+(j%3)*.065);
+     ac.strokeStyle=ring===0?'#b9b0aa3b':'#8b9aaf2c';ac.lineWidth=ring===0?2.3:1.4;ac.stroke();
+   }
+ }
+ ac.restore();
+ const v=ac.createRadialGradient(640,360,250,640,360,790);v.addColorStop(0,'#00000000');v.addColorStop(1,'#0009168c');ac.fillStyle=v;ac.fillRect(0,0,1280,720);
+}
+buildArena();
+// Particle geometry is deterministic and computed only once.
+const particles=Array.from({length:34},(_,i)=>{const a=i*2.39996,rr=150+(i*47)%460;return {x:Math.cos(a)*rr,y:Math.sin(a)*rr,r:i%7===0?2:1.1,phase:i*2.3,speed:.35+i%5*.07,color:(i*17)%7<3?'#ffd29a':'#8cb8ff'};});
+// Stable animated glyph arcs; drawn after terrain and before gameplay entities.
+function drawRunicPulse(ctx,opts={}){
+ const w=opts.width??SIZE.width,h=opts.height??SIZE.height,t=opts.time??0;
+ const quality=opts.quality??QUALITY.HIGH;
+ if(quality===QUALITY.LOW || opts.reducedMotion===true)return;
+ ctx.save();ctx.translate((opts.centerX??w/2),(opts.centerY??h/2));ctx.scale(w/SIZE.width,h/SIZE.height);
+ ctx.globalCompositeOperation='screen';
+ const segments=quality===QUALITY.MEDIUM?4:8;
+ for(let i=0;i<segments;i++){
+  const a=i*Math.PI*2/segments+t*.045;
+  const opacity=.06+.035*(1+Math.sin(t*.65+i*1.9))*.5;
+  ctx.strokeStyle=`rgba(114,222,222,${opacity.toFixed(3)})`;
+  ctx.lineWidth=2.2;ctx.beginPath();ctx.arc(0,0,209,a,a+.18);ctx.stroke();
+ }
+ ctx.restore();
+}
+/** Draw atmosphere in the same logical coordinate space as the supplied width/height. */
+function drawAtmosphere(ctx,opts={}){
+ const width=opts.width??SIZE.width,height=opts.height??SIZE.height;
+ const sx=width/SIZE.width,sy=height/SIZE.height,t=opts.time??0;
+ const cx=opts.centerX??width*.5,cy=opts.centerY??height*.5;
+ const quality=opts.quality??QUALITY.HIGH;
+ const count=quality===QUALITY.LOW?10:quality===QUALITY.MEDIUM?22:34;
+ ctx.save();ctx.globalCompositeOperation='screen';
+ for(let i=0;i<count;i++){
+  const p=particles[i];const drift=Math.sin(t*p.speed+p.phase)*8;
+  const alpha=.15+.035*Math.sin(t*.30+p.phase)+.025*Math.sin(t*.19+i*.8);
+  ctx.globalAlpha=Math.max(.06,alpha);ctx.fillStyle=p.color;
+  ctx.beginPath();ctx.ellipse(cx+p.x*sx,cy+(p.y+drift)*sy,Math.max(.6,p.r*sx),Math.max(.6,p.r*sy),0,0,Math.PI*2);ctx.fill();
+ }
+ ctx.restore();
+}
+/** @typedef {{width?:number,height?:number,time?:number,quality?:'low'|'medium'|'high',atmosphere?:boolean,centerX?:number,centerY?:number}} BackgroundOptions */
+const SGBackground={
+ SIZE,QUALITY,canvas:arena,rebuild:buildArena,
+ /** @param {CanvasRenderingContext2D} ctx @param {BackgroundOptions} opts */
+ draw(ctx,opts={}){
+  if(!ctx)return;
+  const width=opts.width??SIZE.width,height=opts.height??SIZE.height;
+  if(!(width>0&&height>0))return;
+  ctx.save();ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
+  ctx.drawImage(arena,0,0,width,height);
+  if(opts.atmosphere!==false){drawRunicPulse(ctx,{...opts,width,height});drawAtmosphere(ctx,{...opts,width,height});}
+  ctx.restore();
+ },
+ drawTerrain(ctx,opts={}){if(ctx)ctx.drawImage(arena,0,0,opts.width??SIZE.width,opts.height??SIZE.height)},
+ drawAtmosphere,drawRunicPulse
+};
+global.SGBackground=SGBackground;
+})(typeof window!=='undefined'?window:globalThis);
+
+
+(()=>{'use strict';
+ const canvas=document.getElementById('view'),ctx=canvas.getContext('2d',{alpha:false});
+ const high=document.getElementById('high'),low=document.getElementById('low'),pause=document.getElementById('pause');
+ const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
+ let quality=SGBackground.QUALITY.HIGH,paused=reduced,t=0,last=0,dpr=1,w=0,h=0,resizePending=false;
+ const staticLayer=document.createElement('canvas');const bg=staticLayer.getContext('2d',{alpha:false});
+ function resize(){resizePending=false;w=Math.max(1,innerWidth);h=Math.max(1,innerHeight);
+  dpr=Math.min(devicePixelRatio||1,quality==='low'?1.5:2.5);
+  canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);
+  staticLayer.width=canvas.width;staticLayer.height=canvas.height;
+  bg.setTransform(dpr,0,0,dpr,0,0);bg.fillStyle='#080c19';bg.fillRect(0,0,w,h);
+  const s=Math.max(w/1280,h/720),dw=1280*s,dh=720*s;
+  bg.drawImage(SGBackground.canvas,(w-dw)/2,(h-dh)/2,dw,dh);
+ }
+ function scheduleResize(){if(!resizePending){resizePending=true;requestAnimationFrame(resize)}}
+ addEventListener('resize',scheduleResize,{passive:true});addEventListener('orientationchange',scheduleResize,{passive:true});
+ function setQuality(q){quality=q;high.setAttribute('aria-pressed',String(q==='high'));low.setAttribute('aria-pressed',String(q==='low'));scheduleResize()}
+ high.onclick=()=>setQuality('high');low.onclick=()=>setQuality('low');
+ function syncPause(){pause.setAttribute('aria-pressed',String(paused));pause.textContent=paused?'繼續動畫':'暫停動畫'}
+ pause.onclick=()=>{paused=!paused;last=0;syncPause()};syncPause();
+ document.addEventListener('visibilitychange',()=>{last=0});
+ resize();
+ function frame(ms){if(!last)last=ms;const dt=Math.min((ms-last)/1000,.05);last=ms;if(!paused)t+=dt;
+  ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(staticLayer,0,0);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const s=Math.max(w/1280,h/720),dw=1280*s,dh=720*s;
+  ctx.save();ctx.translate((w-dw)/2,(h-dh)/2);ctx.scale(s,s);
+  SGBackground.drawRunicPulse(ctx,{time:t,quality,width:1280,height:720,reducedMotion:reduced});
+  SGBackground.drawAtmosphere(ctx,{time:t,quality,width:1280,height:720});ctx.restore();
+  requestAnimationFrame(frame);
+ }requestAnimationFrame(frame);
+})();
+</script></body></html>

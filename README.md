@@ -1,18 +1,15 @@
-# 靈境守衛 Spirit Guardian
+# 靈境守衛 Spirit Guardian — Godot M2
 
-原 HTML 遊戲全部保留。Godot 移植在 `godot/`，本次分支為 `godot/phase-1-minimum`，不替換 `index.html`。
+原來27個HTML全部保留；本次11個補充附件原樣存於 `reference_modules/`。Godot在 `godot/`，分支 `godot/m2-module-supplement`，延續M1而不覆蓋原遊戲入口。
 
-- [Godot 匯入與操作](godot/README.md)
-- [原版盤點、版本選擇與整合風險](docs/AUDIT.md)
-- [逐項功能移植表](docs/FEATURES.md)
-- [架構、資料介面與後續階段](docs/ARCHITECTURE.md)
-- [實際測試與限制](docs/TESTING.md)
-- [素材出處／雜湊／授權狀態](docs/asset-manifest.json)
+- [M2逐附件接入、可玩功能與未完成清單](docs/M2_MODULES.md)
+- [M2測試與限制](docs/M2_TESTING.md)
+- [Godot匯入及操作](godot/README.md)
+- [原始補充檔案manifest](docs/supplement-manifest.json)
+- [M1原庫盤點（歷史）](docs/AUDIT.md)、[M1功能清單（歷史）](docs/FEATURES.md)、[架構規劃](docs/ARCHITECTURE.md)
 
-可玩回歸基線為 V31.10；V32/V33/V34 有已重現的初始化錯誤，保留為功能／視覺參考。Godot M1 是最小戰鬥版，尚非完整遊戲重製。
+Godot 4.6.3：`python3 tools/check_godot.py` 執行18項戰鬥與39項模組整合測試。安裝相同版本官方 Web templates 後，建立 `godot/export/web` 再執行 `godot --headless --path godot --export-release Web`。`python3 tools/test_web.py` 測實際WebGL匯出及觸控模擬，需Playwright 1.62.0與Chromium，可用 `CHROMIUM_PATH` 指定執行檔。
 
-Godot 4.6.3 安裝後：`python3 tools/check_godot.py`；安裝相同版官方 Web export templates 後：`godot --headless --path godot --export-release Web`（先建立 godot/export/web）。`python3 tools/package_project.py` 產出乾淨可匯入 ZIP。Actions 會完成引擎測試、Web 匯出及觸控模擬測試並提供 artifact；沒有自動部署到 Pages 或覆蓋原 HTML。
+`python3 tools/build_supplement_catalog.py` 從附件再生資料／圖檔（需Node.js）。`python3 tools/audit_supplements.py` 逐頁短測原附件。`python3 tools/package_project.py` 產出 Godot M2、Web M2及原模組來源ZIP。
 
-HTML／Web 測試需 Python Playwright；`python3 -m playwright install chromium` 後可執行 `tools/audit_html.py`、`tools/audit_older.py`、`tools/test_web.py`。若使用已有 Chromium，可設 `CHROMIUM_PATH`。素材抽取需 Pillow；`tools/extract_assets.py` 抽 WebP，`audit_html.py` 另存 terrain Canvas 快取。
-
-新移植程式碼採 MIT；原 HTML 與抽取美術不在這次授權範圍。詳見 [LICENSE-GODOT-CODE.md](LICENSE-GODOT-CODE.md)。
+Actions流程僅驗證／匯出／提供artifact，不部署、不覆蓋原HTML。實際遠端是否推送成功以交付訊息為準；原GitHub連接曾回403。新移植程式碼MIT，原HTML及抽取圖像不被重新授權，詳見 [LICENSE-GODOT-CODE.md](LICENSE-GODOT-CODE.md)。

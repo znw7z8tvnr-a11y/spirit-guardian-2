@@ -1,5 +1,7 @@
 # 靈境守衛 Spirit Guardian — Godot M2
 
+[開啟 M2 網頁試玩（需以擁有者 ChatGPT 帳號登入）](https://spirit-guardian-m2-play.trylook.chatgpt.site) · [部署與驗證紀錄](deployment/m2/README.md)
+
 原來27個HTML全部保留；本次11個補充附件原樣存於 `reference_modules/`。Godot在 `godot/`，分支 `godot/m2-module-supplement`，延續M1而不覆蓋原遊戲入口。
 
 - [M2逐附件接入、可玩功能與未完成清單](docs/M2_MODULES.md)

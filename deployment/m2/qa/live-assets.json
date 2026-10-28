@@ -1,0 +1,28 @@
+{
+  "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/",
+  "html_status": 200,
+  "source_commit": "831d14318f02e526d3bb174fa83abfc8b01ed2a3",
+  "wasm_sha256": "26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6",
+  "parts": [
+    {
+      "file": "index.wasm.part00.bin",
+      "status": 200,
+      "bytes": 12582912,
+      "hash_matches": true
+    },
+    {
+      "file": "index.wasm.part01.bin",
+      "status": 200,
+      "bytes": 12582912,
+      "hash_matches": true
+    },
+    {
+      "file": "index.wasm.part02.bin",
+      "status": 200,
+      "bytes": 12534842,
+      "hash_matches": true
+    }
+  ],
+  "pck_matches_ci": true,
+  "note": "TLS verified using configured environment CA. Live browser QA blocked by Chromium CA trust; local WebGL/touch QA passed."
+}

@@ -1,0 +1,26 @@
+{
+  "source_repository": "znw7z8tvnr-a11y/spirit-guardian-2",
+  "source_commit": "831d14318f02e526d3bb174fa83abfc8b01ed2a3",
+  "workflow_run": 40721247540,
+  "artifact_id": 12830312750,
+  "web_zip_sha256": "c4aec3ca96b2935fd4758fe1c610173e1347bb13ccaae593ff7104582958be9d",
+  "wasm_bytes": 37700666,
+  "wasm_sha256": "26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6",
+  "chunks": [
+    {
+      "file": "index.wasm.part00.bin",
+      "bytes": 12582912,
+      "sha256": "fb4235838cdaa306805993e0d7d21946297ad2c96a21292ba2b229375d964049"
+    },
+    {
+      "file": "index.wasm.part01.bin",
+      "bytes": 12582912,
+      "sha256": "a1b595b2760f9f435ae460dd99e9a86865c39776411313814f568843ad33d80c"
+    },
+    {
+      "file": "index.wasm.part02.bin",
+      "bytes": 12534842,
+      "sha256": "87c80233ed7f42c6f0e3effa8365421a667abac775ff085b2b7dd1b127bb0cf2"
+    }
+  ]
+}

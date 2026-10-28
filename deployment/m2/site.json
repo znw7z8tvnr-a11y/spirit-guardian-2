@@ -1,0 +1,12 @@
+{
+  "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+  "deployment_id": "appgdep_6ae21fe12074819188c0e5f3f9de4272",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_52ae9669efc88191a8b43a24988076f0",
+  "status": "succeeded",
+  "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+  "audience": "owner-private",
+  "game_source_commit": "831d14318f02e526d3bb174fa83abfc8b01ed2a3",
+  "hosting_source_commit": "0c4b94743e39618e7d3204c1c209d00624d7680a",
+  "ci_run": 40721247540,
+  "ci_artifact": 12830312750
+}

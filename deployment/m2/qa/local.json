@@ -1,0 +1,496 @@
+{
+  "landscape": {
+    "initial": {
+      "buttons": {
+        "1x": [
+          582,
+          841,
+          112,
+          48
+        ],
+        "Arcane": [
+          582,
+          789,
+          112,
+          48
+        ],
+        "Audio: off": [
+          698,
+          710,
+          112,
+          48
+        ],
+        "Beam": [
+          1046,
+          789,
+          112,
+          48
+        ],
+        "Chain": [
+          582,
+          710,
+          112,
+          48
+        ],
+        "Fire": [
+          234,
+          789,
+          112,
+          48
+        ],
+        "Ice": [
+          350,
+          789,
+          112,
+          48
+        ],
+        "Lightning": [
+          466,
+          789,
+          112,
+          48
+        ],
+        "Meteor": [
+          814,
+          789,
+          112,
+          48
+        ],
+        "Next wave": [
+          698,
+          841,
+          112,
+          48
+        ],
+        "Nova": [
+          930,
+          789,
+          112,
+          48
+        ],
+        "Pause": [
+          466,
+          841,
+          112,
+          48
+        ],
+        "Poison": [
+          698,
+          789,
+          112,
+          48
+        ],
+        "Restart": [
+          814,
+          841,
+          112,
+          48
+        ]
+      },
+      "chain_casts": 0,
+      "damage": 0,
+      "element": "fire",
+      "enemies": 1,
+      "finishers": 0,
+      "fps": 26,
+      "fusions": 0,
+      "graph_open": false,
+      "hp": 100,
+      "kills": 0,
+      "nodes": 5,
+      "over": false,
+      "paused": false,
+      "reward_open": false,
+      "shots": 1,
+      "speed": 1,
+      "viewport": [
+        1280,
+        889
+      ],
+      "wave": 1
+    },
+    "final": {
+      "buttons": {
+        "1x": [
+          582,
+          841,
+          112,
+          48
+        ],
+        "Arcane": [
+          582,
+          789,
+          112,
+          48
+        ],
+        "Audio: off": [
+          698,
+          710,
+          112,
+          48
+        ],
+        "Beam": [
+          1046,
+          789,
+          112,
+          48
+        ],
+        "Chain": [
+          582,
+          710,
+          112,
+          48
+        ],
+        "Fire": [
+          234,
+          789,
+          112,
+          48
+        ],
+        "Ice": [
+          350,
+          789,
+          112,
+          48
+        ],
+        "Lightning": [
+          466,
+          789,
+          112,
+          48
+        ],
+        "Meteor": [
+          814,
+          789,
+          112,
+          48
+        ],
+        "Next wave": [
+          698,
+          841,
+          112,
+          48
+        ],
+        "Nova": [
+          930,
+          789,
+          112,
+          48
+        ],
+        "Pause": [
+          466,
+          841,
+          112,
+          48
+        ],
+        "Poison": [
+          698,
+          789,
+          112,
+          48
+        ],
+        "Restart": [
+          814,
+          841,
+          112,
+          48
+        ]
+      },
+      "chain_casts": 0,
+      "damage": 0,
+      "element": "fire",
+      "enemies": 0,
+      "finishers": 0,
+      "fps": 16,
+      "fusions": 0,
+      "graph_open": false,
+      "hp": 100,
+      "kills": 0,
+      "nodes": 5,
+      "over": false,
+      "paused": false,
+      "reward_open": false,
+      "shots": 0,
+      "speed": 1,
+      "viewport": [
+        1280,
+        889
+      ],
+      "wave": 0
+    },
+    "wasm_parts": [
+      {
+        "path": "index.wasm.part00.bin",
+        "status": 200
+      },
+      {
+        "path": "index.wasm.part01.bin",
+        "status": 200
+      },
+      {
+        "path": "index.wasm.part02.bin",
+        "status": 200
+      }
+    ],
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "split-wasm WebGL boot",
+      "enemy spawns",
+      "pause/resume",
+      "speed",
+      "spell selection",
+      "graph add/undo",
+      "build save/restart",
+      "audio toggle without runtime errors"
+    ],
+    "limit": "Linux Chromium software WebGL with touch emulation; iPad Safari unverified"
+  },
+  "portrait": {
+    "initial": {
+      "buttons": {
+        "1x": [
+          582,
+          1793,
+          112,
+          48
+        ],
+        "Arcane": [
+          582,
+          1741,
+          112,
+          48
+        ],
+        "Audio: off": [
+          698,
+          1662,
+          112,
+          48
+        ],
+        "Beam": [
+          1046,
+          1741,
+          112,
+          48
+        ],
+        "Chain": [
+          582,
+          1662,
+          112,
+          48
+        ],
+        "Fire": [
+          234,
+          1741,
+          112,
+          48
+        ],
+        "Ice": [
+          350,
+          1741,
+          112,
+          48
+        ],
+        "Lightning": [
+          466,
+          1741,
+          112,
+          48
+        ],
+        "Meteor": [
+          814,
+          1741,
+          112,
+          48
+        ],
+        "Next wave": [
+          698,
+          1793,
+          112,
+          48
+        ],
+        "Nova": [
+          930,
+          1741,
+          112,
+          48
+        ],
+        "Pause": [
+          466,
+          1793,
+          112,
+          48
+        ],
+        "Poison": [
+          698,
+          1741,
+          112,
+          48
+        ],
+        "Restart": [
+          814,
+          1793,
+          112,
+          48
+        ]
+      },
+      "chain_casts": 0,
+      "damage": 0,
+      "element": "fire",
+      "enemies": 1,
+      "finishers": 0,
+      "fps": 30,
+      "fusions": 0,
+      "graph_open": false,
+      "hp": 100,
+      "kills": 0,
+      "nodes": 5,
+      "over": false,
+      "paused": false,
+      "reward_open": false,
+      "shots": 1,
+      "speed": 1,
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wave": 1
+    },
+    "final": {
+      "buttons": {
+        "1x": [
+          582,
+          1793,
+          112,
+          48
+        ],
+        "Arcane": [
+          582,
+          1741,
+          112,
+          48
+        ],
+        "Audio: off": [
+          698,
+          1662,
+          112,
+          48
+        ],
+        "Beam": [
+          1046,
+          1741,
+          112,
+          48
+        ],
+        "Chain": [
+          582,
+          1662,
+          112,
+          48
+        ],
+        "Fire": [
+          234,
+          1741,
+          112,
+          48
+        ],
+        "Ice": [
+          350,
+          1741,
+          112,
+          48
+        ],
+        "Lightning": [
+          466,
+          1741,
+          112,
+          48
+        ],
+        "Meteor": [
+          814,
+          1741,
+          112,
+          48
+        ],
+        "Next wave": [
+          698,
+          1793,
+          112,
+          48
+        ],
+        "Nova": [
+          930,
+          1741,
+          112,
+          48
+        ],
+        "Pause": [
+          466,
+          1793,
+          112,
+          48
+        ],
+        "Poison": [
+          698,
+          1741,
+          112,
+          48
+        ],
+        "Restart": [
+          814,
+          1793,
+          112,
+          48
+        ]
+      },
+      "chain_casts": 0,
+      "damage": 0,
+      "element": "fire",
+      "enemies": 0,
+      "finishers": 0,
+      "fps": 18,
+      "fusions": 0,
+      "graph_open": false,
+      "hp": 100,
+      "kills": 0,
+      "nodes": 5,
+      "over": false,
+      "paused": false,
+      "reward_open": false,
+      "shots": 0,
+      "speed": 1,
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wave": 0
+    },
+    "wasm_parts": [
+      {
+        "path": "index.wasm.part00.bin",
+        "status": 200
+      },
+      {
+        "path": "index.wasm.part01.bin",
+        "status": 200
+      },
+      {
+        "path": "index.wasm.part02.bin",
+        "status": 200
+      }
+    ],
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "split-wasm WebGL boot",
+      "enemy spawns",
+      "pause/resume",
+      "speed",
+      "spell selection",
+      "graph add/undo",
+      "build save/restart",
+      "audio toggle without runtime errors"
+    ],
+    "limit": "Linux Chromium software WebGL with touch emulation; iPad Safari unverified"
+  }
+}

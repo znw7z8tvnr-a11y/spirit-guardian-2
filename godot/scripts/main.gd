@@ -259,6 +259,12 @@ func _process(delta: float) -> void:
    var rect: Rect2 = debug_buttons[key].get_global_rect()
    bounds[key] = [rect.get_center().x, rect.get_center().y, rect.size.x, rect.size.y]
   state["buttons"] = bounds
+  state["edges"]=chain.edges
+  state["graph_scroll"]=[graph_editor.graph.scroll_offset.x,graph_editor.graph.scroll_offset.y]
+  state["pending_source"]=graph_editor.link_source
+  state["link_hint"]=graph_editor.link_hint.text
+  state["spell_columns"]=hud.spell_grid.columns
+  state["performance_visible"]=hud.performance.visible
   var labels: Dictionary={}
   for key in debug_buttons:labels[key]=debug_buttons[key].text
   state["labels"]=labels
@@ -323,6 +329,7 @@ func open_chain() -> void:
  publish_debug()
 
 func close_chain() -> void:
+ graph_editor.cancel_link()
  var saved: bool=save_system.save_build(chain.build())
  graph_editor.hide()
  for child in hud.root.get_children():

@@ -6,7 +6,7 @@ if args.web_zip:
  web=pathlib.Path(args.artifact).read_bytes()
 else:
  with zipfile.ZipFile(args.artifact) as z:
-  web=z.read('dist/SpiritGuardian-Web-M2-zh-Hant.zip')
+  web=z.read('dist/SpiritGuardian-Web-M2.1-zh-Hant.zip')
 with zipfile.ZipFile(io.BytesIO(web)) as z:
  for name in z.namelist():
   if pathlib.PurePosixPath(name).name!=name:raise ValueError('Unexpected export path')
@@ -14,7 +14,7 @@ with zipfile.ZipFile(io.BytesIO(web)) as z:
 wasm=out/'index.wasm';data=wasm.read_bytes();chunks=[]
 for i,start in enumerate(range(0,len(data),12*1024*1024)):
  name=f'index.wasm.part{i:02d}.bin';part=data[start:start+12*1024*1024];(out/name).write_bytes(part);chunks.append({'file':name,'bytes':len(part),'sha256':hashlib.sha256(part).hexdigest()})
-manifest={'source_repository':'znw7z8tvnr-a11y/spirit-guardian-2','source_commit':args.source_commit,'build_origin':'locally exported with Godot 4.6.3; native and browser tests recorded in docs/m2-zh','web_zip_sha256':hashlib.sha256(web).hexdigest(),'wasm_bytes':len(data),'wasm_sha256':hashlib.sha256(data).hexdigest(),'chunks':chunks}
+manifest={'source_repository':'znw7z8tvnr-a11y/spirit-guardian-2','source_commit':args.source_commit,'build_origin':'locally exported with Godot 4.6.3; native and browser tests recorded in docs/m2-1','web_zip_sha256':hashlib.sha256(web).hexdigest(),'wasm_bytes':len(data),'wasm_sha256':hashlib.sha256(data).hexdigest(),'chunks':chunks}
 (out/'build-info.json').write_text(json.dumps(manifest,indent=2))
 # Reconstruct a streaming Response so Godot can keep its original wasm filename,
 # progress handling and instantiateStreaming. No game GDScript/PCK changes.
@@ -22,9 +22,9 @@ loader='''(() => {\n  const nativeFetch = window.fetch.bind(window);\n  const ba
 (out/'wasm-stream.js').write_text(loader)
 html=(out/'index.html').read_text();needle='<script src="index.js"></script>'
 if html.count(needle)!=1:raise ValueError('Unexpected Godot loader layout')
-html=html.replace(needle,'<script src="wasm-stream.js"></script>\n'+needle).replace('<html lang="en">','<html lang="zh-Hant">').replace('<title>Spirit Guardian — Modules M2</title>','<title>靈境守衛 Spirit Guardian｜M2 繁中試玩</title>')
+html=html.replace(needle,'<script src="wasm-stream.js"></script>\n'+needle).replace('<html lang="en">','<html lang="zh-Hant">').replace('<title>Spirit Guardian — Modules M2</title>','<title>靈境守衛 Spirit Guardian｜M2.1 觸控試玩</title>')
 (out/'index.html').write_text(html);wasm.unlink()
 assert hashlib.sha256(b''.join((out/x['file']).read_bytes() for x in chunks)).hexdigest()==manifest['wasm_sha256']
 assert max(p.stat().st_size for p in out.iterdir())<25*1024*1024
-(root/'README.md').write_text('# Spirit Guardian M2 playtest\n\nTraditional Chinese build. Source commit is recorded in dist/build-info.json; local export and test evidence are recorded in the GitHub source repository docs/m2-zh/.\nOriginal site remains at https://znw7z8tvnr-a11y.github.io/spirit-guardian-2/ .\nGame art is temporary. Only chain builds are saved; full run save and complete module parity remain pending.\nThe wasm file is streamed from size-limited chunks without modifying its bytes or the game PCK.\n')
+(root/'README.md').write_text('# Spirit Guardian M2 playtest\n\nTraditional Chinese build. Source commit is recorded in dist/build-info.json; local export and test evidence are recorded in the GitHub source repository docs/m2-1/.\nOriginal site remains at https://znw7z8tvnr-a11y.github.io/spirit-guardian-2/ .\nGame art is temporary. Only chain builds are saved; full run save and complete module parity remain pending.\nThe wasm file is streamed from size-limited chunks without modifying its bytes or the game PCK.\n')
 print(json.dumps({'directory':str(out),'wasm_bytes':len(data),'parts':len(chunks),'wasm_sha256':manifest['wasm_sha256']},indent=2))

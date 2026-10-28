@@ -37,8 +37,8 @@ jobs:
       - name: Export single-thread Web
         run: |
           mkdir -p godot/export/web
-          godot --headless --path godot --export-release Web > docs/m2-zh/godot-export.log 2>&1
-          if rg 'SCRIPT ERROR|ERROR:' docs/m2-zh/godot-export.log; then exit 1; fi
+          godot --headless --path godot --export-release Web > docs/m2-1/godot-export.log 2>&1
+          if rg 'SCRIPT ERROR|ERROR:' docs/m2-1/godot-export.log; then exit 1; fi
           cp godot/assets/fonts/OFL.txt godot/export/web/FONT-LICENSE.txt
           cp godot/assets/fonts/FONT_INFO.json godot/export/web/FONT-INFO.json
       - name: Browser test dependencies
@@ -54,7 +54,7 @@ jobs:
           name: godot-m2-delivery
           path: |
             dist/*.zip
-            docs/m2-zh/*.log
-            docs/m2-zh/*.json
-            docs/m2-zh/*.png
+            docs/m2-1/*.log
+            docs/m2-1/*.json
+            docs/m2-1/*.png
           if-no-files-found: error

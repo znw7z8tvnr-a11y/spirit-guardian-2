@@ -1,0 +1,27 @@
+{
+  "game_source_commit": "2624afd289c154eaa93bd938da9eefc69f232a18",
+  "native_checks": 560,
+  "native_result": "passed",
+  "local_webgl": [
+    "export landscape and portrait eight-spell regression plus actual timing-gem cooldown, pause and eight-speed battle",
+    "packaged streamed landscape and portrait full timing-gem touch flow"
+  ],
+  "ci_run": 40910211147,
+  "ci_conclusion": "success",
+  "ci_artifact": 12914570815,
+  "stable_root_files_unchanged": 18,
+  "original_gems_implemented_or_remade": 9,
+  "remaining_original_gems": 10,
+  "playable_spell_types": 8,
+  "remaining_attack_types": 14,
+  "limitations": [
+    "Linux Chromium emulated touch only; iPad Safari hardware untested",
+    "Timing playthrough uses owned training items and a two-skill fixture built through touch UI; no full normal twenty-wave balance claim",
+    "Temporary tinted sprite art; no final art or device performance claim",
+    "Full twenty-wave balance and complete run saving remain pending"
+  ],
+  "deployment_id": "appgdep_6ae373572bb481918d7599d0e078c743",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_ab022574dee48191bab23a4d23eaba9c",
+  "status": "succeeded",
+  "hosting_source_commit": "04963cb9790968a64d72e1c27638ea9826c9571e"
+}

@@ -1,6 +1,6 @@
 # 靈境守衛 Spirit Guardian — Godot M2.1 觸控版
 
-[2026-10-29 完整設計統整與開發順序](docs/design/MASTER_PLAN_2026-10-29.md)
+[2026-10-29 完整設計統整與開發順序](docs/design/MASTER_PLAN_2026-10-29.md) · [開發計畫書文字檔（TXT）](docs/design/SpiritGuardian_Project_Plan_2026-10-29.txt)
 
 [獨立連鎖戰鬥試驗室](https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/) · [試驗規則與限制](docs/CHAIN_LAB.md)
 

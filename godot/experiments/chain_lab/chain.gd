@@ -308,7 +308,7 @@ func arrange_discovered() -> bool:
 func load_spell_kit() -> void:
  load_kit()
  if not spell_kit_loaded:
-  for key in ["poison","meteor","nova","beam"]:
+  for key in ["poison","meteor","nova","beam","pierce"]:
    var id:=items.size();spell_kit_ids[key]=id;items.append({"id":id,"kind":"skill","key":key,"level":2})
   for key in ["burn","freeze","lowhp","delay"]:
    var id:=items.size();gem_kit_ids[key]=id;items.append({"id":id,"kind":"gem","key":key,"level":1 if key=="delay" else 3})

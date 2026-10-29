@@ -138,7 +138,7 @@ func create_ui() -> void:
  var row:=GridContainer.new();row.columns=8;battle_controls=row;center.add_child(row)
  make_button("Configure","配置／背包",row,func():open_editor())
  make_button("Kit","載入試驗配置",row,func():chain.load_kit();open_editor())
- make_button("SpellKit","八技能演練",row,func():chain.load_spell_kit();open_editor())
+ make_button("SpellKit","技能演練",row,func():chain.load_spell_kit();open_editor())
  make_button("Flesh","血肉城牆",row,open_growth)
  make_button("Tempo","節奏：標準",row,cycle_tempo)
  make_button("Speed","倍速：1×",row,cycle_speed)
@@ -300,6 +300,8 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   shot.position=at+Vector2(0,-260);shot.scale=Vector2.ONE*0.38;shot.rotation=-PI/2
   tween.tween_interval(0.25)
   tween.tween_property(shot,"position",at,flight_time*1.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+ elif str(item.key)=="pierce":
+  tween.tween_property(shot,"position",at,flight_time*0.65)
  else:
   var lift: Vector2=(shot.position+at)*0.5+Vector2(0,-90)
   tween.tween_property(shot,"position",lift,flight_time*0.5).set_trans(Tween.TRANS_SINE)
@@ -308,7 +310,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   if not chain.current(run):shot.queue_free();return
   var victim: Node2D=target_ref.get_ref() if target_ref!=null else null
   if not chain.alive(victim):
-   victim=null if str(item.key) in ["meteor","nova","beam"] else chain.choose_target(at,run)
+   victim=null if str(item.key) in ["meteor","nova","beam","pierce"] else chain.choose_target(at,run)
    if victim!=null:
     chain.retargets+=1
     if chain.target_id(victim) not in run.visited:run.visited.append(chain.target_id(victim))
@@ -323,7 +325,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   spell_hit_counts[key]=int(spell_hit_counts.get(key,0))+int(result.hit_count)
   # Ground casts retain shaped FX; only the resolver supplies real hit/kill gates.
   spell_impact(impact_at,key)
-  if key in ["meteor","nova","poison","beam"]:spell_visual(key,context.origin,impact_at)
+  if key in ["meteor","nova","poison","beam","pierce"]:spell_visual(key,context.origin,impact_at)
   chain.complete_skill(slot,victim,result,run,context)
   shot.queue_free()
  )
@@ -361,7 +363,7 @@ func publish_debug() -> void:
  if is_instance_valid(inventory):
   for key in inventory.cards:
    var rect: Rect2=inventory.cards[key].get_global_rect();bounds[key]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
- JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"spell_flights":shots.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_visuals":fx.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_casts":spell_cast_counts,"spell_hits":spell_hit_counts,"spell_keys":Catalog.PLAYABLE,"spell_kit":chain.spell_kit_loaded,"spell_kit_ids":chain.spell_kit_ids,"gem_kit_ids":chain.gem_kit_ids,"gem_cooldowns":chain.cooldown_snapshot(),"boss":boss_info,"boss_kills":boss_kills,"summoned_minions":summoned_minions,"summon_events":summon_events,"attack_period":effective_attack_period(),"reward_loadout":loadout_notice.visible,"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
+ JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"spell_flights":shots.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_visuals":fx.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_casts":spell_cast_counts,"spell_hits":spell_hit_counts,"spell_keys":SpellEffects.PLAYABLE,"spell_kit":chain.spell_kit_loaded,"spell_kit_ids":chain.spell_kit_ids,"gem_kit_ids":chain.gem_kit_ids,"gem_cooldowns":chain.cooldown_snapshot(),"boss":boss_info,"boss_kills":boss_kills,"summoned_minions":summoned_minions,"summon_events":summon_events,"attack_period":effective_attack_period(),"reward_loadout":loadout_notice.visible,"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
 
 func effective_attack_period() -> float:
  # A lone starting spell should not wait for a nonexistent long chain.
@@ -452,7 +454,12 @@ func spell_visual(key: String, origin: Vector2, at: Vector2) -> void:
  if fx.get_child_count()>=FX.MAX_EFFECTS:return
  var art:=Sprite2D.new();art.texture=SpellEffects.impact_texture(key);art.position=at;art.modulate.a=0.65;art.set_meta("spell_key",key);fx.add_child(art)
  var duration:=0.55
- if key=="beam":
+ if key=="pierce":
+  var left: float=minf(-240.0,at.x-1200.0);var right: float=maxf(2040.0,at.x+1200.0)
+  for enemy in enemies.get_children():
+   if chain.alive(enemy):left=minf(left,enemy.position.x-80);right=maxf(right,enemy.position.x+80)
+  art.texture=SpellEffects.BEAM_ART;art.position=Vector2((left+right)*0.5,at.y);art.scale=Vector2((right-left)/art.texture.get_width(),76.0/art.texture.get_height());duration=0.3
+ elif key=="beam":
   var length:=clampf(origin.distance_to(at)+160,120,1000)
   var axis: Vector2=(at-origin).normalized()
   if axis==Vector2.ZERO:axis=Vector2.RIGHT

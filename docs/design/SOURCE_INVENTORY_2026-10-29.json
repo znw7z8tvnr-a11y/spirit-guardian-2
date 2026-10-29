@@ -207,7 +207,7 @@
         "max_victims": 8
       },
       "m2_1": "catalog only; behavior port pending",
-      "lab_v2": "not implemented",
+      "lab_v2": "Lab horizontal lightning strip; see PIERCE_SPELL.md",
       "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
     },
     {

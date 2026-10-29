@@ -76,7 +76,7 @@ jobs:
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-timing-gem-delivery
+          name: godot-pierce-spell-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
@@ -103,6 +103,7 @@ jobs:
             docs/first-boss/*.log
             docs/first-boss/*.json
             docs/first-boss/*.png
+            docs/pierce-spell/*
             docs/timing-gem/*
             docs/lowhp-gem/*
             docs/element-gems/*

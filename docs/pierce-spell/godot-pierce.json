@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "ninth skill is lab-only and stable root still advertises eight",
+    "pierce retains source damage and lightning mapping",
+    "pierce has bounded temporary sprite art and explicit row description",
+    "level 1 applies real level and meat scaling",
+    "level 2 applies real level and meat scaling",
+    "level 3 applies real level and meat scaling",
+    "horizontal strip includes both directions and excludes exact half-width thirty-eight",
+    "aggregate result identifies actual primary hit and element",
+    "row cap is eight and selected target is retained even with ten other candidates",
+    "eight real unique victims receive damage",
+    "empty row produces no phantom hit",
+    "real chain cast damages three row targets",
+    "multi-victim pierce advances its following gem exactly once",
+    "actual shaped row FX matches hit-band height and impact row",
+    "freed initial target retains row damage and rejects off-row survivor",
+    "ground-row hit records the real survivor rather than target zero",
+    "freed target with no row victims finishes as an actual miss"
+  ],
+  "failures": []
+}

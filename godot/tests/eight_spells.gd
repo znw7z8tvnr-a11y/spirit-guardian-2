@@ -54,11 +54,11 @@ func run() -> void:
   rewards.roll()
   for offer in rewards.offers:
    if offer.kind=="skill" and offer.key not in seen:seen.append(offer.key)
- check(seen.size()==8,"normal reward pool can produce all eight playable spell types");rewards.free()
+ check(seen.size()==9,"normal reward pool can produce all nine lab spell types");rewards.free()
  var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game;game.set_physics_process(false)
  game.chain.load_spell_kit();game.chain.rng.seed=32012;game.chain.resonance_chance=0
  var count: int=game.chain.items.size();game.chain.load_spell_kit()
- check(count==18 and game.chain.items.size()==18 and game.chain.slots.count(-1)==1,"spell training kit is idempotent and keeps nine used slots within capacity ten")
+ check(count==19 and game.chain.items.size()==19 and game.chain.slots.count(-1)==1,"spell training kit is idempotent and keeps nine used slots within capacity ten")
  for i in range(6):
   var e:=Enemy.new();e.max_hp=5000;e.hp=5000;e.speed=0;e.position=game.CENTER+Vector2(140+(i%3)*35,(i/3)*40);e.target=game.CENTER;e.resolver=game.resolver;game.enemies.add_child(e)
  game.chain.start(game.enemies.get_child(0))

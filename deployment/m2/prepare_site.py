@@ -24,7 +24,7 @@ if args.subdir=='lab' and (root/'dist/build-info.json').exists():
    if hashlib.sha256(shared.read_bytes()).hexdigest()!=part['sha256']:raise ValueError('Stable engine digest mismatch')
    (out/part['file']).unlink();part['file']='../'+part['file']
 manifest={'source_repository':'znw7z8tvnr-a11y/spirit-guardian-2','source_commit':args.source_commit,'build_origin':'locally exported with Godot 4.6.3; native and browser tests recorded in docs/m2-1','entrypoint':args.subdir or '/', 'web_zip_sha256':hashlib.sha256(web).hexdigest(),'wasm_bytes':len(data),'wasm_sha256':hashlib.sha256(data).hexdigest(),'chunks':chunks}
-if args.subdir=='lab':manifest['build_origin']='Godot 4.6.3 Chain Lab export; checks in docs/first-boss'
+if args.subdir=='lab':manifest['build_origin']='Godot 4.6.3 Chain Lab export; checks in docs/eight-spells'
 (out/'build-info.json').write_text(json.dumps(manifest,indent=2))
 # Reconstruct a streaming Response so Godot can keep its original wasm filename,
 # progress handling and instantiateStreaming. No game GDScript/PCK changes.

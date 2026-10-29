@@ -32,6 +32,8 @@ var rolls:=0
 var resonances:=0
 var kit_loaded:=false
 var kit_ids: Array=[]
+var spell_kit_loaded:=false
+var spell_kit_ids: Dictionary={}
 var last_message:="開局只有奧彈；可載入試驗配置測試連鎖。"
 func _init() -> void:
  rng.randomize()
@@ -262,3 +264,14 @@ func arrange_discovered() -> bool:
    edges.append({"from":i*2,"to":1+i*2});edges.append({"from":1+i*2,"to":2+i*2})
   reset_runtime();changed.emit();return true
  return false
+
+func load_spell_kit() -> void:
+ load_kit()
+ if not spell_kit_loaded:
+  for key in ["poison","meteor","nova","beam"]:
+   var id:=items.size();spell_kit_ids[key]=id;items.append({"id":id,"kind":"skill","key":key,"level":2})
+  spell_kit_loaded=true
+ slots=[0,kit_ids[0],spell_kit_ids.poison,kit_ids[3],spell_kit_ids.meteor,kit_ids[5],spell_kit_ids.nova,kit_ids[8],spell_kit_ids.beam,-1]
+ edges=[]
+ for i in range(8):edges.append({"from":i,"to":i+1})
+ reset_runtime();last_message="八技能演練：提供測試物品，不是正常掉落。";changed.emit()

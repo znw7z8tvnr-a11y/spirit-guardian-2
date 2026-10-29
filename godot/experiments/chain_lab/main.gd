@@ -1,4 +1,5 @@
 extends Node2D
+const SpellEffects=preload("res://experiments/chain_lab/spell_effects.gd")
 const Chain=preload("res://experiments/chain_lab/chain.gd")
 const Enemy=preload("res://modules/enemy/enemy.gd")
 const Boss=preload("res://modules/boss/boss.gd")
@@ -15,6 +16,8 @@ const BOOK_PATH:="user://chain_lab_book.json"
 var chain: Node
 var rewards: Node
 var reward_panel: PanelContainer
+var spell_cast_counts: Dictionary={}
+var spell_hit_counts: Dictionary={}
 var boss_defeated:=false
 var boss_kills:=0
 var summoned_minions:=0
@@ -132,9 +135,10 @@ func create_ui() -> void:
  event_label.custom_minimum_size.y=64;event_label.max_lines_visible=2
  settings_label=label("",bottom)
  var center:=CenterContainer.new();bottom.add_child(center)
- var row:=GridContainer.new();row.columns=7;battle_controls=row;center.add_child(row)
+ var row:=GridContainer.new();row.columns=8;battle_controls=row;center.add_child(row)
  make_button("Configure","配置／背包",row,func():open_editor())
  make_button("Kit","載入試驗配置",row,func():chain.load_kit();open_editor())
+ make_button("SpellKit","八技能演練",row,func():chain.load_spell_kit();open_editor())
  make_button("Flesh","血肉城牆",row,open_growth)
  make_button("Tempo","節奏：標準",row,cycle_tempo)
  make_button("Speed","倍速：1×",row,cycle_speed)
@@ -180,10 +184,10 @@ func create_ui() -> void:
 func resize_ui() -> void:
  var portrait:=get_viewport_rect().size.y>get_viewport_rect().size.x
  # Graph keeps spatial relationships in both orientations; outer panel scrolls.
- battle_controls.columns=4 if portrait else 7
+ battle_controls.columns=4 if portrait else 8
  bottom_box.offset_top=-310 if portrait else -240
- for key in ["Configure","Kit","Flesh","Tempo","Speed","Pause","Restart"]:
-  buttons[key].custom_minimum_size=Vector2(196 if portrait else 152,72)
+ for key in ["Configure","Kit","SpellKit","Flesh","Tempo","Speed","Pause","Restart"]:
+  buttons[key].custom_minimum_size=Vector2(196 if portrait else 144,72)
 func name_of(item: Dictionary) -> String:
  if item.is_empty():return "空格"
  return "%s・%d 級" % [Zh.spell(str(item.key)) if item.kind=="skill" else "接續寶石",int(item.level)]
@@ -285,44 +289,40 @@ func target_near(at: Vector2, radius: float) -> Node2D:
  return best
 func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, context: Dictionary) -> void:
  if not chain.current(run):return
- var shot:=Sprite2D.new();shot.texture=Projectile.TEXTURES[str(item.key)];shot.scale=Vector2.ONE*0.20
- shot.position=context.origin;shots.add_child(shot)
+ var shot:=Sprite2D.new();shot.texture=SpellEffects.texture(str(item.key));shot.scale=Vector2.ONE*0.20
+ shot.position=context.origin;shot.set_meta("spell_key",str(item.key));shots.add_child(shot)
  var at: Vector2=context.aim
  var attack_boost: float=spell_attack_multiplier()
  var target_ref: WeakRef=weakref(target) if is_instance_valid(target) else null
  var tween:=shot.create_tween()
- var lift: Vector2=(shot.position+at)*0.5+Vector2(0,-90)
- tween.tween_property(shot,"position",lift,flight_time*0.5).set_trans(Tween.TRANS_SINE)
- tween.tween_property(shot,"position",at,flight_time*0.5).set_trans(Tween.TRANS_SINE)
+ if str(item.key)=="meteor":
+  shot.position=at+Vector2(0,-260);shot.scale=Vector2.ONE*0.38;shot.rotation=PI/2
+  tween.tween_interval(0.25)
+  tween.tween_property(shot,"position",at,flight_time*1.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+ else:
+  var lift: Vector2=(shot.position+at)*0.5+Vector2(0,-90)
+  tween.tween_property(shot,"position",lift,flight_time*0.5).set_trans(Tween.TRANS_SINE)
+  tween.tween_property(shot,"position",at,flight_time*0.5).set_trans(Tween.TRANS_SINE)
  tween.tween_callback(func():
   if not chain.current(run):shot.queue_free();return
   var victim: Node2D=target_ref.get_ref() if target_ref!=null else null
   if not chain.alive(victim):
-   victim=chain.choose_target(at,run)
+   victim=null if str(item.key) in ["meteor","nova","beam"] else chain.choose_target(at,run)
    if victim!=null:
     chain.retargets+=1
     if chain.target_id(victim) not in run.visited:run.visited.append(chain.target_id(victim))
   var key: String=item.key
   var impact_at: Vector2=victim.position if chain.alive(victim) else at
-  var result: Dictionary={"hit":false,"position":impact_at,"element":Catalog.element(key),"killed":false,"critical":false}
-  if chain.alive(victim):
-   result=resolver.resolve(victim,Catalog.power(key)*(1+0.55*(int(item.level)-1))*attack_boost,Catalog.element(key),{"critical":false})
-   result["hit"]=not result.is_empty()
-   result["position"]=impact_at
-   context["target_id"]=chain.target_id(victim)
-  # A miss still has an impact effect and a valid ground position for continuation.
+  if chain.alive(victim):context["target_id"]=chain.target_id(victim)
+  var result: Dictionary=SpellEffects.impact(key,victim,context.origin,impact_at,int(item.level),attack_boost,enemies.get_children(),resolver)
+  if bool(result.hit):
+   context["target_id"]=int(result.target_id)
+   if int(result.target_id) not in run.visited:run.visited.append(int(result.target_id))
+  spell_cast_counts[key]=int(spell_cast_counts.get(key,0))+1
+  spell_hit_counts[key]=int(spell_hit_counts.get(key,0))+int(result.hit_count)
+  # Ground casts retain shaped FX; only the resolver supplies real hit/kill gates.
   fx.impact(impact_at,StringName(key))
-  if key in ["fire","lightning"]:
-   var count:=0
-   for other in enemies.get_children():
-    if other!=victim and not other.dead and other.position.distance_to(impact_at)<150:
-     var splash: Dictionary=resolver.resolve(other,Catalog.power(key)*0.45*attack_boost,Catalog.element(key),{"critical":false})
-     # A real splash hit satisfies hit/kill gates, but advances the graph once.
-     if not splash.is_empty():
-      result["hit"]=true
-      result["killed"]=bool(result.get("killed",false)) or bool(splash.get("killed",false))
-     count+=1
-     if count>=2:break
+  if key in ["meteor","nova","poison","beam"]:spell_visual(key,context.origin,impact_at)
   chain.complete_skill(slot,victim,result,run,context)
   shot.queue_free()
  )
@@ -360,7 +360,7 @@ func publish_debug() -> void:
  if is_instance_valid(inventory):
   for key in inventory.cards:
    var rect: Rect2=inventory.cards[key].get_global_rect();bounds[key]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
- JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"boss":boss_info,"boss_kills":boss_kills,"summoned_minions":summoned_minions,"summon_events":summon_events,"attack_period":effective_attack_period(),"reward_loadout":loadout_notice.visible,"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
+ JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"spell_flights":shots.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_visuals":fx.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_casts":spell_cast_counts,"spell_hits":spell_hit_counts,"spell_keys":Catalog.PLAYABLE,"spell_kit":chain.spell_kit_loaded,"spell_kit_ids":chain.spell_kit_ids,"boss":boss_info,"boss_kills":boss_kills,"summoned_minions":summoned_minions,"summon_events":summon_events,"attack_period":effective_attack_period(),"reward_loadout":loadout_notice.visible,"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
 
 func effective_attack_period() -> float:
  # A lone starting spell should not wait for a nonexistent long chain.
@@ -446,3 +446,18 @@ func refresh_boss_status() -> void:
   boss_info={"hp":enemy.hp,"max_hp":enemy.max_hp,"phase":enemy.phase,"warning":enemy.warning,"move":enemy.move,"attacks":enemy.attacks}
   return
  boss_label.text="";boss_health.hide()
+
+func spell_visual(key: String, origin: Vector2, at: Vector2) -> void:
+ if fx.get_child_count()>=FX.MAX_EFFECTS:return
+ var art:=Sprite2D.new();art.texture=SpellEffects.texture(key);art.position=at;art.modulate.a=0.65;art.set_meta("spell_key",key);fx.add_child(art)
+ var duration:=0.55
+ if key=="beam":
+  var length:=clampf(origin.distance_to(at)+160,120,1000)
+  var axis: Vector2=(at-origin).normalized()
+  if axis==Vector2.ZERO:axis=Vector2.RIGHT
+  art.position=origin+axis*length*0.5;art.rotation=axis.angle()
+  art.scale=Vector2(length/art.texture.get_width(),0.58);duration=0.3
+ elif key=="poison":art.scale=Vector2(0.6,0.38);duration=2.5
+ elif key=="meteor":art.scale=Vector2(0.9,0.5)
+ else:art.scale=Vector2(0.65,0.4)
+ var fade:=art.create_tween();fade.tween_property(art,"modulate:a",0.0,duration);fade.tween_callback(art.queue_free)

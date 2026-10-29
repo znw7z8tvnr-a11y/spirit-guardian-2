@@ -2,7 +2,7 @@ extends Node
 ## Run-local progression. No inventory mutation while browsing or refreshing.
 signal changed
 signal granted(reward: Dictionary)
-const SKILLS: Array[String]=["arcane","fire","ice","lightning"]
+const SKILLS=preload("res://modules/spell/catalog.gd").PLAYABLE
 var rng:=RandomNumberGenerator.new()
 var pending:=0
 var offers: Array=[]

@@ -4,17 +4,17 @@
 
 | 技能 | V9觀察到的選敵 | M2.1 | Lab V2 |
 |---|---|---|---|
-| 爆裂火球 | radius around primary target | partial runnable behavior | provisional chain-flow skill |
-| 寒冰長槍 | radius around primary target | partial runnable behavior | provisional chain-flow skill |
-| 連鎖雷電 | within 165 of target | partial runnable behavior | provisional chain-flow skill |
-| 毒霧 | primary target | partial runnable behavior | not implemented |
-| 流星雨 | radius around primary target | partial runnable behavior | not implemented |
-| 奧術飛彈 | radius around primary target | partial runnable behavior | provisional chain-flow skill |
+| 爆裂火球 | radius around primary target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
+| 寒冰長槍 | radius around primary target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
+| 連鎖雷電 | within 165 of target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
+| 毒霧 | primary target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
+| 流星雨 | radius around primary target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
+| 奧術飛彈 | radius around primary target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
 | 迴旋月刃 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 穿透射線 | horizontal strip around target | catalog only; behavior port pending | not implemented |
 | 土刺 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 颶風 | radius around primary target | catalog only; behavior port pending | not implemented |
-| 聚焦光束 | horizontal strip around target | partial runnable behavior | not implemented |
+| 聚焦光束 | horizontal strip around target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
 | 旋轉法球 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 熔岩裂隙 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 引力漩渦 | radius around primary target | catalog only; behavior port pending | not implemented |
@@ -23,7 +23,7 @@
 | 火花術 | within 165 of target | catalog only; behavior port pending | not implemented |
 | 雷電風暴 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 暴風雪 | radius around primary target | catalog only; behavior port pending | not implemented |
-| 冰霜新星 | radius around primary target | partial runnable behavior | not implemented |
+| 冰霜新星 | radius around primary target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
 | 毒沼 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 骷髏召喚 | primary target | catalog only; behavior port pending | not implemented |
 

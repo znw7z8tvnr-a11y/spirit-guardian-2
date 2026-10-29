@@ -2,6 +2,7 @@ extends PanelContainer
 signal apply_requested(id: int)
 const Art=preload("res://modules/spell/projectile.gd")
 const Zh=preload("res://localization/zh_hant.gd")
+const Effects=preload("res://experiments/chain_lab/spell_effects.gd")
 const Catalog=preload("res://modules/spell/catalog.gd")
 var model: Node
 var slot:=0
@@ -31,7 +32,7 @@ func title(item: Dictionary) -> String:
 func stats(item: Dictionary) -> String:
  if item.is_empty():return "無攻擊或接續效果"
  if item.kind=="gem":return "最多接續 %d 條線" % (2 if int(item.level)==3 else 1)
- return "直擊基礎傷害 %.1f（含血肉攻擊加成；範圍與狀態效果另計）" % (Catalog.power(str(item.key))*(1+0.55*(int(item.level)-1))*attack_boost)
+ return "直擊基礎傷害 %.1f（含血肉攻擊加成；範圍與狀態效果另計）" % (Effects.power(str(item.key),int(item.level),attack_boost))
 func open(chain: Node, index: int, boost: float) -> void:
  model=chain;slot=index;attack_boost=boost
  heading.text="本局背包｜替換第 %d 格｜點物品預覽，再確認" % (slot+1)
@@ -47,14 +48,14 @@ func open(chain: Node, index: int, boost: float) -> void:
   b.add_theme_font_size_override("font_size",19)
   if id>=0:
    var art:=TextureRect.new();art.mouse_filter=Control.MOUSE_FILTER_IGNORE;art.position=Vector2(82,4);art.size=Vector2(56,56);art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-   art.texture=load("res://experiments/chain_lab/assets/relay_gem.svg") if item.kind=="gem" else Art.TEXTURES.get(StringName(item.key),Art.TEXTURES[&"arcane"]);b.add_child(art)
+   art.texture=load("res://experiments/chain_lab/assets/relay_gem.svg") if item.kind=="gem" else Effects.texture(str(item.key));b.add_child(art)
   b.pressed.connect(func():select_item(id))
  select_item(int(model.slots[slot]));show()
 func select_item(id: int) -> void:
  candidate=id
  var item: Dictionary={} if id<0 else model.items[id]
  var reason: String=model.equipment_error(slot,id)
- detail.text="目前：%s｜%s\n候選：%s｜%s\n%s" % [title(model.item_at(slot)),stats(model.item_at(slot)),title(item),stats(item),"可以替換；容量及其他物品不變。" if reason.is_empty() else reason]
+ detail.text="目前：%s｜%s\n候選：%s｜%s\n%s" % [title(model.item_at(slot)),stats(model.item_at(slot)),title(item),stats(item)+("；"+Effects.description(str(item.key)) if item.get("kind","")=="skill" else ""),"可以替換；容量及其他物品不變。" if reason.is_empty() else reason]
  apply.disabled=not reason.is_empty() or int(model.slots[slot])==id
  for key in cards:
   if str(key).begins_with("Item "):cards[key].modulate=Color("ffe3a0") if key=="Item %d" % id else Color.WHITE

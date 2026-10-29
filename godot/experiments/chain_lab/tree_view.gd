@@ -1,7 +1,7 @@
 extends Control
 ## Touch-friendly view of the actual chain graph. Model owns every rule.
 signal slot_selected(index: int)
-const SpellArt=preload("res://modules/spell/projectile.gd")
+const Effects=preload("res://experiments/chain_lab/spell_effects.gd")
 var model: Node
 var selected:=0
 var nodes: Array=[]
@@ -38,7 +38,7 @@ func rebuild(chain: Node, selection: int) -> void:
   if not item.is_empty():
    var art:=TextureRect.new();art.mouse_filter=Control.MOUSE_FILTER_IGNORE;art.position=Vector2(16,10);art.size=Vector2(60,60)
    art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-   art.texture=load("res://experiments/chain_lab/assets/relay_gem.svg") if item.kind=="gem" else SpellArt.TEXTURES.get(StringName(item.key),SpellArt.TEXTURES[&"arcane"])
+   art.texture=load("res://experiments/chain_lab/assets/relay_gem.svg") if item.kind=="gem" else Effects.texture(str(item.key))
    b.add_child(art)
   var caption:=Label.new();caption.mouse_filter=Control.MOUSE_FILTER_IGNORE;caption.text="%02d · %s" % [i+1,"—" if item.is_empty() else "L%d" % int(item.level)]
   caption.add_theme_font_size_override("font_size",18);caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;caption.position=Vector2(0,66);caption.size=Vector2(92,24);b.add_child(caption)

@@ -22,5 +22,5 @@ for entry in ['', 'lab/']:
  results[entry or '/']={'html_status':200,'source_commit':info['source_commit'],'wasm_verified':True,'pck_matches_local':True}
 assert results['/']['source_commit']=='b8d77143c0815fe79eeea26e542abbe7b23460a2'
 report={'url':origin+'lab/','entries':results,'tls_verified':True,'limit':'HTTP integrity, not remote browser interaction. Local WebGL touch tests are separate; no iPad/Safari claim.'}
-(pathlib.Path(__file__).resolve().parents[2]/'docs/first-boss/live-assets.json').write_text(json.dumps(report,indent=2)+'\n')
+(pathlib.Path(__file__).resolve().parents[2]/'docs/eight-spells/live-assets.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report),flush=True)

@@ -20,7 +20,7 @@ func _ready() -> void:
 func bind(rewards: Node) -> void:
  model=rewards;model.changed.connect(sync);sync()
 func description(item: Dictionary) -> String:
- if item.kind=="skill":return "%s・%d 級\n攻擊技能｜收入背包，可替換現有技能" % [Zh.spell(str(item.key)),int(item.level)]
+ if item.kind=="skill":return "%s・%d 級\n攻擊技能｜%s" % [Zh.spell(str(item.key)),int(item.level),preload("res://experiments/chain_lab/spell_effects.gd").description(str(item.key))]
  if item.kind=="gem":return "接續寶石・%d 級\n技能後接寶石；最多接續 %d 條線" % [int(item.level),2 if int(item.level)==3 else 1]
  return "再啟靈思｜本局之後每次獎勵多一次刷新" if item.key=="refresh" else "靈能增幅｜本局法術攻擊加成增加 10%"
 func sync() -> void:

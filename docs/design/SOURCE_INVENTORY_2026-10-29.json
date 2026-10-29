@@ -82,7 +82,7 @@
         "max_victims": 24
       },
       "m2_1": "partial runnable behavior",
-      "lab_v2": "provisional chain-flow skill",
+      "lab_v2": "provisional runnable behavior; see EIGHT_SPELLS.md",
       "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
     },
     {
@@ -100,7 +100,7 @@
         "max_victims": 24
       },
       "m2_1": "partial runnable behavior",
-      "lab_v2": "provisional chain-flow skill",
+      "lab_v2": "provisional runnable behavior; see EIGHT_SPELLS.md",
       "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
     },
     {
@@ -118,7 +118,7 @@
         "max_victims": 6
       },
       "m2_1": "partial runnable behavior",
-      "lab_v2": "provisional chain-flow skill",
+      "lab_v2": "provisional runnable behavior; see EIGHT_SPELLS.md",
       "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
     },
     {
@@ -135,7 +135,7 @@
         "max_victims": 1
       },
       "m2_1": "partial runnable behavior",
-      "lab_v2": "not implemented",
+      "lab_v2": "provisional runnable behavior; see EIGHT_SPELLS.md",
       "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
     },
     {
@@ -153,7 +153,7 @@
         "max_victims": 24
       },
       "m2_1": "partial runnable behavior",
-      "lab_v2": "not implemented",
+      "lab_v2": "provisional runnable behavior; see EIGHT_SPELLS.md",
       "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
     },
     {
@@ -171,7 +171,7 @@
         "max_victims": 24
       },
       "m2_1": "partial runnable behavior",
-      "lab_v2": "provisional chain-flow skill",
+      "lab_v2": "provisional runnable behavior; see EIGHT_SPELLS.md",
       "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
     },
     {
@@ -261,7 +261,7 @@
         "max_victims": 8
       },
       "m2_1": "partial runnable behavior",
-      "lab_v2": "not implemented",
+      "lab_v2": "provisional runnable behavior; see EIGHT_SPELLS.md",
       "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
     },
     {
@@ -422,7 +422,7 @@
         "max_victims": 24
       },
       "m2_1": "partial runnable behavior",
-      "lab_v2": "not implemented",
+      "lab_v2": "provisional runnable behavior; see EIGHT_SPELLS.md",
       "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
     },
     {

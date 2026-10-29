@@ -2,7 +2,7 @@
 import argparse,asyncio,functools,http.server,json,os,pathlib,threading
 from playwright.async_api import async_playwright
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-REPORT=ROOT/'docs/first-boss';REPORT.mkdir(parents=True,exist_ok=True)
+REPORT=ROOT/'docs/eight-spells';REPORT.mkdir(parents=True,exist_ok=True)
 parser=argparse.ArgumentParser();parser.add_argument('--directory',default=str(ROOT/'godot/export/lab'));parser.add_argument('--entry',default='/');parser.add_argument('--editor-only',action='store_true');args=parser.parse_args()
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=args.directory))
 threading.Thread(target=server.serve_forever,daemon=True).start()

@@ -1,0 +1,25 @@
+{
+  "deployment_id": "appgdep_6ae2e2316fcc8191acd15ce485e37437",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_6636ea70e0d0819183bf6dbd8f88b14f",
+  "status": "succeeded",
+  "hosting_source_commit": "b1212fec631985f5b7ff6b32eaa97a97fd4f21b7",
+  "game_source_commit": "40c06cc808b90beb634cb8852c29ef9161d7f8ac",
+  "ci_run": 40826773907,
+  "ci_artifact": 12877336503,
+  "release": "Touch icon inventory and safe equipment comparison",
+  "native_checks": 265,
+  "ci_conclusion": "success",
+  "browser": "Linux Chromium software WebGL touch emulation",
+  "local_packaged_web": [
+    "two orientation icon inventory preview, confirm, cancel and invalid equipment rejection",
+    "two orientation chained combat with living jumps and empty continuation",
+    "two orientation meat growth, manual upgrade, pause, 8x speed and restart"
+  ],
+  "untested": [
+    "iPad Safari hardware",
+    "full twenty-wave balance",
+    "final artwork",
+    "formal three-wave rewards"
+  ],
+  "stable_root_preserved": true
+}

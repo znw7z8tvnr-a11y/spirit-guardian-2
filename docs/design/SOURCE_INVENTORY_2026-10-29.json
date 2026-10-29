@@ -514,7 +514,7 @@
       "key": "lowhp",
       "name": "殘血追擊",
       "description": "生命低於 25%／40%／55% 時觸發",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab post-hit health threshold; see LOWHP_GEM.md"
     },
     {
       "key": "rapid",
@@ -1160,10 +1160,11 @@
       "split",
       "echo",
       "burn",
-      "freeze"
+      "freeze",
+      "lowhp"
     ],
-    "remaining_original_count": 12,
-    "conditional_gates": "Seven original types integrated; echo is a tooltip-based remake into rewards and inventory; unsupported keys fail closed"
+    "remaining_original_count": 11,
+    "conditional_gates": "Eight original types integrated; echo is a tooltip-based remake into rewards and inventory; unsupported keys fail closed"
   },
   "conflicts": [
     "SG7 resonance pool includes rate/shield/split, not just attack elements.",

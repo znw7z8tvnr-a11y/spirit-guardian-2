@@ -329,11 +329,11 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
  )
 func show_pulse(slot: int, message: String) -> void:
  var item: Dictionary=chain.item_at(slot)
- trail.append("%02d %s%s" % [slot+1,name_of(item),"・迴響" if message=="迴響" else ("・施放" if item.kind=="skill" else "・判定")])
+ trail.append("%02d %s%s" % [slot+1,name_of(item),"・迴響" if message=="迴響" else ("・施放" if item.kind=="skill" else "・"+message)])
  if trail.size()>5:trail.pop_front()
  event_label.text=" → ".join(trail)
  if slot<slot_buttons.size():
-  slot_buttons[slot].modulate=Color("ffe4a0")
+  slot_buttons[slot].modulate=Color("ef9fa9") if message=="條件未滿足" else Color("a5b7ce") if message=="機率未觸發" else Color("b4f3ca") if message=="接續成功" else Color("ffe4a0")
 func resonate(recipe: String, at: Vector2, _run_id: int) -> void:
  event_label.text="共振發現："+str(Catalog.data.FINISHERS[recipe][0])
  spell_impact(at,"arcane");spell_impact(at,"lightning")

@@ -8,6 +8,7 @@ with zipfile.ZipFile(project,'w',zipfile.ZIP_DEFLATED) as z:
   if p.is_file() and not any(v in {'.godot','export'} for v in rel.parts):
    if str(rel)=='project.godot':z.writestr(str(rel),p.read_text().replace('run/main_scene="res://scenes/main.tscn"','run/main_scene="res://experiments/chain_lab/main.tscn"'))
    else:z.write(p,rel)
+ z.write(ROOT/'docs/LOWHP_GEM.md','LOWHP_GEM.md');
  z.write(ROOT/'docs/ELEMENT_GEMS.md','ELEMENT_GEMS.md');
  z.write(ROOT/'docs/ECHO_GEM.md','ECHO_GEM.md');
  z.write(ROOT/'docs/AMPLIFY_GEM.md','AMPLIFY_GEM.md');
@@ -20,7 +21,7 @@ with zipfile.ZipFile(project,'w',zipfile.ZIP_DEFLATED) as z:
  z.write(ROOT/'docs/FLESH_WALL.md','FLESH_WALL.md');
  z.write(ROOT/'docs/CHAIN_FLOW.md','CHAIN_FLOW.md');
  z.write(ROOT/'docs/CHAIN_LAB.md','CHAIN_LAB.md');z.write(ROOT/'LICENSE-GODOT-CODE.md','LICENSE-GODOT-CODE.md')
- for p in sorted((ROOT/'docs/element-gems').glob('*')):
+ for p in sorted((ROOT/'docs/lowhp-gem').glob('*')):
   if p.is_file():z.write(p,'test_reports/'+p.name)
 web=out/'SpiritGuardian-Web-ChainLab.zip'
 with zipfile.ZipFile(web,'w',zipfile.ZIP_DEFLATED) as z:

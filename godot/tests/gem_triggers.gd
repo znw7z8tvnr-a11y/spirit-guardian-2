@@ -16,7 +16,7 @@ func _initialize() -> void:
  check(not Rules.succeeds("unknown",3,{"hit":true,"killed":true},rng),"unimplemented gems fail closed")
  for key in Rules.KEYS:
   for level in range(1,4):
-   var passed:=0;var source: Dictionary={"hit":true,"killed":true,"element":"fire","slowed_hit":true}
+   var passed:=0;var source: Dictionary={"hit":true,"killed":true,"element":"fire","slowed_hit":true,"lowest_hp_ratio":0.0}
    for i in range(10000):
     if Rules.succeeds(key,level,source,rng):passed+=1
    check(absf(passed/10000.0-float(Rules.RATES[key][level-1]))<0.025,"%s level %d source probability" % [key,level])

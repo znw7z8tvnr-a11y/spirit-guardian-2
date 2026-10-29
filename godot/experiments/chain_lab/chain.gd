@@ -107,6 +107,9 @@ func random_arrange() -> void:
  for i in range(1,CAPACITY):
   var rules=preload("res://experiments/chain_lab/gem_rules.gd")
   var choices: Array=gems.filter(func(g):return rules.may_follow(str(g.key),Catalog.element(str(item_at(i-1).key)))) if i%2==1 else skills
+  if i==1:
+   var reliable: Array=choices.filter(func(g):return rules.preferred_starter(str(g.key)))
+   if not reliable.is_empty():choices=reliable
   if i%2==0:
    var useful: Array=skills.filter(func(skill):return gems.any(func(g):return rules.may_follow(str(g.key),Catalog.element(str(skill.key)))))
    if not useful.is_empty():choices=useful
@@ -225,15 +228,18 @@ func advance(delta: float) -> void:
    emit_skill(int(event.slot),choose_target(event.at,run),run,event.echo_context)
    continue
   if item.kind=="gem":
-   pulse.emit(int(event.slot),"寶石判定")
+   var eligible: bool=preload("res://experiments/chain_lab/gem_rules.gd").eligible(str(item.key),event.result,int(item.level))
    var success:=gem_succeeds(item,event.result)
-   add_trace({"kind":"gem","run":run.id,"slot":event.slot,"key":str(item.key),"eligible":preload("res://experiments/chain_lab/gem_rules.gd").eligible(str(item.key),event.result),"success":success})
+   var reason: String="success" if success else "chance" if eligible else "condition"
+   var verdict: String="接續成功" if success else "機率未觸發" if eligible else "條件未滿足"
+   pulse.emit(int(event.slot),verdict)
+   add_trace({"kind":"gem","run":run.id,"slot":event.slot,"key":str(item.key),"eligible":eligible,"success":success,"reason":reason,"lowest_hp_ratio":float(event.result.get("lowest_hp_ratio",1.0))})
    if success:
     var continuation: Dictionary=event.result.duplicate(true)
     continuation["next_boost"]=preload("res://experiments/chain_lab/gem_rules.gd").next_multiplier(str(item.key),int(item.level))
     continuation["echo_chance"]=preload("res://experiments/chain_lab/gem_rules.gd").echo_chance(str(item.key),int(item.level))
     for edge in outgoing(int(event.slot)):schedule(int(edge.to),previous,continuation,run)
-   else:last_message="寶石條件未滿足或機率未觸發，該支線結束。"
+   else:last_message=verdict+"，該支線結束。"
   else:
    var target:=choose_target(event.at,run)
    if target!=null and not alive(previous):retargets+=1
@@ -271,6 +277,9 @@ func arrange_discovered() -> bool:
   for i in picked.size():
    var previous_skill: Dictionary=items[0] if i==0 else items[int(picked[i-1])]
    var compatible: Array=gems.filter(func(g):return preload("res://experiments/chain_lab/gem_rules.gd").may_follow(str(g.key),Catalog.element(str(previous_skill.key))))
+   if i==0:
+    var reliable: Array=compatible.filter(func(g):return preload("res://experiments/chain_lab/gem_rules.gd").preferred_starter(str(g.key)))
+    if not reliable.is_empty():compatible=reliable
    if compatible.is_empty():break
    chosen_gems.append(int(compatible[0].id));gems.erase(compatible[0])
   if chosen_gems.size()!=picked.size():continue
@@ -286,7 +295,7 @@ func load_spell_kit() -> void:
  if not spell_kit_loaded:
   for key in ["poison","meteor","nova","beam"]:
    var id:=items.size();spell_kit_ids[key]=id;items.append({"id":id,"kind":"skill","key":key,"level":2})
-  for key in ["burn","freeze"]:
+  for key in ["burn","freeze","lowhp"]:
    var id:=items.size();gem_kit_ids[key]=id;items.append({"id":id,"kind":"gem","key":key,"level":3})
   spell_kit_loaded=true
  items[int(kit_ids[0])].key="split"

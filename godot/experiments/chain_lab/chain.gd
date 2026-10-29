@@ -39,14 +39,21 @@ func _init() -> void:
  slots[0]=0
 func item_at(slot: int) -> Dictionary:
  return items[int(slots[slot])] if slot>=0 and slot<CAPACITY and int(slots[slot])>=0 else {}
-func equip(slot: int, id: int) -> bool:
- if slot<0 or slot>=CAPACITY or id< -1 or id>=items.size():return false
- if slot==0 and (id<0 or items[id].kind!="skill"):return false
- if id>=0 and slots.has(id) and slots[slot]!=id:return false
- var old: int=slots[slot]
- slots[slot]=id
+func equipment_error(slot: int, id: int) -> String:
+ if slot<0 or slot>=CAPACITY or id< -1 or id>=items.size():return "無效物品或空格。"
+ if slot==0 and (id<0 or items[id].kind!="skill"):return "第一格必須保留攻擊技能。"
+ if id>=0 and slots.has(id) and slots[slot]!=id:return "此物品已裝備於其他格，不能重複使用。"
  for e in edges:
-  if not legal_edge(int(e.from),int(e.to),false):slots[slot]=old;return false
+  var from:=int(e.from);var to:=int(e.to)
+  var a: Dictionary=({} if id<0 else items[id]) if from==slot else item_at(from)
+  var b: Dictionary=({} if id<0 else items[id]) if to==slot else item_at(to)
+  if a.is_empty() or b.is_empty() or from==to or to==0 or a.kind==b.kind:return "與現有連線不相容，請先移除連線。"
+  var maximum:=2 if a.kind=="gem" and int(a.level)==3 else 1
+  if outgoing(from).size()>maximum:return "此寶石無法維持目前分岔，請先移除多餘連線。"
+ return ""
+func equip(slot: int, id: int) -> bool:
+ if not equipment_error(slot,id).is_empty():return false
+ slots[slot]=id
  reset_runtime();changed.emit();return true
 func outgoing(id: int) -> Array:
  return edges.filter(func(e):return int(e.from)==id)

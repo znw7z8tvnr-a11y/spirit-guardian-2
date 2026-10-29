@@ -56,6 +56,7 @@ var bottom_box: VBoxContainer
 var panel: PanelContainer
 var grid: Control
 var picker: OptionButton
+var inventory: PanelContainer
 var editor_status: Label
 var links: Label
 var book: Label
@@ -136,9 +137,10 @@ func create_ui() -> void:
  make_button("Random","隨機排列",row2,func():chain.random_arrange();refresh_editor.call_deferred())
  make_button("Arrange","已知共振排列",row2,arrange_known)
  editor_status=label("",box)
- picker=OptionButton.new();picker.custom_minimum_size.y=72;box.add_child(picker)
+ picker=OptionButton.new();picker.custom_minimum_size.y=72;box.add_child(picker);picker.hide()
+ make_button("Inventory","圖示背包／比較",box,func():inventory.open(chain,selected,tower.attack_multiplier()))
  var row3:=HBoxContainer.new();box.add_child(row3)
- make_button("Equip","替換此格",row3,equip_selected)
+ make_button("Equip","替換此格",row3,func():inventory.open(chain,selected,tower.attack_multiplier()))
  make_button("Source","設為起點",row3,func():link_from=selected;editor_status.text="已選起點 %d；點另一格，再按連到此格。" % [selected+1])
  make_button("Connect","連到此格",row3,func():
   var ok: bool=chain.connect_slots(link_from,selected)
@@ -153,6 +155,11 @@ func create_ui() -> void:
  label("替換只使用本局持有物品；同一件不能重複裝備。先移除不相容連線才能換類型。試驗版不儲存戰局與配置；共振發現獨立保存。",box)
  panel.hide()
  create_growth_ui()
+ inventory=preload("res://experiments/chain_lab/inventory_view.gd").new();root_ui.add_child(inventory)
+ inventory.apply_requested.connect(func(id: int):
+  if chain.equip(inventory.slot,id):inventory.hide()
+  else:inventory.select_item(id)
+ )
 func resize_ui() -> void:
  var portrait:=get_viewport_rect().size.y>get_viewport_rect().size.x
  # Graph keeps spatial relationships in both orientations; outer panel scrolls.
@@ -174,7 +181,7 @@ func refresh_editor() -> void:
   picker.add_item("%s　%s" % [name_of(item),"已裝備" if chain.slots[selected]==item.id else "背包"])
   picker.set_item_metadata(picker.item_count-1,item.id)
   if chain.slots[selected]==item.id:picker.select(picker.item_count-1)
- editor_status.text="魔杖 %d / 10 格｜第 %d 格：%s｜背包可替換物品如下。" % [10-chain.slots.count(-1),selected+1,name_of(chain.item_at(selected))]
+ editor_status.text="魔杖 %d / 10 格｜第 %d 格：%s｜點圖示背包比較與替換。" % [10-chain.slots.count(-1),selected+1,name_of(chain.item_at(selected))]
  var texts: Array=[]
  for e in chain.edges:texts.append("%02d → %02d" % [int(e.from)+1,int(e.to)+1])
  links.text="連線："+"　／　".join(texts)
@@ -318,7 +325,10 @@ func publish_debug() -> void:
   var rect: Rect2=buttons[key].get_global_rect();bounds[key]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
  for i in slot_buttons.size():
   var rect: Rect2=slot_buttons[i].get_global_rect();bounds["Slot %d" % i]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
- JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
+ if is_instance_valid(inventory):
+  for key in inventory.cards:
+   var rect: Rect2=inventory.cards[key].get_global_rect();bounds[key]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
+ JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
 
 func effective_attack_period() -> float:
  # A lone starting spell should not wait for a nonexistent long chain.

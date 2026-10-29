@@ -64,13 +64,16 @@ jobs:
       - name: Flesh wall and real speed WebGL acceptance
         timeout-minutes: 5
         run: python3 tools/test_flesh_wall_web.py
+      - name: First Boss earned-loadout WebGL playthrough
+        timeout-minutes: 5
+        run: python3 tools/test_first_boss_web.py
       - name: Package importable project and Web build
         run: |
           python3 tools/package_project.py
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-rewards-delivery
+          name: godot-first-boss-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
@@ -94,4 +97,7 @@ jobs:
             docs/rewards/*.log
             docs/rewards/*.json
             docs/rewards/*.png
+            docs/first-boss/*.log
+            docs/first-boss/*.json
+            docs/first-boss/*.png
           if-no-files-found: error

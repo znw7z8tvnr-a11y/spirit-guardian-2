@@ -41,6 +41,8 @@ func run() -> void:
   if game.rewards.offers[i].kind=="gem":index=i
  game.rewards.choose(index)
  check(game.chain.items.size()==2 and game.chain.slots==[0,-1,-1,-1,-1,-1,-1,-1,-1,-1],"earned gem enters bag without replacing any slot")
+ check(game.edit_open,"earned rewards wait for loadout confirmation before combat resumes")
+ game.buttons.Done.pressed.emit()
  game.chain.equip(1,1);game.chain.connect_slots(0,1)
  check(game.effective_attack_period()==1.1,"a gem without a follow-up skill does not slow the starter attack")
  game.chain.load_kit();check(game.chain.items.size()==11 and game.chain.item_at(1).kind=="gem" and game.chain.item_at(2).key=="fire","training kit remains valid after obtaining real loot")
@@ -61,6 +63,7 @@ func run() -> void:
  game._physics_process(0.1)
  check(not game.over and game.rewards.pending>=1 and game.rewards.pending<=5,"final Boss rewards are offered before victory")
  while game.rewards.pending>0:game.rewards.choose(0)
+ game.buttons.Done.pressed.emit()
  game._physics_process(0.1);check(game.over and game.wave==20,"claiming final rewards finishes at wave twenty without a new wave")
  game.queue_free();r.queue_free();await process_frame
  print("REWARDS_RESULT "+JSON.stringify({"checks":checks,"failures":failures}));quit(1 if failures.size() else 0)

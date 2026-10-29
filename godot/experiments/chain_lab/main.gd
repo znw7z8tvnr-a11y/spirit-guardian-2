@@ -16,6 +16,13 @@ var chain: Node
 var rewards: Node
 var reward_panel: PanelContainer
 var boss_defeated:=false
+var boss_kills:=0
+var summoned_minions:=0
+var summon_events:=0
+var boss_info: Dictionary={}
+var boss_label: Label
+var boss_health: ProgressBar
+var loadout_notice: Label
 var enemies: Node2D
 var shots: Node2D
 var tower: Node2D
@@ -117,6 +124,8 @@ func create_ui() -> void:
  wall_health=ProgressBar.new();wall_health.custom_minimum_size=Vector2(280,14);wall_health.show_percentage=false;top.add_child(wall_health)
  health=ProgressBar.new();health.custom_minimum_size=Vector2(280,14);health.show_percentage=false;top.add_child(health)
  growth_label=label("",top)
+ boss_label=label("",top)
+ boss_health=ProgressBar.new();boss_health.custom_minimum_size=Vector2(280,14);boss_health.show_percentage=false;top.add_child(boss_health);boss_health.hide()
  label("暫用素材・血肉自動吸收，可開城牆調整強化",top)
  var bottom:=VBoxContainer.new();bottom_box=bottom;bottom.alignment=BoxContainer.ALIGNMENT_END;bottom.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);bottom.offset_left=24;bottom.offset_right=-24;bottom.offset_top=-220;bottom.offset_bottom=-18;root_ui.add_child(bottom)
  event_label=label("開局奧彈會快速出手；擊殺吸收血肉，強化城牆與攻擊。",bottom)
@@ -137,9 +146,10 @@ func create_ui() -> void:
  var box:=VBoxContainer.new();box.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(box)
  label("連鎖配置｜圓形技能 → 菱形寶石 → 技能；三級寶石可分岔",box)
  var row2:=HBoxContainer.new();box.add_child(row2)
- make_button("Done","返回戰鬥",row2,func():edit_open=false;link_from=-1;panel.hide())
+ make_button("Done","完成配置／繼續戰鬥",row2,func():edit_open=false;link_from=-1;panel.hide();loadout_notice.hide())
  make_button("Random","隨機排列",row2,func():chain.random_arrange();refresh_editor.call_deferred())
  make_button("Arrange","已知共振排列",row2,arrange_known)
+ loadout_notice=label("獎勵已入背包；選格子後開圖示背包裝配，準備好再繼續戰鬥。",box);loadout_notice.hide()
  editor_status=label("",box)
  picker=OptionButton.new();picker.custom_minimum_size.y=72;box.add_child(picker);picker.hide()
  make_button("Inventory","圖示背包／比較",box,func():inventory.open(chain,selected,spell_attack_multiplier()))
@@ -200,7 +210,8 @@ func refresh_editor() -> void:
 func equip_selected() -> void:
  var ok: bool=chain.equip(selected,int(picker.get_item_metadata(picker.selected)))
  if not ok:editor_status.text="替換失敗：物品已使用、起點需技能，或現有連線不相容。"
-func open_editor() -> void:
+func open_editor(from_reward:=false) -> void:
+ loadout_notice.visible=from_reward
  edit_open=true;panel.show();refresh_editor.call_deferred()
 func arrange_known() -> void:
  if chain.discovered.is_empty():return
@@ -245,13 +256,26 @@ func spawn_enemy() -> Node2D:
  else:
   var kinds: Array=[0,0,1] if wave<=2 else [0,0,1,2] if wave==3 else [0,0,1,2,4]
   e.kind=kinds[(wave+remaining)%kinds.size()]
- e.entity_id=next_id;next_id+=1;e.brain=brain;e.resolver=resolver
- var angle:=rng.randf_range(0,TAU);e.position=CENTER+Vector2(cos(angle)*820,sin(angle)*410);e.target=CENTER
+ var angle:=rng.randf_range(0,TAU)
+ return configure_enemy(e,is_boss,CENTER+Vector2(cos(angle)*820,sin(angle)*410))
+func configure_enemy(e: Node2D, is_boss: bool, at: Vector2) -> Node2D:
+ e.entity_id=next_id;next_id+=1;e.brain=brain;e.resolver=resolver;e.position=at;e.target=CENTER
  e.max_hp=([28.0,20.0,60.0,38.0,95.0,300.0][e.kind]+wave*(25 if is_boss else 3));e.hp=e.max_hp
  e.speed=[22.0,34.0,16.0,20.0,23.0,15.0][e.kind]+wave*0.35;e.damage=1.5+wave*0.18
  e.attacked.connect(func(amount: float):tower.take_damage(amount))
  e.died.connect(on_enemy_died)
+ if is_boss:e.summon_requested.connect(spawn_boss_minions)
  enemies.add_child(e);return e
+func spawn_boss_minions(boss: Node2D, count: int) -> void:
+ if not is_instance_valid(boss) or boss.dead or over or count<=0:return
+ var available:=maxi(0,40-enemies.get_child_count())
+ var total:=mini(count,available)
+ if total>0:summon_events+=1
+ for i in range(total):
+  var minion:=Enemy.new();minion.kind=i%2
+  var angle:=rng.randf_range(0,TAU)
+  configure_enemy(minion,false,boss.position+Vector2.from_angle(angle)*72)
+  summoned_minions+=1
 func target_near(at: Vector2, radius: float) -> Node2D:
  var best: Node2D=null;var distance:=radius*radius
  for e in enemies.get_children():
@@ -319,6 +343,7 @@ func resonate(recipe: String, at: Vector2, _run_id: int) -> void:
   if file!=null:file.store_string(JSON.stringify(chain.discovered))
  refresh_editor.call_deferred()
 func refresh_status() -> void:
+ refresh_boss_status()
  if not is_instance_valid(status):return
  status.text="第 %d／20 波　擊殺 %d　水晶 %d／100　共振 %d　跳躍 %d　落空 %d" % [wave,kills,tower.hp,chain.resonances,chain.jumps,chain.misses]
  health.max_value=tower.max_hp;health.value=tower.hp
@@ -335,11 +360,14 @@ func publish_debug() -> void:
  if is_instance_valid(inventory):
   for key in inventory.cards:
    var rect: Rect2=inventory.cards[key].get_global_rect();bounds[key]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
- JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
+ JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"boss":boss_info,"boss_kills":boss_kills,"summoned_minions":summoned_minions,"summon_events":summon_events,"attack_period":effective_attack_period(),"reward_loadout":loadout_notice.visible,"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
 
 func effective_attack_period() -> float:
  # A lone starting spell should not wait for a nonexistent long chain.
- return minf(attack_period,1.1) if not chain.has_chained_skill() else attack_period
+ var skills: int=chain.reachable_skill_count()
+ if skills<=1:return minf(attack_period,1.1)
+ if skills==2:return minf(attack_period,1.8)
+ return attack_period
 func cycle_speed() -> void:
  speed_index=(speed_index+1)%SPEEDS.size()
  Engine.time_scale=SPEEDS[speed_index]
@@ -349,7 +377,7 @@ func _exit_tree() -> void:
 func on_enemy_died(enemy: Node2D) -> void:
  if enemy.get_meta("lab_drop_claimed",false):return
  enemy.set_meta("lab_drop_claimed",true);kills+=1
- if enemy.kind==5:boss_defeated=true
+ if enemy.kind==5:boss_defeated=true;boss_kills+=1
  var amount:=48 if enemy.kind==5 else 16 if enemy.kind==4 else 4
  drop_serial+=1
  var id:=drop_serial
@@ -403,5 +431,18 @@ func spell_attack_multiplier() -> float:
 func receive_reward(reward: Dictionary) -> void:
  if reward.kind in ["skill","gem"]:
   var item: Dictionary=reward.duplicate(true);item.id=chain.items.size();chain.items.append(item);chain.changed.emit()
+ if rewards.pending==0:open_editor(true)
  event_label.text="已獲得："+reward_panel.description(reward).replace("\n","　")
  refresh_status()
+
+func refresh_boss_status() -> void:
+ boss_info={}
+ for enemy in enemies.get_children():
+  if not is_instance_valid(enemy) or enemy.dead or enemy.kind!=5:continue
+  var moves: Dictionary={"crystalSpear":"裂晶槍","fracture":"地裂環","summon":"召喚虛空獸","crystalStorm":"晶暴","ultimate":"終結爆發","voidBolt":"虛空彈","rift":"裂隙","seal":"封印","starPulse":"星脈衝","gravity":"重力場","meteor":"隕星"}
+  var warning: String="蓄力：%s・%.1f 秒" % [moves.get(enemy.move,"攻擊"),enemy.warning] if enemy.warning>0 else ("失衡中" if enemy.stunned>0 else "準備攻擊")
+  boss_label.text="%s｜階段 %d／3｜生命 %d／%d｜%s" % [Zh.BOSS_NAMES[enemy.boss_kind],enemy.phase,enemy.hp,enemy.max_hp,warning]
+  boss_health.max_value=enemy.max_hp;boss_health.value=enemy.hp;boss_health.show()
+  boss_info={"hp":enemy.hp,"max_hp":enemy.max_hp,"phase":enemy.phase,"warning":enemy.warning,"move":enemy.move,"attacks":enemy.attacks}
+  return
+ boss_label.text="";boss_health.hide()

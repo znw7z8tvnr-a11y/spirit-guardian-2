@@ -71,6 +71,7 @@ func run() -> void:
    if live.rewards.pending>0:
     for index in live.rewards.offers.size():
      if live.rewards.offers[index].kind=="gem":live.rewards.choose(index);break
+   if live.edit_open:live.buttons.Done.pressed.emit()
    await physics_frame;frames+=1
   live.collect_all_flesh()
   check(live.wave>=4 and live.tower.hp>0,"arcane starter clears wave three and claims an unequipped earned gem with seed %d" % seed_value)

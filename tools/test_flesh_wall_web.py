@@ -2,7 +2,7 @@
 import argparse,asyncio,functools,http.server,json,os,pathlib,threading,time
 from playwright.async_api import async_playwright
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-REPORT=ROOT/'docs/rewards';REPORT.mkdir(parents=True,exist_ok=True)
+REPORT=ROOT/'docs/first-boss';REPORT.mkdir(parents=True,exist_ok=True)
 p=argparse.ArgumentParser();p.add_argument('--directory',default=str(ROOT/'godot/export/lab'));p.add_argument('--entry',default='/');p.add_argument('--report',default='flesh-web-smoke.json');args=p.parse_args()
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=args.directory))
 threading.Thread(target=server.serve_forever,daemon=True).start()
@@ -29,6 +29,9 @@ async def main():
     await tap('RewardRefresh');reward_state=await state();assert reward_state['reward_refreshes']==0 and reward_state['reward_granted']==0
     gem_index=next(i for i,item in enumerate(reward_state['reward_offers']) if item['kind']=='gem')
     await tap(f'Reward {gem_index}');assert (await state())['reward_granted']==1
+    s=await state();assert s['edit_open'] and s['reward_loadout']
+    frozen=s['combat_seconds'];await page.wait_for_timeout(1000);assert (await state())['combat_seconds']==frozen
+    await tap('Done');assert not (await state())['edit_open']
     reward_checked=True;print(name,'earned reward claimed',flush=True)
    initial=await state();assert initial['wall_max']==360 and initial['hp']==100 and initial['speed']==1 and not initial['kit']
    # Compare elapsed simulation time against real time with no game-data injection.

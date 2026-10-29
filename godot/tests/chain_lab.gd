@@ -81,6 +81,7 @@ func run() -> void:
  live.chain.load_kit();live.chain.resonance_chance=1.0
  for i in 3600:
   if live.rewards.pending>0:live.rewards.choose(0)
+  if live.edit_open:live.buttons.Done.pressed.emit()
   await physics_frame
  check(live.chain.casts>=8 and live.kills>0,"real sixty-second battle soak launches chained spells and kills enemies")
  check(live.chain.resonances>0 and live.chain.discovered.size()>0,"real battle discovers resonance from actual impacts")
@@ -88,6 +89,7 @@ func run() -> void:
  check(live.tower.hp>0 and live.wave>=2,"trial balance survives and progresses beyond first wave with kit")
  var soak={"wave":live.wave,"kills":live.kills,"hp":live.tower.hp,"casts":live.chain.casts,"resonances":live.chain.resonances,"retargets":live.chain.retargets}
  while live.rewards.pending>0:live.rewards.choose(0)
+ if live.edit_open:live.buttons.Done.pressed.emit()
  live.set_physics_process(false)
  live.wave=5;live.remaining=9
  var boss: Node2D=live.spawn_enemy()

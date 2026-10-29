@@ -232,15 +232,17 @@ func advance(delta: float) -> void:
 func finish_if_idle() -> void:
  if not active.is_empty() and int(active.inflight)==0 and pending.is_empty():active={}
 
-func has_chained_skill() -> bool:
- var todo: Array=[0];var seen: Array=[]
+func reachable_skill_count() -> int:
+ var todo: Array=[0];var seen: Array=[];var count:=0
  while not todo.is_empty():
   var slot: int=todo.pop_back()
   if slot in seen:continue
   seen.append(slot)
-  if slot!=0 and not item_at(slot).is_empty() and item_at(slot).kind=="skill":return true
+  if not item_at(slot).is_empty() and item_at(slot).kind=="skill":count+=1
   for edge in outgoing(slot):todo.append(int(edge.to))
- return false
+ return count
+func has_chained_skill() -> bool:
+ return reachable_skill_count()>1
 func arrange_discovered() -> bool:
  for recipe in discovered:
   if recipe not in Catalog.data.FINISHERS:continue

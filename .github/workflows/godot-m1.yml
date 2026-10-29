@@ -66,7 +66,7 @@ jobs:
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-flesh-wall-delivery
+          name: godot-chain-tree-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
@@ -81,4 +81,7 @@ jobs:
             docs/flesh-wall/*.log
             docs/flesh-wall/*.json
             docs/flesh-wall/*.png
+            docs/chain-tree/*.log
+            docs/chain-tree/*.json
+            docs/chain-tree/*.png
           if-no-files-found: error

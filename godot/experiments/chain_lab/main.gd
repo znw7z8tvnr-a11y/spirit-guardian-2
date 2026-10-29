@@ -54,7 +54,7 @@ var growth_buttons: Dictionary={}
 var battle_controls: GridContainer
 var bottom_box: VBoxContainer
 var panel: PanelContainer
-var grid: GridContainer
+var grid: Control
 var picker: OptionButton
 var editor_status: Label
 var links: Label
@@ -130,7 +130,7 @@ func create_ui() -> void:
  var bg:=StyleBoxFlat.new();bg.bg_color=Color("101a2c");bg.set_content_margin_all(16);panel.add_theme_stylebox_override("panel",bg)
  var scroll:=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;panel.add_child(scroll)
  var box:=VBoxContainer.new();box.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(box)
- label("10 格配置｜技能 → 寶石 → 技能；三級寶石最多分兩線",box)
+ label("連鎖配置｜圓形技能 → 菱形寶石 → 技能；三級寶石可分岔",box)
  var row2:=HBoxContainer.new();box.add_child(row2)
  make_button("Done","返回戰鬥",row2,func():edit_open=false;link_from=-1;panel.hide())
  make_button("Random","隨機排列",row2,func():chain.random_arrange();refresh_editor.call_deferred())
@@ -146,7 +146,8 @@ func create_ui() -> void:
   if ok:link_from=-1
  )
  make_button("Disconnect","移除此連線",row3,func():chain.disconnect_slots(link_from,selected);link_from=-1)
- grid=GridContainer.new();grid.columns=5;box.add_child(grid)
+ grid=preload("res://experiments/chain_lab/tree_view.gd").new();grid.custom_minimum_size=Vector2(1120,465);box.add_child(grid)
+ grid.slot_selected.connect(func(index: int):selected=index;refresh_editor.call_deferred())
  links=label("",box)
  book=label("",box)
  label("替換只使用本局持有物品；同一件不能重複裝備。先移除不相容連線才能換類型。試驗版不儲存戰局與配置；共振發現獨立保存。",box)
@@ -154,7 +155,7 @@ func create_ui() -> void:
  create_growth_ui()
 func resize_ui() -> void:
  var portrait:=get_viewport_rect().size.y>get_viewport_rect().size.x
- grid.columns=2 if portrait else 5
+ # Graph keeps spatial relationships in both orientations; outer panel scrolls.
  battle_controls.columns=4 if portrait else 7
  bottom_box.offset_top=-310 if portrait else -240
  for key in ["Configure","Kit","Flesh","Tempo","Speed","Pause","Restart"]:
@@ -164,11 +165,8 @@ func name_of(item: Dictionary) -> String:
  return "%s・%d 級" % [Zh.spell(str(item.key)) if item.kind=="skill" else "接續寶石",int(item.level)]
 func refresh_editor() -> void:
  if not is_instance_valid(grid):return
- slot_buttons=[]
- for old in grid.get_children():grid.remove_child(old);old.queue_free()
- for i in range(10):
-  var b:=Button.new();b.custom_minimum_size=Vector2(224,96);b.text="%02d　%s\n%s" % [i+1,"已選" if i==selected else "",name_of(chain.item_at(i))];grid.add_child(b)
-  b.pressed.connect(func():selected=i;refresh_editor.call_deferred());slot_buttons.append(b)
+ grid.rebuild(chain,selected)
+ slot_buttons=grid.nodes
  picker.clear()
  picker.add_item("清空此格");picker.set_item_metadata(0,-1)
  for item in chain.items:
@@ -176,7 +174,7 @@ func refresh_editor() -> void:
   picker.add_item("%s　%s" % [name_of(item),"已裝備" if chain.slots[selected]==item.id else "背包"])
   picker.set_item_metadata(picker.item_count-1,item.id)
   if chain.slots[selected]==item.id:picker.select(picker.item_count-1)
- editor_status.text="選取第 %d 格；背包可替換物品如下。" % [selected+1]
+ editor_status.text="魔杖 %d / 10 格｜第 %d 格：%s｜背包可替換物品如下。" % [10-chain.slots.count(-1),selected+1,name_of(chain.item_at(selected))]
  var texts: Array=[]
  for e in chain.edges:texts.append("%02d → %02d" % [int(e.from)+1,int(e.to)+1])
  links.text="連線："+"　／　".join(texts)

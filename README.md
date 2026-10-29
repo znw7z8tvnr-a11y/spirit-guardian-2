@@ -2,6 +2,8 @@
 
 [2026-10-29 完整設計統整與開發順序](docs/design/MASTER_PLAN_2026-10-29.md) · [開發計畫書文字檔（TXT）](docs/design/SpiritGuardian_Project_Plan_2026-10-29.txt)
 
+[P1第一批進度：跳怪與空放](docs/CHAIN_FLOW.md) · [來源盤點與移植差距](docs/design/SOURCE_INVENTORY_2026-10-29.md)
+
 [獨立連鎖戰鬥試驗室](https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/) · [試驗規則與限制](docs/CHAIN_LAB.md)
 
 [開啟 M2 網頁試玩（需以擁有者 ChatGPT 帳號登入）](https://spirit-guardian-m2-play.trylook.chatgpt.site) · [部署與驗證紀錄](deployment/m2/README.md)

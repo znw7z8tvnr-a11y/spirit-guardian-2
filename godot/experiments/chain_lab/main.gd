@@ -64,6 +64,10 @@ func _ready() -> void:
  resolver=Resolver.new();add_child(resolver)
  fx=FX.new();add_child(fx)
  chain=Chain.new();chain.host=self;add_child(chain)
+ if web_debug:
+  var seed_value: Variant=JavaScriptBridge.eval("Number(new URLSearchParams(location.search).get('seed') || 0)")
+  if seed_value is float and is_finite(seed_value) and seed_value>0:
+   rng.seed=int(seed_value);chain.rng.seed=int(seed_value)+19980
  if persist_book and FileAccess.file_exists(BOOK_PATH):
   var saved: Variant=JSON.parse_string(FileAccess.get_file_as_string(BOOK_PATH))
   if saved is Array:
@@ -84,7 +88,7 @@ func create_ui() -> void:
  var layer:=CanvasLayer.new();add_child(layer)
  root_ui=Control.new();root_ui.theme=load("res://localization/zh_hant_theme.tres");root_ui.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);root_ui.mouse_filter=Control.MOUSE_FILTER_IGNORE;layer.add_child(root_ui)
  var top:=VBoxContainer.new();top.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE);top.offset_left=24;top.offset_right=-24;top.offset_top=18;root_ui.add_child(top)
- label("靈境守衛｜連鎖戰鬥試驗室・單魔杖 10 格",top)
+ label("靈境守衛｜連鎖試驗室 V2・跳怪與空放",top)
  status=label("",top)
  health=ProgressBar.new();health.custom_minimum_size=Vector2(280,14);health.show_percentage=false;top.add_child(health)
  label("暫用素材・試驗配置不代表正式掉落與平衡",top)
@@ -208,44 +212,56 @@ func target_near(at: Vector2, radius: float) -> Node2D:
   var d: float=e.position.distance_squared_to(at)
   if d<=distance:distance=d;best=e
  return best
-func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary) -> void:
+func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, context: Dictionary) -> void:
  if not chain.current(run):return
  var shot:=Sprite2D.new();shot.texture=Projectile.TEXTURES[str(item.key)];shot.scale=Vector2.ONE*0.20
- shot.position=run.get("last_at",CENTER+Vector2(0,-65));shots.add_child(shot)
- var at: Vector2=target.position
+ shot.position=context.origin;shots.add_child(shot)
+ var at: Vector2=context.aim
+ var target_ref: WeakRef=weakref(target) if is_instance_valid(target) else null
  var tween:=shot.create_tween()
  var lift: Vector2=(shot.position+at)*0.5+Vector2(0,-90)
  tween.tween_property(shot,"position",lift,flight_time*0.5).set_trans(Tween.TRANS_SINE)
  tween.tween_property(shot,"position",at,flight_time*0.5).set_trans(Tween.TRANS_SINE)
  tween.tween_callback(func():
   if not chain.current(run):shot.queue_free();return
-  var victim: Node2D=target
-  if not is_instance_valid(victim) or victim.dead:
-   victim=target_near(at,chain.retarget_radius)
-   if victim!=null:chain.retargets+=1
-  if victim==null:
-   run.inflight-=1;chain.finish_if_idle();shot.queue_free();return
+  var victim: Node2D=target_ref.get_ref() if target_ref!=null else null
+  if not chain.alive(victim):
+   victim=chain.choose_target(at,run)
+   if victim!=null:
+    chain.retargets+=1
+    if chain.target_id(victim) not in run.visited:run.visited.append(chain.target_id(victim))
   var key: String=item.key
-  var result: Dictionary=resolver.resolve(victim,Catalog.power(key)*(1+0.55*(int(item.level)-1)),Catalog.element(key),{"critical":false})
-  fx.impact(victim.position,StringName(key))
+  var impact_at: Vector2=victim.position if chain.alive(victim) else at
+  var result: Dictionary={"hit":false,"position":impact_at,"element":Catalog.element(key),"killed":false,"critical":false}
+  if chain.alive(victim):
+   result=resolver.resolve(victim,Catalog.power(key)*(1+0.55*(int(item.level)-1)),Catalog.element(key),{"critical":false})
+   result["hit"]=not result.is_empty()
+   result["position"]=impact_at
+   context["target_id"]=chain.target_id(victim)
+  # A miss still has an impact effect and a valid ground position for continuation.
+  fx.impact(impact_at,StringName(key))
   if key in ["fire","lightning"]:
    var count:=0
    for other in enemies.get_children():
-    if other!=victim and not other.dead and other.position.distance_to(victim.position)<150:
-     resolver.resolve(other,Catalog.power(key)*0.45,Catalog.element(key),{"critical":false});count+=1
+    if other!=victim and not other.dead and other.position.distance_to(impact_at)<150:
+     var splash: Dictionary=resolver.resolve(other,Catalog.power(key)*0.45,Catalog.element(key),{"critical":false})
+     # A real splash hit satisfies hit/kill gates, but advances the graph once.
+     if not splash.is_empty():
+      result["hit"]=true
+      result["killed"]=bool(result.get("killed",false)) or bool(splash.get("killed",false))
+     count+=1
      if count>=2:break
-  chain.complete_skill(slot,victim,result,run)
+  chain.complete_skill(slot,victim,result,run,context)
   shot.queue_free()
  )
 func show_pulse(slot: int, _message: String) -> void:
  var item: Dictionary=chain.item_at(slot)
- trail.append("%02d %s" % [slot+1,name_of(item)])
+ trail.append("%02d %s%s" % [slot+1,name_of(item),"・施放" if item.kind=="skill" else "・判定"])
  if trail.size()>5:trail.pop_front()
  event_label.text=" → ".join(trail)
  if slot<slot_buttons.size():
   slot_buttons[slot].modulate=Color("ffe4a0")
-func resonate(recipe: String, target: Node2D) -> void:
- var at: Vector2=target.position if is_instance_valid(target) else CENTER
+func resonate(recipe: String, at: Vector2, _run_id: int) -> void:
  event_label.text="共振發現："+str(Catalog.data.FINISHERS[recipe][0])
  fx.impact(at,&"arcane");fx.impact(at,&"lightning")
  for e in enemies.get_children():
@@ -256,7 +272,7 @@ func resonate(recipe: String, target: Node2D) -> void:
  refresh_editor.call_deferred()
 func refresh_status() -> void:
  if not is_instance_valid(status):return
- status.text="第 %d／20 波　擊殺 %d　水晶 %d／100　共振 %d　轉移 %d" % [wave,kills,tower.hp,chain.resonances,chain.retargets]
+ status.text="第 %d／20 波　擊殺 %d　水晶 %d／100　共振 %d　跳躍 %d　落空 %d" % [wave,kills,tower.hp,chain.resonances,chain.jumps,chain.misses]
  health.value=tower.hp
  settings_label.text="每輪至少 %.1f 秒・每段 %.2f 秒・共振冷卻 %.0f 秒・%d FPS" % [attack_period,chain.hop_delay,chain.resonance_cooldown,Engine.get_frames_per_second()]
 func publish_debug() -> void:
@@ -265,4 +281,4 @@ func publish_debug() -> void:
   var rect: Rect2=buttons[key].get_global_rect();bounds[key]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
  for i in slot_buttons.size():
   var rect: Rect2=slot_buttons[i].get_global_rect();bounds["Slot %d" % i]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
- JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
+ JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))

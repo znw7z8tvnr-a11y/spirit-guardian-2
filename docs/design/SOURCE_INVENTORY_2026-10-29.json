@@ -1,0 +1,1171 @@
+{
+  "scope": "P0 source inventory first pass; not full original-module parity audit",
+  "counts": {
+    "skills": 22,
+    "gems": 19,
+    "resonance_recipes": 50,
+    "unique_recipe_sets": 50,
+    "recipe_materials": 12,
+    "three_distinct_material_combinations": 220,
+    "undefined_combinations": 170
+  },
+  "references": [
+    {
+      "file": "reference_modules/spirit_guardian_enemy_ai_final.html",
+      "sha256": "84f75ce1d85f0f088a2935342f8bedb729e5165b7e55be6537042d63b7279c4f",
+      "unchanged": true
+    },
+    {
+      "file": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "sha256": "6e2a9443b709b87dc1ce79d0663d980d8a19a19333c0b27f5709746cbb49f02e",
+      "unchanged": true
+    },
+    {
+      "file": "reference_modules/spirit_guardian_ui_final_integrated.html",
+      "sha256": "0d0676fa4e3ad02a785c7e26e09288c3f71b61463340b3b965cc4b14d70d810f",
+      "unchanged": true
+    },
+    {
+      "file": "reference_modules/spirit_guardian_boss_v5_playable.html",
+      "sha256": "d49354a72f617335f171692901a32e7410ea09f57ebe18b58e5501af1499d840",
+      "unchanged": true
+    },
+    {
+      "file": "reference_modules/spirit_guardian_module11_performance_audio_v10.html",
+      "sha256": "df49e734534f456440a52a1fc9a9dc75cf292c2fec03ea4cdd7678f1f0cec64c",
+      "unchanged": true
+    },
+    {
+      "file": "reference_modules/spirit_guardian_v31_16_skills_final.html",
+      "sha256": "42f2ea78917bb51b54afe2280726c8a1431f9a0279d86ab4f701bab8861d127f",
+      "unchanged": true
+    },
+    {
+      "file": "reference_modules/spirit_guardian_v31_30_combat_vfx_final.html",
+      "sha256": "7bbf666bd601cbb14d12d3cc9374b6c39d1301b91214d18ab232076f7359754e",
+      "unchanged": true
+    },
+    {
+      "file": "reference_modules/spirit_guardian_background_preview_v31_18.html",
+      "sha256": "7ddc4c3d314d343b7ce6b3a1fbf3fb8e10347debb90cf86c033835e982a05a37",
+      "unchanged": true
+    },
+    {
+      "file": "reference_modules/spirit_guardian_growth_rewards_v32_00_complete.html",
+      "sha256": "85bb7bc2e319a7aa5695c6fc3ddb504834ab5c45de48a16bb0d5076047b8934b",
+      "unchanged": true
+    },
+    {
+      "file": "reference_modules/spirit_guardian_v1_8_optimized_interactive.html",
+      "sha256": "3848d1399076e032c772dec231b28be8f28c5a02956a2ee928f3931a910bd215",
+      "unchanged": true
+    },
+    {
+      "file": "reference_modules/spirit_guardian_v31_10_enemy_ai_10passes.html",
+      "sha256": "f9760eb70bae4ca1cf9ea3b93bb57faec308732a527e43117a0eb4bfbd0138d6",
+      "unchanged": true
+    }
+  ],
+  "skills": [
+    {
+      "key": "fire",
+      "name": "爆裂火球",
+      "reference_power": 24,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 75,
+        "max_victims": 24
+      },
+      "m2_1": "partial runnable behavior",
+      "lab_v2": "provisional chain-flow skill",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "ice",
+      "name": "寒冰長槍",
+      "reference_power": 21,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 75,
+        "max_victims": 24
+      },
+      "m2_1": "partial runnable behavior",
+      "lab_v2": "provisional chain-flow skill",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "lightning",
+      "name": "連鎖雷電",
+      "reference_power": 20,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "within 165 of target",
+        "radius": 165,
+        "max_victims": 6
+      },
+      "m2_1": "partial runnable behavior",
+      "lab_v2": "provisional chain-flow skill",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "poison",
+      "name": "毒霧",
+      "reference_power": 17,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "primary target",
+        "max_victims": 1
+      },
+      "m2_1": "partial runnable behavior",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "meteor",
+      "name": "流星雨",
+      "reference_power": 44,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 145,
+        "max_victims": 24
+      },
+      "m2_1": "partial runnable behavior",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "arcane",
+      "name": "奧術飛彈",
+      "reference_power": 18,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 75,
+        "max_victims": 24
+      },
+      "m2_1": "partial runnable behavior",
+      "lab_v2": "provisional chain-flow skill",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "sword",
+      "name": "迴旋月刃",
+      "reference_power": 26,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 110,
+        "max_victims": 24
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "pierce",
+      "name": "穿透射線",
+      "reference_power": 24,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "horizontal strip around target",
+        "strip_half_width": 38,
+        "max_victims": 8
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "earth",
+      "name": "土刺",
+      "reference_power": 29,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 75,
+        "max_victims": 24
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "wind",
+      "name": "颶風",
+      "reference_power": 17,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 125,
+        "max_victims": 24
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "beam",
+      "name": "聚焦光束",
+      "reference_power": 30,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "horizontal strip around target",
+        "strip_half_width": 38,
+        "max_victims": 8
+      },
+      "m2_1": "partial runnable behavior",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "orbit",
+      "name": "旋轉法球",
+      "reference_power": 22,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 75,
+        "max_victims": 24
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "lava",
+      "name": "熔岩裂隙",
+      "reference_power": 25,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 75,
+        "max_victims": 24
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "gravity",
+      "name": "引力漩渦",
+      "reference_power": 20,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 125,
+        "max_victims": 24
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "summon",
+      "name": "幽靈守衛",
+      "reference_power": 22,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "primary target",
+        "max_victims": 1
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "thorn",
+      "name": "荊棘護城",
+      "reference_power": 20,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 75,
+        "max_victims": 24
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "spark",
+      "name": "火花術",
+      "reference_power": 13,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "within 165 of target",
+        "radius": 165,
+        "max_victims": 6
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "storm",
+      "name": "雷電風暴",
+      "reference_power": 35,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 155,
+        "max_victims": 24
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "blizzard",
+      "name": "暴風雪",
+      "reference_power": 27,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 155,
+        "max_victims": 24
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "nova",
+      "name": "冰霜新星",
+      "reference_power": 28,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 75,
+        "max_victims": 24
+      },
+      "m2_1": "partial runnable behavior",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "swamp",
+      "name": "毒沼",
+      "reference_power": 22,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "radius around primary target",
+        "radius": 75,
+        "max_victims": 24
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    },
+    {
+      "key": "skeleton",
+      "name": "骷髏召喚",
+      "reference_power": 23,
+      "source": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "source_lines": [
+        120,
+        128
+      ],
+      "v9_observed_selection": {
+        "selection": "primary target",
+        "max_victims": 1
+      },
+      "m2_1": "catalog only; behavior port pending",
+      "lab_v2": "not implemented",
+      "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
+    }
+  ],
+  "gems": [
+    {
+      "key": "hit",
+      "name": "命中觸發",
+      "description": "命中後機率觸發：Lv1 30%／Lv2 45%／Lv3 60%",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "chance",
+      "name": "機率觸發",
+      "description": "觸發率：Lv1 25%／Lv2 45%／Lv3 65%",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "kill",
+      "name": "擊殺觸發",
+      "description": "擊殺時觸發：Lv1 40%／Lv2 70%／Lv3 100%",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "split",
+      "name": "法術增幅",
+      "description": "後續技能威力：+10%／+20%／+35%",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "freeze",
+      "name": "冰凍觸發",
+      "description": "凍結或緩速時觸發：40%／65%／90%",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "burn",
+      "name": "灼燒觸發",
+      "description": "火焰命中時觸發：40%／65%／90%",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "echo",
+      "name": "迴響寶石",
+      "description": "後續技能再施放機率：20%／35%／50%",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "crit",
+      "name": "暴擊條件",
+      "description": "暴擊連鎖機率：20%／35%／50%",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "lowhp",
+      "name": "殘血追擊",
+      "description": "生命低於 25%／40%／55% 時觸發",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "rapid",
+      "name": "迅捷寶石",
+      "description": "後續連鎖傷害 +10%／20%／35%",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "delay",
+      "name": "時序寶石",
+      "description": "觸發間隔：3／2／1 秒",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "blast",
+      "name": "爆破攻擊",
+      "description": "前段法術傷害 +15%／30%／50%；不分流",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "bolt",
+      "name": "雷擊攻擊",
+      "description": "前段法術傷害 +12%／25%／45%；不分流",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "venom",
+      "name": "毒蝕攻擊",
+      "description": "前段法術傷害 +10%／22%／40%；不分流",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "frostatk",
+      "name": "寒霜攻擊",
+      "description": "前段法術傷害 +10%／20%／35%；不分流",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "critical",
+      "name": "致命攻擊",
+      "description": "前段法術傷害 +20%／40%／70%；不分流",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "piercing",
+      "name": "穿刺攻擊",
+      "description": "前段法術傷害 +12%／25%／45%；不分流",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "range",
+      "name": "廣域攻擊",
+      "description": "前段法術傷害 +10%／20%／35%；不分流",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    },
+    {
+      "key": "multi",
+      "name": "多重攻擊",
+      "description": "前段法術傷害 +15%／30%／50%；不分流",
+      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+    }
+  ],
+  "resonance": {
+    "recipes": [
+      {
+        "id": 1,
+        "name": "星核雷雨・1",
+        "parts": [
+          "fire",
+          "ice",
+          "lightning"
+        ],
+        "chance": 0.38,
+        "element": 0
+      },
+      {
+        "id": 2,
+        "name": "寒霜裁決・1",
+        "parts": [
+          "fire",
+          "ice",
+          "orbit"
+        ],
+        "chance": 0.43,
+        "element": 1
+      },
+      {
+        "id": 3,
+        "name": "虛界潮汐・1",
+        "parts": [
+          "fire",
+          "ice",
+          "summon"
+        ],
+        "chance": 0.48,
+        "element": 2
+      },
+      {
+        "id": 4,
+        "name": "日耀新星・1",
+        "parts": [
+          "fire",
+          "ice",
+          "meteor"
+        ],
+        "chance": 0.38,
+        "element": 3
+      },
+      {
+        "id": 5,
+        "name": "深淵回聲・1",
+        "parts": [
+          "fire",
+          "lightning",
+          "orbit"
+        ],
+        "chance": 0.43,
+        "element": 4
+      },
+      {
+        "id": 6,
+        "name": "星海審判・1",
+        "parts": [
+          "fire",
+          "lightning",
+          "summon"
+        ],
+        "chance": 0.48,
+        "element": 0
+      },
+      {
+        "id": 7,
+        "name": "破曉雷暴・1",
+        "parts": [
+          "fire",
+          "lightning",
+          "meteor"
+        ],
+        "chance": 0.38,
+        "element": 1
+      },
+      {
+        "id": 8,
+        "name": "幽焰漩渦・1",
+        "parts": [
+          "fire",
+          "poison",
+          "rate"
+        ],
+        "chance": 0.43,
+        "element": 2
+      },
+      {
+        "id": 9,
+        "name": "晶刃終幕・1",
+        "parts": [
+          "fire",
+          "poison",
+          "nova"
+        ],
+        "chance": 0.48,
+        "element": 3
+      },
+      {
+        "id": 10,
+        "name": "終焉守護・1",
+        "parts": [
+          "fire",
+          "split",
+          "orbit"
+        ],
+        "chance": 0.38,
+        "element": 4
+      },
+      {
+        "id": 11,
+        "name": "星核雷雨・2",
+        "parts": [
+          "fire",
+          "split",
+          "summon"
+        ],
+        "chance": 0.43,
+        "element": 0
+      },
+      {
+        "id": 12,
+        "name": "寒霜裁決・2",
+        "parts": [
+          "fire",
+          "split",
+          "meteor"
+        ],
+        "chance": 0.48,
+        "element": 1
+      },
+      {
+        "id": 13,
+        "name": "虛界潮汐・2",
+        "parts": [
+          "fire",
+          "orbit",
+          "summon"
+        ],
+        "chance": 0.38,
+        "element": 2
+      },
+      {
+        "id": 14,
+        "name": "日耀新星・2",
+        "parts": [
+          "fire",
+          "orbit",
+          "meteor"
+        ],
+        "chance": 0.43,
+        "element": 3
+      },
+      {
+        "id": 15,
+        "name": "深淵回聲・2",
+        "parts": [
+          "fire",
+          "rate",
+          "nova"
+        ],
+        "chance": 0.48,
+        "element": 4
+      },
+      {
+        "id": 16,
+        "name": "星海審判・2",
+        "parts": [
+          "fire",
+          "pierce",
+          "summon"
+        ],
+        "chance": 0.38,
+        "element": 0
+      },
+      {
+        "id": 17,
+        "name": "破曉雷暴・2",
+        "parts": [
+          "fire",
+          "pierce",
+          "meteor"
+        ],
+        "chance": 0.43,
+        "element": 1
+      },
+      {
+        "id": 18,
+        "name": "幽焰漩渦・2",
+        "parts": [
+          "fire",
+          "summon",
+          "meteor"
+        ],
+        "chance": 0.48,
+        "element": 2
+      },
+      {
+        "id": 19,
+        "name": "晶刃終幕・2",
+        "parts": [
+          "fire",
+          "shield",
+          "meteor"
+        ],
+        "chance": 0.38,
+        "element": 3
+      },
+      {
+        "id": 20,
+        "name": "終焉守護・2",
+        "parts": [
+          "ice",
+          "lightning",
+          "orbit"
+        ],
+        "chance": 0.43,
+        "element": 4
+      },
+      {
+        "id": 21,
+        "name": "星核雷雨・3",
+        "parts": [
+          "ice",
+          "lightning",
+          "summon"
+        ],
+        "chance": 0.48,
+        "element": 0
+      },
+      {
+        "id": 22,
+        "name": "寒霜裁決・3",
+        "parts": [
+          "ice",
+          "lightning",
+          "meteor"
+        ],
+        "chance": 0.38,
+        "element": 1
+      },
+      {
+        "id": 23,
+        "name": "虛界潮汐・3",
+        "parts": [
+          "ice",
+          "poison",
+          "rate"
+        ],
+        "chance": 0.43,
+        "element": 2
+      },
+      {
+        "id": 24,
+        "name": "日耀新星・3",
+        "parts": [
+          "ice",
+          "poison",
+          "nova"
+        ],
+        "chance": 0.48,
+        "element": 3
+      },
+      {
+        "id": 25,
+        "name": "深淵回聲・3",
+        "parts": [
+          "ice",
+          "split",
+          "orbit"
+        ],
+        "chance": 0.38,
+        "element": 4
+      },
+      {
+        "id": 26,
+        "name": "星海審判・3",
+        "parts": [
+          "ice",
+          "split",
+          "summon"
+        ],
+        "chance": 0.43,
+        "element": 0
+      },
+      {
+        "id": 27,
+        "name": "破曉雷暴・3",
+        "parts": [
+          "ice",
+          "split",
+          "meteor"
+        ],
+        "chance": 0.48,
+        "element": 1
+      },
+      {
+        "id": 28,
+        "name": "幽焰漩渦・3",
+        "parts": [
+          "ice",
+          "orbit",
+          "summon"
+        ],
+        "chance": 0.38,
+        "element": 2
+      },
+      {
+        "id": 29,
+        "name": "晶刃終幕・3",
+        "parts": [
+          "ice",
+          "orbit",
+          "meteor"
+        ],
+        "chance": 0.43,
+        "element": 3
+      },
+      {
+        "id": 30,
+        "name": "終焉守護・3",
+        "parts": [
+          "ice",
+          "rate",
+          "nova"
+        ],
+        "chance": 0.48,
+        "element": 4
+      },
+      {
+        "id": 31,
+        "name": "星核雷雨・4",
+        "parts": [
+          "ice",
+          "pierce",
+          "summon"
+        ],
+        "chance": 0.38,
+        "element": 0
+      },
+      {
+        "id": 32,
+        "name": "寒霜裁決・4",
+        "parts": [
+          "ice",
+          "pierce",
+          "meteor"
+        ],
+        "chance": 0.43,
+        "element": 1
+      },
+      {
+        "id": 33,
+        "name": "虛界潮汐・4",
+        "parts": [
+          "ice",
+          "summon",
+          "meteor"
+        ],
+        "chance": 0.48,
+        "element": 2
+      },
+      {
+        "id": 34,
+        "name": "日耀新星・4",
+        "parts": [
+          "ice",
+          "shield",
+          "meteor"
+        ],
+        "chance": 0.38,
+        "element": 3
+      },
+      {
+        "id": 35,
+        "name": "深淵回聲・4",
+        "parts": [
+          "lightning",
+          "poison",
+          "rate"
+        ],
+        "chance": 0.43,
+        "element": 4
+      },
+      {
+        "id": 36,
+        "name": "星海審判・4",
+        "parts": [
+          "lightning",
+          "poison",
+          "nova"
+        ],
+        "chance": 0.48,
+        "element": 0
+      },
+      {
+        "id": 37,
+        "name": "破曉雷暴・4",
+        "parts": [
+          "lightning",
+          "split",
+          "orbit"
+        ],
+        "chance": 0.38,
+        "element": 1
+      },
+      {
+        "id": 38,
+        "name": "幽焰漩渦・4",
+        "parts": [
+          "lightning",
+          "split",
+          "summon"
+        ],
+        "chance": 0.43,
+        "element": 2
+      },
+      {
+        "id": 39,
+        "name": "晶刃終幕・4",
+        "parts": [
+          "lightning",
+          "split",
+          "meteor"
+        ],
+        "chance": 0.48,
+        "element": 3
+      },
+      {
+        "id": 40,
+        "name": "終焉守護・4",
+        "parts": [
+          "lightning",
+          "orbit",
+          "summon"
+        ],
+        "chance": 0.38,
+        "element": 4
+      },
+      {
+        "id": 41,
+        "name": "星核雷雨・5",
+        "parts": [
+          "lightning",
+          "orbit",
+          "meteor"
+        ],
+        "chance": 0.43,
+        "element": 0
+      },
+      {
+        "id": 42,
+        "name": "寒霜裁決・5",
+        "parts": [
+          "lightning",
+          "rate",
+          "nova"
+        ],
+        "chance": 0.48,
+        "element": 1
+      },
+      {
+        "id": 43,
+        "name": "虛界潮汐・5",
+        "parts": [
+          "lightning",
+          "pierce",
+          "summon"
+        ],
+        "chance": 0.38,
+        "element": 2
+      },
+      {
+        "id": 44,
+        "name": "日耀新星・5",
+        "parts": [
+          "lightning",
+          "pierce",
+          "meteor"
+        ],
+        "chance": 0.43,
+        "element": 3
+      },
+      {
+        "id": 45,
+        "name": "深淵回聲・5",
+        "parts": [
+          "lightning",
+          "summon",
+          "meteor"
+        ],
+        "chance": 0.48,
+        "element": 4
+      },
+      {
+        "id": 46,
+        "name": "星海審判・5",
+        "parts": [
+          "lightning",
+          "shield",
+          "meteor"
+        ],
+        "chance": 0.38,
+        "element": 0
+      },
+      {
+        "id": 47,
+        "name": "破曉雷暴・5",
+        "parts": [
+          "poison",
+          "split",
+          "pierce"
+        ],
+        "chance": 0.43,
+        "element": 1
+      },
+      {
+        "id": 48,
+        "name": "幽焰漩渦・5",
+        "parts": [
+          "poison",
+          "split",
+          "shield"
+        ],
+        "chance": 0.48,
+        "element": 2
+      },
+      {
+        "id": 49,
+        "name": "晶刃終幕・5",
+        "parts": [
+          "poison",
+          "orbit",
+          "pierce"
+        ],
+        "chance": 0.38,
+        "element": 3
+      },
+      {
+        "id": 50,
+        "name": "終焉守護・5",
+        "parts": [
+          "poison",
+          "orbit",
+          "shield"
+        ],
+        "chance": 0.43,
+        "element": 4
+      }
+    ],
+    "material_keys": [
+      "fire",
+      "ice",
+      "lightning",
+      "meteor",
+      "nova",
+      "orbit",
+      "pierce",
+      "poison",
+      "rate",
+      "shield",
+      "split",
+      "summon"
+    ],
+    "non_skill_keys": [
+      "rate",
+      "shield",
+      "split"
+    ],
+    "status": "50 profiles retained; not 50 complete runtime spells"
+  },
+  "lab_gems": {
+    "relay": "prototype-only item, not a renamed completed nineteen-gem port",
+    "conditional_gates": "hit/kill/crit/burn/freeze component handling; full source probabilities and inventory integration pending"
+  },
+  "conflicts": [
+    "SG7 resonance pool includes rate/shield/split, not just attack elements.",
+    "V9 executeCast maps arcane damage to lightning; current Catalog.element uses arcane. Final taxonomy remains undecided.",
+    "V9 observed victim selection shares behavior across many skills; other modules must be compared before claiming unique summons or zones."
+  ],
+  "enemy_review": {
+    "sources": [
+      "reference_modules/spirit_guardian_enemy_ai_final.html",
+      "reference_modules/spirit_guardian_v31_10_enemy_ai_10passes.html",
+      "reference_modules/spirit_guardian_boss_v5_playable.html"
+    ],
+    "status": "PENDING full special-ability, move, drop and scaling parity cards"
+  }
+}

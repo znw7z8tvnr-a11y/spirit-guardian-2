@@ -9,8 +9,8 @@ func _initialize() -> void:call_deferred("run")
 func check(ok: bool, message: String) -> void:
  if ok:checks.append(message)
  else:failures.append(message)
-func record(slot: int,item: Dictionary,target: Node2D,cycle: Dictionary) -> void:emitted.append({"slot":slot,"item":item,"target":target,"run":cycle})
-func complete(model: Node, event: Dictionary) -> void:model.complete_skill(int(event.slot),event.target,{"position":event.target.position,"element":event.item.key},event.run)
+func record(slot: int,item: Dictionary,target: Node2D,cycle: Dictionary, context: Dictionary) -> void:emitted.append({"slot":slot,"item":item,"target":target,"run":cycle,"context":context})
+func complete(model: Node, event: Dictionary) -> void:model.complete_skill(int(event.slot),event.target,{"position":event.context.aim,"hit":is_instance_valid(event.target) and not event.target.dead,"element":event.item.key},event.run,event.context)
 func run() -> void:
  var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game
  game.set_physics_process(false);game.set_process(false);game.enemies.process_mode=Node.PROCESS_MODE_DISABLED
@@ -65,7 +65,7 @@ func run() -> void:
  m.start(target);complete(m,emitted.pop_front());target.dead=true
  var far:=Dummy.new();far.position=target.position+Vector2(900,0);game.enemies.add_child(far)
  m.advance(0.33);m.advance(0.33)
- check(m.active.is_empty() and emitted.is_empty(),"no nearby target ends chain rather than teleporting across map")
+ check(emitted.size()==2 and emitted[0].target==null and emitted[1].target==null,"no nearby target preserves both branches as ground casts without reaching distant enemy")
  m.load_kit();m.random_arrange()
  var used: Array=[];var valid:=true
  for id in m.slots:

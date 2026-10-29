@@ -32,6 +32,8 @@ jobs:
         run: |
           python3 tools/build_supplement_catalog.py
           git diff --exit-code -- godot/data docs/m2/asset-manifest.json
+      - name: Preserved source inventory
+        run: python3 tools/inventory_port_sources.py
       - name: Import and engine integration
         run: python3 tools/check_godot.py
       - name: Export single-thread Web
@@ -44,8 +46,8 @@ jobs:
       - name: Export separate Chain Lab
         run: |
           mkdir -p godot/export/lab
-          godot --headless --path godot --export-release "Web Chain Lab" > docs/chain-lab/godot-lab-export.log 2>&1
-          if rg "SCRIPT ERROR|ERROR:" docs/chain-lab/godot-lab-export.log; then exit 1; fi
+          godot --headless --path godot --export-release "Web Chain Lab" > docs/chain-flow/godot-lab-export.log 2>&1
+          if rg "SCRIPT ERROR|ERROR:" docs/chain-flow/godot-lab-export.log; then exit 1; fi
           cp godot/assets/fonts/OFL.txt godot/export/lab/FONT-LICENSE.txt
           cp godot/assets/fonts/FONT_INFO.json godot/export/lab/FONT-INFO.json
       - name: Browser test dependencies
@@ -62,7 +64,7 @@ jobs:
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-chain-lab-delivery
+          name: godot-chain-flow-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
@@ -71,4 +73,7 @@ jobs:
             docs/chain-lab/*.log
             docs/chain-lab/*.json
             docs/chain-lab/*.png
+            docs/chain-flow/*.log
+            docs/chain-flow/*.json
+            docs/chain-flow/*.png
           if-no-files-found: error

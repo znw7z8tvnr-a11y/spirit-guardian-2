@@ -88,6 +88,7 @@ func load_kit() -> void:
    kit_ids.append(items.size())
    items.append({"id":items.size(),"kind":spec[0],"key":spec[1],"level":spec[2]})
   kit_loaded=true
+ items[int(kit_ids[0])].key="relay"
  slots=[0,kit_ids[0],kit_ids[1],kit_ids[2],kit_ids[3],kit_ids[4],kit_ids[5],kit_ids[6],-1,-1]
  edges=[{"from":0,"to":1},{"from":1,"to":2},{"from":1,"to":3},{"from":3,"to":4},{"from":4,"to":5},{"from":2,"to":6},{"from":6,"to":7}]
  reset_runtime();last_message="已載入測試用物品；不是正式掉落。";changed.emit()
@@ -148,7 +149,7 @@ func emit_skill(slot: int, target: Node2D, run: Dictionary, context: Dictionary)
  var element:=Catalog.element(str(item.key))
  if element not in run.elements:run.elements.append(element)
  run["last_at"]=context.aim
- add_trace({"kind":"cast","run":run.id,"slot":slot,"key":item.key,"target":id,"origin":[context.origin.x,context.origin.y],"at":[context.aim.x,context.aim.y],"empty":id==0})
+ add_trace({"kind":"cast","run":run.id,"slot":slot,"key":item.key,"target":id,"origin":[context.origin.x,context.origin.y],"at":[context.aim.x,context.aim.y],"empty":id==0,"damage_scale":float(context.get("damage_scale",1.0))})
  pulse.emit(slot,"施放")
  # Create the actual spell first. Its flight need not hit to provide an element.
  cast_requested.emit(slot,item.duplicate(true),target,run,context)
@@ -178,6 +179,7 @@ func complete_skill(slot: int, target: Node2D, result: Dictionary, run: Dictiona
  if item.is_empty():finish_if_idle();return
  var hit: bool=bool(result.get("hit",not result.is_empty()))
  var outcome:=result.duplicate(true)
+ outcome.erase("next_boost")
  outcome["hit"]=hit
  outcome["killed"]=bool(outcome.get("killed",false)) if hit else false
  outcome["critical"]=bool(outcome.get("critical",false)) if hit else false
@@ -210,12 +212,14 @@ func advance(delta: float) -> void:
    var success:=gem_succeeds(item,event.result)
    add_trace({"kind":"gem","run":run.id,"slot":event.slot,"success":success})
    if success:
-    for edge in outgoing(int(event.slot)):schedule(int(edge.to),previous,event.result,run)
+    var continuation: Dictionary=event.result.duplicate(true)
+    continuation["next_boost"]=preload("res://experiments/chain_lab/gem_rules.gd").next_multiplier(str(item.key),int(item.level))
+    for edge in outgoing(int(event.slot)):schedule(int(edge.to),previous,continuation,run)
    else:last_message="寶石條件未滿足或機率未觸發，該支線結束。"
   else:
    var target:=choose_target(event.at,run)
    if target!=null and not alive(previous):retargets+=1
-   var context: Dictionary={"origin":event.at,"aim":event.at,"previous_id":event.result.get("previous_id",target_id(previous))}
+   var context: Dictionary={"origin":event.at,"aim":event.at,"previous_id":event.result.get("previous_id",target_id(previous)),"damage_scale":float(event.result.get("next_boost",1.0))}
    emit_skill(int(event.slot),target,run,context)
  finish_if_idle()
 func finish_if_idle() -> void:
@@ -258,6 +262,7 @@ func load_spell_kit() -> void:
   for key in ["poison","meteor","nova","beam"]:
    var id:=items.size();spell_kit_ids[key]=id;items.append({"id":id,"kind":"skill","key":key,"level":2})
   spell_kit_loaded=true
+ items[int(kit_ids[0])].key="split"
  slots=[0,kit_ids[0],spell_kit_ids.poison,kit_ids[3],spell_kit_ids.meteor,kit_ids[5],spell_kit_ids.nova,kit_ids[8],spell_kit_ids.beam,-1]
  edges=[]
  for i in range(8):edges.append({"from":i,"to":i+1})

@@ -466,115 +466,115 @@
       "key": "hit",
       "name": "命中觸發",
       "description": "命中後機率觸發：Lv1 30%／Lv2 45%／Lv3 60%",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "Lab source-backed trigger rates; see GEM_TRIGGERS.md"
     },
     {
       "key": "chance",
       "name": "機率觸發",
       "description": "觸發率：Lv1 25%／Lv2 45%／Lv3 65%",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "Lab source-backed trigger rates; see GEM_TRIGGERS.md"
     },
     {
       "key": "kill",
       "name": "擊殺觸發",
       "description": "擊殺時觸發：Lv1 40%／Lv2 70%／Lv3 100%",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "Lab source-backed trigger rates; see GEM_TRIGGERS.md"
     },
     {
       "key": "split",
       "name": "法術增幅",
       "description": "後續技能威力：+10%／+20%／+35%",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "Lab next-skill direct damage bonus; see AMPLIFY_GEM.md"
     },
     {
       "key": "freeze",
       "name": "冰凍觸發",
       "description": "凍結或緩速時觸發：40%／65%／90%",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "burn",
       "name": "灼燒觸發",
       "description": "火焰命中時觸發：40%／65%／90%",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "echo",
       "name": "迴響寶石",
       "description": "後續技能再施放機率：20%／35%／50%",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "crit",
       "name": "暴擊條件",
       "description": "暴擊連鎖機率：20%／35%／50%",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "lowhp",
       "name": "殘血追擊",
       "description": "生命低於 25%／40%／55% 時觸發",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "rapid",
       "name": "迅捷寶石",
       "description": "後續連鎖傷害 +10%／20%／35%",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "delay",
       "name": "時序寶石",
       "description": "觸發間隔：3／2／1 秒",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "blast",
       "name": "爆破攻擊",
       "description": "前段法術傷害 +15%／30%／50%；不分流",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "bolt",
       "name": "雷擊攻擊",
       "description": "前段法術傷害 +12%／25%／45%；不分流",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "venom",
       "name": "毒蝕攻擊",
       "description": "前段法術傷害 +10%／22%／40%；不分流",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "frostatk",
       "name": "寒霜攻擊",
       "description": "前段法術傷害 +10%／20%／35%；不分流",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "critical",
       "name": "致命攻擊",
       "description": "前段法術傷害 +20%／40%／70%；不分流",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "piercing",
       "name": "穿刺攻擊",
       "description": "前段法術傷害 +12%／25%／45%；不分流",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "range",
       "name": "廣域攻擊",
       "description": "前段法術傷害 +10%／20%／35%；不分流",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     },
     {
       "key": "multi",
       "name": "多重攻擊",
       "description": "前段法術傷害 +15%／30%／50%；不分流",
-      "status": "source metadata retained; nineteen-gem behavior parity not verified"
+      "status": "source metadata retained; behavior port pending"
     }
   ],
   "resonance": {
@@ -1153,7 +1153,14 @@
   },
   "lab_gems": {
     "relay": "prototype-only item, not a renamed completed nineteen-gem port",
-    "conditional_gates": "hit/kill/crit/burn/freeze component handling; full source probabilities and inventory integration pending"
+    "implemented_original": [
+      "chance",
+      "hit",
+      "kill",
+      "split"
+    ],
+    "remaining_original_count": 15,
+    "conditional_gates": "Four original types integrated into rewards and inventory; unsupported keys fail closed"
   },
   "conflicts": [
     "SG7 resonance pool includes rate/shield/split, not just attack elements.",

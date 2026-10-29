@@ -292,7 +292,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
  var shot:=Sprite2D.new();shot.texture=SpellEffects.texture(str(item.key));shot.scale=Vector2.ONE*0.20
  shot.position=context.origin;shot.set_meta("spell_key",str(item.key));shots.add_child(shot)
  var at: Vector2=context.aim
- var attack_boost: float=spell_attack_multiplier()
+ var attack_boost: float=spell_attack_multiplier()*float(context.get("damage_scale",1.0))
  var target_ref: WeakRef=weakref(target) if is_instance_valid(target) else null
  var tween:=shot.create_tween()
  if str(item.key)=="meteor":

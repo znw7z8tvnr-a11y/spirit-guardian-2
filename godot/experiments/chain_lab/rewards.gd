@@ -27,7 +27,7 @@ func new_offer() -> void:
 func roll() -> void:
  var level_roll:=rng.randf()
  var level:=1 if level_roll<0.70 else 2 if level_roll<0.95 else 3
- offers=[{"kind":"skill","key":SKILLS[rng.randi_range(0,SKILLS.size()-1)],"level":level},{"kind":"gem","key":("relay" if granted_count==0 else preload("res://experiments/chain_lab/gem_rules.gd").KEYS[rng.randi_range(0,3)]),"level":1 if rng.randf()<0.70 else (2 if rng.randf()<0.75 else 3)},{"kind":"affix","key":"refresh" if rng.randf()<0.5 else "power","level":1}]
+ offers=[{"kind":"skill","key":SKILLS[rng.randi_range(0,SKILLS.size()-1)],"level":level},{"kind":"gem","key":("relay" if granted_count==0 else preload("res://experiments/chain_lab/gem_rules.gd").KEYS[rng.randi_range(0,preload("res://experiments/chain_lab/gem_rules.gd").KEYS.size()-1)]),"level":1 if rng.randf()<0.70 else (2 if rng.randf()<0.75 else 3)},{"kind":"affix","key":"refresh" if rng.randf()<0.5 else "power","level":1}]
  for i in range(offers.size()-1,0,-1):
   var j:=rng.randi_range(0,i);var value: Dictionary=offers[i];offers[i]=offers[j];offers[j]=value
 func refresh_offer() -> bool:

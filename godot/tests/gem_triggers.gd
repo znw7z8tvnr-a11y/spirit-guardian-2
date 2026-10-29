@@ -30,6 +30,6 @@ func _initialize() -> void:
   rewards.roll()
   var key: String=rewards.offers.filter(func(o):return o.kind=="gem")[0].key
   if key not in seen:seen.append(key)
- check(seen.size()==4,"later rewards offer all four supported gem kinds")
+ check(seen.size()==Rules.KEYS.size(),"later rewards offer all supported gem kinds")
  rewards.free()
  print("GEMTRIGGERS_RESULT "+JSON.stringify({"checks":checks,"failures":failures}));quit(0 if failures.is_empty() else 1)

@@ -1,7 +1,7 @@
 """Actual eight-spell training UI, projectile flight and resolved cast smoke."""
 import argparse,asyncio,functools,http.server,json,os,pathlib,threading
 from playwright.async_api import async_playwright
-ROOT=pathlib.Path(__file__).resolve().parents[1];REPORT=ROOT/'docs/eight-spells';REPORT.mkdir(parents=True,exist_ok=True)
+ROOT=pathlib.Path(__file__).resolve().parents[1];REPORT=ROOT/'docs/amplify-gem';REPORT.mkdir(parents=True,exist_ok=True)
 p=argparse.ArgumentParser();p.add_argument('--directory',default=str(ROOT/'godot/export/lab'));p.add_argument('--entry',default='/');args=p.parse_args()
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=args.directory));threading.Thread(target=server.serve_forever,daemon=True).start()
 async def main():
@@ -20,6 +20,7 @@ async def main():
    await tap('SpellKit');s=await state();assert s['spell_kit'] and s['item_count']==14 and s['edit_open'] and len(s['edges'])==8 and s['slots'].count(-1)==1
    await page.screenshot(path=str(REPORT/f'eight-spell-chain-{name}.png'))
    await tap('Inventory')
+   await tap('Item 1');assert '下一個技能' in (await state())['inventory_detail'] and '35%' in (await state())['inventory_detail']
    await tap(f"Item {s['spell_kit_ids']['poison']}");assert '附毒' in (await state())['inventory_detail']
    await tap(f"Item {s['spell_kit_ids']['beam']}");assert '穿透' in (await state())['inventory_detail']
    await page.screenshot(path=str(REPORT/f'eight-spell-inventory-{name}.png'));await tap('InventoryClose');await tap('Done')
@@ -29,6 +30,7 @@ async def main():
    await page.wait_for_function("['poison','meteor','nova','beam'].every(k=>(window.SG_LAB_STATE.spell_casts[k]||0)>0)",timeout=90000)
    # Freeze the finished sequence before collecting evidence; no game-data injection.
    await tap('Pause');final=await state();assert sum(final['spell_hits'].get(k,0) for k in ['poison','meteor','nova','beam'])>0
+   assert any(e['kind']=='cast' and e.get('damage_scale',1)>1 for e in final['trace'])
    assert all(e['kind']!='hit' or e['target']!=0 for e in final['trace'])
    await page.screenshot(path=str(REPORT/f'eight-spell-battle-{name}.png'))
    engine_errors=[s for s in logs if 'SCRIPT ERROR' in s or s.startswith('ERROR:')];assert not errors and not engine_errors,(errors,engine_errors)

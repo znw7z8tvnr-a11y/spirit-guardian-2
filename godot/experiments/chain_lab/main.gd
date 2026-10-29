@@ -2,7 +2,7 @@ extends Node2D
 const Chain=preload("res://experiments/chain_lab/chain.gd")
 const Enemy=preload("res://modules/enemy/enemy.gd")
 const Boss=preload("res://modules/boss/boss.gd")
-const Tower=preload("res://modules/tower/tower.gd")
+const Tower=preload("res://experiments/chain_lab/flesh_castle.gd")
 const Steering=preload("res://modules/enemy/steering.gd")
 const Resolver=preload("res://modules/spell/combat_resolver.gd")
 const FX=preload("res://modules/combat_fx/combat_fx.gd")
@@ -17,6 +17,13 @@ var enemies: Node2D
 var shots: Node2D
 var tower: Node2D
 var fx: Node2D
+var drops: Node2D
+var pending_flesh: Dictionary={}
+var drop_serial:=0
+var growth_open:=false
+var speed_index:=0
+var combat_seconds:=0.0
+const SPEEDS: Array[float]=[1.0,2.0,4.0,8.0]
 var resolver: Node
 var brain:=Steering.new()
 var rng:=RandomNumberGenerator.new()
@@ -38,6 +45,14 @@ var status: Label
 var event_label: Label
 var settings_label: Label
 var health: ProgressBar
+var wall_health: ProgressBar
+var wall_label: Label
+var growth_label: Label
+var growth_panel: PanelContainer
+var growth_summary: Label
+var growth_buttons: Dictionary={}
+var battle_controls: GridContainer
+var bottom_box: VBoxContainer
 var panel: PanelContainer
 var grid: GridContainer
 var picker: OptionButton
@@ -53,6 +68,7 @@ var debug_clock:=0.0
 var ui_clock:=0.0
 var web_debug:=false
 func _ready() -> void:
+ Engine.time_scale=1.0
  TranslationServer.set_locale("zh_TW");rng.randomize()
  if OS.has_feature("web"):web_debug=bool(JavaScriptBridge.eval("new URLSearchParams(location.search).get('debug') === '1'"))
  var ground:=Sprite2D.new();ground.texture=preload("res://assets/legacy/terrain.png");ground.position=CENTER;ground.scale=Vector2.ONE*1.45;ground.z_index=-10;add_child(ground)
@@ -63,6 +79,7 @@ func _ready() -> void:
  tower.destroyed.connect(func():over=true;chain.reset_runtime();event_label.text="守護水晶已破碎；可重新開始試驗。")
  resolver=Resolver.new();add_child(resolver)
  fx=FX.new();add_child(fx)
+ drops=Node2D.new();add_child(drops)
  chain=Chain.new();chain.host=self;add_child(chain)
  if web_debug:
   var seed_value: Variant=JavaScriptBridge.eval("Number(new URLSearchParams(location.search).get('seed') || 0)")
@@ -77,6 +94,7 @@ func _ready() -> void:
  chain.resonance_requested.connect(resonate)
  chain.pulse.connect(show_pulse)
  chain.changed.connect(func():refresh_editor.call_deferred())
+ tower.growth_changed.connect(func():refresh_growth.call_deferred())
  create_ui()
  get_viewport().size_changed.connect(resize_ui)
  resize_ui();refresh_editor();refresh_status()
@@ -88,19 +106,26 @@ func create_ui() -> void:
  var layer:=CanvasLayer.new();add_child(layer)
  root_ui=Control.new();root_ui.theme=load("res://localization/zh_hant_theme.tres");root_ui.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);root_ui.mouse_filter=Control.MOUSE_FILTER_IGNORE;layer.add_child(root_ui)
  var top:=VBoxContainer.new();top.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE);top.offset_left=24;top.offset_right=-24;top.offset_top=18;root_ui.add_child(top)
- label("靈境守衛｜連鎖試驗室 V2・跳怪與空放",top)
+ label("靈境守衛｜血肉城牆試驗・最高八倍速",top)
  status=label("",top)
+ wall_label=label("",top)
+ wall_health=ProgressBar.new();wall_health.custom_minimum_size=Vector2(280,14);wall_health.show_percentage=false;top.add_child(wall_health)
  health=ProgressBar.new();health.custom_minimum_size=Vector2(280,14);health.show_percentage=false;top.add_child(health)
- label("暫用素材・試驗配置不代表正式掉落與平衡",top)
- var bottom:=VBoxContainer.new();bottom.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);bottom.offset_left=24;bottom.offset_right=-24;bottom.offset_top=-220;bottom.offset_bottom=-18;root_ui.add_child(bottom)
- event_label=label("開局只有奧彈；先載入試驗配置，觀察接續與分岔。",bottom)
+ growth_label=label("",top)
+ label("暫用素材・血肉自動吸收，可開城牆調整強化",top)
+ var bottom:=VBoxContainer.new();bottom_box=bottom;bottom.alignment=BoxContainer.ALIGNMENT_END;bottom.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);bottom.offset_left=24;bottom.offset_right=-24;bottom.offset_top=-220;bottom.offset_bottom=-18;root_ui.add_child(bottom)
+ event_label=label("開局奧彈會快速出手；擊殺吸收血肉，強化城牆與攻擊。",bottom)
+ event_label.custom_minimum_size.y=64;event_label.max_lines_visible=2
  settings_label=label("",bottom)
- var row:=HBoxContainer.new();row.alignment=BoxContainer.ALIGNMENT_CENTER;bottom.add_child(row)
+ var center:=CenterContainer.new();bottom.add_child(center)
+ var row:=GridContainer.new();row.columns=7;battle_controls=row;center.add_child(row)
  make_button("Configure","配置／背包",row,func():open_editor())
  make_button("Kit","載入試驗配置",row,func():chain.load_kit();open_editor())
+ make_button("Flesh","血肉城牆",row,open_growth)
  make_button("Tempo","節奏：標準",row,cycle_tempo)
+ make_button("Speed","倍速：1×",row,cycle_speed)
  make_button("Pause","暫停",row,func():user_paused=not user_paused;buttons.Pause.text="繼續" if user_paused else "暫停")
- make_button("Restart","重新開始",row,func():get_tree().reload_current_scene())
+ make_button("Restart","重新開始",row,func():get_tree().call_deferred("reload_current_scene"))
  panel=PanelContainer.new();panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);panel.offset_left=16;panel.offset_right=-16;panel.offset_top=16;panel.offset_bottom=-16;root_ui.add_child(panel)
  var bg:=StyleBoxFlat.new();bg.bg_color=Color("101a2c");bg.set_content_margin_all(16);panel.add_theme_stylebox_override("panel",bg)
  var scroll:=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;panel.add_child(scroll)
@@ -126,9 +151,14 @@ func create_ui() -> void:
  book=label("",box)
  label("替換只使用本局持有物品；同一件不能重複裝備。先移除不相容連線才能換類型。試驗版不儲存戰局與配置；共振發現獨立保存。",box)
  panel.hide()
+ create_growth_ui()
 func resize_ui() -> void:
  var portrait:=get_viewport_rect().size.y>get_viewport_rect().size.x
  grid.columns=2 if portrait else 5
+ battle_controls.columns=4 if portrait else 7
+ bottom_box.offset_top=-310 if portrait else -240
+ for key in ["Configure","Kit","Flesh","Tempo","Speed","Pause","Restart"]:
+  buttons[key].custom_minimum_size=Vector2(196 if portrait else 152,72)
 func name_of(item: Dictionary) -> String:
  if item.is_empty():return "空格"
  return "%s・%d 級" % [Zh.spell(str(item.key)) if item.kind=="skill" else "接續寶石",int(item.level)]
@@ -170,40 +200,45 @@ func cycle_tempo() -> void:
  chain.hop_delay=[0.32,0.48,0.20][tempo];attack_period=[3.8,5.2,3.2][tempo];flight_time=[0.62,0.85,0.45][tempo]
  buttons.Tempo.text=["節奏：標準","節奏：慢速","節奏：快速"][tempo]
 func _physics_process(delta: float) -> void:
- if over or user_paused or edit_open:return
+ if over or user_paused or edit_open or growth_open:return
+ combat_seconds+=delta;tower.recover(delta)
  brain.prepare(enemies.get_children());chain.advance(delta)
  attack_clock-=delta
  if attack_clock<=0 and chain.active.is_empty():
   var enemy:=target_near(CENTER,2000)
-  if enemy!=null and chain.start(enemy):attack_clock=attack_period
+  if enemy!=null and chain.start(enemy):attack_clock=effective_attack_period()
  if remaining>0:
   spawn_clock-=delta
   if spawn_clock<=0 and enemies.get_child_count()<40:spawn_enemy();remaining-=1;spawn_clock=1.4
  elif enemies.get_child_count()==0 and chain.active.is_empty():
+  collect_all_flesh()
   rest-=delta
   if rest<=0:
    if wave>=20:over=true;event_label.text="20 波試驗完成！";return
    wave+=1;remaining=4+mini(wave,8);rest=5.0
 func _process(delta: float) -> void:
  # Keep combat actors and projectile tweens frozen while the lab editor is open.
- var frozen:=over or user_paused or edit_open
- for node in [enemies,shots,fx]:node.process_mode=Node.PROCESS_MODE_DISABLED if frozen else Node.PROCESS_MODE_INHERIT
- ui_clock-=delta
+ var frozen:=over or user_paused or edit_open or growth_open
+ for node in [enemies,shots,fx,drops]:node.process_mode=Node.PROCESS_MODE_DISABLED if frozen else Node.PROCESS_MODE_INHERIT
+ var real_delta:=delta/maxf(Engine.time_scale,0.001)
+ ui_clock-=real_delta
  if ui_clock<=0:ui_clock=0.2;refresh_status()
  if web_debug:
-  debug_clock-=delta
+  debug_clock-=real_delta
   if debug_clock<=0:debug_clock=0.2;publish_debug()
 func spawn_enemy() -> Node2D:
  var is_boss:=wave%5==0 and remaining==4+mini(wave,8)
  var e: Node2D=Boss.new() if is_boss else Enemy.new()
  if is_boss:e.boss_kind=(int(wave/5)-1)%3
- else:e.kind=[0,0,1,2,4][(wave+remaining)%5]
+ else:
+  var kinds: Array=[0,0,1] if wave<=2 else [0,0,1,2] if wave==3 else [0,0,1,2,4]
+  e.kind=kinds[(wave+remaining)%kinds.size()]
  e.entity_id=next_id;next_id+=1;e.brain=brain;e.resolver=resolver
  var angle:=rng.randf_range(0,TAU);e.position=CENTER+Vector2(cos(angle)*820,sin(angle)*410);e.target=CENTER
  e.max_hp=([28.0,20.0,60.0,38.0,95.0,300.0][e.kind]+wave*(25 if is_boss else 3));e.hp=e.max_hp
  e.speed=[22.0,34.0,16.0,20.0,23.0,15.0][e.kind]+wave*0.35;e.damage=1.5+wave*0.18
  e.attacked.connect(func(amount: float):tower.take_damage(amount))
- e.died.connect(func(_enemy: Node2D):kills+=1)
+ e.died.connect(on_enemy_died)
  enemies.add_child(e);return e
 func target_near(at: Vector2, radius: float) -> Node2D:
  var best: Node2D=null;var distance:=radius*radius
@@ -217,6 +252,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
  var shot:=Sprite2D.new();shot.texture=Projectile.TEXTURES[str(item.key)];shot.scale=Vector2.ONE*0.20
  shot.position=context.origin;shots.add_child(shot)
  var at: Vector2=context.aim
+ var attack_boost: float=tower.attack_multiplier()
  var target_ref: WeakRef=weakref(target) if is_instance_valid(target) else null
  var tween:=shot.create_tween()
  var lift: Vector2=(shot.position+at)*0.5+Vector2(0,-90)
@@ -234,7 +270,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   var impact_at: Vector2=victim.position if chain.alive(victim) else at
   var result: Dictionary={"hit":false,"position":impact_at,"element":Catalog.element(key),"killed":false,"critical":false}
   if chain.alive(victim):
-   result=resolver.resolve(victim,Catalog.power(key)*(1+0.55*(int(item.level)-1)),Catalog.element(key),{"critical":false})
+   result=resolver.resolve(victim,Catalog.power(key)*(1+0.55*(int(item.level)-1))*attack_boost,Catalog.element(key),{"critical":false})
    result["hit"]=not result.is_empty()
    result["position"]=impact_at
    context["target_id"]=chain.target_id(victim)
@@ -244,7 +280,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
    var count:=0
    for other in enemies.get_children():
     if other!=victim and not other.dead and other.position.distance_to(impact_at)<150:
-     var splash: Dictionary=resolver.resolve(other,Catalog.power(key)*0.45,Catalog.element(key),{"critical":false})
+     var splash: Dictionary=resolver.resolve(other,Catalog.power(key)*0.45*attack_boost,Catalog.element(key),{"critical":false})
      # A real splash hit satisfies hit/kill gates, but advances the graph once.
      if not splash.is_empty():
       result["hit"]=true
@@ -265,7 +301,7 @@ func resonate(recipe: String, at: Vector2, _run_id: int) -> void:
  event_label.text="共振發現："+str(Catalog.data.FINISHERS[recipe][0])
  fx.impact(at,&"arcane");fx.impact(at,&"lightning")
  for e in enemies.get_children():
-  if not e.dead and e.position.distance_to(at)<240:resolver.resolve(e,45.0,"arcane",{"critical":false})
+  if not e.dead and e.position.distance_to(at)<240:resolver.resolve(e,45.0*tower.attack_multiplier(),"arcane",{"critical":false})
  if persist_book:
   var file:=FileAccess.open(BOOK_PATH,FileAccess.WRITE)
   if file!=null:file.store_string(JSON.stringify(chain.discovered))
@@ -273,12 +309,74 @@ func resonate(recipe: String, at: Vector2, _run_id: int) -> void:
 func refresh_status() -> void:
  if not is_instance_valid(status):return
  status.text="第 %d／20 波　擊殺 %d　水晶 %d／100　共振 %d　跳躍 %d　落空 %d" % [wave,kills,tower.hp,chain.resonances,chain.jumps,chain.misses]
- health.value=tower.hp
- settings_label.text="每輪至少 %.1f 秒・每段 %.2f 秒・共振冷卻 %.0f 秒・%d FPS" % [attack_period,chain.hop_delay,chain.resonance_cooldown,Engine.get_frames_per_second()]
+ health.max_value=tower.max_hp;health.value=tower.hp
+ wall_health.max_value=tower.wall_max;wall_health.value=tower.wall_hp
+ wall_label.text="城牆 %d／%d・%s　核心 %d／%d" % [tower.wall_hp,tower.wall_max,"防線正常" if tower.wall_active else "破牆，修復中",tower.hp,tower.max_hp]
+ growth_label.text="血肉 %d（已吸收 %d）・攻擊 ×%.2f・減傷 %d%%・回血 %.1f／秒" % [tower.flesh,tower.total_absorbed,tower.attack_multiplier(),tower.reduction()*100,tower.regeneration()]
+ settings_label.text="每輪至少 %.1f 秒・每段 %.2f 秒・共振冷卻 %.0f 秒・%d FPS" % [effective_attack_period(),chain.hop_delay,chain.resonance_cooldown,Engine.get_frames_per_second()]
 func publish_debug() -> void:
  var bounds: Dictionary={}
  for key in buttons:
   var rect: Rect2=buttons[key].get_global_rect();bounds[key]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
  for i in slot_buttons.size():
   var rect: Rect2=slot_buttons[i].get_global_rect();bounds["Slot %d" % i]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
- JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
+ JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
+
+func effective_attack_period() -> float:
+ # A lone starting spell should not wait for a nonexistent long chain.
+ return minf(attack_period,1.1) if chain.outgoing(0).is_empty() else attack_period
+func cycle_speed() -> void:
+ speed_index=(speed_index+1)%SPEEDS.size()
+ Engine.time_scale=SPEEDS[speed_index]
+ buttons.Speed.text="倍速：%d×" % int(SPEEDS[speed_index])
+func _exit_tree() -> void:
+ Engine.time_scale=1.0
+func on_enemy_died(enemy: Node2D) -> void:
+ if enemy.get_meta("lab_drop_claimed",false):return
+ enemy.set_meta("lab_drop_claimed",true);kills+=1
+ var amount:=48 if enemy.kind==5 else 16 if enemy.kind==4 else 4
+ drop_serial+=1
+ var id:=drop_serial
+ if pending_flesh.size()>=32:
+  tower.absorb(amount);return
+ var sprite:=Sprite2D.new();sprite.texture=preload("res://experiments/chain_lab/assets/flesh.svg");sprite.scale=Vector2.ONE*0.65;sprite.position=enemy.position;sprite.z_index=5;drops.add_child(sprite)
+ pending_flesh[id]={"amount":amount,"visual":weakref(sprite)}
+ var tween:=sprite.create_tween()
+ tween.tween_property(sprite,"position",CENTER,0.45).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+ tween.tween_callback(func():collect_flesh(id))
+func collect_flesh(id: int) -> void:
+ if not pending_flesh.has(id):return
+ var drop: Dictionary=pending_flesh[id];pending_flesh.erase(id)
+ var visual: Node=drop.visual.get_ref()
+ if is_instance_valid(visual):visual.queue_free()
+ tower.absorb(int(drop.amount))
+func collect_all_flesh() -> void:
+ for id in pending_flesh.keys():collect_flesh(int(id))
+func create_growth_ui() -> void:
+ growth_panel=PanelContainer.new();growth_panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);growth_panel.offset_left=16;growth_panel.offset_right=-16;growth_panel.offset_top=16;growth_panel.offset_bottom=-16;root_ui.add_child(growth_panel)
+ var style:=StyleBoxFlat.new();style.bg_color=Color("151b2c");style.set_content_margin_all(20);growth_panel.add_theme_stylebox_override("panel",style)
+ var scroll:=ScrollContainer.new();growth_panel.add_child(scroll)
+ var box:=VBoxContainer.new();box.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(box)
+ label("血肉城牆｜當局強化，新局重置",box)
+ growth_summary=label("",box)
+ var row:=HBoxContainer.new();box.add_child(row)
+ make_button("GrowthDone","返回戰鬥",row,func():growth_open=false;growth_panel.hide())
+ make_button("AutoGrowth","自動強化：開",row,func():tower.set_auto(not tower.auto_upgrade);refresh_growth())
+ for stat in ["atk","hp","armor","regen"]:
+  var key: String=stat
+  var b:=make_button("Grow "+key,"",box,func():tower.upgrade(key);refresh_growth())
+  b.custom_minimum_size=Vector2(700,86);growth_buttons[key]=b
+ label("擊殺掉肉：普通4、精英16、Boss48；自動吸收，無須點撿。自動強化依攻擊、生命、防禦、回血輪流購買，可關閉後手動分配。",box)
+ label("城牆先承傷，破牆後核心承傷；回血先修城牆，滿後補核心。破牆需修至20%才重新形成防線。這些為本次試玩調校值。",box)
+ growth_panel.hide();refresh_growth()
+func open_growth() -> void:
+ if edit_open:edit_open=false;panel.hide()
+ growth_open=true;growth_panel.show();refresh_growth()
+func refresh_growth() -> void:
+ if not is_instance_valid(growth_summary):return
+ growth_summary.text="血肉 %d・累計吸收 %d\n城牆 %d／%d・核心 %d／%d\n攻擊 ×%.2f・減傷 %d%%・每秒恢復 %.1f" % [tower.flesh,tower.total_absorbed,tower.wall_hp,tower.wall_max,tower.hp,tower.max_hp,tower.attack_multiplier(),tower.reduction()*100,tower.regeneration()]
+ buttons.AutoGrowth.text="自動強化：開" if tower.auto_upgrade else "自動強化：關"
+ var names: Dictionary={"atk":"攻擊：所有法術＋50%基礎倍率","hp":"生命：城牆上限與當前生命＋65","armor":"防禦：減傷＋14%，上限70%","regen":"回血：每秒修復＋2"}
+ for key in growth_buttons:
+  growth_buttons[key].text="%s　Lv %d → %d　消耗 %d 血肉" % [names[key],tower.levels[key],tower.levels[key]+1,tower.cost(key)]
+  growth_buttons[key].disabled=tower.flesh<tower.cost(key) or over

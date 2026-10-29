@@ -46,8 +46,8 @@ jobs:
       - name: Export separate Chain Lab
         run: |
           mkdir -p godot/export/lab
-          godot --headless --path godot --export-release "Web Chain Lab" > docs/chain-flow/godot-lab-export.log 2>&1
-          if rg "SCRIPT ERROR|ERROR:" docs/chain-flow/godot-lab-export.log; then exit 1; fi
+          godot --headless --path godot --export-release "Web Chain Lab" > docs/flesh-wall/godot-lab-export.log 2>&1
+          if rg "SCRIPT ERROR|ERROR:" docs/flesh-wall/godot-lab-export.log; then exit 1; fi
           cp godot/assets/fonts/OFL.txt godot/export/lab/FONT-LICENSE.txt
           cp godot/assets/fonts/FONT_INFO.json godot/export/lab/FONT-INFO.json
       - name: Browser test dependencies
@@ -58,13 +58,15 @@ jobs:
         run: python3 tools/test_web.py
       - name: Chain Lab WebGL touch smoke
         run: python3 tools/test_chain_lab_web.py
+      - name: Flesh wall and real speed WebGL acceptance
+        run: python3 tools/test_flesh_wall_web.py
       - name: Package importable project and Web build
         run: |
           python3 tools/package_project.py
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-chain-flow-delivery
+          name: godot-flesh-wall-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
@@ -76,4 +78,7 @@ jobs:
             docs/chain-flow/*.log
             docs/chain-flow/*.json
             docs/chain-flow/*.png
+            docs/flesh-wall/*.log
+            docs/flesh-wall/*.json
+            docs/flesh-wall/*.png
           if-no-files-found: error

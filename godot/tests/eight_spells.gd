@@ -56,7 +56,7 @@ func run() -> void:
    if offer.kind=="skill" and offer.key not in seen:seen.append(offer.key)
  check(seen.size()==8,"normal reward pool can produce all eight playable spell types");rewards.free()
  var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game;game.set_physics_process(false)
- game.chain.load_spell_kit();game.chain.resonance_chance=0
+ game.chain.load_spell_kit();game.chain.rng.seed=32012;game.chain.resonance_chance=0
  var count: int=game.chain.items.size();game.chain.load_spell_kit()
  check(count==14 and game.chain.items.size()==14 and game.chain.slots.count(-1)==1,"spell training kit is idempotent and keeps nine used slots within capacity ten")
  for i in range(6):

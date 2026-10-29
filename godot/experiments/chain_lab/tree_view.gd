@@ -40,6 +40,7 @@ func rebuild(chain: Node, selection: int) -> void:
    art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
    art.texture=load("res://experiments/chain_lab/assets/relay_gem.svg") if item.kind=="gem" else Effects.texture(str(item.key))
    b.add_child(art)
+   if item.kind=="gem":art.modulate=preload("res://experiments/chain_lab/gem_rules.gd").tint(str(item.key))
   var caption:=Label.new();caption.mouse_filter=Control.MOUSE_FILTER_IGNORE;caption.text="%02d · %s" % [i+1,"—" if item.is_empty() else "L%d" % int(item.level)]
   caption.add_theme_font_size_override("font_size",18);caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;caption.position=Vector2(0,66);caption.size=Vector2(92,24);b.add_child(caption)
   b.pressed.connect(func():slot_selected.emit(i))

@@ -190,7 +190,7 @@ func resize_ui() -> void:
   buttons[key].custom_minimum_size=Vector2(196 if portrait else 144,72)
 func name_of(item: Dictionary) -> String:
  if item.is_empty():return "空格"
- return "%s・%d 級" % [Zh.spell(str(item.key)) if item.kind=="skill" else "接續寶石",int(item.level)]
+ return "%s・%d 級" % [Zh.spell(str(item.key)) if item.kind=="skill" else preload("res://experiments/chain_lab/gem_rules.gd").title(str(item.key)),int(item.level)]
 func refresh_editor() -> void:
  if not is_instance_valid(grid):return
  grid.rebuild(chain,selected)

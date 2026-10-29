@@ -28,10 +28,10 @@ func _ready() -> void:
  hide()
 func title(item: Dictionary) -> String:
  if item.is_empty():return "空格"
- return "%s・%d 級" % [Zh.spell(str(item.key)) if item.kind=="skill" else "接續寶石",int(item.level)]
+ return "%s・%d 級" % [Zh.spell(str(item.key)) if item.kind=="skill" else preload("res://experiments/chain_lab/gem_rules.gd").title(str(item.key)),int(item.level)]
 func stats(item: Dictionary) -> String:
  if item.is_empty():return "無攻擊或接續效果"
- if item.kind=="gem":return "最多接續 %d 條線" % (2 if int(item.level)==3 else 1)
+ if item.kind=="gem":return preload("res://experiments/chain_lab/gem_rules.gd").description(str(item.key),int(item.level))
  return "直擊基礎傷害 %.1f（含血肉攻擊加成；範圍與狀態效果另計）" % (Effects.power(str(item.key),int(item.level),attack_boost))
 func open(chain: Node, index: int, boost: float) -> void:
  model=chain;slot=index;attack_boost=boost
@@ -49,6 +49,7 @@ func open(chain: Node, index: int, boost: float) -> void:
   if id>=0:
    var art:=TextureRect.new();art.mouse_filter=Control.MOUSE_FILTER_IGNORE;art.position=Vector2(82,4);art.size=Vector2(56,56);art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
    art.texture=load("res://experiments/chain_lab/assets/relay_gem.svg") if item.kind=="gem" else Effects.texture(str(item.key));b.add_child(art)
+   if item.kind=="gem":art.modulate=preload("res://experiments/chain_lab/gem_rules.gd").tint(str(item.key))
   b.pressed.connect(func():select_item(id))
  select_item(int(model.slots[slot]));show()
 func select_item(id: int) -> void:

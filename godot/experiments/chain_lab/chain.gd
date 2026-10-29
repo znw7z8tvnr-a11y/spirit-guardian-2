@@ -194,20 +194,7 @@ func schedule(slot: int, target: Node2D, result: Dictionary, run: Dictionary) ->
  var at: Vector2=result.get("position",target.position if is_instance_valid(target) else Vector2.ZERO)
  pending.append({"slot":slot,"target":weakref(target) if is_instance_valid(target) else null,"at":at,"result":result.duplicate(true),"run":run,"due":clock+hop_delay})
 func gem_succeeds(item: Dictionary, source: Dictionary) -> bool:
- var hit: bool=source.get("hit",false)
- match str(item.key):
-  "hit":
-   if not hit:return false
-  "kill":
-   if not hit or not source.get("killed",false):return false
-  "crit":
-   if not hit or not source.get("critical",false):return false
-  "burn":
-   if not hit or source.get("element","")!="fire":return false
-  "freeze":
-   if not hit or source.get("element","")!="ice":return false
- # Existing lab relay probabilities remain tuning values, not a final economy.
- return rng.randf()<[0.0,0.85,0.93,1.0][int(item.level)]
+ return preload("res://experiments/chain_lab/gem_rules.gd").succeeds(str(item.key),int(item.level),source,rng)
 func advance(delta: float) -> void:
  clock+=delta
  var ready:=pending.filter(func(e):return float(e.due)<=clock)

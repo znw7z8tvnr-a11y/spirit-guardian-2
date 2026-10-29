@@ -54,6 +54,7 @@ func run() -> void:
  var expected: float=(Catalog.power("arcane")+Catalog.power("fire")*2+Catalog.power("ice"))*game.spell_attack_multiplier()
  check(is_equal_approx(5000-enemy.hp,expected),"real echo projectile adds exactly one fire impact of damage")
  check(game.spell_cast_counts.fire==2 and game.spell_cast_counts.ice==1 and model.active.is_empty(),"real damage repeat never duplicates downstream ice")
+ check(game.trail.any(func(entry):return "迴響" in entry),"combat HUD identifies the actual echo cast")
  model.reset_runtime();model.cast_requested.disconnect(game.cast_spell);model.cast_requested.connect(record);model.start(enemy);var capped: Dictionary=emitted.pop_front();capped.context.echo_chance=1.0;model.active.events=model.MAX_EVENTS;finish(model,capped)
  check(model.pending.is_empty() and model.active.is_empty(),"event budget bounds both continuations and echoes")
  game.queue_free();await process_frame

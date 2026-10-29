@@ -16,6 +16,7 @@
     "echo does not start fresh rounds without targets",
     "real echo projectile adds exactly one fire impact of damage",
     "real damage repeat never duplicates downstream ice",
+    "combat HUD identifies the actual echo cast",
     "event budget bounds both continuations and echoes"
   ],
   "failures": []

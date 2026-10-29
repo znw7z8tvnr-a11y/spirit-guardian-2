@@ -327,9 +327,9 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   chain.complete_skill(slot,victim,result,run,context)
   shot.queue_free()
  )
-func show_pulse(slot: int, _message: String) -> void:
+func show_pulse(slot: int, message: String) -> void:
  var item: Dictionary=chain.item_at(slot)
- trail.append("%02d %s%s" % [slot+1,name_of(item),"・施放" if item.kind=="skill" else "・判定"])
+ trail.append("%02d %s%s" % [slot+1,name_of(item),"・迴響" if message=="迴響" else ("・施放" if item.kind=="skill" else "・判定")])
  if trail.size()>5:trail.pop_front()
  event_label.text=" → ".join(trail)
  if slot<slot_buttons.size():

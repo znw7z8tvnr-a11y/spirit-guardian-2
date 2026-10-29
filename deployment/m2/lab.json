@@ -1,14 +1,14 @@
 {
   "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
-  "deployment_id": "appgdep_6ae2d86a6e6c81918fc3f705febdb6a1",
-  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_c441a7d06de4819182f3e021cee65624",
+  "deployment_id": "appgdep_6ae2de8dc8748191a22f9a414fe70281",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_8581edd025048191b7fb624592cbbd53",
   "status": "succeeded",
   "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
   "audience": "owner-private",
-  "game_source_commit": "4803806247d1077dcf213a56facc4d9682dde929",
-  "hosting_source_commit": "05314f6ced9c0d86226eec84764b134ffdef0b6b",
-  "ci_run": 40822423238,
-  "ci_artifact": 12875660863,
+  "game_source_commit": "508c3fd9724da40ac7a32d4821de8811251b9c03",
+  "hosting_source_commit": "3add659b27a73b591127d22c5f7c88f37cf2f4e6",
+  "ci_run": 40824957934,
+  "ci_artifact": 12875967905,
   "stable_root_files_unchanged": true,
-  "release": "Flesh wall growth and 1x 2x 4x 8x speed"
+  "release": "Illustrated ten-slot branching chain editor"
 }

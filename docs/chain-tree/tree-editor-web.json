@@ -1,0 +1,22 @@
+{
+  "landscape": {
+    "passed": [
+      "graph selection",
+      "illegal link rejection",
+      "unique inventory arrangement",
+      "close editor"
+    ],
+    "pageerrors": [],
+    "engine_errors": []
+  },
+  "portrait": {
+    "passed": [
+      "graph selection",
+      "illegal link rejection",
+      "unique inventory arrangement",
+      "close editor"
+    ],
+    "pageerrors": [],
+    "engine_errors": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "deployment_id": "appgdep_6ae2de8dc8748191a22f9a414fe70281",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_8581edd025048191b7fb624592cbbd53",
+  "status": "succeeded",
+  "hosting_source_commit": "3add659b27a73b591127d22c5f7c88f37cf2f4e6",
+  "game_source_commit": "508c3fd9724da40ac7a32d4821de8811251b9c03",
+  "ci_run": 40824957934,
+  "ci_artifact": 12875967905,
+  "release": "Illustrated ten-slot branching chain editor",
+  "native_checks": 252,
+  "browser": "Linux Chromium software WebGL touch emulation",
+  "full_chain_web_build": "4989783c5ef88c290da7e4bb199b17e60ee5652c; final graph scroll fix also passed full GitHub CI at game_source_commit",
+  "final_local_web_checks": [
+    "two orientation graph selection and illegal link / random inventory",
+    "two orientation starter meat growth and true 8x speed and pause and restart"
+  ],
+  "untested": [
+    "iPad Safari hardware",
+    "full twenty-wave balance",
+    "final artwork"
+  ],
+  "stable_root_preserved": true
+}

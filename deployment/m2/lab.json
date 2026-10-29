@@ -1,15 +1,15 @@
 {
   "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
-  "deployment_id": "appgdep_6ae373572bb481918d7599d0e078c743",
-  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_ab022574dee48191bab23a4d23eaba9c",
+  "deployment_id": "appgdep_6ae37bdd079c8191af89c78252d0f3d0",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_a8983714dae081918adb82ff51c68d2a",
   "status": "succeeded",
   "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
   "audience": "owner-private",
-  "game_source_commit": "2624afd289c154eaa93bd938da9eefc69f232a18",
-  "hosting_source_commit": "04963cb9790968a64d72e1c27638ea9826c9571e",
-  "ci_run": 40910211147,
-  "ci_artifact": 12914570815,
+  "game_source_commit": "3504f90c3e171e5a8e34b1ce0343e18319f32c1b",
+  "hosting_source_commit": "678340d4cbbd7dd4c136069cb376e11134442d97",
+  "ci_run": 40916214269,
+  "ci_artifact": 12917635216,
   "stable_root_files_unchanged": true,
-  "release": "Per-item simulation-clock timing gems, cooldown inspector and actual pause/eight-speed touch validation",
-  "ci_source_commit": "2624afd289c154eaa93bd938da9eefc69f232a18"
+  "release": "Ninth lab attack: horizontal lightning pierce, bounded multi-hit chaining and actual timed-chain touch playthroughs",
+  "ci_source_commit": "3504f90c3e171e5a8e34b1ce0343e18319f32c1b"
 }

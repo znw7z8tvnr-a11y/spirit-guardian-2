@@ -1,0 +1,29 @@
+{
+  "game_source_commit": "3504f90c3e171e5a8e34b1ce0343e18319f32c1b",
+  "native_checks": 577,
+  "native_result": "passed",
+  "local_webgl": [
+    "export landscape and portrait ninth-skill preview, equipment and actual pierce casts/hits in timed chain",
+    "packaged streamed landscape and portrait full ninth-skill and cooldown/pause/eight-speed flow"
+  ],
+  "ci_run": 40916214269,
+  "ci_conclusion": "success",
+  "ci_artifact": 12917635216,
+  "stable_root_files_unchanged": 18,
+  "original_gems_implemented_or_remade": 9,
+  "remaining_original_gems": 10,
+  "playable_lab_spell_types": 9,
+  "stable_root_spell_types": 8,
+  "remaining_attack_types": 13,
+  "limitations": [
+    "Linux Chromium emulated touch only; iPad Safari hardware untested",
+    "Pierce retains V9 row geometry, strict width, damage and lightning mapping; primary-first distance ordering is a deliberate remake adaptation",
+    "Touch playthrough uses owned training items and a two-skill timed fixture; full normal twenty-wave balance untested",
+    "Atlas lightning and layered beam Sprite are temporary art; no final art or device performance claim",
+    "Complete run saving and remaining original skills/gems remain pending"
+  ],
+  "deployment_id": "appgdep_6ae37bdd079c8191af89c78252d0f3d0",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_a8983714dae081918adb82ff51c68d2a",
+  "status": "succeeded",
+  "hosting_source_commit": "678340d4cbbd7dd4c136069cb376e11134442d97"
+}

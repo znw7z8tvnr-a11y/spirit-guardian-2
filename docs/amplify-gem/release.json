@@ -1,0 +1,26 @@
+{
+  "game_source_commit": "03c793fd5ea35dfc506e8ee4ec7717fee9fe9d84",
+  "native_checks": 392,
+  "native_result": "passed",
+  "local_webgl": [
+    "landscape eight-spell plus amplify inventory and cast trace",
+    "portrait eight-spell plus amplify inventory and cast trace",
+    "landscape packaged streamed build",
+    "portrait packaged streamed build"
+  ],
+  "ci_run": 40893515242,
+  "ci_conclusion": "success",
+  "ci_artifact": 12905943824,
+  "stable_root_files_unchanged": 18,
+  "limitations": [
+    "Linux Chromium emulated touch only; no iPad Safari hardware validation",
+    "4 of 19 original gem types plus prototype relay; fifteen original types pending",
+    "8 provisional attack types; fourteen original skills pending",
+    "Temporary gem art tint; no final art claim",
+    "Amplification is next-skill direct damage only; fixed DOT and resonance excluded"
+  ],
+  "deployment_id": "appgdep_6ae35ae8861c819190bb87c9d79b187c",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_b2ddf0f8553481919079ec0d5a02605b",
+  "status": "succeeded",
+  "hosting_source_commit": "602a69f6c43877739fd41add25d0848ce54ade4b"
+}

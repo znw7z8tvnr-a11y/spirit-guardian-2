@@ -1,0 +1,96 @@
+{
+  "checks": [
+    "new run has a 360 wall before a 100 core",
+    "intact wall absorbs incoming damage before core",
+    "overflow damage transfers once to the core",
+    "manual mode retains all absorbed meat without hidden purchases",
+    "source-cost attack upgrade consumes six meat and boosts all spell base power",
+    "upgrade cost increases by seven per same-stat level",
+    "HP upgrade increases current and maximum wall by sixty-five",
+    "partial repairs do not instantly flicker broken wall back on",
+    "wall reactivates after repair reaches twenty percent",
+    "regeneration repairs core after the wall is full",
+    "armor level reduces incoming damage by fourteen percent",
+    "defense is capped at seventy percent",
+    "insufficient meat never changes upgrade levels",
+    "regeneration cannot resurrect a destroyed core",
+    "automatic round-robin purchases all four growth types exactly once",
+    "new run clears meat, upgrades and wall growth",
+    "one enemy awards one drop even if death is reported twice",
+    "pickup callback cannot double-credit the same meat",
+    "Boss awards forty-eight meat in addition to prior ordinary drop",
+    "arcane-only starter gets a short primary interval",
+    "long chain retains the selected paced interval",
+    "global simulation speed cycles to 2x",
+    "global simulation speed cycles to 4x",
+    "global simulation speed cycles to 8x",
+    "global simulation speed cycles to 1x",
+    "pause blocks game clock and regeneration even at eight times speed",
+    "wall upgrade menu pauses actual combat",
+    "leaving the trial restores normal global speed",
+    "arcane starter clears wave three and claims an unequipped earned gem with seed 12032",
+    "seed 12032 survival uses no training inventory",
+    "seed 12032 kills feed actual attack, defense and recovery growth",
+    "arcane starter clears wave three and claims an unequipped earned gem with seed 24064",
+    "seed 24064 survival uses no training inventory",
+    "seed 24064 kills feed actual attack, defense and recovery growth",
+    "arcane starter clears wave three and claims an unequipped earned gem with seed 32012",
+    "seed 32012 survival uses no training inventory",
+    "seed 32012 kills feed actual attack, defense and recovery growth"
+  ],
+  "early_battles": [
+    {
+      "absorbed": 72,
+      "core": 100.0,
+      "kills": 18,
+      "kit": false,
+      "levels": {
+        "armor": 2,
+        "atk": 2,
+        "hp": 2,
+        "regen": 1
+      },
+      "seconds": 54.1999999999982,
+      "seed": 12032,
+      "wall": 490.0,
+      "wall_max": 490.0,
+      "wave": 4
+    },
+    {
+      "absorbed": 72,
+      "core": 100.0,
+      "kills": 18,
+      "kit": false,
+      "levels": {
+        "armor": 2,
+        "atk": 2,
+        "hp": 2,
+        "regen": 1
+      },
+      "seconds": 54.1999999999982,
+      "seed": 24064,
+      "wall": 490.0,
+      "wall_max": 490.0,
+      "wave": 4
+    },
+    {
+      "absorbed": 72,
+      "core": 100.0,
+      "kills": 18,
+      "kit": false,
+      "levels": {
+        "armor": 2,
+        "atk": 2,
+        "hp": 2,
+        "regen": 1
+      },
+      "seconds": 54.1999999999982,
+      "seed": 32012,
+      "wall": 490.0,
+      "wall_max": 490.0,
+      "wave": 4
+    }
+  ],
+  "engine": "4.6.3-stable (official)",
+  "failures": []
+}

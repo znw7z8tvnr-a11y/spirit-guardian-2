@@ -1,0 +1,30 @@
+{
+  "deployment_id": "appgdep_6ae2eab3e1708191ac90873cb9eb23d6",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_6f9084e47acc8191bcb7e32032f6910f",
+  "status": "succeeded",
+  "hosting_source_commit": "9728404729c8ec88f3b43c57f216a0f53b56e932",
+  "game_source_commit": "b38b7f5b358b9f19d124dc6ab31cfeaa76c33a69",
+  "ci_source_commit": "5cb8896fd8ba6cf032a8833ef13208346f4451c4",
+  "ci_run": 40830684456,
+  "ci_artifact": 12879165920,
+  "release": "Earned three-wave and Boss reward choices, rerolls and run-local affixes",
+  "native_checks": 290,
+  "ci_conclusion": "success",
+  "source_note": "CI follows game source with Python browser-driver and workflow-only fixes; Godot game files are unchanged.",
+  "local_packaged_web": [
+    "two orientation actual third-wave reward modal, battle freeze, one refresh and earned gem inventory grant",
+    "two orientation icon inventory preview, replacement and graph validation",
+    "actual living-target chained combat and ground continuation",
+    "manual growth, global speed and restart regressions"
+  ],
+  "boss_coverage": "Model and actual scene-clear integration tests cover one-to-five queue, wave fifteen combined reward and wave twenty reward before victory; no full twenty-wave human playthrough.",
+  "untested": [
+    "iPad Safari hardware",
+    "full twenty-wave balance",
+    "full original skill and gem catalog",
+    "rare wand and capacity items",
+    "full rarity pity and run save",
+    "final artwork"
+  ],
+  "stable_root_preserved": true
+}

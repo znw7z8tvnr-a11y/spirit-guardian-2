@@ -1,0 +1,2461 @@
+{
+  "landscape": {
+    "viewport": {
+      "width": 1180,
+      "height": 820
+    },
+    "initial": {
+      "absorbed": 0,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_multiplier": 1,
+      "auto_growth": true,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          172,
+          835,
+          152,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Flesh": [
+          484,
+          835,
+          152,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          328,
+          835,
+          152,
+          72
+        ],
+        "Pause": [
+          952,
+          835,
+          152,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          1108,
+          835,
+          152,
+          72
+        ],
+        "Reward 0": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 1": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 2": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "RewardRefresh": [
+          20,
+          52,
+          8,
+          72
+        ],
+        "Slot 0": [
+          90,
+          88,
+          92,
+          92
+        ],
+        "Slot 1": [
+          90,
+          426,
+          92,
+          92
+        ],
+        "Slot 2": [
+          202,
+          426,
+          92,
+          92
+        ],
+        "Slot 3": [
+          314,
+          426,
+          92,
+          92
+        ],
+        "Slot 4": [
+          426,
+          426,
+          92,
+          92
+        ],
+        "Slot 5": [
+          538,
+          426,
+          92,
+          92
+        ],
+        "Slot 6": [
+          650,
+          426,
+          92,
+          92
+        ],
+        "Slot 7": [
+          762,
+          426,
+          92,
+          92
+        ],
+        "Slot 8": [
+          874,
+          426,
+          92,
+          92
+        ],
+        "Slot 9": [
+          986,
+          426,
+          92,
+          92
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Speed": [
+          796,
+          835,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          835,
+          152,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 0,
+      "combat_seconds": 0.4,
+      "defense": 0,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "flesh": 0,
+      "growth_levels": {
+        "armor": 0,
+        "atk": 0,
+        "hp": 0,
+        "regen": 0
+      },
+      "growth_open": false,
+      "hits": 0,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "item_count": 1,
+      "jumps": 0,
+      "kills": 0,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 0,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [],
+      "reward_extra_refresh": 0,
+      "reward_granted": 0,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 1,
+      "spell_attack_multiplier": 1,
+      "tempo": 0,
+      "trace": [],
+      "viewport": [
+        1280,
+        889
+      ],
+      "wall_active": true,
+      "wall_hp": 360,
+      "wall_max": 360,
+      "wave": 0
+    },
+    "final": {
+      "absorbed": 12,
+      "active": false,
+      "arrange_disabled": false,
+      "attack_multiplier": 1.5,
+      "auto_growth": true,
+      "buttons": {
+        "Arrange": [
+          420,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          172,
+          835,
+          152,
+          72
+        ],
+        "Connect": [
+          420,
+          294,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          294,
+          152,
+          72
+        ],
+        "Done": [
+          108,
+          105,
+          152,
+          72
+        ],
+        "Equip": [
+          108,
+          294,
+          152,
+          72
+        ],
+        "Flesh": [
+          484,
+          835,
+          152,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          636,
+          218,
+          1208,
+          72
+        ],
+        "InventoryApply": [
+          370,
+          109,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          146,
+          109,
+          220,
+          72
+        ],
+        "Item -1": [
+          146,
+          346,
+          220,
+          126
+        ],
+        "Item 0": [
+          370,
+          346,
+          220,
+          126
+        ],
+        "Item 1": [
+          594,
+          346,
+          220,
+          126
+        ],
+        "Item 2": [
+          818,
+          346,
+          220,
+          126
+        ],
+        "Item 3": [
+          1042,
+          346,
+          220,
+          126
+        ],
+        "Item 4": [
+          146,
+          476,
+          220,
+          126
+        ],
+        "Item 5": [
+          370,
+          476,
+          220,
+          126
+        ],
+        "Item 6": [
+          594,
+          476,
+          220,
+          126
+        ],
+        "Item 7": [
+          818,
+          476,
+          220,
+          126
+        ],
+        "Item 8": [
+          1042,
+          476,
+          220,
+          126
+        ],
+        "Item 9": [
+          146,
+          606,
+          220,
+          126
+        ],
+        "Kit": [
+          328,
+          835,
+          152,
+          72
+        ],
+        "Pause": [
+          952,
+          835,
+          152,
+          72
+        ],
+        "Random": [
+          264,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          1108,
+          835,
+          152,
+          72
+        ],
+        "Reward 0": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 1": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 2": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "RewardRefresh": [
+          20,
+          52,
+          8,
+          72
+        ],
+        "Slot 0": [
+          106,
+          470,
+          92,
+          92
+        ],
+        "Slot 1": [
+          248,
+          470,
+          92,
+          92
+        ],
+        "Slot 2": [
+          390,
+          406,
+          92,
+          92
+        ],
+        "Slot 3": [
+          390,
+          534,
+          92,
+          92
+        ],
+        "Slot 4": [
+          532,
+          534,
+          92,
+          92
+        ],
+        "Slot 5": [
+          674,
+          534,
+          92,
+          92
+        ],
+        "Slot 6": [
+          532,
+          406,
+          92,
+          92
+        ],
+        "Slot 7": [
+          674,
+          406,
+          92,
+          92
+        ],
+        "Slot 8": [
+          106,
+          744,
+          92,
+          92
+        ],
+        "Slot 9": [
+          218,
+          744,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          294,
+          152,
+          72
+        ],
+        "Speed": [
+          796,
+          835,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          835,
+          152,
+          72
+        ]
+      },
+      "candidate": 9,
+      "capacity": 10,
+      "casts": 9,
+      "combat_seconds": 9.40000000000005,
+      "defense": 0,
+      "discovered": [
+        "fire+ice+lightning"
+      ],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 1,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 2,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        }
+      ],
+      "edit_open": false,
+      "empty_casts": 2,
+      "enemies": 1,
+      "flesh": 0,
+      "growth_levels": {
+        "armor": 0,
+        "atk": 1,
+        "hp": 1,
+        "regen": 0
+      },
+      "growth_open": false,
+      "hits": 6,
+      "hp": 100,
+      "inventory_apply_disabled": true,
+      "inventory_detail": "目前：接續寶石・3 級｜最多接續 2 條線\n候選：接續寶石・1 級｜最多接續 1 條線\n此寶石無法維持目前分岔，請先移除多餘連線。",
+      "inventory_open": false,
+      "item_count": 10,
+      "jumps": 2,
+      "kills": 4,
+      "kit": true,
+      "meat_pending": 1,
+      "misses": 3,
+      "paused": false,
+      "pending": 0,
+      "regen": 0,
+      "resonances": 1,
+      "retargets": 1,
+      "reward_attack_stacks": 0,
+      "reward_completed": [],
+      "reward_extra_refresh": 0,
+      "reward_granted": 0,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 1,
+      "selected": 3,
+      "slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        -1,
+        -1
+      ],
+      "speed": 1,
+      "spell_attack_multiplier": 1.5,
+      "tempo": 2,
+      "trace": [
+        {
+          "at": [
+            1496.47534179688,
+            781.34375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 1,
+          "slot": 0,
+          "target": 75413587681
+        },
+        {
+          "kind": "hit",
+          "run": 1,
+          "slot": 0,
+          "target": 75413587681
+        },
+        {
+          "kind": "gem",
+          "run": 1,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1642.95629882812,
+            336.853637695312
+          ],
+          "empty": false,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            1484.00952148438,
+            775.463134765625
+          ],
+          "run": 1,
+          "slot": 2,
+          "target": 76319557261
+        },
+        {
+          "at": [
+            1464.80541992188,
+            766.40380859375
+          ],
+          "empty": false,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            1484.00952148438,
+            775.463134765625
+          ],
+          "run": 1,
+          "slot": 3,
+          "target": 75413587681
+        },
+        {
+          "kind": "hit",
+          "run": 1,
+          "slot": 2,
+          "target": 76319557261
+        },
+        {
+          "kind": "hit",
+          "run": 1,
+          "slot": 3,
+          "target": 75413587681
+        },
+        {
+          "kind": "gem",
+          "run": 1,
+          "slot": 6,
+          "success": true
+        },
+        {
+          "kind": "gem",
+          "run": 1,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            1607.57348632812,
+            344.623413085938
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1607.57348632812,
+            344.623413085938
+          ],
+          "run": 1,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "at": [
+            1447.62280273438,
+            758.298095703125
+          ],
+          "empty": true,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            1447.62280273438,
+            758.298095703125
+          ],
+          "run": 1,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 1,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 1,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "at": [
+            213.419082641602,
+            700.144775390625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 2,
+          "slot": 0,
+          "target": 77124863640
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 0,
+          "target": 77124863640
+        },
+        {
+          "kind": "gem",
+          "run": 2,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            233.088195800781,
+            694.4111328125
+          ],
+          "empty": false,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            224.147689819336,
+            697.017333984375
+          ],
+          "run": 2,
+          "slot": 2,
+          "target": 77124863640
+        },
+        {
+          "at": [
+            233.088195800781,
+            694.4111328125
+          ],
+          "empty": false,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            224.147689819336,
+            697.017333984375
+          ],
+          "run": 2,
+          "slot": 3,
+          "target": 77124863640
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 2,
+          "target": 77124863640
+        },
+        {
+          "kind": "miss",
+          "run": 2,
+          "slot": 3,
+          "target": 77124863640
+        },
+        {
+          "kind": "gem",
+          "run": 2,
+          "slot": 6,
+          "success": false
+        },
+        {
+          "kind": "gem",
+          "run": 2,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            295.69140625,
+            777.133178710938
+          ],
+          "empty": false,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            233.088195800781,
+            694.4111328125
+          ],
+          "run": 2,
+          "slot": 5,
+          "target": 80346089180
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 5,
+          "target": 80346089180
+        }
+      ],
+      "viewport": [
+        1280,
+        889
+      ],
+      "wall_active": true,
+      "wall_hp": 425,
+      "wall_max": 425,
+      "wave": 1
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "lab feature-scene export",
+      "arcane-only ten-slot start",
+      "unknown recipe gate",
+      "training kit inventory",
+      "icon bag preview, confirm and cancel",
+      "no duplicate equipment or lost forks",
+      "slot selection",
+      "reject skill-to-skill link",
+      "legal unique-item random arrangement",
+      "close editor and resume",
+      "tempo presets",
+      "pause/resume",
+      "actual chained impacts in battle",
+      "living-target jumps",
+      "visible empty continuations",
+      "no phantom hits on null target"
+    ],
+    "limit": "Linux Chromium software WebGL touch emulation; no Safari or iPad performance claim"
+  },
+  "portrait": {
+    "viewport": {
+      "width": 820,
+      "height": 1180
+    },
+    "initial": {
+      "absorbed": 0,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_multiplier": 1,
+      "auto_growth": true,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          340,
+          1711,
+          196,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Flesh": [
+          740,
+          1711,
+          196,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          540,
+          1711,
+          196,
+          72
+        ],
+        "Pause": [
+          540,
+          1787,
+          196,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          740,
+          1787,
+          196,
+          72
+        ],
+        "Reward 0": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 1": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 2": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "RewardRefresh": [
+          20,
+          52,
+          8,
+          72
+        ],
+        "Slot 0": [
+          90,
+          88,
+          92,
+          92
+        ],
+        "Slot 1": [
+          90,
+          426,
+          92,
+          92
+        ],
+        "Slot 2": [
+          202,
+          426,
+          92,
+          92
+        ],
+        "Slot 3": [
+          314,
+          426,
+          92,
+          92
+        ],
+        "Slot 4": [
+          426,
+          426,
+          92,
+          92
+        ],
+        "Slot 5": [
+          538,
+          426,
+          92,
+          92
+        ],
+        "Slot 6": [
+          650,
+          426,
+          92,
+          92
+        ],
+        "Slot 7": [
+          762,
+          426,
+          92,
+          92
+        ],
+        "Slot 8": [
+          874,
+          426,
+          92,
+          92
+        ],
+        "Slot 9": [
+          986,
+          426,
+          92,
+          92
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Speed": [
+          340,
+          1787,
+          196,
+          72
+        ],
+        "Tempo": [
+          940,
+          1711,
+          196,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 0,
+      "combat_seconds": 0.4,
+      "defense": 0,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "flesh": 0,
+      "growth_levels": {
+        "armor": 0,
+        "atk": 0,
+        "hp": 0,
+        "regen": 0
+      },
+      "growth_open": false,
+      "hits": 0,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "item_count": 1,
+      "jumps": 0,
+      "kills": 0,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 0,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [],
+      "reward_extra_refresh": 0,
+      "reward_granted": 0,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 1,
+      "spell_attack_multiplier": 1,
+      "tempo": 0,
+      "trace": [],
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wall_active": true,
+      "wall_hp": 360,
+      "wall_max": 360,
+      "wave": 0
+    },
+    "final": {
+      "absorbed": 56,
+      "active": true,
+      "arrange_disabled": false,
+      "attack_multiplier": 2,
+      "auto_growth": true,
+      "buttons": {
+        "Arrange": [
+          420,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          340,
+          1711,
+          196,
+          72
+        ],
+        "Connect": [
+          420,
+          294,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          294,
+          152,
+          72
+        ],
+        "Done": [
+          108,
+          105,
+          152,
+          72
+        ],
+        "Equip": [
+          108,
+          294,
+          152,
+          72
+        ],
+        "Flesh": [
+          740,
+          1711,
+          196,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          640,
+          218,
+          1216,
+          72
+        ],
+        "InventoryApply": [
+          370,
+          109,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          146,
+          109,
+          220,
+          72
+        ],
+        "Item -1": [
+          146,
+          346,
+          220,
+          126
+        ],
+        "Item 0": [
+          370,
+          346,
+          220,
+          126
+        ],
+        "Item 1": [
+          594,
+          346,
+          220,
+          126
+        ],
+        "Item 2": [
+          818,
+          346,
+          220,
+          126
+        ],
+        "Item 3": [
+          1042,
+          346,
+          220,
+          126
+        ],
+        "Item 4": [
+          146,
+          476,
+          220,
+          126
+        ],
+        "Item 5": [
+          370,
+          476,
+          220,
+          126
+        ],
+        "Item 6": [
+          594,
+          476,
+          220,
+          126
+        ],
+        "Item 7": [
+          818,
+          476,
+          220,
+          126
+        ],
+        "Item 8": [
+          1042,
+          476,
+          220,
+          126
+        ],
+        "Item 9": [
+          146,
+          606,
+          220,
+          126
+        ],
+        "Kit": [
+          540,
+          1711,
+          196,
+          72
+        ],
+        "Pause": [
+          540,
+          1787,
+          196,
+          72
+        ],
+        "Random": [
+          264,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          740,
+          1787,
+          196,
+          72
+        ],
+        "Reward 0": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 1": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 2": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "RewardRefresh": [
+          20,
+          52,
+          8,
+          72
+        ],
+        "Slot 0": [
+          106,
+          470,
+          92,
+          92
+        ],
+        "Slot 1": [
+          248,
+          470,
+          92,
+          92
+        ],
+        "Slot 2": [
+          390,
+          406,
+          92,
+          92
+        ],
+        "Slot 3": [
+          390,
+          534,
+          92,
+          92
+        ],
+        "Slot 4": [
+          532,
+          534,
+          92,
+          92
+        ],
+        "Slot 5": [
+          674,
+          534,
+          92,
+          92
+        ],
+        "Slot 6": [
+          532,
+          406,
+          92,
+          92
+        ],
+        "Slot 7": [
+          674,
+          406,
+          92,
+          92
+        ],
+        "Slot 8": [
+          106,
+          744,
+          92,
+          92
+        ],
+        "Slot 9": [
+          218,
+          744,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          294,
+          152,
+          72
+        ],
+        "Speed": [
+          340,
+          1787,
+          196,
+          72
+        ],
+        "Tempo": [
+          940,
+          1711,
+          196,
+          72
+        ]
+      },
+      "candidate": 9,
+      "capacity": 10,
+      "casts": 47,
+      "combat_seconds": 45.383333333332,
+      "defense": 0.14,
+      "discovered": [
+        "fire+ice+lightning"
+      ],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 1,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 2,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        }
+      ],
+      "edit_open": false,
+      "empty_casts": 23,
+      "enemies": 1,
+      "flesh": 6,
+      "growth_levels": {
+        "armor": 1,
+        "atk": 2,
+        "hp": 2,
+        "regen": 1
+      },
+      "growth_open": false,
+      "hits": 21,
+      "hp": 100,
+      "inventory_apply_disabled": true,
+      "inventory_detail": "目前：接續寶石・3 級｜最多接續 2 條線\n候選：接續寶石・1 級｜最多接續 1 條線\n此寶石無法維持目前分岔，請先移除多餘連線。",
+      "inventory_open": false,
+      "item_count": 10,
+      "jumps": 1,
+      "kills": 14,
+      "kit": true,
+      "meat_pending": 0,
+      "misses": 24,
+      "paused": false,
+      "pending": 0,
+      "regen": 2,
+      "resonances": 2,
+      "retargets": 3,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 0,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 5,
+      "selected": 3,
+      "slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        -1,
+        -1
+      ],
+      "speed": 1,
+      "spell_attack_multiplier": 2,
+      "tempo": 2,
+      "trace": [
+        {
+          "kind": "miss",
+          "run": 4,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 4,
+          "slot": 3,
+          "target": 0
+        },
+        {
+          "kind": "gem",
+          "run": 4,
+          "slot": 6,
+          "success": false
+        },
+        {
+          "kind": "gem",
+          "run": 4,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            122.972473144531,
+            413.411682128906
+          ],
+          "empty": true,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            122.972473144531,
+            413.411682128906
+          ],
+          "run": 4,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 4,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "at": [
+            1409.57678222656,
+            785.919982910156
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 5,
+          "slot": 0,
+          "target": 82996889243
+        },
+        {
+          "kind": "hit",
+          "run": 5,
+          "slot": 0,
+          "target": 82996889243
+        },
+        {
+          "kind": "gem",
+          "run": 5,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1392.41906738281,
+            776.293762207031
+          ],
+          "empty": false,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            1400.66796875,
+            780.921752929688
+          ],
+          "run": 5,
+          "slot": 2,
+          "target": 82996889243
+        },
+        {
+          "at": [
+            1392.41906738281,
+            776.293762207031
+          ],
+          "empty": false,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            1400.66796875,
+            780.921752929688
+          ],
+          "run": 5,
+          "slot": 3,
+          "target": 82996889243
+        },
+        {
+          "kind": "hit",
+          "run": 5,
+          "slot": 2,
+          "target": 82996889243
+        },
+        {
+          "kind": "hit",
+          "run": 5,
+          "slot": 3,
+          "target": 83667977884
+        },
+        {
+          "kind": "gem",
+          "run": 5,
+          "slot": 6,
+          "success": true
+        },
+        {
+          "kind": "gem",
+          "run": 5,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            1382.52038574219,
+            770.740173339844
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1382.52038574219,
+            770.740173339844
+          ],
+          "run": 5,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "at": [
+            1364.42492675781,
+            821.904541015625
+          ],
+          "empty": true,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            1364.42492675781,
+            821.904541015625
+          ],
+          "run": 5,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 5,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 5,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "at": [
+            331.395690917969,
+            722.81640625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 6,
+          "slot": 0,
+          "target": 83198215744
+        },
+        {
+          "kind": "hit",
+          "run": 6,
+          "slot": 0,
+          "target": 83198215744
+        },
+        {
+          "kind": "gem",
+          "run": 6,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            349.713439941406,
+            715.63720703125
+          ],
+          "empty": false,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            340.906829833984,
+            719.088745117188
+          ],
+          "run": 6,
+          "slot": 2,
+          "target": 83198215744
+        },
+        {
+          "at": [
+            349.713439941406,
+            715.63720703125
+          ],
+          "empty": false,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            340.906829833984,
+            719.088745117188
+          ],
+          "run": 6,
+          "slot": 3,
+          "target": 83198215744
+        },
+        {
+          "kind": "hit",
+          "run": 6,
+          "slot": 2,
+          "target": 83198215744
+        },
+        {
+          "kind": "miss",
+          "run": 6,
+          "slot": 3,
+          "target": 83198215744
+        },
+        {
+          "kind": "gem",
+          "run": 6,
+          "slot": 6,
+          "success": true
+        },
+        {
+          "kind": "gem",
+          "run": 6,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            358.872314453125,
+            712.047607421875
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            358.872314453125,
+            712.047607421875
+          ],
+          "run": 6,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "at": [
+            349.713439941406,
+            715.63720703125
+          ],
+          "empty": true,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            349.713439941406,
+            715.63720703125
+          ],
+          "run": 6,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 6,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 6,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "at": [
+            981.5341796875,
+            151.348678588867
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 7,
+          "slot": 0,
+          "target": 86352332462
+        },
+        {
+          "kind": "hit",
+          "run": 7,
+          "slot": 0,
+          "target": 86352332462
+        },
+        {
+          "kind": "gem",
+          "run": 7,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            977.140502929688,
+            170.13671875
+          ],
+          "empty": false,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            979.294250488281,
+            160.926895141602
+          ],
+          "run": 7,
+          "slot": 2,
+          "target": 86352332462
+        },
+        {
+          "at": [
+            977.140502929688,
+            170.13671875
+          ],
+          "empty": false,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            979.294250488281,
+            160.926895141602
+          ],
+          "run": 7,
+          "slot": 3,
+          "target": 86352332462
+        },
+        {
+          "kind": "hit",
+          "run": 7,
+          "slot": 2,
+          "target": 86352332462
+        },
+        {
+          "kind": "miss",
+          "run": 7,
+          "slot": 3,
+          "target": 86352332462
+        },
+        {
+          "kind": "gem",
+          "run": 7,
+          "slot": 6,
+          "success": true
+        },
+        {
+          "kind": "gem",
+          "run": 7,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            974.728271484375,
+            180.451721191406
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            974.728271484375,
+            180.451721191406
+          ],
+          "run": 7,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "at": [
+            977.140502929688,
+            170.13671875
+          ],
+          "empty": true,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            977.140502929688,
+            170.13671875
+          ],
+          "run": 7,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 7,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 7,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "at": [
+            1449.93090820312,
+            660.415893554688
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 8,
+          "slot": 0,
+          "target": 86117451495
+        },
+        {
+          "kind": "hit",
+          "run": 8,
+          "slot": 0,
+          "target": 86117451495
+        },
+        {
+          "kind": "gem",
+          "run": 8,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1439.0361328125,
+            657.237182617188
+          ],
+          "empty": true,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            1439.0361328125,
+            657.237182617188
+          ],
+          "run": 8,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "at": [
+            1439.0361328125,
+            657.237182617188
+          ],
+          "empty": true,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            1439.0361328125,
+            657.237182617188
+          ],
+          "run": 8,
+          "slot": 3,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 8,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 8,
+          "slot": 3,
+          "target": 0
+        },
+        {
+          "kind": "gem",
+          "run": 8,
+          "slot": 6,
+          "success": true
+        },
+        {
+          "kind": "gem",
+          "run": 8,
+          "slot": 4,
+          "success": false
+        },
+        {
+          "at": [
+            1439.0361328125,
+            657.237182617188
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1439.0361328125,
+            657.237182617188
+          ],
+          "run": 8,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 8,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "at": [
+            1633.56188964844,
+            316.774108886719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 9,
+          "slot": 0,
+          "target": 89053464250
+        },
+        {
+          "kind": "hit",
+          "run": 9,
+          "slot": 0,
+          "target": 89053464250
+        },
+        {
+          "kind": "gem",
+          "run": 9,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1612.13854980469,
+            322.125
+          ],
+          "empty": true,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            1612.13854980469,
+            322.125
+          ],
+          "run": 9,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "at": [
+            1612.13854980469,
+            322.125
+          ],
+          "empty": true,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            1612.13854980469,
+            322.125
+          ],
+          "run": 9,
+          "slot": 3,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 9,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 9,
+          "slot": 3,
+          "target": 0
+        },
+        {
+          "kind": "gem",
+          "run": 9,
+          "slot": 6,
+          "success": true
+        },
+        {
+          "kind": "gem",
+          "run": 9,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            1612.13854980469,
+            322.125
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1612.13854980469,
+            322.125
+          ],
+          "run": 9,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "at": [
+            1612.13854980469,
+            322.125
+          ],
+          "empty": true,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            1612.13854980469,
+            322.125
+          ],
+          "run": 9,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 9,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 9,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "at": [
+            278.040344238281,
+            241.741287231445
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 10,
+          "slot": 0,
+          "target": 90076874384
+        },
+        {
+          "kind": "hit",
+          "run": 10,
+          "slot": 0,
+          "target": 90076874384
+        },
+        {
+          "kind": "gem",
+          "run": 10,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            194.515228271484,
+            366.1025390625
+          ],
+          "empty": false,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            287.974670410156,
+            245.866348266602
+          ],
+          "run": 10,
+          "slot": 2,
+          "target": 89707775694
+        },
+        {
+          "at": [
+            296.844604492188,
+            249.549438476562
+          ],
+          "empty": false,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            287.974670410156,
+            245.866348266602
+          ],
+          "run": 10,
+          "slot": 3,
+          "target": 90076874384
+        },
+        {
+          "kind": "hit",
+          "run": 10,
+          "slot": 2,
+          "target": 89707775694
+        },
+        {
+          "kind": "hit",
+          "run": 10,
+          "slot": 3,
+          "target": 90076874384
+        },
+        {
+          "kind": "gem",
+          "run": 10,
+          "slot": 6,
+          "success": true
+        },
+        {
+          "kind": "gem",
+          "run": 10,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            204.328308105469,
+            367.964782714844
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            204.328308105469,
+            367.964782714844
+          ],
+          "run": 10,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "at": [
+            306.0693359375,
+            253.379852294922
+          ],
+          "empty": true,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            306.0693359375,
+            253.379852294922
+          ],
+          "run": 10,
+          "slot": 5,
+          "target": 0
+        }
+      ],
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wall_active": true,
+      "wall_hp": 490,
+      "wall_max": 490,
+      "wave": 3
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "lab feature-scene export",
+      "arcane-only ten-slot start",
+      "unknown recipe gate",
+      "training kit inventory",
+      "icon bag preview, confirm and cancel",
+      "no duplicate equipment or lost forks",
+      "slot selection",
+      "reject skill-to-skill link",
+      "legal unique-item random arrangement",
+      "close editor and resume",
+      "tempo presets",
+      "pause/resume",
+      "actual chained impacts in battle",
+      "living-target jumps",
+      "visible empty continuations",
+      "no phantom hits on null target"
+    ],
+    "limit": "Linux Chromium software WebGL touch emulation; no Safari or iPad performance claim"
+  }
+}

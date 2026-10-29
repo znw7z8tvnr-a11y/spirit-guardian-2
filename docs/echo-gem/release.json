@@ -1,0 +1,25 @@
+{
+  "game_source_commit": "89581504a511a06ec4add1692e5f206b6e854bd8",
+  "native_checks": 413,
+  "native_result": "passed",
+  "local_webgl": [
+    "final packaged landscape eight-spell and echo cast trace",
+    "final packaged portrait eight-spell and echo cast trace"
+  ],
+  "ci_run": 40896316953,
+  "ci_conclusion": "success",
+  "ci_artifact": 12908335421,
+  "stable_root_files_unchanged": 18,
+  "limitations": [
+    "Linux Chromium touch emulation; iPad Safari hardware untested",
+    "Echo remade from original tooltip: V9 runtime only gated continuation, did not repeat spell",
+    "Five original-name gem remakes plus trial relay; fourteen original types pending",
+    "Eight provisional attack types; fourteen original skills pending",
+    "Temporary tinted sprite art; no final art or device performance claim",
+    "Echo damage uses level and gem scale; current meat and affix boost captured per cast; no downstream traversal"
+  ],
+  "deployment_id": "appgdep_6ae35eedf660819196f9d9d53f8e6f7a",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_a7ae5dbe3fe8819186f0aeeade4a151e",
+  "status": "succeeded",
+  "hosting_source_commit": "903e7d6a464983a4e353ea74025da98095185fb8"
+}

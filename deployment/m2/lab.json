@@ -1,15 +1,15 @@
 {
   "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
-  "deployment_id": "appgdep_6ae35ae8861c819190bb87c9d79b187c",
-  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_b2ddf0f8553481919079ec0d5a02605b",
+  "deployment_id": "appgdep_6ae35eedf660819196f9d9d53f8e6f7a",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_a7ae5dbe3fe8819186f0aeeade4a151e",
   "status": "succeeded",
   "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
   "audience": "owner-private",
-  "game_source_commit": "03c793fd5ea35dfc506e8ee4ec7717fee9fe9d84",
-  "hosting_source_commit": "602a69f6c43877739fd41add25d0848ce54ade4b",
-  "ci_run": 40893515242,
-  "ci_artifact": 12905943824,
+  "game_source_commit": "89581504a511a06ec4add1692e5f206b6e854bd8",
+  "hosting_source_commit": "903e7d6a464983a4e353ea74025da98095185fb8",
+  "ci_run": 40896316953,
+  "ci_artifact": 12908335421,
   "stable_root_files_unchanged": true,
-  "release": "Next-skill amplification gem, isolated per-branch damage, five supported gem kinds including trial relay",
-  "ci_source_commit": "03c793fd5ea35dfc506e8ee4ec7717fee9fe9d84"
+  "release": "Echo gem tooltip-based remake: real extra spell casts, bounded events, no extra graph traversal, explicit combat feedback",
+  "ci_source_commit": "89581504a511a06ec4add1692e5f206b6e854bd8"
 }

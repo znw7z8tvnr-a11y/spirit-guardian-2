@@ -24,6 +24,7 @@ func run() -> void:
   var result:=Effects.impact(key,e,Vector2(-100,0),e.position,3,1.5,[e],resolver)
   check(result.hit and result.hit_count==1 and is_equal_approx(result.damage,Catalog.power(key)*2.1*1.5),"%s applies actual level-three meat-scaled damage" % key)
   check(Effects.texture(key)!=null and Effects.description(key)!="尚未實作","%s has an explicit visual and behavior description" % key);clear()
+ check(Effects.texture("meteor") is AtlasTexture and Effects.texture("meteor").get_height()==94 and Effects.texture("poison").get_width()==190,"lab uses bounded atlas regions instead of displaying mixed legacy sheets")
  var poison:=enemy(Vector2.ZERO);Effects.impact("poison",poison,Vector2(-100,0),Vector2.ZERO,1,1,[poison],resolver)
  for i in range(5):poison._physics_process(0.5)
  check(is_equal_approx(poison.hp,5000-17-15) and poison.poison_time==0,"poison produces five real ticks and expires without refreshing itself");clear()

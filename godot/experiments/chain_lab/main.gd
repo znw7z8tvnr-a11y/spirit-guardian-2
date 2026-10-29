@@ -296,7 +296,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
  var target_ref: WeakRef=weakref(target) if is_instance_valid(target) else null
  var tween:=shot.create_tween()
  if str(item.key)=="meteor":
-  shot.position=at+Vector2(0,-260);shot.scale=Vector2.ONE*0.38;shot.rotation=PI/2
+  shot.position=at+Vector2(0,-260);shot.scale=Vector2.ONE*0.38;shot.rotation=-PI/2
   tween.tween_interval(0.25)
   tween.tween_property(shot,"position",at,flight_time*1.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
  else:
@@ -321,7 +321,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   spell_cast_counts[key]=int(spell_cast_counts.get(key,0))+1
   spell_hit_counts[key]=int(spell_hit_counts.get(key,0))+int(result.hit_count)
   # Ground casts retain shaped FX; only the resolver supplies real hit/kill gates.
-  fx.impact(impact_at,StringName(key))
+  spell_impact(impact_at,key)
   if key in ["meteor","nova","poison","beam"]:spell_visual(key,context.origin,impact_at)
   chain.complete_skill(slot,victim,result,run,context)
   shot.queue_free()
@@ -335,7 +335,7 @@ func show_pulse(slot: int, _message: String) -> void:
   slot_buttons[slot].modulate=Color("ffe4a0")
 func resonate(recipe: String, at: Vector2, _run_id: int) -> void:
  event_label.text="共振發現："+str(Catalog.data.FINISHERS[recipe][0])
- fx.impact(at,&"arcane");fx.impact(at,&"lightning")
+ spell_impact(at,"arcane");spell_impact(at,"lightning")
  for e in enemies.get_children():
   if not e.dead and e.position.distance_to(at)<240:resolver.resolve(e,45.0*tower.attack_multiplier(),"arcane",{"critical":false})
  if persist_book:
@@ -449,7 +449,7 @@ func refresh_boss_status() -> void:
 
 func spell_visual(key: String, origin: Vector2, at: Vector2) -> void:
  if fx.get_child_count()>=FX.MAX_EFFECTS:return
- var art:=Sprite2D.new();art.texture=SpellEffects.texture(key);art.position=at;art.modulate.a=0.65;art.set_meta("spell_key",key);fx.add_child(art)
+ var art:=Sprite2D.new();art.texture=SpellEffects.impact_texture(key);art.position=at;art.modulate.a=0.65;art.set_meta("spell_key",key);fx.add_child(art)
  var duration:=0.55
  if key=="beam":
   var length:=clampf(origin.distance_to(at)+160,120,1000)
@@ -458,6 +458,14 @@ func spell_visual(key: String, origin: Vector2, at: Vector2) -> void:
   art.position=origin+axis*length*0.5;art.rotation=axis.angle()
   art.scale=Vector2(length/art.texture.get_width(),0.58);duration=0.3
  elif key=="poison":art.scale=Vector2(0.6,0.38);duration=2.5
- elif key=="meteor":art.scale=Vector2(0.9,0.5)
- else:art.scale=Vector2(0.65,0.4)
+ elif key=="meteor":art.scale=Vector2(290.0/art.texture.get_width(),145.0/art.texture.get_height())
+ else:art.scale=Vector2(150.0/art.texture.get_width(),100.0/art.texture.get_height())
  var fade:=art.create_tween();fade.tween_property(art,"modulate:a",0.0,duration);fade.tween_callback(art.queue_free)
+
+func spell_impact(at: Vector2, key: String) -> void:
+ if fx.get_child_count()>=FX.MAX_EFFECTS:return
+ var art:=Sprite2D.new();art.texture=SpellEffects.impact_texture(key);art.position=at;art.scale=Vector2.ONE*0.26;fx.add_child(art)
+ var tween:=art.create_tween().set_parallel(true)
+ tween.tween_property(art,"scale",Vector2.ONE*0.75,0.22)
+ tween.tween_property(art,"modulate:a",0.0,0.22)
+ tween.chain().tween_callback(art.queue_free)

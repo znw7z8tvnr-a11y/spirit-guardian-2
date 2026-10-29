@@ -3,8 +3,19 @@ extends RefCounted
 const Catalog=preload("res://modules/spell/catalog.gd")
 const Art=preload("res://modules/spell/projectile.gd")
 const BEAM_ART=preload("res://experiments/chain_lab/assets/beam.svg")
+const ATLAS_REGIONS={"fire":[&"fire",Rect2(0,0,300,94)],"ice":[&"ice",Rect2(0,0,300,78)],"lightning":[&"lightning",Rect2(0,30,300,61)],"arcane":[&"arcane",Rect2(0,14,108,65)],"poison":[&"arcane",Rect2(110,13,190,75)],"meteor":[&"fire",Rect2(0,0,300,94)],"nova":[&"nova",Rect2(102,33,174,136)]}
+static var textures: Dictionary={}
 static func texture(key: String) -> Texture2D:
- return BEAM_ART if key=="beam" else Art.TEXTURES.get(StringName(key),Art.TEXTURES[&"arcane"])
+ if key=="beam":return BEAM_ART
+ if textures.has(key):return textures[key]
+ if key not in ATLAS_REGIONS:key="arcane"
+ var atlas:=AtlasTexture.new();atlas.atlas=Art.TEXTURES[ATLAS_REGIONS[key][0]];atlas.region=ATLAS_REGIONS[key][1]
+ textures[key]=atlas;return atlas
+static func impact_texture(key: String) -> Texture2D:
+ if key!="meteor":return texture(key)
+ if not textures.has("meteor_impact"):
+  var atlas:=AtlasTexture.new();atlas.atlas=Art.TEXTURES[&"meteor"];atlas.region=Rect2(0,31,147,60);textures.meteor_impact=atlas
+ return textures.meteor_impact
 const DESCRIPTIONS={"arcane":"單體奧術攻擊","fire":"爆裂：最多波及兩個鄰近目標","ice":"單體寒冰攻擊，附加緩速","lightning":"雷擊：最多波及兩個鄰近目標","poison":"附毒 2.5 秒，每 0.5 秒造成 3 傷害","meteor":"延遲落擊，半徑 145，最多 24 個目標","nova":"冰霜擴散，半徑 75，最多 24 個目標並緩速","beam":"沿本段施法方向穿透，最多 8 個目標"}
 static func description(key: String) -> String:return DESCRIPTIONS.get(key,"尚未實作")
 static func power(key: String, level: int, boost: float) -> float:

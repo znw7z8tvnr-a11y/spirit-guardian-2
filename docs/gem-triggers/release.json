@@ -1,0 +1,25 @@
+{
+  "game_source_commit": "eac7a29fcc995b62355c7d1e0854c7e62ffeaabf",
+  "native_checks": 379,
+  "native_result": "passed",
+  "local_webgl": [
+    "landscape full chain smoke",
+    "portrait full chain smoke",
+    "landscape packaged cache-versioned editor",
+    "portrait packaged cache-versioned editor"
+  ],
+  "ci_run": 40891250116,
+  "ci_conclusion": "success",
+  "ci_artifact": 12904364433,
+  "stable_root_files_unchanged": 18,
+  "limitations": [
+    "Linux Chromium emulated touch only; no iPad Safari hardware validation",
+    "3 of 19 original gem types plus prototype relay; sixteen original gem types pending",
+    "8 provisional attack types; fourteen original skills pending",
+    "Temporary gem art recolors; no final art claim"
+  ],
+  "deployment_id": "appgdep_6ae358aac5648191a8cdc880eca4e52c",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_71f2990278408191b09c9afc14f5e338",
+  "status": "succeeded",
+  "hosting_source_commit": "41b40481eec3a29d1ef7c9b44f35a6785bce84c6"
+}

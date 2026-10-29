@@ -1,0 +1,28 @@
+{
+  "landscape": {
+    "passed": [
+      "graph selection",
+      "illegal link rejection",
+      "unique inventory arrangement",
+      "icon bag candidate preview and apply",
+      "cancel preserves gear",
+      "reject duplicate and fork downgrade",
+      "close editor"
+    ],
+    "pageerrors": [],
+    "engine_errors": []
+  },
+  "portrait": {
+    "passed": [
+      "graph selection",
+      "illegal link rejection",
+      "unique inventory arrangement",
+      "icon bag candidate preview and apply",
+      "cancel preserves gear",
+      "reject duplicate and fork downgrade",
+      "close editor"
+    ],
+    "pageerrors": [],
+    "engine_errors": []
+  }
+}

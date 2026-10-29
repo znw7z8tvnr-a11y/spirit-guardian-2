@@ -24,16 +24,20 @@ if args.subdir=='lab' and (root/'dist/build-info.json').exists():
    if hashlib.sha256(shared.read_bytes()).hexdigest()!=part['sha256']:raise ValueError('Stable engine digest mismatch')
    (out/part['file']).unlink();part['file']='../'+part['file']
 manifest={'source_repository':'znw7z8tvnr-a11y/spirit-guardian-2','source_commit':args.source_commit,'build_origin':'locally exported with Godot 4.6.3; native and browser tests recorded in docs/m2-1','entrypoint':args.subdir or '/', 'web_zip_sha256':hashlib.sha256(web).hexdigest(),'wasm_bytes':len(data),'wasm_sha256':hashlib.sha256(data).hexdigest(),'chunks':chunks}
-if args.subdir=='lab':manifest['build_origin']='Godot 4.6.3 Chain Lab export; checks in docs/eight-spells'
+if args.subdir=='lab':manifest['build_origin']='Godot 4.6.3 Chain Lab export; checks in docs/gem-triggers'
 (out/'build-info.json').write_text(json.dumps(manifest,indent=2))
 # Reconstruct a streaming Response so Godot can keep its original wasm filename,
 # progress handling and instantiateStreaming. No game GDScript/PCK changes.
 loader='''(() => {\n  const nativeFetch = window.fetch.bind(window);\n  const base = new URL('.', document.currentScript.src);\n  const names = CHUNKS;\n  const size = TOTAL;\n  window.fetch = async function(input, init) {\n    const url = new URL(input instanceof Request ? input.url : String(input), location.href);\n    if (url.href !== new URL('index.wasm', base).href) return nativeFetch(input, init);\n    let cancelled = false;\n    let reader = null;\n    const body = new ReadableStream({\n      async start(controller) {\n        try {\n          for (const name of names) {\n            if (cancelled) return;\n            const response = await nativeFetch(new URL(name, base), init);\n            if (!response.ok) throw new Error('Game download failed: ' + response.status);\n            reader = response.body.getReader();\n            while (!cancelled) {\n              const {done, value} = await reader.read();\n              if (done) break;\n              controller.enqueue(value);\n            }\n          }\n          if (!cancelled) controller.close();\n        } catch (error) { if (!cancelled) controller.error(error); }\n      },\n      cancel() { cancelled = true; if (reader) return reader.cancel(); }\n    });\n    return new Response(body, {status: 200, headers: {'Content-Type':'application/wasm', 'Content-Length':String(size)}});\n  };\n})();\n'''.replace('CHUNKS',json.dumps([x['file'] for x in chunks])).replace('TOTAL',str(len(data)))
+if args.subdir=='lab':
+ # Cache data by content, so a returning player cannot receive a stale PCK.
+ pack_hash=hashlib.sha256((out/'index.pck').read_bytes()).hexdigest()
+ loader=loader.replace("    if (url.href !==", "    if (url.pathname === new URL('index.pck', base).pathname) {\n      url.searchParams.set('build', '"+pack_hash+"');\n      return nativeFetch(input instanceof Request ? new Request(url, input) : url, init);\n    }\n    if (url.href !==")
 (out/'wasm-stream.js').write_text(loader)
 html=(out/'index.html').read_text();needle='<script src="index.js"></script>'
 if html.count(needle)!=1:raise ValueError('Unexpected Godot loader layout')
 html=html.replace(needle,'<script src="wasm-stream.js"></script>\n'+needle).replace('<html lang="en">','<html lang="zh-Hant">').replace('<title>Spirit Guardian — Modules M2</title>','<title>靈境守衛 Spirit Guardian｜M2.1 觸控試玩</title>')
-if args.subdir=='lab':html=html.replace('M2.1 觸控試玩','連鎖戰鬥試驗室')
+if args.subdir=='lab':html=html.replace('M2.1 觸控試玩','連鎖戰鬥試驗室').replace('src="wasm-stream.js"','src="wasm-stream.js?build='+args.source_commit+'"')
 (out/'index.html').write_text(html);wasm.unlink()
 assert hashlib.sha256(b''.join((out/x['file']).read_bytes() for x in chunks)).hexdigest()==manifest['wasm_sha256']
 assert max(p.stat().st_size for p in out.iterdir())<25*1024*1024

@@ -1,13 +1,15 @@
 {
   "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
-  "deployment_id": "appgdep_6ae23ca929b08191837b595108d1ff18",
-  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_96b01b90cdc481919ab022f570b52d12",
+  "deployment_id": "appgdep_6ae2cfa396808191b25a291a12040b09",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_047da254aed48191bf8f5519918dbe6e",
   "status": "succeeded",
   "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
   "audience": "owner-private",
-  "game_source_commit": "15f0c1463252a0528aed72d349836793561656df",
-  "hosting_source_commit": "30e05169788fa44379c662b4b1c779402e8ff11f",
-  "ci_run": 40743445356,
-  "ci_artifact": 12839858162,
-  "stable_root_files_unchanged": true
+  "game_source_commit": "88f7080129aeec6ed66be99e160e2397af161fa7",
+  "hosting_source_commit": "e4f76367e28619ea9f1f93f42813ad6666e02ba6",
+  "ci_run": 40818426079,
+  "ci_artifact": 12873353283,
+  "ci_source_commit": "fa6196dbcddf0e34590a863468ee15d9ecee6ec2",
+  "stable_root_files_unchanged": true,
+  "release": "P1 chain flow first batch"
 }

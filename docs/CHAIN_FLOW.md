@@ -43,3 +43,13 @@ V9的22技能很多共用選敵分組；不能從名稱就推定完整召喚AI�
 ## 下一批
 
 先完成來源行為對照與肉／城牆／核心規則，再進入前5波可玩段落及圖示技能樹。保持來源清單，不把Lab四招變成正式全部技能。
+
+## 本次交付結果
+
+原始Web匯出與實際分段部署包各自完成Linux Chromium橫1180×820／直820×1180觸控測試。部署包截取時：橫向14次施放、4次跳躍、5次落空、2次起手無目標；直向14次施放、2次跳躍、3次落空、4次起手無目標。兩方向均無pageerror與Godot runtime ERROR。seed=12032，並非真機效能或正式平衡測試。
+
+GitHub Actions 40817861854與加強空放驗收後的40818426079皆成功；最新交付為 https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/40818426079 ，artifact godot-chain-flow-delivery。原始匯出證據lab-web-raw.json，部署包lab-web-smoke.json。
+
+本次正式發布仍是owner-private，沿用 /lab/；線上以TLS驗證核對兩個入口、引擎分段及PCK，見live-assets.json。原M2.1根入口18檔案完全未變，見stable-root-preserved.json。遠端瀏覽器此前受環境CA限制，這次沒有以HTTP完整性核對冒充正式站互動測試。
+
+正式22技能、19寶石、50共振完整還原、肉成長、雙杖、詞條、圖示樹、正式美術與iPad Safari真機仍未完成。本批只是P0第一輪盤點與P1連鎖核心，不是整份計畫完成。

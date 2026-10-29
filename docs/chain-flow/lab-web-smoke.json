@@ -1,0 +1,1532 @@
+{
+  "landscape": {
+    "viewport": {
+      "width": 1180,
+      "height": 820
+    },
+    "initial": {
+      "active": false,
+      "arrange_disabled": true,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          328,
+          779,
+          152,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Kit": [
+          484,
+          779,
+          152,
+          72
+        ],
+        "Pause": [
+          796,
+          779,
+          152,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          952,
+          779,
+          152,
+          72
+        ],
+        "Slot 0": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 1": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 2": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 3": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 4": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 5": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 6": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 7": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 8": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 9": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          779,
+          152,
+          72
+        ]
+      },
+      "capacity": 10,
+      "casts": 0,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "hits": 0,
+      "hp": 100,
+      "jumps": 0,
+      "kills": 0,
+      "kit": false,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "resonances": 0,
+      "retargets": 0,
+      "rolls": 0,
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "tempo": 0,
+      "trace": [],
+      "viewport": [
+        1280,
+        889
+      ],
+      "wave": 0
+    },
+    "final": {
+      "active": false,
+      "arrange_disabled": false,
+      "buttons": {
+        "Arrange": [
+          420,
+          105,
+          152,
+          72
+        ],
+        "Configure": [
+          328,
+          815,
+          152,
+          72
+        ],
+        "Connect": [
+          420,
+          294,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          294,
+          152,
+          72
+        ],
+        "Done": [
+          108,
+          105,
+          152,
+          72
+        ],
+        "Equip": [
+          108,
+          294,
+          152,
+          72
+        ],
+        "Kit": [
+          484,
+          815,
+          152,
+          72
+        ],
+        "Pause": [
+          796,
+          815,
+          152,
+          72
+        ],
+        "Random": [
+          264,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          952,
+          815,
+          152,
+          72
+        ],
+        "Slot 0": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 1": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 2": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 3": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 4": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 5": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 6": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 7": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 8": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 9": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Source": [
+          264,
+          294,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          815,
+          152,
+          72
+        ]
+      },
+      "capacity": 10,
+      "casts": 14,
+      "discovered": [
+        "fire+ice+lightning"
+      ],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 1,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 2,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        }
+      ],
+      "edit_open": false,
+      "empty_casts": 2,
+      "enemies": 1,
+      "hits": 9,
+      "hp": 100,
+      "jumps": 4,
+      "kills": 4,
+      "kit": true,
+      "misses": 5,
+      "paused": false,
+      "pending": 0,
+      "resonances": 1,
+      "retargets": 3,
+      "rolls": 1,
+      "selected": 3,
+      "slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        -1,
+        -1
+      ],
+      "tempo": 2,
+      "trace": [
+        {
+          "at": [
+            1496.47534179688,
+            781.34375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 1,
+          "slot": 0,
+          "target": 47731181019
+        },
+        {
+          "kind": "hit",
+          "run": 1,
+          "slot": 0,
+          "target": 47731181019
+        },
+        {
+          "kind": "gem",
+          "run": 1,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1648.23742675781,
+            335.69384765625
+          ],
+          "empty": false,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            1485.02026367188,
+            775.93994140625
+          ],
+          "run": 1,
+          "slot": 2,
+          "target": 48570041833
+        },
+        {
+          "at": [
+            1465.81616210938,
+            766.880615234375
+          ],
+          "empty": false,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            1485.02026367188,
+            775.93994140625
+          ],
+          "run": 1,
+          "slot": 3,
+          "target": 47731181019
+        },
+        {
+          "kind": "hit",
+          "run": 1,
+          "slot": 2,
+          "target": 48570041833
+        },
+        {
+          "kind": "hit",
+          "run": 1,
+          "slot": 3,
+          "target": 47731181019
+        },
+        {
+          "kind": "gem",
+          "run": 1,
+          "slot": 6,
+          "success": true
+        },
+        {
+          "kind": "gem",
+          "run": 1,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            1620.2177734375,
+            341.845764160156
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1629.31506347656,
+            339.848388671875
+          ],
+          "run": 1,
+          "slot": 7,
+          "target": 48570041833
+        },
+        {
+          "at": [
+            1620.2177734375,
+            341.845764160156
+          ],
+          "empty": false,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            1448.29663085938,
+            758.615966796875
+          ],
+          "run": 1,
+          "slot": 5,
+          "target": 48570041833
+        },
+        {
+          "kind": "miss",
+          "run": 1,
+          "slot": 7,
+          "target": 48570041833
+        },
+        {
+          "kind": "miss",
+          "run": 1,
+          "slot": 5,
+          "target": 48570041833
+        },
+        {
+          "at": [
+            215.695281982422,
+            699.48046875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 2,
+          "slot": 0,
+          "target": 49224353267
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 0,
+          "target": 49224353267
+        },
+        {
+          "kind": "gem",
+          "run": 2,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            235.512100219727,
+            693.703125
+          ],
+          "empty": false,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            225.797973632812,
+            696.53515625
+          ],
+          "run": 2,
+          "slot": 2,
+          "target": 49224353267
+        },
+        {
+          "at": [
+            235.512100219727,
+            693.703125
+          ],
+          "empty": false,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            225.797973632812,
+            696.53515625
+          ],
+          "run": 2,
+          "slot": 3,
+          "target": 49224353267
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 2,
+          "target": 49224353267
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 3,
+          "target": 49224353267
+        },
+        {
+          "kind": "gem",
+          "run": 2,
+          "slot": 6,
+          "success": false
+        },
+        {
+          "kind": "gem",
+          "run": 2,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            251.248809814453,
+            689.115234375
+          ],
+          "empty": false,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            246.780487060547,
+            690.41796875
+          ],
+          "run": 2,
+          "slot": 5,
+          "target": 49224353267
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 5,
+          "target": 49224353267
+        },
+        {
+          "at": [
+            350.477416992188,
+            752.009033203125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 3,
+          "slot": 0,
+          "target": 51707381215
+        },
+        {
+          "kind": "hit",
+          "run": 3,
+          "slot": 0,
+          "target": 51707381215
+        },
+        {
+          "kind": "gem",
+          "run": 3,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            290.298065185547,
+            677.73046875
+          ],
+          "empty": false,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            367.962158203125,
+            743.990844726562
+          ],
+          "run": 3,
+          "slot": 2,
+          "target": 49224353267
+        },
+        {
+          "at": [
+            290.298065185547,
+            677.73046875
+          ],
+          "empty": false,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            367.962158203125,
+            743.990844726562
+          ],
+          "run": 3,
+          "slot": 3,
+          "target": 49224353267
+        },
+        {
+          "kind": "hit",
+          "run": 3,
+          "slot": 2,
+          "target": 49224353267
+        },
+        {
+          "kind": "miss",
+          "run": 3,
+          "slot": 3,
+          "target": 49224353267
+        },
+        {
+          "kind": "gem",
+          "run": 3,
+          "slot": 6,
+          "success": true
+        },
+        {
+          "kind": "gem",
+          "run": 3,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            301.177459716797,
+            674.55859375
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            301.177459716797,
+            674.55859375
+          ],
+          "run": 3,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "at": [
+            290.298065185547,
+            677.73046875
+          ],
+          "empty": true,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            290.298065185547,
+            677.73046875
+          ],
+          "run": 3,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 3,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 3,
+          "slot": 5,
+          "target": 0
+        }
+      ],
+      "viewport": [
+        1280,
+        889
+      ],
+      "wave": 1
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "lab feature-scene export",
+      "arcane-only ten-slot start",
+      "unknown recipe gate",
+      "training kit inventory",
+      "slot selection",
+      "reject skill-to-skill link",
+      "legal unique-item random arrangement",
+      "close editor and resume",
+      "tempo presets",
+      "pause/resume",
+      "actual chained impacts in battle",
+      "living-target jumps",
+      "visible empty continuations",
+      "no phantom hits on null target"
+    ],
+    "limit": "Linux Chromium software WebGL touch emulation; no Safari or iPad performance claim"
+  },
+  "portrait": {
+    "viewport": {
+      "width": 820,
+      "height": 1180
+    },
+    "initial": {
+      "active": false,
+      "arrange_disabled": true,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          328,
+          1731,
+          152,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Kit": [
+          484,
+          1731,
+          152,
+          72
+        ],
+        "Pause": [
+          796,
+          1731,
+          152,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          952,
+          1731,
+          152,
+          72
+        ],
+        "Slot 0": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 1": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 2": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 3": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 4": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 5": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 6": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 7": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 8": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Slot 9": [
+          128,
+          64,
+          224,
+          96
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          1731,
+          152,
+          72
+        ]
+      },
+      "capacity": 10,
+      "casts": 0,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "hits": 0,
+      "hp": 100,
+      "jumps": 0,
+      "kills": 0,
+      "kit": false,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "resonances": 0,
+      "retargets": 0,
+      "rolls": 0,
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "tempo": 0,
+      "trace": [],
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wave": 0
+    },
+    "final": {
+      "active": true,
+      "arrange_disabled": false,
+      "buttons": {
+        "Arrange": [
+          420,
+          105,
+          152,
+          72
+        ],
+        "Configure": [
+          328,
+          1767,
+          152,
+          72
+        ],
+        "Connect": [
+          420,
+          294,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          294,
+          152,
+          72
+        ],
+        "Done": [
+          108,
+          105,
+          152,
+          72
+        ],
+        "Equip": [
+          108,
+          294,
+          152,
+          72
+        ],
+        "Kit": [
+          484,
+          1767,
+          152,
+          72
+        ],
+        "Pause": [
+          796,
+          1767,
+          152,
+          72
+        ],
+        "Random": [
+          264,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          952,
+          1767,
+          152,
+          72
+        ],
+        "Slot 0": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 1": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 2": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 3": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 4": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 5": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 6": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 7": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 8": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Slot 9": [
+          144,
+          382,
+          224,
+          96
+        ],
+        "Source": [
+          264,
+          294,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          1767,
+          152,
+          72
+        ]
+      },
+      "capacity": 10,
+      "casts": 14,
+      "discovered": [
+        "fire+ice+lightning"
+      ],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 1,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 2,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        }
+      ],
+      "edit_open": false,
+      "empty_casts": 4,
+      "enemies": 1,
+      "hits": 9,
+      "hp": 100,
+      "jumps": 2,
+      "kills": 4,
+      "kit": true,
+      "misses": 3,
+      "paused": false,
+      "pending": 0,
+      "resonances": 1,
+      "retargets": 3,
+      "rolls": 1,
+      "selected": 3,
+      "slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        -1,
+        -1
+      ],
+      "tempo": 2,
+      "trace": [
+        {
+          "at": [
+            1496.47534179688,
+            781.34375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 1,
+          "slot": 0,
+          "target": 47160755677
+        },
+        {
+          "kind": "hit",
+          "run": 1,
+          "slot": 0,
+          "target": 47160755677
+        },
+        {
+          "kind": "gem",
+          "run": 1,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1470.53295898438,
+            769.105712890625
+          ],
+          "empty": false,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            1484.34643554688,
+            775.6220703125
+          ],
+          "run": 1,
+          "slot": 2,
+          "target": 47160755677
+        },
+        {
+          "at": [
+            1470.53295898438,
+            769.105712890625
+          ],
+          "empty": false,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            1484.34643554688,
+            775.6220703125
+          ],
+          "run": 1,
+          "slot": 3,
+          "target": 47160755677
+        },
+        {
+          "kind": "hit",
+          "run": 1,
+          "slot": 2,
+          "target": 47160755677
+        },
+        {
+          "kind": "hit",
+          "run": 1,
+          "slot": 3,
+          "target": 48133834218
+        },
+        {
+          "kind": "gem",
+          "run": 1,
+          "slot": 6,
+          "success": true
+        },
+        {
+          "kind": "gem",
+          "run": 1,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            1460.42553710938,
+            764.337646484375
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1460.42553710938,
+            764.337646484375
+          ],
+          "run": 1,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "at": [
+            1642.41516113281,
+            336.97216796875
+          ],
+          "empty": true,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            1642.41516113281,
+            336.97216796875
+          ],
+          "run": 1,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 1,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 1,
+          "slot": 5,
+          "target": 0
+        },
+        {
+          "at": [
+            215.306716918945,
+            699.59375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 2,
+          "slot": 0,
+          "target": 49996105201
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 0,
+          "target": 49996105201
+        },
+        {
+          "kind": "gem",
+          "run": 2,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            235.12353515625,
+            693.81640625
+          ],
+          "empty": false,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            225.409408569336,
+            696.6484375
+          ],
+          "run": 2,
+          "slot": 2,
+          "target": 49996105201
+        },
+        {
+          "at": [
+            235.12353515625,
+            693.81640625
+          ],
+          "empty": false,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            225.409408569336,
+            696.6484375
+          ],
+          "run": 2,
+          "slot": 3,
+          "target": 49996105201
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 2,
+          "target": 49996105201
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 3,
+          "target": 49996105201
+        },
+        {
+          "kind": "gem",
+          "run": 2,
+          "slot": 6,
+          "success": false
+        },
+        {
+          "kind": "gem",
+          "run": 2,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            250.860244750977,
+            689.228515625
+          ],
+          "empty": false,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            246.39192199707,
+            690.53125
+          ],
+          "run": 2,
+          "slot": 5,
+          "target": 49996105201
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 5,
+          "target": 49996105201
+        },
+        {
+          "at": [
+            350.477416992188,
+            752.009033203125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 3,
+          "slot": 0,
+          "target": 50818188770
+        },
+        {
+          "kind": "hit",
+          "run": 3,
+          "slot": 0,
+          "target": 50818188770
+        },
+        {
+          "kind": "gem",
+          "run": 3,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            287.966766357422,
+            678.41015625
+          ],
+          "empty": false,
+          "key": "fire",
+          "kind": "cast",
+          "origin": [
+            365.048034667969,
+            745.327209472656
+          ],
+          "run": 3,
+          "slot": 2,
+          "target": 49996105201
+        },
+        {
+          "at": [
+            287.966766357422,
+            678.41015625
+          ],
+          "empty": false,
+          "key": "ice",
+          "kind": "cast",
+          "origin": [
+            365.048034667969,
+            745.327209472656
+          ],
+          "run": 3,
+          "slot": 3,
+          "target": 49996105201
+        },
+        {
+          "kind": "hit",
+          "run": 3,
+          "slot": 2,
+          "target": 49996105201
+        },
+        {
+          "kind": "miss",
+          "run": 3,
+          "slot": 3,
+          "target": 49996105201
+        },
+        {
+          "kind": "gem",
+          "run": 3,
+          "slot": 6,
+          "success": true
+        },
+        {
+          "kind": "gem",
+          "run": 3,
+          "slot": 4,
+          "success": true
+        },
+        {
+          "at": [
+            299.234710693359,
+            675.125
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            299.234710693359,
+            675.125
+          ],
+          "run": 3,
+          "slot": 7,
+          "target": 0
+        },
+        {
+          "at": [
+            287.966766357422,
+            678.41015625
+          ],
+          "empty": true,
+          "key": "lightning",
+          "kind": "cast",
+          "origin": [
+            287.966766357422,
+            678.41015625
+          ],
+          "run": 3,
+          "slot": 5,
+          "target": 0
+        }
+      ],
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wave": 1
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "lab feature-scene export",
+      "arcane-only ten-slot start",
+      "unknown recipe gate",
+      "training kit inventory",
+      "slot selection",
+      "reject skill-to-skill link",
+      "legal unique-item random arrangement",
+      "close editor and resume",
+      "tempo presets",
+      "pause/resume",
+      "actual chained impacts in battle",
+      "living-target jumps",
+      "visible empty continuations",
+      "no phantom hits on null target"
+    ],
+    "limit": "Linux Chromium software WebGL touch emulation; no Safari or iPad performance claim"
+  }
+}

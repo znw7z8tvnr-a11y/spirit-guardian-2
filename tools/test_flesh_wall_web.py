@@ -29,7 +29,7 @@ async def main():
     await tap('RewardRefresh');reward_state=await state();assert reward_state['reward_refreshes']==0 and reward_state['reward_granted']==0
     gem_index=next(i for i,item in enumerate(reward_state['reward_offers']) if item['kind']=='gem')
     await tap(f'Reward {gem_index}');assert (await state())['reward_granted']==1
-    reward_checked=True
+    reward_checked=True;print(name,'earned reward claimed',flush=True)
    initial=await state();assert initial['wall_max']==360 and initial['hp']==100 and initial['speed']==1 and not initial['kit']
    # Compare elapsed simulation time against real time with no game-data injection.
    start=await state();real_start=time.monotonic();await page.wait_for_timeout(1500);end=await state();real_end=time.monotonic()
@@ -57,6 +57,7 @@ async def main():
    if not (await state())['growth_open'] and (await state())['reward_pending']>0:
     await claim_reward();await tap('Flesh')
    before=await state();assert before['growth_open'],before
+   print(name,'manual growth menu confirmed',flush=True)
    await page.screenshot(path=str(REPORT/f'flesh-menu-{name}.png'))
    await page.wait_for_timeout(1000);assert (await state())['combat_seconds']==before['combat_seconds']
    await tap('Grow atk');after=await state()
@@ -64,7 +65,11 @@ async def main():
    assert after['flesh']==before['flesh']-(6+7*before['growth_levels']['atk'])
    await tap('AutoGrowth');assert (await state())['auto_growth']
    await tap('GrowthDone')
-   while (await state())['speed']!=8:await tap('Speed')
+   for attempt in range(4):
+    if (await state())['reward_pending']>0:await claim_reward()
+    if (await state())['speed']==8:break
+    await tap('Speed')
+   assert (await state())['speed']==8
    if not reward_checked:
     await page.wait_for_function('window.SG_LAB_STATE.reward_pending>0',timeout=90000)
     await claim_reward()

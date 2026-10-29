@@ -4,6 +4,9 @@ on:
     branches: ['godot/**']
     paths: ['godot/**', 'tools/**', 'reference_modules/**', '.github/workflows/godot-m1.yml']
   workflow_dispatch:
+concurrency:
+  group: godot-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -59,6 +62,7 @@ jobs:
       - name: Chain Lab WebGL touch smoke
         run: python3 tools/test_chain_lab_web.py
       - name: Flesh wall and real speed WebGL acceptance
+        timeout-minutes: 5
         run: python3 tools/test_flesh_wall_web.py
       - name: Package importable project and Web build
         run: |

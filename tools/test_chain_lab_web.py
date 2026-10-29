@@ -38,11 +38,11 @@ async def main():
    paused_casts=(await state())['casts'];await page.wait_for_timeout(1500)
    assert (await state())['casts']==paused_casts
    await tap('Pause');assert not (await state())['paused']
-   await page.wait_for_function('window.SG_LAB_STATE.casts>=8 && window.SG_LAB_STATE.jumps>0 && window.SG_LAB_STATE.misses>0',timeout=120000)
+   await page.wait_for_function('window.SG_LAB_STATE.casts>=8 && window.SG_LAB_STATE.jumps>0 && window.SG_LAB_STATE.misses>0 && window.SG_LAB_STATE.empty_casts>0',timeout=120000)
    await page.screenshot(path=str(REPORT/f'lab-battle-{name}.png'))
    final=await state();assert final['wave']>=1 and final['hp']>0
    casts=[v for v in final['trace'] if v['kind']=='cast']
-   assert any(v['empty'] for v in casts)
+   assert final['empty_casts']>0 # trace is bounded; cumulative counter proves a null-target launch occurred
    assert final['jumps']>0 and final['misses']>0
    assert all(v['kind']!='hit' or v['target']!=0 for v in final['trace'])
    engine_errors=[m for m in logs if 'SCRIPT ERROR' in m['text'] or m['text'].startswith('ERROR:')]

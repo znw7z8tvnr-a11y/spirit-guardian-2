@@ -1,0 +1,18 @@
+{
+  "checks": [
+    "all ten physical items plus clear and two actions are visible",
+    "candidate preview does not change inventory or links",
+    "level-three fire upgrade can be compared before applying",
+    "preview uses the same level and meat power formula as direct damage",
+    "confirm equips the selected physical item and closes drawer",
+    "old item returns to bag while compatible links remain",
+    "an item equipped elsewhere is viewable but cannot be duplicated",
+    "lower gem cannot silently remove an existing fork",
+    "root skill cannot be cleared",
+    "returned item can be selected for an empty slot",
+    "closing preview cancels without consuming the item",
+    "validation never mutates graph or pending attacks",
+    "rejected application preserves pending chain"
+  ],
+  "failures": []
+}

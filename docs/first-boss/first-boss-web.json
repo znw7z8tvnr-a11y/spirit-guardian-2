@@ -1,0 +1,8904 @@
+{
+  "landscape": {
+    "viewport": {
+      "width": 1180,
+      "height": 820
+    },
+    "boss": {
+      "absorbed": 128,
+      "active": true,
+      "arrange_disabled": true,
+      "attack_multiplier": 2.5,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {
+        "attacks": 1,
+        "hp": 225,
+        "max_hp": 425,
+        "move": "crystalStorm",
+        "phase": 2,
+        "warning": 0
+      },
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          474,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          172,
+          835,
+          152,
+          72
+        ],
+        "Connect": [
+          420,
+          331,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          331,
+          152,
+          72
+        ],
+        "Done": [
+          135,
+          105,
+          206,
+          72
+        ],
+        "Equip": [
+          108,
+          331,
+          152,
+          72
+        ],
+        "Flesh": [
+          484,
+          835,
+          152,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          636,
+          255,
+          1208,
+          72
+        ],
+        "InventoryApply": [
+          370,
+          109,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          146,
+          109,
+          220,
+          72
+        ],
+        "Item -1": [
+          146,
+          346,
+          220,
+          126
+        ],
+        "Item 0": [
+          370,
+          346,
+          220,
+          126
+        ],
+        "Item 1": [
+          594,
+          346,
+          220,
+          126
+        ],
+        "Kit": [
+          328,
+          835,
+          152,
+          72
+        ],
+        "Pause": [
+          952,
+          835,
+          152,
+          72
+        ],
+        "Random": [
+          318,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          1108,
+          835,
+          152,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          106,
+          443,
+          92,
+          92
+        ],
+        "Slot 1": [
+          248,
+          443,
+          92,
+          92
+        ],
+        "Slot 2": [
+          106,
+          781,
+          92,
+          92
+        ],
+        "Slot 3": [
+          218,
+          781,
+          92,
+          92
+        ],
+        "Slot 4": [
+          330,
+          781,
+          92,
+          92
+        ],
+        "Slot 5": [
+          442,
+          781,
+          92,
+          92
+        ],
+        "Slot 6": [
+          554,
+          781,
+          92,
+          92
+        ],
+        "Slot 7": [
+          666,
+          781,
+          92,
+          92
+        ],
+        "Slot 8": [
+          778,
+          781,
+          92,
+          92
+        ],
+        "Slot 9": [
+          890,
+          781,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          331,
+          152,
+          72
+        ],
+        "Speed": [
+          796,
+          835,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          835,
+          152,
+          72
+        ]
+      },
+      "candidate": 1,
+      "capacity": 10,
+      "casts": 51,
+      "combat_seconds": 88.0833333333343,
+      "defense": 0.28,
+      "discovered": [],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 7,
+      "flesh": 12,
+      "growth_levels": {
+        "armor": 2,
+        "atk": 3,
+        "hp": 3,
+        "regen": 2
+      },
+      "growth_open": false,
+      "hits": 51,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "目前：空格｜無攻擊或接續效果\n候選：接續寶石・1 級｜最多接續 1 條線\n可以替換；容量及其他物品不變。",
+      "inventory_open": false,
+      "item_count": 2,
+      "jumps": 0,
+      "kills": 29,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": true,
+      "pending": 1,
+      "regen": 4,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 1,
+      "reward_loadout": false,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 1,
+      "slots": [
+        0,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 2.5,
+      "summon_events": 1,
+      "summoned_minions": 3,
+      "tempo": 0,
+      "trace": [
+        {
+          "at": [
+            289.0390625,
+            246.308319091797
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 22,
+          "slot": 0,
+          "target": 45936019095
+        },
+        {
+          "kind": "hit",
+          "run": 22,
+          "slot": 0,
+          "target": 45936019095
+        },
+        {
+          "at": [
+            967.596252441406,
+            898.334350585938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 23,
+          "slot": 0,
+          "target": 46238008991
+        },
+        {
+          "kind": "hit",
+          "run": 23,
+          "slot": 0,
+          "target": 46238008991
+        },
+        {
+          "at": [
+            964.481079101562,
+            879.978393554688
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 24,
+          "slot": 0,
+          "target": 46238008991
+        },
+        {
+          "kind": "hit",
+          "run": 24,
+          "slot": 0,
+          "target": 46238008991
+        },
+        {
+          "at": [
+            365.67529296875,
+            278.130218505859
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 25,
+          "slot": 0,
+          "target": 45936019095
+        },
+        {
+          "kind": "hit",
+          "run": 25,
+          "slot": 0,
+          "target": 45936019095
+        },
+        {
+          "at": [
+            195.435134887695,
+            509.445892333984
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 26,
+          "slot": 0,
+          "target": 46456112803
+        },
+        {
+          "kind": "hit",
+          "run": 26,
+          "slot": 0,
+          "target": 46456112803
+        },
+        {
+          "at": [
+            236.953186035156,
+            716.6572265625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 27,
+          "slot": 0,
+          "target": 47244641942
+        },
+        {
+          "kind": "hit",
+          "run": 27,
+          "slot": 0,
+          "target": 47244641942
+        },
+        {
+          "at": [
+            263.2451171875,
+            708.06591796875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 28,
+          "slot": 0,
+          "target": 47244641942
+        },
+        {
+          "kind": "hit",
+          "run": 28,
+          "slot": 0,
+          "target": 47244641942
+        },
+        {
+          "at": [
+            231.411010742188,
+            607.148742675781
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 29,
+          "slot": 0,
+          "target": 46841988773
+        },
+        {
+          "kind": "hit",
+          "run": 29,
+          "slot": 0,
+          "target": 46841988773
+        },
+        {
+          "at": [
+            258.722473144531,
+            602.771789550781
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 30,
+          "slot": 0,
+          "target": 46841988773
+        },
+        {
+          "kind": "hit",
+          "run": 30,
+          "slot": 0,
+          "target": 46841988773
+        },
+        {
+          "at": [
+            132.685241699219,
+            355.407409667969
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 31,
+          "slot": 0,
+          "target": 67763177107
+        },
+        {
+          "kind": "hit",
+          "run": 31,
+          "slot": 0,
+          "target": 67763177107
+        },
+        {
+          "kind": "gem",
+          "run": 31,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1133.79479980469,
+            892.982177734375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 32,
+          "slot": 0,
+          "target": 68266493690
+        },
+        {
+          "kind": "hit",
+          "run": 32,
+          "slot": 0,
+          "target": 68266493690
+        },
+        {
+          "kind": "gem",
+          "run": 32,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1119.43786621094,
+            868.850158691406
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 33,
+          "slot": 0,
+          "target": 68266493690
+        },
+        {
+          "kind": "hit",
+          "run": 33,
+          "slot": 0,
+          "target": 68266493690
+        },
+        {
+          "kind": "gem",
+          "run": 33,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            352.772827148438,
+            213.73356628418
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 34,
+          "slot": 0,
+          "target": 68786587376
+        },
+        {
+          "kind": "hit",
+          "run": 34,
+          "slot": 0,
+          "target": 68786587376
+        },
+        {
+          "kind": "gem",
+          "run": 34,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            809.6962890625,
+            109.192291259766
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 35,
+          "slot": 0,
+          "target": 69390567059
+        },
+        {
+          "kind": "hit",
+          "run": 35,
+          "slot": 0,
+          "target": 69390567059
+        },
+        {
+          "kind": "gem",
+          "run": 35,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            816.5517578125,
+            138.861694335938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 36,
+          "slot": 0,
+          "target": 69390567059
+        },
+        {
+          "kind": "hit",
+          "run": 36,
+          "slot": 0,
+          "target": 69390567059
+        },
+        {
+          "kind": "gem",
+          "run": 36,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            823.4072265625,
+            168.531097412109
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 37,
+          "slot": 0,
+          "target": 69390567059
+        },
+        {
+          "kind": "hit",
+          "run": 37,
+          "slot": 0,
+          "target": 69390567059
+        },
+        {
+          "kind": "gem",
+          "run": 37,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            814.753295898438,
+            864.050842285156
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 38,
+          "slot": 0,
+          "target": 69809997568
+        },
+        {
+          "kind": "hit",
+          "run": 38,
+          "slot": 0,
+          "target": 69809997568
+        },
+        {
+          "kind": "gem",
+          "run": 38,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            819.085205078125,
+            845.550415039062
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 39,
+          "slot": 0,
+          "target": 69809997568
+        },
+        {
+          "kind": "hit",
+          "run": 39,
+          "slot": 0,
+          "target": 69809997568
+        },
+        {
+          "kind": "gem",
+          "run": 39,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            502.060546875,
+            291.828674316406
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 40,
+          "slot": 0,
+          "target": 68786587376
+        },
+        {
+          "kind": "hit",
+          "run": 40,
+          "slot": 0,
+          "target": 68786587376
+        },
+        {
+          "kind": "gem",
+          "run": 40,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            513.472290039062,
+            700.136962890625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 41,
+          "slot": 0,
+          "target": 70229427966
+        },
+        {
+          "kind": "hit",
+          "run": 41,
+          "slot": 0,
+          "target": 70229427966
+        },
+        {
+          "kind": "gem",
+          "run": 41,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            373.558074951172,
+            283.413482666016
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 42,
+          "slot": 0,
+          "target": 70833407732
+        },
+        {
+          "kind": "hit",
+          "run": 42,
+          "slot": 0,
+          "target": 70833407732
+        },
+        {
+          "kind": "gem",
+          "run": 42,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            260.500396728516,
+            354.046997070312
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 43,
+          "slot": 0,
+          "target": 71252838134
+        },
+        {
+          "kind": "hit",
+          "run": 43,
+          "slot": 0,
+          "target": 71252838134
+        },
+        {
+          "kind": "gem",
+          "run": 43,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            678.621337890625,
+            894.775756835938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 44,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 44,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 44,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            688.452453613281,
+            877.244323730469
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 45,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 45,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 45,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            698.283569335938,
+            859.712890625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 46,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 46,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 46,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            730.957702636719,
+            751.367065429688
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 47,
+          "slot": 0,
+          "target": 75061266165
+        },
+        {
+          "kind": "hit",
+          "run": 47,
+          "slot": 0,
+          "target": 75061266165
+        },
+        {
+          "kind": "gem",
+          "run": 47,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            824.840698242188,
+            829.283508300781
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 48,
+          "slot": 0,
+          "target": 75245815453
+        },
+        {
+          "kind": "hit",
+          "run": 48,
+          "slot": 0,
+          "target": 75245815453
+        },
+        {
+          "kind": "gem",
+          "run": 48,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            728.869262695312,
+            805.170654296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 49,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 49,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 49,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            784.669067382812,
+            808.852661132812
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 50,
+          "slot": 0,
+          "target": 75027711721
+        },
+        {
+          "kind": "hit",
+          "run": 50,
+          "slot": 0,
+          "target": 75027711721
+        },
+        {
+          "kind": "gem",
+          "run": 50,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            748.531494140625,
+            770.107788085938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 51,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 51,
+          "slot": 0,
+          "target": 74104964774
+        }
+      ],
+      "viewport": [
+        1280,
+        889
+      ],
+      "wall_active": true,
+      "wall_hp": 549.426666666666,
+      "wall_max": 555,
+      "wave": 5
+    },
+    "boss_clear": {
+      "absorbed": 220,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_multiplier": 3,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 1,
+      "buttons": {
+        "Arrange": [
+          474,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          172,
+          835,
+          152,
+          72
+        ],
+        "Connect": [
+          420,
+          331,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          331,
+          152,
+          72
+        ],
+        "Done": [
+          135,
+          105,
+          206,
+          72
+        ],
+        "Equip": [
+          108,
+          331,
+          152,
+          72
+        ],
+        "Flesh": [
+          484,
+          835,
+          152,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          636,
+          255,
+          1208,
+          72
+        ],
+        "InventoryApply": [
+          370,
+          109,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          146,
+          109,
+          220,
+          72
+        ],
+        "Item -1": [
+          146,
+          346,
+          220,
+          126
+        ],
+        "Item 0": [
+          370,
+          346,
+          220,
+          126
+        ],
+        "Item 1": [
+          594,
+          346,
+          220,
+          126
+        ],
+        "Kit": [
+          328,
+          835,
+          152,
+          72
+        ],
+        "Pause": [
+          952,
+          835,
+          152,
+          72
+        ],
+        "Random": [
+          318,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          1108,
+          835,
+          152,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          106,
+          443,
+          92,
+          92
+        ],
+        "Slot 1": [
+          248,
+          443,
+          92,
+          92
+        ],
+        "Slot 2": [
+          106,
+          781,
+          92,
+          92
+        ],
+        "Slot 3": [
+          218,
+          781,
+          92,
+          92
+        ],
+        "Slot 4": [
+          330,
+          781,
+          92,
+          92
+        ],
+        "Slot 5": [
+          442,
+          781,
+          92,
+          92
+        ],
+        "Slot 6": [
+          554,
+          781,
+          92,
+          92
+        ],
+        "Slot 7": [
+          666,
+          781,
+          92,
+          92
+        ],
+        "Slot 8": [
+          778,
+          781,
+          92,
+          92
+        ],
+        "Slot 9": [
+          890,
+          781,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          331,
+          152,
+          72
+        ],
+        "Speed": [
+          796,
+          835,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          835,
+          152,
+          72
+        ]
+      },
+      "candidate": 1,
+      "capacity": 10,
+      "casts": 69,
+      "combat_seconds": 111.016666666669,
+      "defense": 0.42,
+      "discovered": [],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "flesh": 10,
+      "growth_levels": {
+        "armor": 3,
+        "atk": 4,
+        "hp": 4,
+        "regen": 3
+      },
+      "growth_open": false,
+      "hits": 69,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "目前：空格｜無攻擊或接續效果\n候選：接續寶石・1 級｜最多接續 1 條線\n可以替換；容量及其他物品不變。",
+      "inventory_open": false,
+      "item_count": 2,
+      "jumps": 0,
+      "kills": 38,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 6,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 1,
+      "reward_loadout": false,
+      "reward_offers": [
+        {
+          "key": "arcane",
+          "kind": "skill",
+          "level": 1
+        },
+        {
+          "key": "power",
+          "kind": "affix",
+          "level": 1
+        },
+        {
+          "key": "relay",
+          "kind": "gem",
+          "level": 1
+        }
+      ],
+      "reward_pending": 3,
+      "reward_refreshes": 1,
+      "rolls": 0,
+      "selected": 1,
+      "slots": [
+        0,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 3,
+      "summon_events": 1,
+      "summoned_minions": 3,
+      "tempo": 0,
+      "trace": [
+        {
+          "kind": "hit",
+          "run": 43,
+          "slot": 0,
+          "target": 71252838134
+        },
+        {
+          "kind": "gem",
+          "run": 43,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            678.621337890625,
+            894.775756835938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 44,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 44,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 44,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            688.452453613281,
+            877.244323730469
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 45,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 45,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 45,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            698.283569335938,
+            859.712890625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 46,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 46,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 46,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            730.957702636719,
+            751.367065429688
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 47,
+          "slot": 0,
+          "target": 75061266165
+        },
+        {
+          "kind": "hit",
+          "run": 47,
+          "slot": 0,
+          "target": 75061266165
+        },
+        {
+          "kind": "gem",
+          "run": 47,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            824.840698242188,
+            829.283508300781
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 48,
+          "slot": 0,
+          "target": 75245815453
+        },
+        {
+          "kind": "hit",
+          "run": 48,
+          "slot": 0,
+          "target": 75245815453
+        },
+        {
+          "kind": "gem",
+          "run": 48,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            728.869262695312,
+            805.170654296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 49,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 49,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 49,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            784.669067382812,
+            808.852661132812
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 50,
+          "slot": 0,
+          "target": 75027711721
+        },
+        {
+          "kind": "hit",
+          "run": 50,
+          "slot": 0,
+          "target": 75027711721
+        },
+        {
+          "kind": "gem",
+          "run": 50,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            748.531494140625,
+            770.107788085938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 51,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 51,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 51,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            757.270263671875,
+            754.524291992188
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 52,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 52,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 52,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            767.101379394531,
+            736.992858886719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 53,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 53,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 53,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            776.932495117188,
+            719.46142578125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 54,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 54,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 54,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            773.482727050781,
+            693.214538574219
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 55,
+          "slot": 0,
+          "target": 75094820608
+        },
+        {
+          "kind": "hit",
+          "run": 55,
+          "slot": 0,
+          "target": 75094820608
+        },
+        {
+          "kind": "gem",
+          "run": 55,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 56,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 56,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 56,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 57,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 57,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 57,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 58,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 58,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 58,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            756.556030273438,
+            364.826934814453
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 59,
+          "slot": 0,
+          "target": 77913392863
+        },
+        {
+          "kind": "hit",
+          "run": 59,
+          "slot": 0,
+          "target": 77913392863
+        },
+        {
+          "kind": "gem",
+          "run": 59,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1100.11486816406,
+            374.003723144531
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 60,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "hit",
+          "run": 60,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "gem",
+          "run": 60,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1089.89599609375,
+            403.141479492188
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 61,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "hit",
+          "run": 61,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "gem",
+          "run": 61,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            1076.96765136719,
+            431.179626464844
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 62,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "hit",
+          "run": 62,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "gem",
+          "run": 62,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            964.660217285156,
+            653.182067871094
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 63,
+          "slot": 0,
+          "target": 78148273886
+        },
+        {
+          "kind": "hit",
+          "run": 63,
+          "slot": 0,
+          "target": 78148273886
+        },
+        {
+          "kind": "gem",
+          "run": 63,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            582.610290527344,
+            616.446899414062
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 64,
+          "slot": 0,
+          "target": 74625058548
+        },
+        {
+          "kind": "hit",
+          "run": 64,
+          "slot": 0,
+          "target": 74625058548
+        },
+        {
+          "kind": "gem",
+          "run": 64,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            600.807495117188,
+            609.7705078125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 65,
+          "slot": 0,
+          "target": 74625058548
+        },
+        {
+          "kind": "hit",
+          "run": 65,
+          "slot": 0,
+          "target": 74625058548
+        },
+        {
+          "kind": "gem",
+          "run": 65,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1190.65979003906,
+            505.540222167969
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 66,
+          "slot": 0,
+          "target": 75749132017
+        },
+        {
+          "kind": "hit",
+          "run": 66,
+          "slot": 0,
+          "target": 75749132017
+        },
+        {
+          "kind": "gem",
+          "run": 66,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1160.9189453125,
+            544.572509765625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 67,
+          "slot": 0,
+          "target": 76067899126
+        },
+        {
+          "kind": "hit",
+          "run": 67,
+          "slot": 0,
+          "target": 76067899126
+        },
+        {
+          "kind": "gem",
+          "run": 67,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            622.645629882812,
+            355.430999755859
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 68,
+          "slot": 0,
+          "target": 77275858670
+        },
+        {
+          "kind": "hit",
+          "run": 68,
+          "slot": 0,
+          "target": 77275858670
+        },
+        {
+          "kind": "gem",
+          "run": 68,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            639.833740234375,
+            364.390197753906
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 69,
+          "slot": 0,
+          "target": 77275858670
+        },
+        {
+          "kind": "hit",
+          "run": 69,
+          "slot": 0,
+          "target": 77275858670
+        },
+        {
+          "kind": "gem",
+          "run": 69,
+          "slot": 1,
+          "success": false
+        }
+      ],
+      "viewport": [
+        1280,
+        889
+      ],
+      "wall_active": true,
+      "wall_hp": 620,
+      "wall_max": 620,
+      "wave": 5
+    },
+    "loadout": {
+      "absorbed": 220,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_multiplier": 3,
+      "attack_period": 1.8,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 1,
+      "buttons": {
+        "Arrange": [
+          474,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          172,
+          835,
+          152,
+          72
+        ],
+        "Connect": [
+          420,
+          331,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          331,
+          152,
+          72
+        ],
+        "Done": [
+          135,
+          105,
+          206,
+          72
+        ],
+        "Equip": [
+          108,
+          331,
+          152,
+          72
+        ],
+        "Flesh": [
+          484,
+          835,
+          152,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          636,
+          255,
+          1208,
+          72
+        ],
+        "InventoryApply": [
+          370,
+          109,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          146,
+          109,
+          220,
+          72
+        ],
+        "Item -1": [
+          146,
+          346,
+          220,
+          126
+        ],
+        "Item 0": [
+          370,
+          346,
+          220,
+          126
+        ],
+        "Item 1": [
+          594,
+          346,
+          220,
+          126
+        ],
+        "Item 2": [
+          818,
+          346,
+          220,
+          126
+        ],
+        "Item 3": [
+          1042,
+          346,
+          220,
+          126
+        ],
+        "Item 4": [
+          146,
+          476,
+          220,
+          126
+        ],
+        "Kit": [
+          328,
+          835,
+          152,
+          72
+        ],
+        "Pause": [
+          952,
+          835,
+          152,
+          72
+        ],
+        "Random": [
+          318,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          1108,
+          835,
+          152,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          106,
+          443,
+          92,
+          92
+        ],
+        "Slot 1": [
+          248,
+          443,
+          92,
+          92
+        ],
+        "Slot 2": [
+          390,
+          443,
+          92,
+          92
+        ],
+        "Slot 3": [
+          106,
+          781,
+          92,
+          92
+        ],
+        "Slot 4": [
+          218,
+          781,
+          92,
+          92
+        ],
+        "Slot 5": [
+          330,
+          781,
+          92,
+          92
+        ],
+        "Slot 6": [
+          442,
+          781,
+          92,
+          92
+        ],
+        "Slot 7": [
+          554,
+          781,
+          92,
+          92
+        ],
+        "Slot 8": [
+          666,
+          781,
+          92,
+          92
+        ],
+        "Slot 9": [
+          778,
+          781,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          331,
+          152,
+          72
+        ],
+        "Speed": [
+          796,
+          835,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          835,
+          152,
+          72
+        ]
+      },
+      "candidate": 2,
+      "capacity": 10,
+      "casts": 69,
+      "combat_seconds": 111.016666666669,
+      "defense": 0.42,
+      "discovered": [],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        }
+      ],
+      "edit_open": true,
+      "empty_casts": 0,
+      "enemies": 0,
+      "flesh": 10,
+      "growth_levels": {
+        "armor": 3,
+        "atk": 4,
+        "hp": 4,
+        "regen": 3
+      },
+      "growth_open": false,
+      "hits": 69,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "目前：空格｜無攻擊或接續效果\n候選：奧術飛彈・1 級｜直擊基礎傷害 54.0（含血肉攻擊加成；範圍與狀態效果另計）\n可以替換；容量及其他物品不變。",
+      "inventory_open": false,
+      "item_count": 5,
+      "jumps": 0,
+      "kills": 38,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 6,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 4,
+      "reward_loadout": true,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 2,
+      "slots": [
+        0,
+        1,
+        2,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 3,
+      "summon_events": 1,
+      "summoned_minions": 3,
+      "tempo": 0,
+      "trace": [
+        {
+          "kind": "hit",
+          "run": 43,
+          "slot": 0,
+          "target": 71252838134
+        },
+        {
+          "kind": "gem",
+          "run": 43,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            678.621337890625,
+            894.775756835938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 44,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 44,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 44,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            688.452453613281,
+            877.244323730469
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 45,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 45,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 45,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            698.283569335938,
+            859.712890625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 46,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 46,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 46,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            730.957702636719,
+            751.367065429688
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 47,
+          "slot": 0,
+          "target": 75061266165
+        },
+        {
+          "kind": "hit",
+          "run": 47,
+          "slot": 0,
+          "target": 75061266165
+        },
+        {
+          "kind": "gem",
+          "run": 47,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            824.840698242188,
+            829.283508300781
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 48,
+          "slot": 0,
+          "target": 75245815453
+        },
+        {
+          "kind": "hit",
+          "run": 48,
+          "slot": 0,
+          "target": 75245815453
+        },
+        {
+          "kind": "gem",
+          "run": 48,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            728.869262695312,
+            805.170654296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 49,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 49,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 49,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            784.669067382812,
+            808.852661132812
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 50,
+          "slot": 0,
+          "target": 75027711721
+        },
+        {
+          "kind": "hit",
+          "run": 50,
+          "slot": 0,
+          "target": 75027711721
+        },
+        {
+          "kind": "gem",
+          "run": 50,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            748.531494140625,
+            770.107788085938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 51,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 51,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 51,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            757.270263671875,
+            754.524291992188
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 52,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 52,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 52,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            767.101379394531,
+            736.992858886719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 53,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 53,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 53,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            776.932495117188,
+            719.46142578125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 54,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 54,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 54,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            773.482727050781,
+            693.214538574219
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 55,
+          "slot": 0,
+          "target": 75094820608
+        },
+        {
+          "kind": "hit",
+          "run": 55,
+          "slot": 0,
+          "target": 75094820608
+        },
+        {
+          "kind": "gem",
+          "run": 55,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 56,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 56,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 56,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 57,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 57,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 57,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 58,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 58,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 58,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            756.556030273438,
+            364.826934814453
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 59,
+          "slot": 0,
+          "target": 77913392863
+        },
+        {
+          "kind": "hit",
+          "run": 59,
+          "slot": 0,
+          "target": 77913392863
+        },
+        {
+          "kind": "gem",
+          "run": 59,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1100.11486816406,
+            374.003723144531
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 60,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "hit",
+          "run": 60,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "gem",
+          "run": 60,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1089.89599609375,
+            403.141479492188
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 61,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "hit",
+          "run": 61,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "gem",
+          "run": 61,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            1076.96765136719,
+            431.179626464844
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 62,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "hit",
+          "run": 62,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "gem",
+          "run": 62,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            964.660217285156,
+            653.182067871094
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 63,
+          "slot": 0,
+          "target": 78148273886
+        },
+        {
+          "kind": "hit",
+          "run": 63,
+          "slot": 0,
+          "target": 78148273886
+        },
+        {
+          "kind": "gem",
+          "run": 63,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            582.610290527344,
+            616.446899414062
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 64,
+          "slot": 0,
+          "target": 74625058548
+        },
+        {
+          "kind": "hit",
+          "run": 64,
+          "slot": 0,
+          "target": 74625058548
+        },
+        {
+          "kind": "gem",
+          "run": 64,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            600.807495117188,
+            609.7705078125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 65,
+          "slot": 0,
+          "target": 74625058548
+        },
+        {
+          "kind": "hit",
+          "run": 65,
+          "slot": 0,
+          "target": 74625058548
+        },
+        {
+          "kind": "gem",
+          "run": 65,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1190.65979003906,
+            505.540222167969
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 66,
+          "slot": 0,
+          "target": 75749132017
+        },
+        {
+          "kind": "hit",
+          "run": 66,
+          "slot": 0,
+          "target": 75749132017
+        },
+        {
+          "kind": "gem",
+          "run": 66,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1160.9189453125,
+            544.572509765625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 67,
+          "slot": 0,
+          "target": 76067899126
+        },
+        {
+          "kind": "hit",
+          "run": 67,
+          "slot": 0,
+          "target": 76067899126
+        },
+        {
+          "kind": "gem",
+          "run": 67,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            622.645629882812,
+            355.430999755859
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 68,
+          "slot": 0,
+          "target": 77275858670
+        },
+        {
+          "kind": "hit",
+          "run": 68,
+          "slot": 0,
+          "target": 77275858670
+        },
+        {
+          "kind": "gem",
+          "run": 68,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            639.833740234375,
+            364.390197753906
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 69,
+          "slot": 0,
+          "target": 77275858670
+        },
+        {
+          "kind": "hit",
+          "run": 69,
+          "slot": 0,
+          "target": 77275858670
+        },
+        {
+          "kind": "gem",
+          "run": 69,
+          "slot": 1,
+          "success": false
+        }
+      ],
+      "viewport": [
+        1280,
+        889
+      ],
+      "wall_active": true,
+      "wall_hp": 620,
+      "wall_max": 620,
+      "wave": 5
+    },
+    "battle": {
+      "absorbed": 256,
+      "active": true,
+      "arrange_disabled": true,
+      "attack_multiplier": 3,
+      "attack_period": 1.8,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 1,
+      "buttons": {
+        "Arrange": [
+          474,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          172,
+          835,
+          152,
+          72
+        ],
+        "Connect": [
+          420,
+          331,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          331,
+          152,
+          72
+        ],
+        "Done": [
+          135,
+          105,
+          206,
+          72
+        ],
+        "Equip": [
+          108,
+          331,
+          152,
+          72
+        ],
+        "Flesh": [
+          484,
+          835,
+          152,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          636,
+          255,
+          1208,
+          72
+        ],
+        "InventoryApply": [
+          370,
+          109,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          146,
+          109,
+          220,
+          72
+        ],
+        "Item -1": [
+          146,
+          346,
+          220,
+          126
+        ],
+        "Item 0": [
+          370,
+          346,
+          220,
+          126
+        ],
+        "Item 1": [
+          594,
+          346,
+          220,
+          126
+        ],
+        "Item 2": [
+          818,
+          346,
+          220,
+          126
+        ],
+        "Item 3": [
+          1042,
+          346,
+          220,
+          126
+        ],
+        "Item 4": [
+          146,
+          476,
+          220,
+          126
+        ],
+        "Kit": [
+          328,
+          835,
+          152,
+          72
+        ],
+        "Pause": [
+          952,
+          835,
+          152,
+          72
+        ],
+        "Random": [
+          318,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          1108,
+          835,
+          152,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          106,
+          443,
+          92,
+          92
+        ],
+        "Slot 1": [
+          248,
+          443,
+          92,
+          92
+        ],
+        "Slot 2": [
+          390,
+          443,
+          92,
+          92
+        ],
+        "Slot 3": [
+          106,
+          781,
+          92,
+          92
+        ],
+        "Slot 4": [
+          218,
+          781,
+          92,
+          92
+        ],
+        "Slot 5": [
+          330,
+          781,
+          92,
+          92
+        ],
+        "Slot 6": [
+          442,
+          781,
+          92,
+          92
+        ],
+        "Slot 7": [
+          554,
+          781,
+          92,
+          92
+        ],
+        "Slot 8": [
+          666,
+          781,
+          92,
+          92
+        ],
+        "Slot 9": [
+          778,
+          781,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          331,
+          152,
+          72
+        ],
+        "Speed": [
+          796,
+          835,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          835,
+          152,
+          72
+        ]
+      },
+      "candidate": 2,
+      "capacity": 10,
+      "casts": 84,
+      "combat_seconds": 135.016666666669,
+      "defense": 0.56,
+      "discovered": [],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        }
+      ],
+      "edit_open": false,
+      "empty_casts": 3,
+      "enemies": 3,
+      "flesh": 19,
+      "growth_levels": {
+        "armor": 4,
+        "atk": 4,
+        "hp": 4,
+        "regen": 3
+      },
+      "growth_open": false,
+      "hits": 81,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "目前：空格｜無攻擊或接續效果\n候選：奧術飛彈・1 級｜直擊基礎傷害 54.0（含血肉攻擊加成；範圍與狀態效果另計）\n可以替換；容量及其他物品不變。",
+      "inventory_open": false,
+      "item_count": 5,
+      "jumps": 3,
+      "kills": 45,
+      "kit": false,
+      "meat_pending": 1,
+      "misses": 3,
+      "paused": true,
+      "pending": 1,
+      "regen": 6,
+      "resonances": 0,
+      "retargets": 1,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 4,
+      "reward_loadout": false,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 2,
+      "slots": [
+        0,
+        1,
+        2,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 3,
+      "summon_events": 1,
+      "summoned_minions": 3,
+      "tempo": 0,
+      "trace": [
+        {
+          "kind": "gem",
+          "run": 55,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 56,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 56,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 56,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 57,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 57,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 57,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 58,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "hit",
+          "run": 58,
+          "slot": 0,
+          "target": 74104964774
+        },
+        {
+          "kind": "gem",
+          "run": 58,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            756.556030273438,
+            364.826934814453
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 59,
+          "slot": 0,
+          "target": 77913392863
+        },
+        {
+          "kind": "hit",
+          "run": 59,
+          "slot": 0,
+          "target": 77913392863
+        },
+        {
+          "kind": "gem",
+          "run": 59,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1100.11486816406,
+            374.003723144531
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 60,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "hit",
+          "run": 60,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "gem",
+          "run": 60,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1089.89599609375,
+            403.141479492188
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 61,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "hit",
+          "run": 61,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "gem",
+          "run": 61,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            1076.96765136719,
+            431.179626464844
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 62,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "hit",
+          "run": 62,
+          "slot": 0,
+          "target": 76671878892
+        },
+        {
+          "kind": "gem",
+          "run": 62,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            964.660217285156,
+            653.182067871094
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 63,
+          "slot": 0,
+          "target": 78148273886
+        },
+        {
+          "kind": "hit",
+          "run": 63,
+          "slot": 0,
+          "target": 78148273886
+        },
+        {
+          "kind": "gem",
+          "run": 63,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            582.610290527344,
+            616.446899414062
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 64,
+          "slot": 0,
+          "target": 74625058548
+        },
+        {
+          "kind": "hit",
+          "run": 64,
+          "slot": 0,
+          "target": 74625058548
+        },
+        {
+          "kind": "gem",
+          "run": 64,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            600.807495117188,
+            609.7705078125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 65,
+          "slot": 0,
+          "target": 74625058548
+        },
+        {
+          "kind": "hit",
+          "run": 65,
+          "slot": 0,
+          "target": 74625058548
+        },
+        {
+          "kind": "gem",
+          "run": 65,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1190.65979003906,
+            505.540222167969
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 66,
+          "slot": 0,
+          "target": 75749132017
+        },
+        {
+          "kind": "hit",
+          "run": 66,
+          "slot": 0,
+          "target": 75749132017
+        },
+        {
+          "kind": "gem",
+          "run": 66,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1160.9189453125,
+            544.572509765625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 67,
+          "slot": 0,
+          "target": 76067899126
+        },
+        {
+          "kind": "hit",
+          "run": 67,
+          "slot": 0,
+          "target": 76067899126
+        },
+        {
+          "kind": "gem",
+          "run": 67,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            622.645629882812,
+            355.430999755859
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 68,
+          "slot": 0,
+          "target": 77275858670
+        },
+        {
+          "kind": "hit",
+          "run": 68,
+          "slot": 0,
+          "target": 77275858670
+        },
+        {
+          "kind": "gem",
+          "run": 68,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            639.833740234375,
+            364.390197753906
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 69,
+          "slot": 0,
+          "target": 77275858670
+        },
+        {
+          "kind": "hit",
+          "run": 69,
+          "slot": 0,
+          "target": 77275858670
+        },
+        {
+          "kind": "gem",
+          "run": 69,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            1656.28100585938,
+            341.539306640625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 70,
+          "slot": 0,
+          "target": 105847457437
+        },
+        {
+          "kind": "hit",
+          "run": 70,
+          "slot": 0,
+          "target": 105847457437
+        },
+        {
+          "kind": "gem",
+          "run": 70,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1634.26586914062,
+            346.152069091797
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1634.26586914062,
+            346.152069091797
+          ],
+          "run": 70,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 70,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "at": [
+            93.1352081298828,
+            462.575622558594
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 71,
+          "slot": 0,
+          "target": 106350774034
+        },
+        {
+          "kind": "hit",
+          "run": 71,
+          "slot": 0,
+          "target": 106350774034
+        },
+        {
+          "kind": "gem",
+          "run": 71,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            109.184631347656,
+            463.320098876953
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            109.184631347656,
+            463.320098876953
+          ],
+          "run": 71,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 71,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "at": [
+            1253.28442382812,
+            154.392608642578
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 72,
+          "slot": 0,
+          "target": 107021862663
+        },
+        {
+          "kind": "hit",
+          "run": 72,
+          "slot": 0,
+          "target": 107021862663
+        },
+        {
+          "kind": "gem",
+          "run": 72,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1223.42797851562,
+            183.599761962891
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1235.8681640625,
+            171.430114746094
+          ],
+          "run": 72,
+          "slot": 2,
+          "target": 107021862663
+        },
+        {
+          "kind": "hit",
+          "run": 72,
+          "slot": 2,
+          "target": 107021862663
+        },
+        {
+          "at": [
+            1208.49975585938,
+            198.203338623047
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 73,
+          "slot": 0,
+          "target": 107021862663
+        },
+        {
+          "kind": "hit",
+          "run": 73,
+          "slot": 0,
+          "target": 107021862663
+        },
+        {
+          "kind": "gem",
+          "run": 73,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1191.08349609375,
+            215.240844726562
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1191.08349609375,
+            215.240844726562
+          ],
+          "run": 73,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 73,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "at": [
+            1235.73168945312,
+            766.468811035156
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 74,
+          "slot": 0,
+          "target": 107944609516
+        },
+        {
+          "kind": "hit",
+          "run": 74,
+          "slot": 0,
+          "target": 107944609516
+        },
+        {
+          "kind": "gem",
+          "run": 74,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1422.46423339844,
+            785.561462402344
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1212.50769042969,
+            748.035949707031
+          ],
+          "run": 74,
+          "slot": 2,
+          "target": 108833801988
+        },
+        {
+          "kind": "hit",
+          "run": 74,
+          "slot": 2,
+          "target": 108833801988
+        },
+        {
+          "at": [
+            263.086883544922,
+            354.809875488281
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 75,
+          "slot": 0,
+          "target": 107508401930
+        },
+        {
+          "kind": "hit",
+          "run": 75,
+          "slot": 0,
+          "target": 107508401930
+        },
+        {
+          "kind": "gem",
+          "run": 75,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            227.85888671875,
+            339.382354736328
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            280.216522216797,
+            358.714660644531
+          ],
+          "run": 75,
+          "slot": 2,
+          "target": 109421004369
+        },
+        {
+          "kind": "hit",
+          "run": 75,
+          "slot": 2,
+          "target": 109421004369
+        },
+        {
+          "at": [
+            394.7392578125,
+            792.811218261719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 76,
+          "slot": 0,
+          "target": 110008207111
+        },
+        {
+          "kind": "hit",
+          "run": 76,
+          "slot": 0,
+          "target": 110008207111
+        },
+        {
+          "kind": "gem",
+          "run": 76,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            330.680725097656,
+            709.533630371094
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            408.040069580078,
+            785.103271484375
+          ],
+          "run": 76,
+          "slot": 2,
+          "target": 110444414738
+        },
+        {
+          "kind": "hit",
+          "run": 76,
+          "slot": 2,
+          "target": 110444414738
+        },
+        {
+          "at": [
+            430.841461181641,
+            771.889526367188
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 77,
+          "slot": 0,
+          "target": 110008207111
+        },
+        {
+          "kind": "hit",
+          "run": 77,
+          "slot": 0,
+          "target": 110008207111
+        }
+      ],
+      "viewport": [
+        1280,
+        889
+      ],
+      "wall_active": true,
+      "wall_hp": 620,
+      "wall_max": 620,
+      "wave": 6
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "actual first five waves without training kit",
+      "third-wave gem through touch inventory and legal link",
+      "reward loadout freezes combat until confirmation",
+      "Boss HUD and actual warning",
+      "real Boss kill and phase summons",
+      "one-to-five earned Boss selections",
+      "earned skill replacement and second link",
+      "real living-target jump in following wave"
+    ],
+    "limit": "Linux Chromium software WebGL touch emulation; no iPad Safari or full twenty-wave balance claim"
+  },
+  "portrait": {
+    "viewport": {
+      "width": 820,
+      "height": 1180
+    },
+    "boss": {
+      "absorbed": 124,
+      "active": true,
+      "arrange_disabled": true,
+      "attack_multiplier": 2.5,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {
+        "attacks": 1,
+        "hp": 225,
+        "max_hp": 425,
+        "move": "crystalStorm",
+        "phase": 2,
+        "warning": 0
+      },
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          474,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          340,
+          1711,
+          196,
+          72
+        ],
+        "Connect": [
+          420,
+          331,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          331,
+          152,
+          72
+        ],
+        "Done": [
+          135,
+          105,
+          206,
+          72
+        ],
+        "Equip": [
+          108,
+          331,
+          152,
+          72
+        ],
+        "Flesh": [
+          740,
+          1711,
+          196,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          640,
+          255,
+          1216,
+          72
+        ],
+        "InventoryApply": [
+          370,
+          109,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          146,
+          109,
+          220,
+          72
+        ],
+        "Item -1": [
+          146,
+          346,
+          220,
+          126
+        ],
+        "Item 0": [
+          370,
+          346,
+          220,
+          126
+        ],
+        "Item 1": [
+          594,
+          346,
+          220,
+          126
+        ],
+        "Kit": [
+          540,
+          1711,
+          196,
+          72
+        ],
+        "Pause": [
+          540,
+          1787,
+          196,
+          72
+        ],
+        "Random": [
+          318,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          740,
+          1787,
+          196,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          106,
+          443,
+          92,
+          92
+        ],
+        "Slot 1": [
+          248,
+          443,
+          92,
+          92
+        ],
+        "Slot 2": [
+          106,
+          781,
+          92,
+          92
+        ],
+        "Slot 3": [
+          218,
+          781,
+          92,
+          92
+        ],
+        "Slot 4": [
+          330,
+          781,
+          92,
+          92
+        ],
+        "Slot 5": [
+          442,
+          781,
+          92,
+          92
+        ],
+        "Slot 6": [
+          554,
+          781,
+          92,
+          92
+        ],
+        "Slot 7": [
+          666,
+          781,
+          92,
+          92
+        ],
+        "Slot 8": [
+          778,
+          781,
+          92,
+          92
+        ],
+        "Slot 9": [
+          890,
+          781,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          331,
+          152,
+          72
+        ],
+        "Speed": [
+          340,
+          1787,
+          196,
+          72
+        ],
+        "Tempo": [
+          940,
+          1711,
+          196,
+          72
+        ]
+      },
+      "candidate": 1,
+      "capacity": 10,
+      "casts": 51,
+      "combat_seconds": 88.8666666666677,
+      "defense": 0.28,
+      "discovered": [],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 8,
+      "flesh": 8,
+      "growth_levels": {
+        "armor": 2,
+        "atk": 3,
+        "hp": 3,
+        "regen": 2
+      },
+      "growth_open": false,
+      "hits": 50,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "目前：空格｜無攻擊或接續效果\n候選：接續寶石・1 級｜最多接續 1 條線\n可以替換；容量及其他物品不變。",
+      "inventory_open": false,
+      "item_count": 2,
+      "jumps": 0,
+      "kills": 28,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": true,
+      "pending": 0,
+      "regen": 4,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 1,
+      "reward_loadout": false,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 1,
+      "slots": [
+        0,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 2.5,
+      "summon_events": 1,
+      "summoned_minions": 3,
+      "tempo": 0,
+      "trace": [
+        {
+          "kind": "hit",
+          "run": 21,
+          "slot": 0,
+          "target": 45583697549
+        },
+        {
+          "at": [
+            289.0390625,
+            246.308319091797
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 22,
+          "slot": 0,
+          "target": 45902464671
+        },
+        {
+          "kind": "hit",
+          "run": 22,
+          "slot": 0,
+          "target": 45902464671
+        },
+        {
+          "at": [
+            967.250122070312,
+            896.294799804688
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 23,
+          "slot": 0,
+          "target": 46204454561
+        },
+        {
+          "kind": "hit",
+          "run": 23,
+          "slot": 0,
+          "target": 46204454561
+        },
+        {
+          "at": [
+            964.134948730469,
+            877.938842773438
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 24,
+          "slot": 0,
+          "target": 46204454561
+        },
+        {
+          "kind": "hit",
+          "run": 24,
+          "slot": 0,
+          "target": 46204454561
+        },
+        {
+          "at": [
+            368.513671875,
+            279.308807373047
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 25,
+          "slot": 0,
+          "target": 45902464671
+        },
+        {
+          "kind": "hit",
+          "run": 25,
+          "slot": 0,
+          "target": 45902464671
+        },
+        {
+          "at": [
+            200.668792724609,
+            509.375732421875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 26,
+          "slot": 0,
+          "target": 46422558358
+        },
+        {
+          "kind": "hit",
+          "run": 26,
+          "slot": 0,
+          "target": 46422558358
+        },
+        {
+          "at": [
+            239.87451171875,
+            715.70263671875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 27,
+          "slot": 0,
+          "target": 47110424206
+        },
+        {
+          "kind": "hit",
+          "run": 27,
+          "slot": 0,
+          "target": 47110424206
+        },
+        {
+          "at": [
+            266.166442871094,
+            707.111328125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 28,
+          "slot": 0,
+          "target": 47110424206
+        },
+        {
+          "kind": "hit",
+          "run": 28,
+          "slot": 0,
+          "target": 47110424206
+        },
+        {
+          "at": [
+            234.445617675781,
+            606.662414550781
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 29,
+          "slot": 0,
+          "target": 46808434330
+        },
+        {
+          "kind": "hit",
+          "run": 29,
+          "slot": 0,
+          "target": 46808434330
+        },
+        {
+          "at": [
+            261.757080078125,
+            602.285461425781
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 30,
+          "slot": 0,
+          "target": 46808434330
+        },
+        {
+          "kind": "hit",
+          "run": 30,
+          "slot": 0,
+          "target": 46808434330
+        },
+        {
+          "at": [
+            132.685241699219,
+            355.407409667969
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 31,
+          "slot": 0,
+          "target": 66756544140
+        },
+        {
+          "kind": "hit",
+          "run": 31,
+          "slot": 0,
+          "target": 66756544140
+        },
+        {
+          "kind": "gem",
+          "run": 31,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1133.79479980469,
+            892.982177734375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 32,
+          "slot": 0,
+          "target": 67259860720
+        },
+        {
+          "kind": "hit",
+          "run": 32,
+          "slot": 0,
+          "target": 67259860720
+        },
+        {
+          "kind": "gem",
+          "run": 32,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1119.43786621094,
+            868.850158691406
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 33,
+          "slot": 0,
+          "target": 67259860720
+        },
+        {
+          "kind": "hit",
+          "run": 33,
+          "slot": 0,
+          "target": 67259860720
+        },
+        {
+          "kind": "gem",
+          "run": 33,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            352.772827148438,
+            213.73356628418
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 34,
+          "slot": 0,
+          "target": 67779954338
+        },
+        {
+          "kind": "hit",
+          "run": 34,
+          "slot": 0,
+          "target": 67779954338
+        },
+        {
+          "kind": "gem",
+          "run": 34,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            809.6962890625,
+            109.192291259766
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 35,
+          "slot": 0,
+          "target": 68283270924
+        },
+        {
+          "kind": "hit",
+          "run": 35,
+          "slot": 0,
+          "target": 68283270924
+        },
+        {
+          "kind": "gem",
+          "run": 35,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            816.5517578125,
+            138.861694335938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 36,
+          "slot": 0,
+          "target": 68283270924
+        },
+        {
+          "kind": "hit",
+          "run": 36,
+          "slot": 0,
+          "target": 68283270924
+        },
+        {
+          "kind": "gem",
+          "run": 36,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            823.4072265625,
+            168.531097412109
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 37,
+          "slot": 0,
+          "target": 68283270924
+        },
+        {
+          "kind": "hit",
+          "run": 37,
+          "slot": 0,
+          "target": 68283270924
+        },
+        {
+          "kind": "gem",
+          "run": 37,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            815.234619140625,
+            861.995239257812
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 38,
+          "slot": 0,
+          "target": 68702701306
+        },
+        {
+          "kind": "hit",
+          "run": 38,
+          "slot": 0,
+          "target": 68702701306
+        },
+        {
+          "kind": "gem",
+          "run": 38,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            819.566528320312,
+            843.494812011719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 39,
+          "slot": 0,
+          "target": 68702701306
+        },
+        {
+          "kind": "hit",
+          "run": 39,
+          "slot": 0,
+          "target": 68702701306
+        },
+        {
+          "kind": "gem",
+          "run": 39,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            504.825134277344,
+            293.274871826172
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 40,
+          "slot": 0,
+          "target": 67779954338
+        },
+        {
+          "kind": "hit",
+          "run": 40,
+          "slot": 0,
+          "target": 67779954338
+        },
+        {
+          "kind": "gem",
+          "run": 40,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            518.166748046875,
+            697.706298828125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 41,
+          "slot": 0,
+          "target": 69222795003
+        },
+        {
+          "kind": "hit",
+          "run": 41,
+          "slot": 0,
+          "target": 69222795003
+        },
+        {
+          "kind": "gem",
+          "run": 41,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            373.558074951172,
+            283.413482666016
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 42,
+          "slot": 0,
+          "target": 69726111480
+        },
+        {
+          "kind": "hit",
+          "run": 42,
+          "slot": 0,
+          "target": 69726111480
+        },
+        {
+          "kind": "gem",
+          "run": 42,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            260.500396728516,
+            354.046997070312
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 43,
+          "slot": 0,
+          "target": 70246205180
+        },
+        {
+          "kind": "hit",
+          "run": 43,
+          "slot": 0,
+          "target": 70246205180
+        },
+        {
+          "kind": "gem",
+          "run": 43,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            678.621337890625,
+            894.775756835938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 44,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 44,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 44,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            688.452453613281,
+            877.244323730469
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 45,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 45,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 45,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            698.283569335938,
+            859.712890625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 46,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 46,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 46,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            720.038452148438,
+            767.2958984375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 47,
+          "slot": 0,
+          "target": 74054633210
+        },
+        {
+          "kind": "hit",
+          "run": 47,
+          "slot": 0,
+          "target": 74054633210
+        },
+        {
+          "kind": "gem",
+          "run": 47,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            717.94580078125,
+            824.650024414062
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 48,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 48,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 48,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            716.715515136719,
+            794.941955566406
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 49,
+          "slot": 0,
+          "target": 74088187636
+        },
+        {
+          "kind": "hit",
+          "run": 49,
+          "slot": 0,
+          "target": 74088187636
+        },
+        {
+          "kind": "gem",
+          "run": 49,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            737.608032226562,
+            789.587158203125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 50,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 50,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 50,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            747.439147949219,
+            772.055725097656
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 51,
+          "slot": 0,
+          "target": 73081554674
+        }
+      ],
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wall_active": true,
+      "wall_hp": 549.959999999999,
+      "wall_max": 555,
+      "wave": 5
+    },
+    "boss_clear": {
+      "absorbed": 220,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_multiplier": 3,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 1,
+      "buttons": {
+        "Arrange": [
+          474,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          340,
+          1711,
+          196,
+          72
+        ],
+        "Connect": [
+          420,
+          331,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          331,
+          152,
+          72
+        ],
+        "Done": [
+          135,
+          105,
+          206,
+          72
+        ],
+        "Equip": [
+          108,
+          331,
+          152,
+          72
+        ],
+        "Flesh": [
+          740,
+          1711,
+          196,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          640,
+          255,
+          1216,
+          72
+        ],
+        "InventoryApply": [
+          370,
+          109,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          146,
+          109,
+          220,
+          72
+        ],
+        "Item -1": [
+          146,
+          346,
+          220,
+          126
+        ],
+        "Item 0": [
+          370,
+          346,
+          220,
+          126
+        ],
+        "Item 1": [
+          594,
+          346,
+          220,
+          126
+        ],
+        "Kit": [
+          540,
+          1711,
+          196,
+          72
+        ],
+        "Pause": [
+          540,
+          1787,
+          196,
+          72
+        ],
+        "Random": [
+          318,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          740,
+          1787,
+          196,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          106,
+          443,
+          92,
+          92
+        ],
+        "Slot 1": [
+          248,
+          443,
+          92,
+          92
+        ],
+        "Slot 2": [
+          106,
+          781,
+          92,
+          92
+        ],
+        "Slot 3": [
+          218,
+          781,
+          92,
+          92
+        ],
+        "Slot 4": [
+          330,
+          781,
+          92,
+          92
+        ],
+        "Slot 5": [
+          442,
+          781,
+          92,
+          92
+        ],
+        "Slot 6": [
+          554,
+          781,
+          92,
+          92
+        ],
+        "Slot 7": [
+          666,
+          781,
+          92,
+          92
+        ],
+        "Slot 8": [
+          778,
+          781,
+          92,
+          92
+        ],
+        "Slot 9": [
+          890,
+          781,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          331,
+          152,
+          72
+        ],
+        "Speed": [
+          340,
+          1787,
+          196,
+          72
+        ],
+        "Tempo": [
+          940,
+          1711,
+          196,
+          72
+        ]
+      },
+      "candidate": 1,
+      "capacity": 10,
+      "casts": 69,
+      "combat_seconds": 111.133333333335,
+      "defense": 0.42,
+      "discovered": [],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "flesh": 10,
+      "growth_levels": {
+        "armor": 3,
+        "atk": 4,
+        "hp": 4,
+        "regen": 3
+      },
+      "growth_open": false,
+      "hits": 69,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "目前：空格｜無攻擊或接續效果\n候選：接續寶石・1 級｜最多接續 1 條線\n可以替換；容量及其他物品不變。",
+      "inventory_open": false,
+      "item_count": 2,
+      "jumps": 0,
+      "kills": 38,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 6,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 1,
+      "reward_loadout": false,
+      "reward_offers": [
+        {
+          "key": "arcane",
+          "kind": "skill",
+          "level": 1
+        },
+        {
+          "key": "power",
+          "kind": "affix",
+          "level": 1
+        },
+        {
+          "key": "relay",
+          "kind": "gem",
+          "level": 1
+        }
+      ],
+      "reward_pending": 3,
+      "reward_refreshes": 1,
+      "rolls": 0,
+      "selected": 1,
+      "slots": [
+        0,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 3,
+      "summon_events": 1,
+      "summoned_minions": 3,
+      "tempo": 0,
+      "trace": [
+        {
+          "kind": "hit",
+          "run": 43,
+          "slot": 0,
+          "target": 70246205180
+        },
+        {
+          "kind": "gem",
+          "run": 43,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            678.621337890625,
+            894.775756835938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 44,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 44,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 44,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            688.452453613281,
+            877.244323730469
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 45,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 45,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 45,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            698.283569335938,
+            859.712890625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 46,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 46,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 46,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            720.038452148438,
+            767.2958984375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 47,
+          "slot": 0,
+          "target": 74054633210
+        },
+        {
+          "kind": "hit",
+          "run": 47,
+          "slot": 0,
+          "target": 74054633210
+        },
+        {
+          "kind": "gem",
+          "run": 47,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            717.94580078125,
+            824.650024414062
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 48,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 48,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 48,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            716.715515136719,
+            794.941955566406
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 49,
+          "slot": 0,
+          "target": 74088187636
+        },
+        {
+          "kind": "hit",
+          "run": 49,
+          "slot": 0,
+          "target": 74088187636
+        },
+        {
+          "kind": "gem",
+          "run": 49,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            737.608032226562,
+            789.587158203125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 50,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 50,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 50,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            747.439147949219,
+            772.055725097656
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 51,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 51,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 51,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            757.270263671875,
+            754.524291992188
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 52,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 52,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 52,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            767.101379394531,
+            736.992858886719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 53,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 53,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 53,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1094.60290527344,
+            619.576965332031
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 54,
+          "slot": 0,
+          "target": 74021078769
+        },
+        {
+          "kind": "hit",
+          "run": 54,
+          "slot": 0,
+          "target": 74021078769
+        },
+        {
+          "kind": "gem",
+          "run": 54,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            806.123168945312,
+            706.951354980469
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 55,
+          "slot": 0,
+          "target": 74121741986
+        },
+        {
+          "kind": "hit",
+          "run": 55,
+          "slot": 0,
+          "target": 74121741986
+        },
+        {
+          "kind": "gem",
+          "run": 55,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 56,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 56,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 56,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 57,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 57,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 57,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 58,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 58,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 58,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            760.44140625,
+            368.48828125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 59,
+          "slot": 0,
+          "target": 76822873832
+        },
+        {
+          "kind": "hit",
+          "run": 59,
+          "slot": 0,
+          "target": 76822873832
+        },
+        {
+          "kind": "gem",
+          "run": 59,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1101.09130859375,
+            370.713562011719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 60,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "hit",
+          "run": 60,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "gem",
+          "run": 60,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1091.16174316406,
+            399.951416015625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 61,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "hit",
+          "run": 61,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "gem",
+          "run": 61,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            1078.5439453125,
+            428.131042480469
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 62,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "hit",
+          "run": 62,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "gem",
+          "run": 62,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            964.660217285156,
+            653.182067871094
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 63,
+          "slot": 0,
+          "target": 77158418164
+        },
+        {
+          "kind": "hit",
+          "run": 63,
+          "slot": 0,
+          "target": 77158418164
+        },
+        {
+          "kind": "gem",
+          "run": 63,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            580.58837890625,
+            617.188720703125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 64,
+          "slot": 0,
+          "target": 73601648374
+        },
+        {
+          "kind": "hit",
+          "run": 64,
+          "slot": 0,
+          "target": 73601648374
+        },
+        {
+          "kind": "gem",
+          "run": 64,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            598.785583496094,
+            610.512329101562
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 65,
+          "slot": 0,
+          "target": 73601648374
+        },
+        {
+          "kind": "hit",
+          "run": 65,
+          "slot": 0,
+          "target": 73601648374
+        },
+        {
+          "kind": "gem",
+          "run": 65,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1196.99206542969,
+            505.660919189453
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 66,
+          "slot": 0,
+          "target": 74541172461
+        },
+        {
+          "kind": "hit",
+          "run": 66,
+          "slot": 0,
+          "target": 74541172461
+        },
+        {
+          "kind": "gem",
+          "run": 66,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1167.16186523438,
+            545.638977050781
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 67,
+          "slot": 0,
+          "target": 75145152220
+        },
+        {
+          "kind": "hit",
+          "run": 67,
+          "slot": 0,
+          "target": 75145152220
+        },
+        {
+          "kind": "gem",
+          "run": 67,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            618.826049804688,
+            353.440063476562
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 68,
+          "slot": 0,
+          "target": 76168562407
+        },
+        {
+          "kind": "hit",
+          "run": 68,
+          "slot": 0,
+          "target": 76168562407
+        },
+        {
+          "kind": "gem",
+          "run": 68,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            636.01416015625,
+            362.399230957031
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 69,
+          "slot": 0,
+          "target": 76168562407
+        },
+        {
+          "kind": "hit",
+          "run": 69,
+          "slot": 0,
+          "target": 76168562407
+        },
+        {
+          "kind": "gem",
+          "run": 69,
+          "slot": 1,
+          "success": false
+        }
+      ],
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wall_active": true,
+      "wall_hp": 620,
+      "wall_max": 620,
+      "wave": 5
+    },
+    "loadout": {
+      "absorbed": 220,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_multiplier": 3,
+      "attack_period": 1.8,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 1,
+      "buttons": {
+        "Arrange": [
+          474,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          340,
+          1711,
+          196,
+          72
+        ],
+        "Connect": [
+          420,
+          331,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          331,
+          152,
+          72
+        ],
+        "Done": [
+          135,
+          105,
+          206,
+          72
+        ],
+        "Equip": [
+          108,
+          331,
+          152,
+          72
+        ],
+        "Flesh": [
+          740,
+          1711,
+          196,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          640,
+          255,
+          1216,
+          72
+        ],
+        "InventoryApply": [
+          370,
+          109,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          146,
+          109,
+          220,
+          72
+        ],
+        "Item -1": [
+          146,
+          346,
+          220,
+          126
+        ],
+        "Item 0": [
+          370,
+          346,
+          220,
+          126
+        ],
+        "Item 1": [
+          594,
+          346,
+          220,
+          126
+        ],
+        "Item 2": [
+          818,
+          346,
+          220,
+          126
+        ],
+        "Item 3": [
+          1042,
+          346,
+          220,
+          126
+        ],
+        "Item 4": [
+          146,
+          476,
+          220,
+          126
+        ],
+        "Kit": [
+          540,
+          1711,
+          196,
+          72
+        ],
+        "Pause": [
+          540,
+          1787,
+          196,
+          72
+        ],
+        "Random": [
+          318,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          740,
+          1787,
+          196,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          106,
+          443,
+          92,
+          92
+        ],
+        "Slot 1": [
+          248,
+          443,
+          92,
+          92
+        ],
+        "Slot 2": [
+          390,
+          443,
+          92,
+          92
+        ],
+        "Slot 3": [
+          106,
+          781,
+          92,
+          92
+        ],
+        "Slot 4": [
+          218,
+          781,
+          92,
+          92
+        ],
+        "Slot 5": [
+          330,
+          781,
+          92,
+          92
+        ],
+        "Slot 6": [
+          442,
+          781,
+          92,
+          92
+        ],
+        "Slot 7": [
+          554,
+          781,
+          92,
+          92
+        ],
+        "Slot 8": [
+          666,
+          781,
+          92,
+          92
+        ],
+        "Slot 9": [
+          778,
+          781,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          331,
+          152,
+          72
+        ],
+        "Speed": [
+          340,
+          1787,
+          196,
+          72
+        ],
+        "Tempo": [
+          940,
+          1711,
+          196,
+          72
+        ]
+      },
+      "candidate": 2,
+      "capacity": 10,
+      "casts": 69,
+      "combat_seconds": 111.133333333335,
+      "defense": 0.42,
+      "discovered": [],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        }
+      ],
+      "edit_open": true,
+      "empty_casts": 0,
+      "enemies": 0,
+      "flesh": 10,
+      "growth_levels": {
+        "armor": 3,
+        "atk": 4,
+        "hp": 4,
+        "regen": 3
+      },
+      "growth_open": false,
+      "hits": 69,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "目前：空格｜無攻擊或接續效果\n候選：奧術飛彈・1 級｜直擊基礎傷害 54.0（含血肉攻擊加成；範圍與狀態效果另計）\n可以替換；容量及其他物品不變。",
+      "inventory_open": false,
+      "item_count": 5,
+      "jumps": 0,
+      "kills": 38,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 6,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 4,
+      "reward_loadout": true,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 2,
+      "slots": [
+        0,
+        1,
+        2,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 3,
+      "summon_events": 1,
+      "summoned_minions": 3,
+      "tempo": 0,
+      "trace": [
+        {
+          "kind": "hit",
+          "run": 43,
+          "slot": 0,
+          "target": 70246205180
+        },
+        {
+          "kind": "gem",
+          "run": 43,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            678.621337890625,
+            894.775756835938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 44,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 44,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 44,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            688.452453613281,
+            877.244323730469
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 45,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 45,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 45,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            698.283569335938,
+            859.712890625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 46,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 46,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 46,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            720.038452148438,
+            767.2958984375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 47,
+          "slot": 0,
+          "target": 74054633210
+        },
+        {
+          "kind": "hit",
+          "run": 47,
+          "slot": 0,
+          "target": 74054633210
+        },
+        {
+          "kind": "gem",
+          "run": 47,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            717.94580078125,
+            824.650024414062
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 48,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 48,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 48,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            716.715515136719,
+            794.941955566406
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 49,
+          "slot": 0,
+          "target": 74088187636
+        },
+        {
+          "kind": "hit",
+          "run": 49,
+          "slot": 0,
+          "target": 74088187636
+        },
+        {
+          "kind": "gem",
+          "run": 49,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            737.608032226562,
+            789.587158203125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 50,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 50,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 50,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            747.439147949219,
+            772.055725097656
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 51,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 51,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 51,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            757.270263671875,
+            754.524291992188
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 52,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 52,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 52,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            767.101379394531,
+            736.992858886719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 53,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 53,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 53,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1094.60290527344,
+            619.576965332031
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 54,
+          "slot": 0,
+          "target": 74021078769
+        },
+        {
+          "kind": "hit",
+          "run": 54,
+          "slot": 0,
+          "target": 74021078769
+        },
+        {
+          "kind": "gem",
+          "run": 54,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            806.123168945312,
+            706.951354980469
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 55,
+          "slot": 0,
+          "target": 74121741986
+        },
+        {
+          "kind": "hit",
+          "run": 55,
+          "slot": 0,
+          "target": 74121741986
+        },
+        {
+          "kind": "gem",
+          "run": 55,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 56,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 56,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 56,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 57,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 57,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 57,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 58,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 58,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 58,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            760.44140625,
+            368.48828125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 59,
+          "slot": 0,
+          "target": 76822873832
+        },
+        {
+          "kind": "hit",
+          "run": 59,
+          "slot": 0,
+          "target": 76822873832
+        },
+        {
+          "kind": "gem",
+          "run": 59,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1101.09130859375,
+            370.713562011719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 60,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "hit",
+          "run": 60,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "gem",
+          "run": 60,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1091.16174316406,
+            399.951416015625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 61,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "hit",
+          "run": 61,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "gem",
+          "run": 61,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            1078.5439453125,
+            428.131042480469
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 62,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "hit",
+          "run": 62,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "gem",
+          "run": 62,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            964.660217285156,
+            653.182067871094
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 63,
+          "slot": 0,
+          "target": 77158418164
+        },
+        {
+          "kind": "hit",
+          "run": 63,
+          "slot": 0,
+          "target": 77158418164
+        },
+        {
+          "kind": "gem",
+          "run": 63,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            580.58837890625,
+            617.188720703125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 64,
+          "slot": 0,
+          "target": 73601648374
+        },
+        {
+          "kind": "hit",
+          "run": 64,
+          "slot": 0,
+          "target": 73601648374
+        },
+        {
+          "kind": "gem",
+          "run": 64,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            598.785583496094,
+            610.512329101562
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 65,
+          "slot": 0,
+          "target": 73601648374
+        },
+        {
+          "kind": "hit",
+          "run": 65,
+          "slot": 0,
+          "target": 73601648374
+        },
+        {
+          "kind": "gem",
+          "run": 65,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1196.99206542969,
+            505.660919189453
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 66,
+          "slot": 0,
+          "target": 74541172461
+        },
+        {
+          "kind": "hit",
+          "run": 66,
+          "slot": 0,
+          "target": 74541172461
+        },
+        {
+          "kind": "gem",
+          "run": 66,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1167.16186523438,
+            545.638977050781
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 67,
+          "slot": 0,
+          "target": 75145152220
+        },
+        {
+          "kind": "hit",
+          "run": 67,
+          "slot": 0,
+          "target": 75145152220
+        },
+        {
+          "kind": "gem",
+          "run": 67,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            618.826049804688,
+            353.440063476562
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 68,
+          "slot": 0,
+          "target": 76168562407
+        },
+        {
+          "kind": "hit",
+          "run": 68,
+          "slot": 0,
+          "target": 76168562407
+        },
+        {
+          "kind": "gem",
+          "run": 68,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            636.01416015625,
+            362.399230957031
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 69,
+          "slot": 0,
+          "target": 76168562407
+        },
+        {
+          "kind": "hit",
+          "run": 69,
+          "slot": 0,
+          "target": 76168562407
+        },
+        {
+          "kind": "gem",
+          "run": 69,
+          "slot": 1,
+          "success": false
+        }
+      ],
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wall_active": true,
+      "wall_hp": 620,
+      "wall_max": 620,
+      "wave": 5
+    },
+    "battle": {
+      "absorbed": 252,
+      "active": true,
+      "arrange_disabled": true,
+      "attack_multiplier": 3,
+      "attack_period": 1.8,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 1,
+      "buttons": {
+        "Arrange": [
+          474,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          340,
+          1711,
+          196,
+          72
+        ],
+        "Connect": [
+          420,
+          331,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          331,
+          152,
+          72
+        ],
+        "Done": [
+          135,
+          105,
+          206,
+          72
+        ],
+        "Equip": [
+          108,
+          331,
+          152,
+          72
+        ],
+        "Flesh": [
+          740,
+          1711,
+          196,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          640,
+          255,
+          1216,
+          72
+        ],
+        "InventoryApply": [
+          370,
+          109,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          146,
+          109,
+          220,
+          72
+        ],
+        "Item -1": [
+          146,
+          346,
+          220,
+          126
+        ],
+        "Item 0": [
+          370,
+          346,
+          220,
+          126
+        ],
+        "Item 1": [
+          594,
+          346,
+          220,
+          126
+        ],
+        "Item 2": [
+          818,
+          346,
+          220,
+          126
+        ],
+        "Item 3": [
+          1042,
+          346,
+          220,
+          126
+        ],
+        "Item 4": [
+          146,
+          476,
+          220,
+          126
+        ],
+        "Kit": [
+          540,
+          1711,
+          196,
+          72
+        ],
+        "Pause": [
+          540,
+          1787,
+          196,
+          72
+        ],
+        "Random": [
+          318,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          740,
+          1787,
+          196,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          106,
+          443,
+          92,
+          92
+        ],
+        "Slot 1": [
+          248,
+          443,
+          92,
+          92
+        ],
+        "Slot 2": [
+          390,
+          443,
+          92,
+          92
+        ],
+        "Slot 3": [
+          106,
+          781,
+          92,
+          92
+        ],
+        "Slot 4": [
+          218,
+          781,
+          92,
+          92
+        ],
+        "Slot 5": [
+          330,
+          781,
+          92,
+          92
+        ],
+        "Slot 6": [
+          442,
+          781,
+          92,
+          92
+        ],
+        "Slot 7": [
+          554,
+          781,
+          92,
+          92
+        ],
+        "Slot 8": [
+          666,
+          781,
+          92,
+          92
+        ],
+        "Slot 9": [
+          778,
+          781,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          331,
+          152,
+          72
+        ],
+        "Speed": [
+          340,
+          1787,
+          196,
+          72
+        ],
+        "Tempo": [
+          940,
+          1711,
+          196,
+          72
+        ]
+      },
+      "candidate": 2,
+      "capacity": 10,
+      "casts": 83,
+      "combat_seconds": 131.666666666669,
+      "defense": 0.56,
+      "discovered": [],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        }
+      ],
+      "edit_open": false,
+      "empty_casts": 3,
+      "enemies": 5,
+      "flesh": 15,
+      "growth_levels": {
+        "armor": 4,
+        "atk": 4,
+        "hp": 4,
+        "regen": 3
+      },
+      "growth_open": false,
+      "hits": 79,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "目前：空格｜無攻擊或接續效果\n候選：奧術飛彈・1 級｜直擊基礎傷害 54.0（含血肉攻擊加成；範圍與狀態效果另計）\n可以替換；容量及其他物品不變。",
+      "inventory_open": false,
+      "item_count": 5,
+      "jumps": 3,
+      "kills": 43,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 3,
+      "paused": true,
+      "pending": 0,
+      "regen": 6,
+      "resonances": 0,
+      "retargets": 1,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 4,
+      "reward_loadout": false,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 2,
+      "slots": [
+        0,
+        1,
+        2,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 3,
+      "summon_events": 1,
+      "summoned_minions": 3,
+      "tempo": 0,
+      "trace": [
+        {
+          "kind": "gem",
+          "run": 54,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            806.123168945312,
+            706.951354980469
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 55,
+          "slot": 0,
+          "target": 74121741986
+        },
+        {
+          "kind": "hit",
+          "run": 55,
+          "slot": 0,
+          "target": 74121741986
+        },
+        {
+          "kind": "gem",
+          "run": 55,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 56,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 56,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 56,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 57,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 57,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 57,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            785.671264648438,
+            703.8779296875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 58,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "hit",
+          "run": 58,
+          "slot": 0,
+          "target": 73081554674
+        },
+        {
+          "kind": "gem",
+          "run": 58,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            760.44140625,
+            368.48828125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 59,
+          "slot": 0,
+          "target": 76822873832
+        },
+        {
+          "kind": "hit",
+          "run": 59,
+          "slot": 0,
+          "target": 76822873832
+        },
+        {
+          "kind": "gem",
+          "run": 59,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1101.09130859375,
+            370.713562011719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 60,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "hit",
+          "run": 60,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "gem",
+          "run": 60,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1091.16174316406,
+            399.951416015625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 61,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "hit",
+          "run": 61,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "gem",
+          "run": 61,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            1078.5439453125,
+            428.131042480469
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 62,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "hit",
+          "run": 62,
+          "slot": 0,
+          "target": 75749132012
+        },
+        {
+          "kind": "gem",
+          "run": 62,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            964.660217285156,
+            653.182067871094
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 63,
+          "slot": 0,
+          "target": 77158418164
+        },
+        {
+          "kind": "hit",
+          "run": 63,
+          "slot": 0,
+          "target": 77158418164
+        },
+        {
+          "kind": "gem",
+          "run": 63,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            580.58837890625,
+            617.188720703125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 64,
+          "slot": 0,
+          "target": 73601648374
+        },
+        {
+          "kind": "hit",
+          "run": 64,
+          "slot": 0,
+          "target": 73601648374
+        },
+        {
+          "kind": "gem",
+          "run": 64,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            598.785583496094,
+            610.512329101562
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 65,
+          "slot": 0,
+          "target": 73601648374
+        },
+        {
+          "kind": "hit",
+          "run": 65,
+          "slot": 0,
+          "target": 73601648374
+        },
+        {
+          "kind": "gem",
+          "run": 65,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1196.99206542969,
+            505.660919189453
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 66,
+          "slot": 0,
+          "target": 74541172461
+        },
+        {
+          "kind": "hit",
+          "run": 66,
+          "slot": 0,
+          "target": 74541172461
+        },
+        {
+          "kind": "gem",
+          "run": 66,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1167.16186523438,
+            545.638977050781
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 67,
+          "slot": 0,
+          "target": 75145152220
+        },
+        {
+          "kind": "hit",
+          "run": 67,
+          "slot": 0,
+          "target": 75145152220
+        },
+        {
+          "kind": "gem",
+          "run": 67,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            618.826049804688,
+            353.440063476562
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 68,
+          "slot": 0,
+          "target": 76168562407
+        },
+        {
+          "kind": "hit",
+          "run": 68,
+          "slot": 0,
+          "target": 76168562407
+        },
+        {
+          "kind": "gem",
+          "run": 68,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            636.01416015625,
+            362.399230957031
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 69,
+          "slot": 0,
+          "target": 76168562407
+        },
+        {
+          "kind": "hit",
+          "run": 69,
+          "slot": 0,
+          "target": 76168562407
+        },
+        {
+          "kind": "gem",
+          "run": 69,
+          "slot": 1,
+          "success": false
+        },
+        {
+          "at": [
+            1656.28100585938,
+            341.539306640625
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 70,
+          "slot": 0,
+          "target": 104706606835
+        },
+        {
+          "kind": "hit",
+          "run": 70,
+          "slot": 0,
+          "target": 104706606835
+        },
+        {
+          "kind": "gem",
+          "run": 70,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1634.26586914062,
+            346.152069091797
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1634.26586914062,
+            346.152069091797
+          ],
+          "run": 70,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 70,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "at": [
+            93.1352081298828,
+            462.575622558594
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 71,
+          "slot": 0,
+          "target": 105209923344
+        },
+        {
+          "kind": "hit",
+          "run": 71,
+          "slot": 0,
+          "target": 105209923344
+        },
+        {
+          "kind": "gem",
+          "run": 71,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            109.184631347656,
+            463.320098876953
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            109.184631347656,
+            463.320098876953
+          ],
+          "run": 71,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 71,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "at": [
+            1253.28442382812,
+            154.392608642578
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 72,
+          "slot": 0,
+          "target": 105881011793
+        },
+        {
+          "kind": "hit",
+          "run": 72,
+          "slot": 0,
+          "target": 105881011793
+        },
+        {
+          "kind": "gem",
+          "run": 72,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1223.42797851562,
+            183.599761962891
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1235.8681640625,
+            171.430114746094
+          ],
+          "run": 72,
+          "slot": 2,
+          "target": 105881011793
+        },
+        {
+          "kind": "hit",
+          "run": 72,
+          "slot": 2,
+          "target": 105881011793
+        },
+        {
+          "at": [
+            1218.45190429688,
+            188.467620849609
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 73,
+          "slot": 0,
+          "target": 105881011793
+        },
+        {
+          "kind": "hit",
+          "run": 73,
+          "slot": 0,
+          "target": 105881011793
+        },
+        {
+          "kind": "gem",
+          "run": 73,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1206.01171875,
+            200.637268066406
+          ],
+          "empty": true,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1206.01171875,
+            200.637268066406
+          ],
+          "run": 73,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "kind": "miss",
+          "run": 73,
+          "slot": 2,
+          "target": 0
+        },
+        {
+          "at": [
+            1265.28942871094,
+            789.928894042969
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 74,
+          "slot": 0,
+          "target": 106887644943
+        },
+        {
+          "kind": "hit",
+          "run": 74,
+          "slot": 0,
+          "target": 106887644943
+        },
+        {
+          "kind": "gem",
+          "run": 74,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            1439.38244628906,
+            794.808288574219
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            1239.95422363281,
+            769.820251464844
+          ],
+          "run": 74,
+          "slot": 2,
+          "target": 107877500667
+        },
+        {
+          "kind": "hit",
+          "run": 74,
+          "slot": 2,
+          "target": 107877500667
+        },
+        {
+          "at": [
+            250.239654541016,
+            351.881286621094
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 75,
+          "slot": 0,
+          "target": 106367551275
+        },
+        {
+          "kind": "hit",
+          "run": 75,
+          "slot": 0,
+          "target": 106367551275
+        },
+        {
+          "kind": "gem",
+          "run": 75,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            200.777099609375,
+            332.910675048828
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            263.086883544922,
+            354.809875488281
+          ],
+          "run": 75,
+          "slot": 2,
+          "target": 108380816969
+        },
+        {
+          "kind": "hit",
+          "run": 75,
+          "slot": 2,
+          "target": 108380816969
+        },
+        {
+          "at": [
+            373.837982177734,
+            804.923706054688
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 76,
+          "slot": 0,
+          "target": 108984796936
+        },
+        {
+          "kind": "hit",
+          "run": 76,
+          "slot": 0,
+          "target": 108984796936
+        },
+        {
+          "kind": "gem",
+          "run": 76,
+          "slot": 1,
+          "success": true
+        },
+        {
+          "at": [
+            269.970642089844,
+            731.877624511719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            385.238677978516,
+            798.31689453125
+          ],
+          "run": 76,
+          "slot": 2,
+          "target": 109488113449
+        }
+      ],
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wall_active": true,
+      "wall_hp": 620,
+      "wall_max": 620,
+      "wave": 6
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "actual first five waves without training kit",
+      "third-wave gem through touch inventory and legal link",
+      "reward loadout freezes combat until confirmation",
+      "Boss HUD and actual warning",
+      "real Boss kill and phase summons",
+      "one-to-five earned Boss selections",
+      "earned skill replacement and second link",
+      "real living-target jump in following wave"
+    ],
+    "limit": "Linux Chromium software WebGL touch emulation; no iPad Safari or full twenty-wave balance claim"
+  }
+}

@@ -1,0 +1,3436 @@
+{
+  "landscape": {
+    "viewport": {
+      "width": 1180,
+      "height": 820
+    },
+    "initial": {
+      "absorbed": 0,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_multiplier": 1,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          172,
+          835,
+          152,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          119,
+          52,
+          206,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Flesh": [
+          484,
+          835,
+          152,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          328,
+          835,
+          152,
+          72
+        ],
+        "Pause": [
+          952,
+          835,
+          152,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          1108,
+          835,
+          152,
+          72
+        ],
+        "Reward 0": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 1": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 2": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "RewardRefresh": [
+          20,
+          52,
+          8,
+          72
+        ],
+        "Slot 0": [
+          90,
+          88,
+          92,
+          92
+        ],
+        "Slot 1": [
+          90,
+          426,
+          92,
+          92
+        ],
+        "Slot 2": [
+          202,
+          426,
+          92,
+          92
+        ],
+        "Slot 3": [
+          314,
+          426,
+          92,
+          92
+        ],
+        "Slot 4": [
+          426,
+          426,
+          92,
+          92
+        ],
+        "Slot 5": [
+          538,
+          426,
+          92,
+          92
+        ],
+        "Slot 6": [
+          650,
+          426,
+          92,
+          92
+        ],
+        "Slot 7": [
+          762,
+          426,
+          92,
+          92
+        ],
+        "Slot 8": [
+          874,
+          426,
+          92,
+          92
+        ],
+        "Slot 9": [
+          986,
+          426,
+          92,
+          92
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Speed": [
+          796,
+          835,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          835,
+          152,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 0,
+      "combat_seconds": 0.133333333333333,
+      "defense": 0,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "flesh": 0,
+      "growth_levels": {
+        "armor": 0,
+        "atk": 0,
+        "hp": 0,
+        "regen": 0
+      },
+      "growth_open": false,
+      "hits": 0,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "item_count": 1,
+      "jumps": 0,
+      "kills": 0,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 0,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [],
+      "reward_extra_refresh": 0,
+      "reward_granted": 0,
+      "reward_loadout": false,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 1,
+      "spell_attack_multiplier": 1,
+      "summon_events": 0,
+      "summoned_minions": 0,
+      "tempo": 0,
+      "trace": [],
+      "viewport": [
+        1280,
+        889
+      ],
+      "wall_active": true,
+      "wall_hp": 360,
+      "wall_max": 360,
+      "wave": 0
+    },
+    "battle": {
+      "absorbed": 84,
+      "active": true,
+      "arrange_disabled": true,
+      "attack_multiplier": 2.5,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          474,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          268,
+          254,
+          152,
+          72
+        ],
+        "Configure": [
+          172,
+          835,
+          152,
+          72
+        ],
+        "Connect": [
+          420,
+          331,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          331,
+          152,
+          72
+        ],
+        "Done": [
+          135,
+          105,
+          206,
+          72
+        ],
+        "Equip": [
+          108,
+          331,
+          152,
+          72
+        ],
+        "Flesh": [
+          484,
+          835,
+          152,
+          72
+        ],
+        "Grow armor": [
+          640,
+          517,
+          1208,
+          86
+        ],
+        "Grow atk": [
+          640,
+          337,
+          1208,
+          86
+        ],
+        "Grow hp": [
+          640,
+          427,
+          1208,
+          86
+        ],
+        "Grow regen": [
+          640,
+          607,
+          1208,
+          86
+        ],
+        "GrowthDone": [
+          112,
+          254,
+          152,
+          72
+        ],
+        "Inventory": [
+          636,
+          255,
+          1208,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          328,
+          835,
+          152,
+          72
+        ],
+        "Pause": [
+          952,
+          835,
+          152,
+          72
+        ],
+        "Random": [
+          318,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          1108,
+          835,
+          152,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          106,
+          443,
+          92,
+          92
+        ],
+        "Slot 1": [
+          106,
+          781,
+          92,
+          92
+        ],
+        "Slot 2": [
+          218,
+          781,
+          92,
+          92
+        ],
+        "Slot 3": [
+          330,
+          781,
+          92,
+          92
+        ],
+        "Slot 4": [
+          442,
+          781,
+          92,
+          92
+        ],
+        "Slot 5": [
+          554,
+          781,
+          92,
+          92
+        ],
+        "Slot 6": [
+          666,
+          781,
+          92,
+          92
+        ],
+        "Slot 7": [
+          778,
+          781,
+          92,
+          92
+        ],
+        "Slot 8": [
+          890,
+          781,
+          92,
+          92
+        ],
+        "Slot 9": [
+          1002,
+          781,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          331,
+          152,
+          72
+        ],
+        "Speed": [
+          796,
+          835,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          835,
+          152,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 35,
+      "combat_seconds": 63.4833333333329,
+      "defense": 0.28,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 3,
+      "flesh": 1,
+      "growth_levels": {
+        "armor": 2,
+        "atk": 3,
+        "hp": 2,
+        "regen": 1
+      },
+      "growth_open": false,
+      "hits": 34,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "item_count": 2,
+      "jumps": 0,
+      "kills": 21,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 2,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 1,
+      "reward_loadout": false,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 2.5,
+      "summon_events": 0,
+      "summoned_minions": 0,
+      "tempo": 0,
+      "trace": [
+        {
+          "at": [
+            1496.47534179688,
+            781.34375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 1,
+          "slot": 0,
+          "target": 40265320076
+        },
+        {
+          "kind": "hit",
+          "run": 1,
+          "slot": 0,
+          "target": 40265320076
+        },
+        {
+          "at": [
+            1473.56518554688,
+            770.538208007812
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 2,
+          "slot": 0,
+          "target": 40265320076
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 0,
+          "target": 40265320076
+        },
+        {
+          "at": [
+            1613.20825195312,
+            343.386108398438
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 3,
+          "slot": 0,
+          "target": 40617641619
+        },
+        {
+          "kind": "hit",
+          "run": 3,
+          "slot": 0,
+          "target": 40617641619
+        },
+        {
+          "at": [
+            1571.87365722656,
+            352.462921142578
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 4,
+          "slot": 0,
+          "target": 40617641619
+        },
+        {
+          "kind": "hit",
+          "run": 4,
+          "slot": 0,
+          "target": 40617641619
+        },
+        {
+          "at": [
+            228.081085205078,
+            695.87060546875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 5,
+          "slot": 0,
+          "target": 40919631502
+        },
+        {
+          "kind": "hit",
+          "run": 5,
+          "slot": 0,
+          "target": 40919631502
+        },
+        {
+          "at": [
+            252.399002075195,
+            688.78173828125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 6,
+          "slot": 0,
+          "target": 40919631502
+        },
+        {
+          "kind": "hit",
+          "run": 6,
+          "slot": 0,
+          "target": 40919631502
+        },
+        {
+          "at": [
+            337.655548095703,
+            757.888549804688
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 7,
+          "slot": 0,
+          "target": 41825601170
+        },
+        {
+          "kind": "hit",
+          "run": 7,
+          "slot": 0,
+          "target": 41825601170
+        },
+        {
+          "at": [
+            1618.4462890625,
+            422.157958984375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 8,
+          "slot": 0,
+          "target": 41506834080
+        },
+        {
+          "kind": "hit",
+          "run": 8,
+          "slot": 0,
+          "target": 41506834080
+        },
+        {
+          "at": [
+            1591.78247070312,
+            425.046813964844
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 9,
+          "slot": 0,
+          "target": 41506834080
+        },
+        {
+          "kind": "hit",
+          "run": 9,
+          "slot": 0,
+          "target": 41506834080
+        },
+        {
+          "at": [
+            99.6365356445312,
+            410.8115234375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 10,
+          "slot": 0,
+          "target": 42949674658
+        },
+        {
+          "kind": "hit",
+          "run": 10,
+          "slot": 0,
+          "target": 42949674658
+        },
+        {
+          "at": [
+            1445.5419921875,
+            806.098022460938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 11,
+          "slot": 0,
+          "target": 43251664554
+        },
+        {
+          "kind": "hit",
+          "run": 11,
+          "slot": 0,
+          "target": 43251664554
+        },
+        {
+          "at": [
+            1421.78625488281,
+            792.768859863281
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 12,
+          "slot": 0,
+          "target": 43251664554
+        },
+        {
+          "kind": "hit",
+          "run": 12,
+          "slot": 0,
+          "target": 43251664554
+        },
+        {
+          "at": [
+            274.328277587891,
+            745.183654785156
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 13,
+          "slot": 0,
+          "target": 43570431628
+        },
+        {
+          "kind": "hit",
+          "run": 13,
+          "slot": 0,
+          "target": 43570431628
+        },
+        {
+          "at": [
+            1354.17590332031,
+            814.801635742188
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 14,
+          "slot": 0,
+          "target": 43872421518
+        },
+        {
+          "kind": "hit",
+          "run": 14,
+          "slot": 0,
+          "target": 43872421518
+        },
+        {
+          "at": [
+            325.052703857422,
+            725.306091308594
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 15,
+          "slot": 0,
+          "target": 43570431628
+        },
+        {
+          "kind": "hit",
+          "run": 15,
+          "slot": 0,
+          "target": 43570431628
+        },
+        {
+          "at": [
+            994.539733886719,
+            95.7213592529297
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 16,
+          "slot": 0,
+          "target": 44560287389
+        },
+        {
+          "kind": "hit",
+          "run": 16,
+          "slot": 0,
+          "target": 44560287389
+        },
+        {
+          "at": [
+            988.336853027344,
+            122.245788574219
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 17,
+          "slot": 0,
+          "target": 44560287389
+        },
+        {
+          "kind": "hit",
+          "run": 17,
+          "slot": 0,
+          "target": 44560287389
+        },
+        {
+          "at": [
+            1521.10278320312,
+            681.185302734375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 18,
+          "slot": 0,
+          "target": 44090525340
+        },
+        {
+          "kind": "hit",
+          "run": 18,
+          "slot": 0,
+          "target": 44090525340
+        },
+        {
+          "at": [
+            1494.953125,
+            673.556945800781
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 19,
+          "slot": 0,
+          "target": 44090525340
+        },
+        {
+          "kind": "hit",
+          "run": 19,
+          "slot": 0,
+          "target": 44090525340
+        },
+        {
+          "at": [
+            1633.56188964844,
+            316.774108886719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 20,
+          "slot": 0,
+          "target": 47831844496
+        },
+        {
+          "kind": "hit",
+          "run": 20,
+          "slot": 0,
+          "target": 47831844496
+        },
+        {
+          "at": [
+            133.372192382812,
+            354.499328613281
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 21,
+          "slot": 0,
+          "target": 48133834406
+        },
+        {
+          "kind": "hit",
+          "run": 21,
+          "slot": 0,
+          "target": 48133834406
+        },
+        {
+          "at": [
+            160.547149658203,
+            359.656860351562
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 22,
+          "slot": 0,
+          "target": 48133834406
+        },
+        {
+          "kind": "hit",
+          "run": 22,
+          "slot": 0,
+          "target": 48133834406
+        },
+        {
+          "at": [
+            289.0390625,
+            246.308319091797
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 23,
+          "slot": 0,
+          "target": 48452601501
+        },
+        {
+          "kind": "hit",
+          "run": 23,
+          "slot": 0,
+          "target": 48452601501
+        },
+        {
+          "at": [
+            967.4228515625,
+            897.314575195312
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 24,
+          "slot": 0,
+          "target": 49039804047
+        },
+        {
+          "kind": "hit",
+          "run": 24,
+          "slot": 0,
+          "target": 49039804047
+        },
+        {
+          "at": [
+            964.566772460938,
+            880.48828125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 25,
+          "slot": 0,
+          "target": 49039804047
+        },
+        {
+          "kind": "hit",
+          "run": 25,
+          "slot": 0,
+          "target": 49039804047
+        },
+        {
+          "at": [
+            361.772521972656,
+            276.508911132812
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 26,
+          "slot": 0,
+          "target": 48452601501
+        },
+        {
+          "kind": "hit",
+          "run": 26,
+          "slot": 0,
+          "target": 48452601501
+        },
+        {
+          "at": [
+            188.892700195312,
+            509.535278320312
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 27,
+          "slot": 0,
+          "target": 49174021782
+        },
+        {
+          "kind": "hit",
+          "run": 27,
+          "slot": 0,
+          "target": 49174021782
+        },
+        {
+          "at": [
+            232.571594238281,
+            718.089111328125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 28,
+          "slot": 0,
+          "target": 49962550949
+        },
+        {
+          "kind": "hit",
+          "run": 28,
+          "slot": 0,
+          "target": 49962550949
+        },
+        {
+          "at": [
+            195.755737304688,
+            612.863098144531
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 29,
+          "slot": 0,
+          "target": 49559897756
+        },
+        {
+          "kind": "hit",
+          "run": 29,
+          "slot": 0,
+          "target": 49559897756
+        },
+        {
+          "at": [
+            132.685241699219,
+            355.407409667969
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 30,
+          "slot": 0,
+          "target": 60179875492
+        },
+        {
+          "kind": "hit",
+          "run": 30,
+          "slot": 0,
+          "target": 60179875492
+        },
+        {
+          "at": [
+            1133.79479980469,
+            892.982177734375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 31,
+          "slot": 0,
+          "target": 60683192016
+        },
+        {
+          "kind": "hit",
+          "run": 31,
+          "slot": 0,
+          "target": 60683192016
+        },
+        {
+          "at": [
+            333.420715332031,
+            203.610076904297
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 32,
+          "slot": 0,
+          "target": 60985181905
+        },
+        {
+          "kind": "hit",
+          "run": 32,
+          "slot": 0,
+          "target": 60985181905
+        },
+        {
+          "at": [
+            805.8876953125,
+            92.7092895507812
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 33,
+          "slot": 0,
+          "target": 61287171781
+        },
+        {
+          "kind": "hit",
+          "run": 33,
+          "slot": 0,
+          "target": 61287171781
+        },
+        {
+          "at": [
+            812.7431640625,
+            122.378692626953
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 34,
+          "slot": 0,
+          "target": 61287171781
+        },
+        {
+          "kind": "hit",
+          "run": 34,
+          "slot": 0,
+          "target": 61287171781
+        },
+        {
+          "at": [
+            819.5986328125,
+            152.048095703125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 35,
+          "slot": 0,
+          "target": 61287171781
+        }
+      ],
+      "viewport": [
+        1280,
+        889
+      ],
+      "wall_active": true,
+      "wall_hp": 490,
+      "wall_max": 490,
+      "wave": 4
+    },
+    "restart": {
+      "absorbed": 0,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_multiplier": 1,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          172,
+          835,
+          152,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          119,
+          52,
+          206,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Flesh": [
+          484,
+          835,
+          152,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          328,
+          835,
+          152,
+          72
+        ],
+        "Pause": [
+          952,
+          835,
+          152,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          1108,
+          835,
+          152,
+          72
+        ],
+        "Reward 0": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 1": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 2": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "RewardRefresh": [
+          20,
+          52,
+          8,
+          72
+        ],
+        "Slot 0": [
+          90,
+          88,
+          92,
+          92
+        ],
+        "Slot 1": [
+          90,
+          426,
+          92,
+          92
+        ],
+        "Slot 2": [
+          202,
+          426,
+          92,
+          92
+        ],
+        "Slot 3": [
+          314,
+          426,
+          92,
+          92
+        ],
+        "Slot 4": [
+          426,
+          426,
+          92,
+          92
+        ],
+        "Slot 5": [
+          538,
+          426,
+          92,
+          92
+        ],
+        "Slot 6": [
+          650,
+          426,
+          92,
+          92
+        ],
+        "Slot 7": [
+          762,
+          426,
+          92,
+          92
+        ],
+        "Slot 8": [
+          874,
+          426,
+          92,
+          92
+        ],
+        "Slot 9": [
+          986,
+          426,
+          92,
+          92
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Speed": [
+          796,
+          835,
+          152,
+          72
+        ],
+        "Tempo": [
+          640,
+          835,
+          152,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 0,
+      "combat_seconds": 1.58333333333333,
+      "defense": 0,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "flesh": 0,
+      "growth_levels": {
+        "armor": 0,
+        "atk": 0,
+        "hp": 0,
+        "regen": 0
+      },
+      "growth_open": false,
+      "hits": 0,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "item_count": 1,
+      "jumps": 0,
+      "kills": 0,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 0,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [],
+      "reward_extra_refresh": 0,
+      "reward_granted": 0,
+      "reward_loadout": false,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 1,
+      "spell_attack_multiplier": 1,
+      "summon_events": 0,
+      "summoned_minions": 0,
+      "tempo": 0,
+      "trace": [],
+      "viewport": [
+        1280,
+        889
+      ],
+      "wall_active": true,
+      "wall_hp": 360,
+      "wall_max": 360,
+      "wave": 0
+    },
+    "rate_1x": 1.034195666056907,
+    "rate_8x": 8.425807194982655,
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "actual WebGL starter with wall/core",
+      "global 2/4/8 speed",
+      "simulation-time acceleration observed",
+      "pause freezes combat at 8x",
+      "growth menu freezes combat",
+      "user pause preserved on menu close",
+      "auto-growth toggle",
+      "manual upgrade cost and attack increase",
+      "third-wave earned reward pauses combat, refreshes once and grants one gem without auto-equipping",
+      "arcane-only clears third wave without kit",
+      "meat feeds all four stats",
+      "restart clears growth and restores 1x"
+    ],
+    "limit": "Linux Chromium software WebGL touch emulation, not iPad Safari or full twenty-wave balance"
+  },
+  "portrait": {
+    "viewport": {
+      "width": 820,
+      "height": 1180
+    },
+    "initial": {
+      "absorbed": 0,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_multiplier": 1,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          340,
+          1711,
+          196,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          119,
+          52,
+          206,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Flesh": [
+          740,
+          1711,
+          196,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          540,
+          1711,
+          196,
+          72
+        ],
+        "Pause": [
+          540,
+          1787,
+          196,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          740,
+          1787,
+          196,
+          72
+        ],
+        "Reward 0": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 1": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 2": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "RewardRefresh": [
+          20,
+          52,
+          8,
+          72
+        ],
+        "Slot 0": [
+          90,
+          88,
+          92,
+          92
+        ],
+        "Slot 1": [
+          90,
+          426,
+          92,
+          92
+        ],
+        "Slot 2": [
+          202,
+          426,
+          92,
+          92
+        ],
+        "Slot 3": [
+          314,
+          426,
+          92,
+          92
+        ],
+        "Slot 4": [
+          426,
+          426,
+          92,
+          92
+        ],
+        "Slot 5": [
+          538,
+          426,
+          92,
+          92
+        ],
+        "Slot 6": [
+          650,
+          426,
+          92,
+          92
+        ],
+        "Slot 7": [
+          762,
+          426,
+          92,
+          92
+        ],
+        "Slot 8": [
+          874,
+          426,
+          92,
+          92
+        ],
+        "Slot 9": [
+          986,
+          426,
+          92,
+          92
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Speed": [
+          340,
+          1787,
+          196,
+          72
+        ],
+        "Tempo": [
+          940,
+          1711,
+          196,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 0,
+      "combat_seconds": 0.4,
+      "defense": 0,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "flesh": 0,
+      "growth_levels": {
+        "armor": 0,
+        "atk": 0,
+        "hp": 0,
+        "regen": 0
+      },
+      "growth_open": false,
+      "hits": 0,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "item_count": 1,
+      "jumps": 0,
+      "kills": 0,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 0,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [],
+      "reward_extra_refresh": 0,
+      "reward_granted": 0,
+      "reward_loadout": false,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 1,
+      "spell_attack_multiplier": 1,
+      "summon_events": 0,
+      "summoned_minions": 0,
+      "tempo": 0,
+      "trace": [],
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wall_active": true,
+      "wall_hp": 360,
+      "wall_max": 360,
+      "wave": 0
+    },
+    "battle": {
+      "absorbed": 100,
+      "active": true,
+      "arrange_disabled": true,
+      "attack_multiplier": 2.5,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          474,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          268,
+          254,
+          152,
+          72
+        ],
+        "Configure": [
+          340,
+          1711,
+          196,
+          72
+        ],
+        "Connect": [
+          420,
+          331,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          331,
+          152,
+          72
+        ],
+        "Done": [
+          135,
+          105,
+          206,
+          72
+        ],
+        "Equip": [
+          108,
+          331,
+          152,
+          72
+        ],
+        "Flesh": [
+          740,
+          1711,
+          196,
+          72
+        ],
+        "Grow armor": [
+          640,
+          517,
+          1208,
+          86
+        ],
+        "Grow atk": [
+          640,
+          337,
+          1208,
+          86
+        ],
+        "Grow hp": [
+          640,
+          427,
+          1208,
+          86
+        ],
+        "Grow regen": [
+          640,
+          607,
+          1208,
+          86
+        ],
+        "GrowthDone": [
+          112,
+          254,
+          152,
+          72
+        ],
+        "Inventory": [
+          640,
+          255,
+          1216,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          540,
+          1711,
+          196,
+          72
+        ],
+        "Pause": [
+          540,
+          1787,
+          196,
+          72
+        ],
+        "Random": [
+          318,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          740,
+          1787,
+          196,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          106,
+          443,
+          92,
+          92
+        ],
+        "Slot 1": [
+          106,
+          781,
+          92,
+          92
+        ],
+        "Slot 2": [
+          218,
+          781,
+          92,
+          92
+        ],
+        "Slot 3": [
+          330,
+          781,
+          92,
+          92
+        ],
+        "Slot 4": [
+          442,
+          781,
+          92,
+          92
+        ],
+        "Slot 5": [
+          554,
+          781,
+          92,
+          92
+        ],
+        "Slot 6": [
+          666,
+          781,
+          92,
+          92
+        ],
+        "Slot 7": [
+          778,
+          781,
+          92,
+          92
+        ],
+        "Slot 8": [
+          890,
+          781,
+          92,
+          92
+        ],
+        "Slot 9": [
+          1002,
+          781,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          331,
+          152,
+          72
+        ],
+        "Speed": [
+          340,
+          1787,
+          196,
+          72
+        ],
+        "Tempo": [
+          940,
+          1711,
+          196,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 36,
+      "combat_seconds": 64.4999999999996,
+      "defense": 0.28,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 2,
+      "flesh": 4,
+      "growth_levels": {
+        "armor": 2,
+        "atk": 3,
+        "hp": 2,
+        "regen": 2
+      },
+      "growth_open": false,
+      "hits": 35,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "item_count": 2,
+      "jumps": 0,
+      "kills": 22,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 4,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 1,
+      "reward_loadout": false,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 2.5,
+      "summon_events": 0,
+      "summoned_minions": 0,
+      "tempo": 0,
+      "trace": [
+        {
+          "at": [
+            1496.47534179688,
+            781.34375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 1,
+          "slot": 0,
+          "target": 40265320076
+        },
+        {
+          "kind": "hit",
+          "run": 1,
+          "slot": 0,
+          "target": 40265320076
+        },
+        {
+          "at": [
+            1473.56518554688,
+            770.538208007812
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 2,
+          "slot": 0,
+          "target": 40265320076
+        },
+        {
+          "kind": "hit",
+          "run": 2,
+          "slot": 0,
+          "target": 40265320076
+        },
+        {
+          "at": [
+            1613.20825195312,
+            343.386108398438
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 3,
+          "slot": 0,
+          "target": 40584087187
+        },
+        {
+          "kind": "hit",
+          "run": 3,
+          "slot": 0,
+          "target": 40584087187
+        },
+        {
+          "at": [
+            1570.62109375,
+            352.737976074219
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 4,
+          "slot": 0,
+          "target": 40584087187
+        },
+        {
+          "kind": "hit",
+          "run": 4,
+          "slot": 0,
+          "target": 40584087187
+        },
+        {
+          "at": [
+            228.796356201172,
+            695.662109375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 5,
+          "slot": 0,
+          "target": 41087403662
+        },
+        {
+          "kind": "hit",
+          "run": 5,
+          "slot": 0,
+          "target": 41087403662
+        },
+        {
+          "at": [
+            253.114273071289,
+            688.5732421875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 6,
+          "slot": 0,
+          "target": 41087403662
+        },
+        {
+          "kind": "hit",
+          "run": 6,
+          "slot": 0,
+          "target": 41087403662
+        },
+        {
+          "at": [
+            337.655517578125,
+            757.888549804688
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 7,
+          "slot": 0,
+          "target": 41792046742
+        },
+        {
+          "kind": "hit",
+          "run": 7,
+          "slot": 0,
+          "target": 41792046742
+        },
+        {
+          "at": [
+            1618.4462890625,
+            422.157958984375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 8,
+          "slot": 0,
+          "target": 41473279634
+        },
+        {
+          "kind": "hit",
+          "run": 8,
+          "slot": 0,
+          "target": 41473279634
+        },
+        {
+          "at": [
+            1591.78247070312,
+            425.046813964844
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 9,
+          "slot": 0,
+          "target": 41473279634
+        },
+        {
+          "kind": "hit",
+          "run": 9,
+          "slot": 0,
+          "target": 41473279634
+        },
+        {
+          "at": [
+            99.6365356445312,
+            410.8115234375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 10,
+          "slot": 0,
+          "target": 42916120209
+        },
+        {
+          "kind": "hit",
+          "run": 10,
+          "slot": 0,
+          "target": 42916120209
+        },
+        {
+          "at": [
+            1445.5419921875,
+            806.098022460938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 11,
+          "slot": 0,
+          "target": 43218110103
+        },
+        {
+          "kind": "hit",
+          "run": 11,
+          "slot": 0,
+          "target": 43218110103
+        },
+        {
+          "at": [
+            1421.78625488281,
+            792.768859863281
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 12,
+          "slot": 0,
+          "target": 43218110103
+        },
+        {
+          "kind": "hit",
+          "run": 12,
+          "slot": 0,
+          "target": 43218110103
+        },
+        {
+          "at": [
+            274.328277587891,
+            745.183654785156
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 13,
+          "slot": 0,
+          "target": 43536877214
+        },
+        {
+          "kind": "hit",
+          "run": 13,
+          "slot": 0,
+          "target": 43536877214
+        },
+        {
+          "at": [
+            1354.17590332031,
+            814.801635742188
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 14,
+          "slot": 0,
+          "target": 43838867084
+        },
+        {
+          "kind": "hit",
+          "run": 14,
+          "slot": 0,
+          "target": 43838867084
+        },
+        {
+          "at": [
+            325.052703857422,
+            725.306091308594
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 15,
+          "slot": 0,
+          "target": 43536877214
+        },
+        {
+          "kind": "hit",
+          "run": 15,
+          "slot": 0,
+          "target": 43536877214
+        },
+        {
+          "at": [
+            994.539733886719,
+            95.7213592529297
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 16,
+          "slot": 0,
+          "target": 44526732953
+        },
+        {
+          "kind": "hit",
+          "run": 16,
+          "slot": 0,
+          "target": 44526732953
+        },
+        {
+          "at": [
+            988.336853027344,
+            122.245788574219
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 17,
+          "slot": 0,
+          "target": 44526732953
+        },
+        {
+          "kind": "hit",
+          "run": 17,
+          "slot": 0,
+          "target": 44526732953
+        },
+        {
+          "at": [
+            1521.10278320312,
+            681.185302734375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 18,
+          "slot": 0,
+          "target": 44056970895
+        },
+        {
+          "kind": "hit",
+          "run": 18,
+          "slot": 0,
+          "target": 44056970895
+        },
+        {
+          "at": [
+            1494.953125,
+            673.556945800781
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 19,
+          "slot": 0,
+          "target": 44056970895
+        },
+        {
+          "kind": "hit",
+          "run": 19,
+          "slot": 0,
+          "target": 44056970895
+        },
+        {
+          "at": [
+            1633.56188964844,
+            316.774108886719
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 20,
+          "slot": 0,
+          "target": 47580186264
+        },
+        {
+          "kind": "hit",
+          "run": 20,
+          "slot": 0,
+          "target": 47580186264
+        },
+        {
+          "at": [
+            133.372192382812,
+            354.499328613281
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 21,
+          "slot": 0,
+          "target": 47882176166
+        },
+        {
+          "kind": "hit",
+          "run": 21,
+          "slot": 0,
+          "target": 47882176166
+        },
+        {
+          "at": [
+            160.547149658203,
+            359.656860351562
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 22,
+          "slot": 0,
+          "target": 47882176166
+        },
+        {
+          "kind": "hit",
+          "run": 22,
+          "slot": 0,
+          "target": 47882176166
+        },
+        {
+          "at": [
+            289.0390625,
+            246.308319091797
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 23,
+          "slot": 0,
+          "target": 48200943253
+        },
+        {
+          "kind": "hit",
+          "run": 23,
+          "slot": 0,
+          "target": 48200943253
+        },
+        {
+          "at": [
+            967.596252441406,
+            898.334350585938
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 24,
+          "slot": 0,
+          "target": 48502933133
+        },
+        {
+          "kind": "hit",
+          "run": 24,
+          "slot": 0,
+          "target": 48502933133
+        },
+        {
+          "at": [
+            964.481079101562,
+            879.978393554688
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 25,
+          "slot": 0,
+          "target": 48502933133
+        },
+        {
+          "kind": "hit",
+          "run": 25,
+          "slot": 0,
+          "target": 48502933133
+        },
+        {
+          "at": [
+            366.030090332031,
+            278.276794433594
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 26,
+          "slot": 0,
+          "target": 48200943253
+        },
+        {
+          "kind": "hit",
+          "run": 26,
+          "slot": 0,
+          "target": 48200943253
+        },
+        {
+          "at": [
+            193.308685302734,
+            509.475860595703
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 27,
+          "slot": 0,
+          "target": 48721036957
+        },
+        {
+          "kind": "hit",
+          "run": 27,
+          "slot": 0,
+          "target": 48721036957
+        },
+        {
+          "at": [
+            235.492980957031,
+            717.134521484375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 28,
+          "slot": 0,
+          "target": 49710892696
+        },
+        {
+          "kind": "hit",
+          "run": 28,
+          "slot": 0,
+          "target": 49710892696
+        },
+        {
+          "at": [
+            198.411010742188,
+            612.437561035156
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 29,
+          "slot": 0,
+          "target": 49308239513
+        },
+        {
+          "kind": "hit",
+          "run": 29,
+          "slot": 0,
+          "target": 49308239513
+        },
+        {
+          "at": [
+            132.685241699219,
+            355.407409667969
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 30,
+          "slot": 0,
+          "target": 60683191970
+        },
+        {
+          "kind": "hit",
+          "run": 30,
+          "slot": 0,
+          "target": 60683191970
+        },
+        {
+          "at": [
+            1133.79479980469,
+            892.982177734375
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 31,
+          "slot": 0,
+          "target": 60985181905
+        },
+        {
+          "kind": "hit",
+          "run": 31,
+          "slot": 0,
+          "target": 60985181905
+        },
+        {
+          "at": [
+            333.420715332031,
+            203.610076904297
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 32,
+          "slot": 0,
+          "target": 61488498374
+        },
+        {
+          "kind": "hit",
+          "run": 32,
+          "slot": 0,
+          "target": 61488498374
+        },
+        {
+          "at": [
+            805.8876953125,
+            92.7092895507812
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 33,
+          "slot": 0,
+          "target": 61790488205
+        },
+        {
+          "kind": "hit",
+          "run": 33,
+          "slot": 0,
+          "target": 61790488205
+        },
+        {
+          "at": [
+            812.7431640625,
+            122.378692626953
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 34,
+          "slot": 0,
+          "target": 61790488205
+        },
+        {
+          "kind": "hit",
+          "run": 34,
+          "slot": 0,
+          "target": 61790488205
+        },
+        {
+          "at": [
+            819.5986328125,
+            152.048095703125
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 35,
+          "slot": 0,
+          "target": 61790488205
+        },
+        {
+          "kind": "hit",
+          "run": 35,
+          "slot": 0,
+          "target": 61790488205
+        },
+        {
+          "at": [
+            812.3466796875,
+            874.328857421875
+          ],
+          "empty": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "run": 36,
+          "slot": 0,
+          "target": 62109255373
+        }
+      ],
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wall_active": true,
+      "wall_hp": 490,
+      "wall_max": 490,
+      "wave": 4
+    },
+    "restart": {
+      "absorbed": 0,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_multiplier": 1,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Configure": [
+          340,
+          1711,
+          196,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          119,
+          52,
+          206,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Flesh": [
+          740,
+          1711,
+          196,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          540,
+          1711,
+          196,
+          72
+        ],
+        "Pause": [
+          540,
+          1787,
+          196,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          740,
+          1787,
+          196,
+          72
+        ],
+        "Reward 0": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 1": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 2": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "RewardRefresh": [
+          20,
+          52,
+          8,
+          72
+        ],
+        "Slot 0": [
+          90,
+          88,
+          92,
+          92
+        ],
+        "Slot 1": [
+          90,
+          426,
+          92,
+          92
+        ],
+        "Slot 2": [
+          202,
+          426,
+          92,
+          92
+        ],
+        "Slot 3": [
+          314,
+          426,
+          92,
+          92
+        ],
+        "Slot 4": [
+          426,
+          426,
+          92,
+          92
+        ],
+        "Slot 5": [
+          538,
+          426,
+          92,
+          92
+        ],
+        "Slot 6": [
+          650,
+          426,
+          92,
+          92
+        ],
+        "Slot 7": [
+          762,
+          426,
+          92,
+          92
+        ],
+        "Slot 8": [
+          874,
+          426,
+          92,
+          92
+        ],
+        "Slot 9": [
+          986,
+          426,
+          92,
+          92
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Speed": [
+          340,
+          1787,
+          196,
+          72
+        ],
+        "Tempo": [
+          940,
+          1711,
+          196,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 0,
+      "combat_seconds": 1.51666666666667,
+      "defense": 0,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "flesh": 0,
+      "growth_levels": {
+        "armor": 0,
+        "atk": 0,
+        "hp": 0,
+        "regen": 0
+      },
+      "growth_open": false,
+      "hits": 0,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "item_count": 1,
+      "jumps": 0,
+      "kills": 0,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 0,
+      "resonances": 0,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [],
+      "reward_extra_refresh": 0,
+      "reward_granted": 0,
+      "reward_loadout": false,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 1,
+      "spell_attack_multiplier": 1,
+      "summon_events": 0,
+      "summoned_minions": 0,
+      "tempo": 0,
+      "trace": [],
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wall_active": true,
+      "wall_hp": 360,
+      "wall_max": 360,
+      "wave": 0
+    },
+    "rate_1x": 0.9783666258925392,
+    "rate_8x": 8.044126474062434,
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "actual WebGL starter with wall/core",
+      "global 2/4/8 speed",
+      "simulation-time acceleration observed",
+      "pause freezes combat at 8x",
+      "growth menu freezes combat",
+      "user pause preserved on menu close",
+      "auto-growth toggle",
+      "manual upgrade cost and attack increase",
+      "third-wave earned reward pauses combat, refreshes once and grants one gem without auto-equipping",
+      "arcane-only clears third wave without kit",
+      "meat feeds all four stats",
+      "restart clears growth and restores 1x"
+    ],
+    "limit": "Linux Chromium software WebGL touch emulation, not iPad Safari or full twenty-wave balance"
+  }
+}

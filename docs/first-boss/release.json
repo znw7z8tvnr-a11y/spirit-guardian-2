@@ -1,0 +1,26 @@
+{
+  "deployment_id": "appgdep_6ae32783dde081919bf5fabb458d9e43",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_c94a6cd9daa881918686c788d80b6a8f",
+  "status": "succeeded",
+  "hosting_source_commit": "7cd30ba2a431d6abf432c299fb7a5e6b64284320",
+  "game_source_commit": "09cd2ac79a300fa89e080b19fc2f9aa6ec911702",
+  "ci_source_commit": "09cd2ac79a300fa89e080b19fc2f9aa6ec911702",
+  "ci_run": 40861451087,
+  "ci_artifact": 12892291478,
+  "release": "First Boss summons, localized HUD, earned loadout confirmation and short-chain pacing",
+  "native_checks": 322,
+  "ci_conclusion": "success",
+  "native_battle_coverage": "Three seeded real battles from arcane start through first Boss and following wave to wave seven, earned inventory only; actual phase-three attacks and three-to-six summons.",
+  "local_packaged_web": [
+    "landscape and portrait real five-wave playthrough without kit, touch gem and skill equipment, legal links, real Boss kill, summons and following-wave jumps",
+    "loadout freeze after final reward, explicit confirmation, blood growth and true speed regressions"
+  ],
+  "untested": [
+    "iPad Safari hardware",
+    "full twenty-wave balance and more reward strategies",
+    "full original skill and gem catalog",
+    "rare wand and capacity items",
+    "full run save and final artwork"
+  ],
+  "stable_root_preserved": true
+}

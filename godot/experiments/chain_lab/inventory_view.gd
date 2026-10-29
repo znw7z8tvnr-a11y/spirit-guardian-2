@@ -31,7 +31,10 @@ func title(item: Dictionary) -> String:
  return "%s・%d 級" % [Zh.spell(str(item.key)) if item.kind=="skill" else preload("res://experiments/chain_lab/gem_rules.gd").title(str(item.key)),int(item.level)]
 func stats(item: Dictionary) -> String:
  if item.is_empty():return "無攻擊或接續效果"
- if item.kind=="gem":return preload("res://experiments/chain_lab/gem_rules.gd").description(str(item.key),int(item.level))
+ if item.kind=="gem":
+  var text: String=preload("res://experiments/chain_lab/gem_rules.gd").description(str(item.key),int(item.level))
+  if item.key=="delay" and is_instance_valid(model):text+="｜目前冷卻 %.1f 秒" % (ceilf(model.gem_remaining(item)*10)/10)
+  return text
  return "直擊基礎傷害 %.1f（含血肉攻擊加成；範圍與狀態效果另計）" % (Effects.power(str(item.key),int(item.level),attack_boost))
 func open(chain: Node, index: int, boost: float) -> void:
  model=chain;slot=index;attack_boost=boost

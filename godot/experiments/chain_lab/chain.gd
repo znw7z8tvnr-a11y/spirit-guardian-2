@@ -14,6 +14,8 @@ var rng:=RandomNumberGenerator.new()
 var host: Node
 var clock:=0.0
 var cooldown_until:=0.0
+# Run-local cooldowns belong to physical items and survive graph edits.
+var gem_ready_at: Dictionary={}
 var hop_delay:=0.32
 var resonance_chance:=0.30
 var resonance_cooldown:=8.0
@@ -212,7 +214,19 @@ func schedule(slot: int, target: Node2D, result: Dictionary, run: Dictionary) ->
  run.events+=1
  var at: Vector2=result.get("position",target.position if is_instance_valid(target) else Vector2.ZERO)
  pending.append({"slot":slot,"target":weakref(target) if is_instance_valid(target) else null,"at":at,"result":result.duplicate(true),"run":run,"due":clock+hop_delay})
+func cooldown_snapshot() -> Dictionary:
+ var result: Dictionary={}
+ for item in items:
+  if str(item.key)=="delay":result[int(item.id)]=gem_remaining(item)
+ return result
+func gem_remaining(item: Dictionary) -> float:
+ if str(item.get("key",""))!="delay":return 0.0
+ return maxf(0.0,float(gem_ready_at.get(int(item.get("id",-1)),-INF))-clock)
 func gem_succeeds(item: Dictionary, source: Dictionary) -> bool:
+ if str(item.key)=="delay":
+  if int(item.get("id",-1))<0 or gem_remaining(item)>0:return false
+  gem_ready_at[int(item.id)]=clock+preload("res://experiments/chain_lab/gem_rules.gd").delay_seconds(int(item.level))
+  return true
  return preload("res://experiments/chain_lab/gem_rules.gd").succeeds(str(item.key),int(item.level),source,rng)
 func advance(delta: float) -> void:
  clock+=delta
@@ -228,12 +242,13 @@ func advance(delta: float) -> void:
    emit_skill(int(event.slot),choose_target(event.at,run),run,event.echo_context)
    continue
   if item.kind=="gem":
-   var eligible: bool=preload("res://experiments/chain_lab/gem_rules.gd").eligible(str(item.key),event.result,int(item.level))
+   var remaining:=gem_remaining(item)
+   var eligible: bool=remaining<=0 and preload("res://experiments/chain_lab/gem_rules.gd").eligible(str(item.key),event.result,int(item.level))
    var success:=gem_succeeds(item,event.result)
-   var reason: String="success" if success else "chance" if eligible else "condition"
-   var verdict: String="接續成功" if success else "機率未觸發" if eligible else "條件未滿足"
+   var reason: String="success" if success else "cooldown" if remaining>0 else "chance" if eligible else "condition"
+   var verdict: String="接續成功" if success else "冷卻中 %.1f 秒" % (ceilf(remaining*10)/10) if remaining>0 else "機率未觸發" if eligible else "條件未滿足"
    pulse.emit(int(event.slot),verdict)
-   add_trace({"kind":"gem","run":run.id,"slot":event.slot,"key":str(item.key),"eligible":eligible,"success":success,"reason":reason,"lowest_hp_ratio":float(event.result.get("lowest_hp_ratio",1.0))})
+   add_trace({"kind":"gem","run":run.id,"slot":event.slot,"key":str(item.key),"eligible":eligible,"success":success,"reason":reason,"clock":clock,"cooldown_remaining":gem_remaining(item),"lowest_hp_ratio":float(event.result.get("lowest_hp_ratio",1.0))})
    if success:
     var continuation: Dictionary=event.result.duplicate(true)
     continuation["next_boost"]=preload("res://experiments/chain_lab/gem_rules.gd").next_multiplier(str(item.key),int(item.level))
@@ -295,8 +310,8 @@ func load_spell_kit() -> void:
  if not spell_kit_loaded:
   for key in ["poison","meteor","nova","beam"]:
    var id:=items.size();spell_kit_ids[key]=id;items.append({"id":id,"kind":"skill","key":key,"level":2})
-  for key in ["burn","freeze","lowhp"]:
-   var id:=items.size();gem_kit_ids[key]=id;items.append({"id":id,"kind":"gem","key":key,"level":3})
+  for key in ["burn","freeze","lowhp","delay"]:
+   var id:=items.size();gem_kit_ids[key]=id;items.append({"id":id,"kind":"gem","key":key,"level":1 if key=="delay" else 3})
   spell_kit_loaded=true
  items[int(kit_ids[0])].key="split"
  items[int(kit_ids[3])].key="echo";items[int(kit_ids[3])].level=3

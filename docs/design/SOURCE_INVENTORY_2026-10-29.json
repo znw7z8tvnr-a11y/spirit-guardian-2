@@ -526,7 +526,7 @@
       "key": "delay",
       "name": "時序寶石",
       "description": "觸發間隔：3／2／1 秒",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab per-item simulation cooldown; see TIMING_GEM.md"
     },
     {
       "key": "blast",
@@ -1161,10 +1161,11 @@
       "echo",
       "burn",
       "freeze",
-      "lowhp"
+      "lowhp",
+      "delay"
     ],
-    "remaining_original_count": 11,
-    "conditional_gates": "Eight original types integrated; echo is a tooltip-based remake into rewards and inventory; unsupported keys fail closed"
+    "remaining_original_count": 10,
+    "conditional_gates": "Nine original types integrated; echo is a tooltip-based remake into rewards and inventory; unsupported keys fail closed"
   },
   "conflicts": [
     "SG7 resonance pool includes rate/shield/split, not just attack elements.",

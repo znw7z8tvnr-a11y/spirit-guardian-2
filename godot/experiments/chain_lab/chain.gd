@@ -34,6 +34,7 @@ var kit_loaded:=false
 var kit_ids: Array=[]
 var spell_kit_loaded:=false
 var spell_kit_ids: Dictionary={}
+var gem_kit_ids: Dictionary={}
 var last_message:="開局只有奧彈；可載入試驗配置測試連鎖。"
 func _init() -> void:
  rng.randomize()
@@ -90,6 +91,8 @@ func load_kit() -> void:
   kit_loaded=true
  items[int(kit_ids[0])].key="relay"
  items[int(kit_ids[3])].key="relay";items[int(kit_ids[3])].level=1
+ items[int(kit_ids[5])].key="relay";items[int(kit_ids[5])].level=2
+ items[int(kit_ids[8])].key="relay";items[int(kit_ids[8])].level=1
  slots=[0,kit_ids[0],kit_ids[1],kit_ids[2],kit_ids[3],kit_ids[4],kit_ids[5],kit_ids[6],-1,-1]
  edges=[{"from":0,"to":1},{"from":1,"to":2},{"from":1,"to":3},{"from":3,"to":4},{"from":4,"to":5},{"from":2,"to":6},{"from":6,"to":7}]
  reset_runtime();last_message="已載入測試用物品；不是正式掉落。";changed.emit()
@@ -102,9 +105,13 @@ func random_arrange() -> void:
    var j:=rng.randi_range(0,i);var value: Variant=list[i];list[i]=list[j];list[j]=value
  slots.fill(-1);slots[0]=0;edges=[]
  for i in range(1,CAPACITY):
-  var choices: Array=gems if i%2==1 else skills
+  var rules=preload("res://experiments/chain_lab/gem_rules.gd")
+  var choices: Array=gems.filter(func(g):return rules.may_follow(str(g.key),Catalog.element(str(item_at(i-1).key)))) if i%2==1 else skills
+  if i%2==0:
+   var useful: Array=skills.filter(func(skill):return gems.any(func(g):return rules.may_follow(str(g.key),Catalog.element(str(skill.key)))))
+   if not useful.is_empty():choices=useful
   if choices.is_empty():break
-  var item: Dictionary=choices.pop_back();slots[i]=int(item.id)
+  var item: Dictionary=choices.back();(gems if i%2==1 else skills).erase(item);slots[i]=int(item.id)
   edges.append({"from":i-1,"to":i})
  reset_runtime();changed.emit()
 func target_id(target: Node2D) -> int:
@@ -182,6 +189,7 @@ func complete_skill(slot: int, target: Node2D, result: Dictionary, run: Dictiona
  var outcome:=result.duplicate(true)
  outcome.erase("next_boost");outcome.erase("echo_chance")
  outcome["hit"]=hit
+ outcome["slowed_hit"]=bool(outcome.get("slowed_hit",false)) if hit else false
  outcome["killed"]=bool(outcome.get("killed",false)) if hit else false
  outcome["critical"]=bool(outcome.get("critical",false)) if hit else false
  outcome["position"]=outcome.get("position",context.get("aim",Vector2.ZERO))
@@ -219,7 +227,7 @@ func advance(delta: float) -> void:
   if item.kind=="gem":
    pulse.emit(int(event.slot),"寶石判定")
    var success:=gem_succeeds(item,event.result)
-   add_trace({"kind":"gem","run":run.id,"slot":event.slot,"success":success})
+   add_trace({"kind":"gem","run":run.id,"slot":event.slot,"key":str(item.key),"eligible":preload("res://experiments/chain_lab/gem_rules.gd").eligible(str(item.key),event.result),"success":success})
    if success:
     var continuation: Dictionary=event.result.duplicate(true)
     continuation["next_boost"]=preload("res://experiments/chain_lab/gem_rules.gd").next_multiplier(str(item.key),int(item.level))
@@ -259,9 +267,16 @@ func arrange_discovered() -> bool:
    choices.sort_custom(func(a,b):return int(a.level)>int(b.level));picked.append(int(choices[0].id))
   var gems: Array=items.filter(func(item):return item.kind=="gem")
   if picked.size()!=elements.size() or gems.size()<picked.size() or 1+2*picked.size()>CAPACITY:continue
+  var chosen_gems: Array=[]
+  for i in picked.size():
+   var previous_skill: Dictionary=items[0] if i==0 else items[int(picked[i-1])]
+   var compatible: Array=gems.filter(func(g):return preload("res://experiments/chain_lab/gem_rules.gd").may_follow(str(g.key),Catalog.element(str(previous_skill.key))))
+   if compatible.is_empty():break
+   chosen_gems.append(int(compatible[0].id));gems.erase(compatible[0])
+  if chosen_gems.size()!=picked.size():continue
   slots.fill(-1);slots[0]=0;edges=[]
   for i in picked.size():
-   slots[1+i*2]=int(gems[i].id);slots[2+i*2]=picked[i]
+   slots[1+i*2]=int(chosen_gems[i]);slots[2+i*2]=picked[i]
    edges.append({"from":i*2,"to":1+i*2});edges.append({"from":1+i*2,"to":2+i*2})
   reset_runtime();changed.emit();return true
  return false
@@ -271,6 +286,8 @@ func load_spell_kit() -> void:
  if not spell_kit_loaded:
   for key in ["poison","meteor","nova","beam"]:
    var id:=items.size();spell_kit_ids[key]=id;items.append({"id":id,"kind":"skill","key":key,"level":2})
+  for key in ["burn","freeze"]:
+   var id:=items.size();gem_kit_ids[key]=id;items.append({"id":id,"kind":"gem","key":key,"level":3})
   spell_kit_loaded=true
  items[int(kit_ids[0])].key="split"
  items[int(kit_ids[3])].key="echo";items[int(kit_ids[3])].level=3

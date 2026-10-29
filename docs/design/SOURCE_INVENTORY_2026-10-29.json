@@ -490,13 +490,13 @@
       "key": "freeze",
       "name": "冰凍觸發",
       "description": "凍結或緩速時觸發：40%／65%／90%",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab hit snapshot elemental conditions; see ELEMENT_GEMS.md"
     },
     {
       "key": "burn",
       "name": "灼燒觸發",
       "description": "火焰命中時觸發：40%／65%／90%",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab hit snapshot elemental conditions; see ELEMENT_GEMS.md"
     },
     {
       "key": "echo",
@@ -1158,10 +1158,12 @@
       "hit",
       "kill",
       "split",
-      "echo"
+      "echo",
+      "burn",
+      "freeze"
     ],
-    "remaining_original_count": 14,
-    "conditional_gates": "Five original types integrated; echo is a tooltip-based remake into rewards and inventory; unsupported keys fail closed"
+    "remaining_original_count": 12,
+    "conditional_gates": "Seven original types integrated; echo is a tooltip-based remake into rewards and inventory; unsupported keys fail closed"
   },
   "conflicts": [
     "SG7 resonance pool includes rate/shield/split, not just attack elements.",

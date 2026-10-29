@@ -1,7 +1,7 @@
 """Actual eight-spell training UI, projectile flight and resolved cast smoke."""
 import argparse,asyncio,functools,http.server,json,os,pathlib,threading
 from playwright.async_api import async_playwright
-ROOT=pathlib.Path(__file__).resolve().parents[1];REPORT=ROOT/'docs/echo-gem';REPORT.mkdir(parents=True,exist_ok=True)
+ROOT=pathlib.Path(__file__).resolve().parents[1];REPORT=ROOT/'docs/element-gems';REPORT.mkdir(parents=True,exist_ok=True)
 p=argparse.ArgumentParser();p.add_argument('--directory',default=str(ROOT/'godot/export/lab'));p.add_argument('--entry',default='/');args=p.parse_args()
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=args.directory));threading.Thread(target=server.serve_forever,daemon=True).start()
 async def main():
@@ -17,10 +17,13 @@ async def main():
     s=await state();rect=await page.locator('#canvas').bounding_box();x,y,w,h=s['buttons'][key];vw,vh=s['viewport'];assert 0<=x<=vw and 0<=y<=vh,(key,[x,y],s['viewport'])
     await page.touchscreen.tap(rect['x']+x/vw*rect['width'],rect['y']+y/vh*rect['height']);await page.wait_for_timeout(500)
    initial=await state();assert initial['slots']==[0]+[-1]*9 and len(initial['spell_keys'])==8 and not initial['spell_kit']
-   await tap('SpellKit');s=await state();assert s['spell_kit'] and s['item_count']==14 and s['edit_open'] and len(s['edges'])==8 and s['slots'].count(-1)==1
+   await tap('SpellKit');s=await state();assert s['spell_kit'] and s['item_count']==16 and s['edit_open'] and len(s['edges'])==8 and s['slots'].count(-1)==1
    await page.screenshot(path=str(REPORT/f'eight-spell-chain-{name}.png'))
    await tap('Inventory')
    await tap('Item 1');assert '下一個技能' in (await state())['inventory_detail'] and '35%' in (await state())['inventory_detail']
+   for key,word in [('burn','火焰'),('freeze','緩速')]:
+    await tap(f"Item {s['gem_kit_ids'][key]}");detail=(await state())['inventory_detail'];assert word in detail and '90%' in detail
+   await page.screenshot(path=str(REPORT/f'element-gem-inventory-{name}.png'))
    await tap('Item 4');assert '50%' in (await state())['inventory_detail'] and '不延伸' in (await state())['inventory_detail']
    await tap(f"Item {s['spell_kit_ids']['poison']}");assert '附毒' in (await state())['inventory_detail']
    await tap(f"Item {s['spell_kit_ids']['beam']}");assert '穿透' in (await state())['inventory_detail']
@@ -36,8 +39,13 @@ async def main():
    assert any(e['kind']=='cast' and e.get('is_echo') for e in final['trace'])
    assert all(e['kind']!='hit' or e['target']!=0 for e in final['trace'])
    await page.screenshot(path=str(REPORT/f'eight-spell-battle-{name}.png'))
+   await tap('Configure')
+   for slot,key in [(5,'burn'),(7,'freeze')]:
+    await tap(f'Slot {slot}');await tap('Inventory');await tap(f"Item {final['gem_kit_ids'][key]}");assert not (await state())['inventory_apply_disabled'];await tap('InventoryApply');assert (await state())['slots'][slot]==final['gem_kit_ids'][key]
+   await page.screenshot(path=str(REPORT/f'element-gem-equipped-{name}.png'))
+   equipped=await state()
    engine_errors=[s for s in logs if 'SCRIPT ERROR' in s or s.startswith('ERROR:')];assert not errors and not engine_errors,(errors,engine_errors)
-   results[name]={'viewport':size,'initial':initial,'flight':flight,'final':final,'pageerrors':errors,'engine_errors':engine_errors,'passed':['arcane-only normal start','eight canonical skill types','explicit nine-slot training fixture without duplicate grants','touch inventory poison and beam descriptions','actual meteor sprite in flight','four new spell completion callbacks in real battle','actual new-spell hits and no phantom target-zero hit'],'limit':'Explicit training fixture, Linux Chromium software WebGL touch emulation; behavior and individual hit shapes are also verified with real enemies in native tests. No iPad or full original-parity claim.'}
+   results[name]={'viewport':size,'initial':initial,'flight':flight,'final':final,'element_equipped':equipped,'pageerrors':errors,'engine_errors':engine_errors,'passed':['arcane-only normal start','eight canonical skill types','explicit nine-slot training fixture without duplicate grants','touch inventory poison and beam descriptions','actual meteor sprite in flight','four new spell completion callbacks in real battle','actual new-spell hits and no phantom target-zero hit'],'limit':'Explicit training fixture, Linux Chromium software WebGL touch emulation; behavior and individual hit shapes are also verified with real enemies in native tests. No iPad or full original-parity claim.'}
    print(name,'EIGHT SPELLS PASS',final['spell_casts'],flush=True);await page.close()
   await browser.close()
  (REPORT/'eight-spell-web.json').write_text(json.dumps(results,ensure_ascii=False,indent=2)+'\n')

@@ -22,7 +22,7 @@ static func power(key: String, level: int, boost: float) -> float:
  return Catalog.power(key)*(1+0.55*(clampi(level,1,3)-1))*boost
 static func living(enemy: Node2D) -> bool:return is_instance_valid(enemy) and not enemy.dead
 static func impact(key: String, primary: Node2D, origin: Vector2, at: Vector2, level: int, boost: float, enemies: Array, resolver: Node) -> Dictionary:
- var outcome: Dictionary={"hit":false,"killed":false,"critical":false,"position":at,"element":Catalog.element(key),"damage":0.0,"hit_count":0,"target_id":0}
+ var outcome: Dictionary={"hit":false,"killed":false,"critical":false,"position":at,"element":Catalog.element(key),"damage":0.0,"hit_count":0,"target_id":0,"slowed_hit":false}
  if key not in Catalog.PLAYABLE:return outcome
  var victims: Array=[]
  var all: Array=enemies.filter(func(enemy):return living(enemy))
@@ -52,6 +52,7 @@ static func impact(key: String, primary: Node2D, origin: Vector2, at: Vector2, l
   var result: Dictionary=resolver.resolve(enemy,power(key,level,boost)*multiplier,Catalog.element(key),{"critical":false,"spell_key":key})
   if result.is_empty():continue
   if int(outcome.target_id)==0 or enemy==primary:outcome.target_id=enemy.get_instance_id();outcome.position=enemy.position
+  outcome.slowed_hit=bool(outcome.slowed_hit) or enemy.slow_time>0
   outcome.hit=true;outcome.hit_count+=1;outcome.damage+=float(result.get("damage",0))
   outcome.killed=bool(outcome.killed) or bool(result.get("killed",false))
  return outcome

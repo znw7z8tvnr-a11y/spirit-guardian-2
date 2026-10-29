@@ -1,0 +1,26 @@
+{
+  "game_source_commit": "88e2f46036685b938185b84e9354b3e5bdd89560",
+  "native_checks": 471,
+  "native_result": "passed",
+  "local_webgl": [
+    "export landscape and portrait eight-spell regression plus elemental inventory previews and equipment",
+    "packaged landscape and portrait streamed build plus elemental equipment"
+  ],
+  "ci_run": 40899716577,
+  "ci_conclusion": "success",
+  "ci_artifact": 12909396415,
+  "stable_root_files_unchanged": 18,
+  "limitations": [
+    "Linux Chromium emulated touch; iPad Safari hardware untested",
+    "Elemental battle gates verified with real enemy/projectile fixtures in Godot; browser verifies equipment and existing eight-spell combat, not a full elemental equipped-wave playthrough",
+    "Seven original-name gem implementations/remakes plus trial relay; twelve original gem types pending",
+    "Eight provisional attack types; fourteen original skills pending",
+    "Burn gem checks fire contact, does not itself apply damage over time",
+    "Temporary tinted sprite art; no final art or device performance claim",
+    "Full twenty-wave balance and complete run saving remain untested or pending"
+  ],
+  "deployment_id": "appgdep_6ae363e474ec8191928e2e261498a917",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_66d0b67da2f0819199c69aea6b075828",
+  "status": "succeeded",
+  "hosting_source_commit": "95837351386ac80baa2436af24f2d7b81f973f59"
+}

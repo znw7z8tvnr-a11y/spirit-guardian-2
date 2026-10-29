@@ -1,15 +1,15 @@
 {
   "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
-  "deployment_id": "appgdep_6ae35eedf660819196f9d9d53f8e6f7a",
-  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_a7ae5dbe3fe8819186f0aeeade4a151e",
+  "deployment_id": "appgdep_6ae363e474ec8191928e2e261498a917",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_66d0b67da2f0819199c69aea6b075828",
   "status": "succeeded",
   "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
   "audience": "owner-private",
-  "game_source_commit": "89581504a511a06ec4add1692e5f206b6e854bd8",
-  "hosting_source_commit": "903e7d6a464983a4e353ea74025da98095185fb8",
-  "ci_run": 40896316953,
-  "ci_artifact": 12908335421,
+  "game_source_commit": "88e2f46036685b938185b84e9354b3e5bdd89560",
+  "hosting_source_commit": "95837351386ac80baa2436af24f2d7b81f973f59",
+  "ci_run": 40899716577,
+  "ci_artifact": 12909396415,
   "stable_root_files_unchanged": true,
-  "release": "Echo gem tooltip-based remake: real extra spell casts, bounded events, no extra graph traversal, explicit combat feedback",
-  "ci_source_commit": "89581504a511a06ec4add1692e5f206b6e854bd8"
+  "release": "Fire and slow snapshot gem gates, compatible random and known-recipe arrangements, physical inventory previews and replacement",
+  "ci_source_commit": "88e2f46036685b938185b84e9354b3e5bdd89560"
 }

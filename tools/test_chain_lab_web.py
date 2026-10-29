@@ -3,7 +3,7 @@ import argparse,asyncio,functools,http.server,json,os,pathlib,threading
 from playwright.async_api import async_playwright
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 REPORT=ROOT/'docs/chain-tree';REPORT.mkdir(parents=True,exist_ok=True)
-parser=argparse.ArgumentParser();parser.add_argument('--directory',default=str(ROOT/'godot/export/lab'));parser.add_argument('--entry',default='/');args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--directory',default=str(ROOT/'godot/export/lab'));parser.add_argument('--entry',default='/');parser.add_argument('--editor-only',action='store_true');args=parser.parse_args()
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=args.directory))
 threading.Thread(target=server.serve_forever,daemon=True).start()
 async def main():
@@ -30,6 +30,11 @@ async def main():
    assert len((await state())['edges'])==7 # skill-to-skill must fail
    await tap('Random');s=await state();assert len([i for i in s['slots'] if i>=0])<=10 and len(set(i for i in s['slots'] if i>=0))==len([i for i in s['slots'] if i>=0])
    await tap('Done');assert not (await state())['edit_open']
+   if args.editor_only:
+    engine_errors=[m for m in logs if 'SCRIPT ERROR' in m['text'] or m['text'].startswith('ERROR:')]
+    assert not errors and not engine_errors,(errors,engine_errors)
+    results[name]={'passed':['graph selection','illegal link rejection','unique inventory arrangement','close editor'],'pageerrors':errors,'engine_errors':engine_errors}
+    print(name,'editor PASS',flush=True);await page.close();continue
    # Reapply the known lab fixture, not a recipe-based automatic unlock.
    await tap('Kit');await tap('Done')
    await tap('Tempo');assert (await state())['tempo']==1
@@ -51,5 +56,5 @@ async def main():
    print(name,'PASS',{'casts':final['casts'],'wave':final['wave']},flush=True)
    await page.close()
   await browser.close()
- (REPORT/'lab-web-smoke.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
+ (REPORT/('tree-editor-web.json' if args.editor_only else 'lab-web-smoke.json')).write_text(json.dumps(results,ensure_ascii=False,indent=2))
 asyncio.run(main())

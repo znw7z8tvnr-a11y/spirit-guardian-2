@@ -21,5 +21,12 @@ func run() -> void:
  check(model.slots==inventory,"selection redraw does not change equipment")
  for i in range(10):
   for j in range(i+1,10):check(view.centers[i].distance_to(view.centers[j])>=92,"node hit areas do not overlap")
+ model.edges.clear();view.rebuild(model,0)
+ check(view.custom_minimum_size.y>720,"disconnected inventory grows scroll area instead of compressing hit areas")
+ var unique:=true
+ for i in range(10):
+  for j in range(i+1,10):
+   if view.centers[i].distance_to(view.centers[j])<92:unique=false
+ check(unique,"disconnected components and empty slots keep distinct hit areas")
  view.queue_free();model.queue_free();await process_frame
  print("TREE_RESULT "+JSON.stringify({"checks":checks,"failures":failures}));quit(1 if failures.size() else 0)

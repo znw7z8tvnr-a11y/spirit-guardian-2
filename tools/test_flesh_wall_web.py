@@ -2,7 +2,7 @@
 import argparse,asyncio,functools,http.server,json,os,pathlib,threading,time
 from playwright.async_api import async_playwright
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-REPORT=ROOT/'docs/flesh-wall';REPORT.mkdir(parents=True,exist_ok=True)
+REPORT=ROOT/'docs/chain-tree';REPORT.mkdir(parents=True,exist_ok=True)
 p=argparse.ArgumentParser();p.add_argument('--directory',default=str(ROOT/'godot/export/lab'));p.add_argument('--entry',default='/');p.add_argument('--report',default='flesh-web-smoke.json');args=p.parse_args()
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=args.directory))
 threading.Thread(target=server.serve_forever,daemon=True).start()

@@ -20,11 +20,13 @@ func rebuild(chain: Node, selection: int) -> void:
  var max_depth:=1
  for d in depth.values():max_depth=maxi(max_depth,int(d))
  var loose:=0
- var lane_height:=minf(128,240.0/maxf(1,cursor[0]-1))
+ var lane_height:=128.0
+ var empty_y:=maxf(410,72+float(cursor[0])*lane_height)
+ custom_minimum_size.y=empty_y+60
  for i in range(10):
   if depth.has(i):centers[i]=Vector2(74+int(depth[i])*minf(142,940.0/max_depth),72+float(lane[i])*lane_height)
   else:
-   centers[i]=Vector2(74+loose*112,410);loose+=1
+   centers[i]=Vector2(74+loose*112,empty_y);loose+=1
  for i in range(10):
   var item: Dictionary=model.item_at(i)
   var b:=Button.new();b.position=centers[i]-Vector2(46,46);b.size=Vector2(92,92)

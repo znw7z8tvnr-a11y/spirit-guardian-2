@@ -1,15 +1,14 @@
 {
   "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
-  "deployment_id": "appgdep_6ae2cfa396808191b25a291a12040b09",
-  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_047da254aed48191bf8f5519918dbe6e",
+  "deployment_id": "appgdep_6ae2d86a6e6c81918fc3f705febdb6a1",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_c441a7d06de4819182f3e021cee65624",
   "status": "succeeded",
   "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
   "audience": "owner-private",
-  "game_source_commit": "88f7080129aeec6ed66be99e160e2397af161fa7",
-  "hosting_source_commit": "e4f76367e28619ea9f1f93f42813ad6666e02ba6",
-  "ci_run": 40818426079,
-  "ci_artifact": 12873353283,
-  "ci_source_commit": "fa6196dbcddf0e34590a863468ee15d9ecee6ec2",
+  "game_source_commit": "4803806247d1077dcf213a56facc4d9682dde929",
+  "hosting_source_commit": "05314f6ced9c0d86226eec84764b134ffdef0b6b",
+  "ci_run": 40822423238,
+  "ci_artifact": 12875660863,
   "stable_root_files_unchanged": true,
-  "release": "P1 chain flow first batch"
+  "release": "Flesh wall growth and 1x 2x 4x 8x speed"
 }

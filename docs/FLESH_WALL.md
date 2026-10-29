@@ -43,3 +43,11 @@
 Web另以Linux Chromium軟體WebGL、1180×820／820×1180實際觸控驗證倍速的遊戲時間／真實時間、暫停、城牆視窗、手動花費、初始奧彈清第三波及8×重新開始。完成報告、截圖、CI與線上完整性紀錄會保存於同資料夾。截圖為實際遊戲，不是概念圖。
 
 尚未驗證iPad Safari真機與完整20波。血肉圖示、地圖與法術仍為暫用素材；圖示技能樹、雙杖、正式獎勵詞條與22技能／19寶石／50共振完整還原仍有缺口，不因本次前期修正宣稱全部完成。
+
+## 實際交付紀錄
+
+193項引擎檢查全部通過（原156＋新增37），GitHub Actions乾淨環境亦完成原M2.1、連鎖與血肉倍速網頁驗收及ZIP封裝： https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/40822423238 。Artifact：godot-flesh-wall-delivery。
+
+原始Web匯出flesh-web-smoke.json與實際分段部署包flesh-deployed-web.json均通過橫直向觸控測試，無pageerror／Godot runtime ERROR。部署包1倍實測遊戲時間推進約0.89～0.90秒／真實秒，8倍約7.44～7.56秒／真實秒；此為軟體WebGL環境觀察，不保證所有裝置精確8倍或相同FPS。兩方向均只用奧彈進第四波、核心100、吸收116肉，並驗證手動攻擊升級、自動開關、暫停、關選單保留暫停及8倍重開恢復1倍／清空成長。
+
+正式 /lab/ 發布成功，TLS驗證核對HTML、引擎分段與PCK，見live-assets.json。M2.1根入口18檔案未改，見stable-root-preserved.json。線上HTTP完整性不等同遠端瀏覽器互動，未宣稱iPad真機通過。

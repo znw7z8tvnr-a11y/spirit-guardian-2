@@ -1,15 +1,15 @@
 {
   "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
-  "deployment_id": "appgdep_6ae32783dde081919bf5fabb458d9e43",
-  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_c94a6cd9daa881918686c788d80b6a8f",
+  "deployment_id": "appgdep_6ae333c2421c819183e9a7d46501da18",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_00592c1da8e48191aa484170cf419faa",
   "status": "succeeded",
   "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
   "audience": "owner-private",
-  "game_source_commit": "09cd2ac79a300fa89e080b19fc2f9aa6ec911702",
-  "hosting_source_commit": "7cd30ba2a431d6abf432c299fb7a5e6b64284320",
-  "ci_run": 40861451087,
-  "ci_artifact": 12892291478,
+  "game_source_commit": "9765fb7e959878f5187f7041f67e0b63e0be12f0",
+  "hosting_source_commit": "17f19974553937a864aca43d3b44be02e61996a8",
+  "ci_run": 40868177497,
+  "ci_artifact": 12895535647,
   "stable_root_files_unchanged": true,
-  "release": "First Boss summons, localized HUD, earned loadout confirmation and short-chain pacing",
-  "ci_source_commit": "09cd2ac79a300fa89e080b19fc2f9aa6ec911702"
+  "release": "Eight playable lab spell types, distinct hit rules, atlas-safe visuals and explicit training",
+  "ci_source_commit": "9765fb7e959878f5187f7041f67e0b63e0be12f0"
 }

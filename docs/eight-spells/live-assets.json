@@ -1,0 +1,19 @@
+{
+  "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
+  "entries": {
+    "/": {
+      "html_status": 200,
+      "source_commit": "b8d77143c0815fe79eeea26e542abbe7b23460a2",
+      "wasm_verified": true,
+      "pck_matches_local": true
+    },
+    "lab/": {
+      "html_status": 200,
+      "source_commit": "9765fb7e959878f5187f7041f67e0b63e0be12f0",
+      "wasm_verified": true,
+      "pck_matches_local": true
+    }
+  },
+  "tls_verified": true,
+  "limit": "HTTP integrity, not remote browser interaction. Local WebGL touch tests are separate; no iPad/Safari claim."
+}

@@ -1,0 +1,30 @@
+{
+  "deployment_id": "appgdep_6ae333c2421c819183e9a7d46501da18",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_00592c1da8e48191aa484170cf419faa",
+  "status": "succeeded",
+  "hosting_source_commit": "17f19974553937a864aca43d3b44be02e61996a8",
+  "game_source_commit": "9765fb7e959878f5187f7041f67e0b63e0be12f0",
+  "ci_source_commit": "9765fb7e959878f5187f7041f67e0b63e0be12f0",
+  "ci_run": 40868177497,
+  "ci_artifact": 12895535647,
+  "release": "Eight playable lab spell types, distinct hit rules, atlas-safe visuals and explicit training",
+  "native_checks": 359,
+  "ci_conclusion": "success",
+  "playable_spell_types": 8,
+  "original_spell_types": 22,
+  "remaining_spell_types": 14,
+  "single_round_renderer_seed": 32012,
+  "normal_gem_probabilities_unchanged": true,
+  "local_final_web": "Two orientations of final exported eight-spell fixture, inventory, meteor flight and resolved casts; real damage and status geometry additionally verified in native tests.",
+  "local_regression_note": "Boss and flesh package regressions ran on 987689e; final 9765fb7 only changes the native fixture seed and documentation. Gameplay files are identical. GitHub runs all browser regressions on final source.",
+  "source_parity": "Provisional behavior; source differences and incomplete meteor rain / persistent poison zones are recorded in EIGHT_SPELLS.md.",
+  "untested": [
+    "iPad Safari hardware",
+    "full eight-spell twenty-wave balance",
+    "remaining fourteen original spell types",
+    "complete nineteen-gem behavior",
+    "rare wands and capacity",
+    "full run save and final artwork"
+  ],
+  "stable_root_preserved": true
+}

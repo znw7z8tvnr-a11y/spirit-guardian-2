@@ -65,13 +65,16 @@ func run() -> void:
  # Real battles with starter arcane only: no kit, no debug damage, no manual upgrades.
  for seed_value in [12032,24064,32012]:
   var live=load("res://experiments/chain_lab/main.tscn").instantiate();live.persist_book=false;root.add_child(live);current_scene=live
-  live.rng.seed=seed_value;live.chain.rng.seed=seed_value+19980
+  live.rng.seed=seed_value;live.chain.rng.seed=seed_value+19980;live.rewards.rng.seed=seed_value+31000
   var frames:=0
   while live.wave<4 and not live.over and frames<10800:
+   if live.rewards.pending>0:
+    for index in live.rewards.offers.size():
+     if live.rewards.offers[index].kind=="gem":live.rewards.choose(index);break
    await physics_frame;frames+=1
   live.collect_all_flesh()
-  check(live.wave>=4 and live.tower.hp>0,"unassisted arcane starter clears wave three with seed %d" % seed_value)
-  check(not live.chain.kit_loaded and live.chain.items.size()==1,"seed %d survival uses no training inventory" % seed_value)
+  check(live.wave>=4 and live.tower.hp>0,"arcane starter clears wave three and claims an unequipped earned gem with seed %d" % seed_value)
+  check(not live.chain.kit_loaded and live.chain.items.size()==2 and live.chain.slots==[0,-1,-1,-1,-1,-1,-1,-1,-1,-1],"seed %d survival uses no training inventory" % seed_value)
   check(live.tower.total_absorbed>=72 and live.tower.attack_multiplier()>1 and live.tower.regeneration()>0,"seed %d kills feed actual attack, defense and recovery growth" % seed_value)
   soaks.append({"seed":seed_value,"seconds":live.combat_seconds,"wave":live.wave,"kills":live.kills,"core":live.tower.hp,"wall":live.tower.wall_hp,"wall_max":live.tower.wall_max,"absorbed":live.tower.total_absorbed,"levels":live.tower.levels.duplicate(),"kit":live.chain.kit_loaded})
   root.remove_child(live);live.queue_free();await process_frame

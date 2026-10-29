@@ -77,14 +77,17 @@ func run() -> void:
  check(valid and used.size()<=10,"random arrangement obeys capacity, inventory and alternating types")
  root.remove_child(game);game.queue_free();await process_frame
  var live=load("res://experiments/chain_lab/main.tscn").instantiate();live.persist_book=false;root.add_child(live);current_scene=live
- live.rng.seed=12032;live.chain.rng.seed=32012
+ live.rng.seed=12032;live.chain.rng.seed=32012;live.rewards.rng.seed=43032
  live.chain.load_kit();live.chain.resonance_chance=1.0
- for i in 3600:await physics_frame
+ for i in 3600:
+  if live.rewards.pending>0:live.rewards.choose(0)
+  await physics_frame
  check(live.chain.casts>=8 and live.kills>0,"real sixty-second battle soak launches chained spells and kills enemies")
  check(live.chain.resonances>0 and live.chain.discovered.size()>0,"real battle discovers resonance from actual impacts")
  check(live.enemies.get_child_count()<=40 and live.shots.get_child_count()<=10,"battle soak respects enemy and projectile bounds")
  check(live.tower.hp>0 and live.wave>=2,"trial balance survives and progresses beyond first wave with kit")
  var soak={"wave":live.wave,"kills":live.kills,"hp":live.tower.hp,"casts":live.chain.casts,"resonances":live.chain.resonances,"retargets":live.chain.retargets}
+ while live.rewards.pending>0:live.rewards.choose(0)
  live.set_physics_process(false)
  live.wave=5;live.remaining=9
  var boss: Node2D=live.spawn_enemy()

@@ -66,7 +66,7 @@ jobs:
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-inventory-delivery
+          name: godot-rewards-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
@@ -87,4 +87,7 @@ jobs:
             docs/inventory/*.log
             docs/inventory/*.json
             docs/inventory/*.png
+            docs/rewards/*.log
+            docs/rewards/*.json
+            docs/rewards/*.png
           if-no-files-found: error

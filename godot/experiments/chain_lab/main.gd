@@ -13,6 +13,9 @@ const CENTER:=Vector2(900,500)
 const BOOK_PATH:="user://chain_lab_book.json"
 @export var persist_book:=true
 var chain: Node
+var rewards: Node
+var reward_panel: PanelContainer
+var boss_defeated:=false
 var enemies: Node2D
 var shots: Node2D
 var tower: Node2D
@@ -82,10 +85,11 @@ func _ready() -> void:
  fx=FX.new();add_child(fx)
  drops=Node2D.new();add_child(drops)
  chain=Chain.new();chain.host=self;add_child(chain)
+ rewards=preload("res://experiments/chain_lab/rewards.gd").new();add_child(rewards);rewards.granted.connect(receive_reward)
  if web_debug:
   var seed_value: Variant=JavaScriptBridge.eval("Number(new URLSearchParams(location.search).get('seed') || 0)")
   if seed_value is float and is_finite(seed_value) and seed_value>0:
-   rng.seed=int(seed_value);chain.rng.seed=int(seed_value)+19980
+   rng.seed=int(seed_value);chain.rng.seed=int(seed_value)+19980;rewards.rng.seed=int(seed_value)+31000
  if persist_book and FileAccess.file_exists(BOOK_PATH):
   var saved: Variant=JSON.parse_string(FileAccess.get_file_as_string(BOOK_PATH))
   if saved is Array:
@@ -138,9 +142,9 @@ func create_ui() -> void:
  make_button("Arrange","已知共振排列",row2,arrange_known)
  editor_status=label("",box)
  picker=OptionButton.new();picker.custom_minimum_size.y=72;box.add_child(picker);picker.hide()
- make_button("Inventory","圖示背包／比較",box,func():inventory.open(chain,selected,tower.attack_multiplier()))
+ make_button("Inventory","圖示背包／比較",box,func():inventory.open(chain,selected,spell_attack_multiplier()))
  var row3:=HBoxContainer.new();box.add_child(row3)
- make_button("Equip","替換此格",row3,func():inventory.open(chain,selected,tower.attack_multiplier()))
+ make_button("Equip","替換此格",row3,func():inventory.open(chain,selected,spell_attack_multiplier()))
  make_button("Source","設為起點",row3,func():link_from=selected;editor_status.text="已選起點 %d；點另一格，再按連到此格。" % [selected+1])
  make_button("Connect","連到此格",row3,func():
   var ok: bool=chain.connect_slots(link_from,selected)
@@ -160,6 +164,9 @@ func create_ui() -> void:
   if chain.equip(inventory.slot,id):inventory.hide()
   else:inventory.select_item(id)
  )
+ reward_panel=preload("res://experiments/chain_lab/reward_view.gd").new();root_ui.add_child(reward_panel);reward_panel.bind(rewards)
+ for i in range(3):buttons["Reward %d" % i]=reward_panel.choices[i]
+ buttons.RewardRefresh=reward_panel.refresh
 func resize_ui() -> void:
  var portrait:=get_viewport_rect().size.y>get_viewport_rect().size.x
  # Graph keeps spatial relationships in both orientations; outer panel scrolls.
@@ -188,24 +195,22 @@ func refresh_editor() -> void:
  var found: Array=[]
  for key in chain.discovered:found.append(str(Catalog.data.FINISHERS[key][0])+"（"+str(key).replace("fire","火").replace("ice","冰").replace("lightning","雷").replace("poison","毒")+"）")
  book.text="共振紀錄書：尚未發現配方，請在戰鬥中探索。" if found.is_empty() else "共振紀錄書："+"、".join(found)
- buttons.Arrange.disabled=chain.discovered.is_empty() or not chain.kit_loaded
- buttons.Random.disabled=not chain.kit_loaded
+ buttons.Arrange.disabled=chain.discovered.is_empty()
+ buttons.Random.disabled=chain.items.size()<2
 func equip_selected() -> void:
  var ok: bool=chain.equip(selected,int(picker.get_item_metadata(picker.selected)))
  if not ok:editor_status.text="替換失敗：物品已使用、起點需技能，或現有連線不相容。"
 func open_editor() -> void:
  edit_open=true;panel.show();refresh_editor.call_deferred()
 func arrange_known() -> void:
- if chain.discovered.is_empty() or not chain.kit_loaded:return
- # Lab owns one known three-element kit; never reveal an unknown recipe.
- if "fire+ice+lightning" in chain.discovered:chain.load_kit()
- else:editor_status.text="此試驗配置沒有足夠物品排列已知配方。"
+ if chain.discovered.is_empty():return
+ if not chain.arrange_discovered():editor_status.text="持有物品不足以排列已發現的配方；不會產生額外物品。"
 func cycle_tempo() -> void:
  tempo=(tempo+1)%3
  chain.hop_delay=[0.32,0.48,0.20][tempo];attack_period=[3.8,5.2,3.2][tempo];flight_time=[0.62,0.85,0.45][tempo]
  buttons.Tempo.text=["節奏：標準","節奏：慢速","節奏：快速"][tempo]
 func _physics_process(delta: float) -> void:
- if over or user_paused or edit_open or growth_open:return
+ if over or user_paused or edit_open or growth_open or rewards.pending>0:return
  combat_seconds+=delta;tower.recover(delta)
  brain.prepare(enemies.get_children());chain.advance(delta)
  attack_clock-=delta
@@ -217,13 +222,15 @@ func _physics_process(delta: float) -> void:
   if spawn_clock<=0 and enemies.get_child_count()<40:spawn_enemy();remaining-=1;spawn_clock=1.4
  elif enemies.get_child_count()==0 and chain.active.is_empty():
   collect_all_flesh()
+  rewards.complete_wave(wave,boss_defeated)
+  if rewards.pending>0:return
   rest-=delta
   if rest<=0:
    if wave>=20:over=true;event_label.text="20 波試驗完成！";return
-   wave+=1;remaining=4+mini(wave,8);rest=5.0
+   wave+=1;boss_defeated=false;remaining=4+mini(wave,8);rest=5.0
 func _process(delta: float) -> void:
  # Keep combat actors and projectile tweens frozen while the lab editor is open.
- var frozen:=over or user_paused or edit_open or growth_open
+ var frozen: bool=over or user_paused or edit_open or growth_open or rewards.pending>0
  for node in [enemies,shots,fx,drops]:node.process_mode=Node.PROCESS_MODE_DISABLED if frozen else Node.PROCESS_MODE_INHERIT
  var real_delta:=delta/maxf(Engine.time_scale,0.001)
  ui_clock-=real_delta
@@ -257,7 +264,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
  var shot:=Sprite2D.new();shot.texture=Projectile.TEXTURES[str(item.key)];shot.scale=Vector2.ONE*0.20
  shot.position=context.origin;shots.add_child(shot)
  var at: Vector2=context.aim
- var attack_boost: float=tower.attack_multiplier()
+ var attack_boost: float=spell_attack_multiplier()
  var target_ref: WeakRef=weakref(target) if is_instance_valid(target) else null
  var tween:=shot.create_tween()
  var lift: Vector2=(shot.position+at)*0.5+Vector2(0,-90)
@@ -317,7 +324,7 @@ func refresh_status() -> void:
  health.max_value=tower.max_hp;health.value=tower.hp
  wall_health.max_value=tower.wall_max;wall_health.value=tower.wall_hp
  wall_label.text="城牆 %d／%d・%s　核心 %d／%d" % [tower.wall_hp,tower.wall_max,"防線正常" if tower.wall_active else "破牆，修復中",tower.hp,tower.max_hp]
- growth_label.text="血肉 %d（已吸收 %d）・攻擊 ×%.2f・減傷 %d%%・回血 %.1f／秒" % [tower.flesh,tower.total_absorbed,tower.attack_multiplier(),tower.reduction()*100,tower.regeneration()]
+ growth_label.text="血肉 %d（已吸收 %d）・攻擊 ×%.2f・減傷 %d%%・回血 %.1f／秒" % [tower.flesh,tower.total_absorbed,spell_attack_multiplier(),tower.reduction()*100,tower.regeneration()]
  settings_label.text="每輪至少 %.1f 秒・每段 %.2f 秒・共振冷卻 %.0f 秒・%d FPS" % [effective_attack_period(),chain.hop_delay,chain.resonance_cooldown,Engine.get_frames_per_second()]
 func publish_debug() -> void:
  var bounds: Dictionary={}
@@ -328,11 +335,11 @@ func publish_debug() -> void:
  if is_instance_valid(inventory):
   for key in inventory.cards:
    var rect: Rect2=inventory.cards[key].get_global_rect();bounds[key]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
- JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
+ JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
 
 func effective_attack_period() -> float:
  # A lone starting spell should not wait for a nonexistent long chain.
- return minf(attack_period,1.1) if chain.outgoing(0).is_empty() else attack_period
+ return minf(attack_period,1.1) if not chain.has_chained_skill() else attack_period
 func cycle_speed() -> void:
  speed_index=(speed_index+1)%SPEEDS.size()
  Engine.time_scale=SPEEDS[speed_index]
@@ -342,6 +349,7 @@ func _exit_tree() -> void:
 func on_enemy_died(enemy: Node2D) -> void:
  if enemy.get_meta("lab_drop_claimed",false):return
  enemy.set_meta("lab_drop_claimed",true);kills+=1
+ if enemy.kind==5:boss_defeated=true
  var amount:=48 if enemy.kind==5 else 16 if enemy.kind==4 else 4
  drop_serial+=1
  var id:=drop_serial
@@ -382,9 +390,18 @@ func open_growth() -> void:
  growth_open=true;growth_panel.show();refresh_growth()
 func refresh_growth() -> void:
  if not is_instance_valid(growth_summary):return
- growth_summary.text="血肉 %d・累計吸收 %d\n城牆 %d／%d・核心 %d／%d\n攻擊 ×%.2f・減傷 %d%%・每秒恢復 %.1f" % [tower.flesh,tower.total_absorbed,tower.wall_hp,tower.wall_max,tower.hp,tower.max_hp,tower.attack_multiplier(),tower.reduction()*100,tower.regeneration()]
+ growth_summary.text="血肉 %d・累計吸收 %d\n城牆 %d／%d・核心 %d／%d\n攻擊 ×%.2f・減傷 %d%%・每秒恢復 %.1f" % [tower.flesh,tower.total_absorbed,tower.wall_hp,tower.wall_max,tower.hp,tower.max_hp,spell_attack_multiplier(),tower.reduction()*100,tower.regeneration()]
+ growth_summary.text+="\n本局詞條：靈能增幅 %d 層・額外刷新 %d 次" % [rewards.attack_stacks,rewards.extra_refresh]
  buttons.AutoGrowth.text="自動強化：開" if tower.auto_upgrade else "自動強化：關"
  var names: Dictionary={"atk":"攻擊：所有法術＋50%基礎倍率","hp":"生命：城牆上限與當前生命＋65","armor":"防禦：減傷＋14%，上限70%","regen":"回血：每秒修復＋2"}
  for key in growth_buttons:
   growth_buttons[key].text="%s　Lv %d → %d　消耗 %d 血肉" % [names[key],tower.levels[key],tower.levels[key]+1,tower.cost(key)]
   growth_buttons[key].disabled=tower.flesh<tower.cost(key) or over
+
+func spell_attack_multiplier() -> float:
+ return tower.attack_multiplier()*rewards.attack_multiplier()
+func receive_reward(reward: Dictionary) -> void:
+ if reward.kind in ["skill","gem"]:
+  var item: Dictionary=reward.duplicate(true);item.id=chain.items.size();chain.items.append(item);chain.changed.emit()
+ event_label.text="已獲得："+reward_panel.description(reward).replace("\n","　")
+ refresh_status()

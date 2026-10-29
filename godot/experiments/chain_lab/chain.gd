@@ -31,6 +31,7 @@ var retargets:=0
 var rolls:=0
 var resonances:=0
 var kit_loaded:=false
+var kit_ids: Array=[]
 var last_message:="開局只有奧彈；可載入試驗配置測試連鎖。"
 func _init() -> void:
  rng.randomize()
@@ -82,13 +83,13 @@ func reset_runtime() -> void:
 func load_kit() -> void:
  if not kit_loaded:
   for spec in [["gem","relay",3],["skill","fire",1],["skill","ice",2],["gem","relay",1],["skill","lightning",1],["gem","relay",2],["skill","arcane",2],["skill","fire",3],["gem","relay",1]]:
+   kit_ids.append(items.size())
    items.append({"id":items.size(),"kind":spec[0],"key":spec[1],"level":spec[2]})
   kit_loaded=true
- slots=[0,1,2,3,4,5,6,7,-1,-1]
+ slots=[0,kit_ids[0],kit_ids[1],kit_ids[2],kit_ids[3],kit_ids[4],kit_ids[5],kit_ids[6],-1,-1]
  edges=[{"from":0,"to":1},{"from":1,"to":2},{"from":1,"to":3},{"from":3,"to":4},{"from":4,"to":5},{"from":2,"to":6},{"from":6,"to":7}]
  reset_runtime();last_message="已載入測試用物品；不是正式掉落。";changed.emit()
 func random_arrange() -> void:
- if not kit_loaded:return
  var skills:=items.filter(func(i):return i.kind=="skill" and int(i.id)!=0)
  var gems:=items.filter(func(i):return i.kind=="gem")
  # Use this instance RNG; no global state or duplicate inventory items.
@@ -230,3 +231,32 @@ func advance(delta: float) -> void:
  finish_if_idle()
 func finish_if_idle() -> void:
  if not active.is_empty() and int(active.inflight)==0 and pending.is_empty():active={}
+
+func has_chained_skill() -> bool:
+ var todo: Array=[0];var seen: Array=[]
+ while not todo.is_empty():
+  var slot: int=todo.pop_back()
+  if slot in seen:continue
+  seen.append(slot)
+  if slot!=0 and not item_at(slot).is_empty() and item_at(slot).kind=="skill":return true
+  for edge in outgoing(slot):todo.append(int(edge.to))
+ return false
+func arrange_discovered() -> bool:
+ for recipe in discovered:
+  if recipe not in Catalog.data.FINISHERS:continue
+  var elements: Array=[]
+  for element in str(recipe).split("+"):
+   if element!=Catalog.element(str(items[0].key)):elements.append(element)
+  var picked: Array=[]
+  for element in elements:
+   var choices: Array=items.filter(func(item):return item.kind=="skill" and Catalog.element(str(item.key))==element and int(item.id)!=0)
+   if choices.is_empty():break
+   choices.sort_custom(func(a,b):return int(a.level)>int(b.level));picked.append(int(choices[0].id))
+  var gems: Array=items.filter(func(item):return item.kind=="gem")
+  if picked.size()!=elements.size() or gems.size()<picked.size() or 1+2*picked.size()>CAPACITY:continue
+  slots.fill(-1);slots[0]=0;edges=[]
+  for i in picked.size():
+   slots[1+i*2]=int(gems[i].id);slots[2+i*2]=picked[i]
+   edges.append({"from":i*2,"to":1+i*2});edges.append({"from":1+i*2,"to":2+i*2})
+  reset_runtime();changed.emit();return true
+ return false

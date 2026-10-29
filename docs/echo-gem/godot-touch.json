@@ -1,0 +1,26 @@
+{
+  "checks": [
+    "touch pan moves graph without a middle mouse button",
+    "opposite pan restores view without editing layout",
+    "target without source cannot mutate graph",
+    "tap source provides selection feedback",
+    "two button taps create a real chain edge",
+    "one undo restores complete pre-link build",
+    "redo restores a touch-created edge",
+    "cyclic touch link rejected without consuming undo history",
+    "self-link rejected without history mutation",
+    "cancel clears pending source",
+    "remove mode disconnects selected edge",
+    "touch disconnect can be undone",
+    "closing editor cancels pending link",
+    "battle touch targets reserve 72 logical pixels",
+    "performance display can be enabled",
+    "performance label shows measured frame rate",
+    "performance display can be hidden",
+    "portrait viewport uses four spell columns",
+    "portrait buttons reserve wider touch areas",
+    "landscape viewport restores eight spell columns"
+  ],
+  "engine": "4.6.3-stable (official)",
+  "failures": []
+}

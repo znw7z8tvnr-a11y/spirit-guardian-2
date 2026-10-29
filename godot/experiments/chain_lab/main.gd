@@ -290,6 +290,7 @@ func target_near(at: Vector2, radius: float) -> Node2D:
 func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, context: Dictionary) -> void:
  if not chain.current(run):return
  var shot:=Sprite2D.new();shot.texture=SpellEffects.texture(str(item.key));shot.scale=Vector2.ONE*0.20
+ if context.get("is_echo",false):shot.modulate=Color(0.85,0.65,1.0,0.78)
  shot.position=context.origin;shot.set_meta("spell_key",str(item.key));shots.add_child(shot)
  var at: Vector2=context.aim
  var attack_boost: float=spell_attack_multiplier()*float(context.get("damage_scale",1.0))

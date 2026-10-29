@@ -502,7 +502,7 @@
       "key": "echo",
       "name": "迴響寶石",
       "description": "後續技能再施放機率：20%／35%／50%",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab additional cast; source tooltip and trigger implementation differ; see ECHO_GEM.md"
     },
     {
       "key": "crit",
@@ -1157,10 +1157,11 @@
       "chance",
       "hit",
       "kill",
-      "split"
+      "split",
+      "echo"
     ],
-    "remaining_original_count": 15,
-    "conditional_gates": "Four original types integrated into rewards and inventory; unsupported keys fail closed"
+    "remaining_original_count": 14,
+    "conditional_gates": "Five original types integrated; echo is a tooltip-based remake into rewards and inventory; unsupported keys fail closed"
   },
   "conflicts": [
     "SG7 resonance pool includes rate/shield/split, not just attack elements.",

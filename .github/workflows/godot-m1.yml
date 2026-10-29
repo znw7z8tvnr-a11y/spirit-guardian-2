@@ -76,7 +76,7 @@ jobs:
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-amplify-gem-delivery
+          name: godot-echo-gem-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
@@ -103,6 +103,7 @@ jobs:
             docs/first-boss/*.log
             docs/first-boss/*.json
             docs/first-boss/*.png
+            docs/echo-gem/*
             docs/amplify-gem/*
             docs/gem-triggers/*
             docs/eight-spells/*.log

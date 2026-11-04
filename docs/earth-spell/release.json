@@ -1,0 +1,43 @@
+{
+  "release": "Tenth Lab skill: Earth eruption and paged touch inventory",
+  "game_source_commit": "5b8911043b0e4f7bf755919ea42588e4d8823f60",
+  "hosting_source_commit": "eb2193c7c39a90f554695cb288ada4f02a062809",
+  "deployment": {
+    "id": "appgdep_6aea963ca5f0819199d1410588ce2016",
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "title": "靈境守衛 Spirit Guardian · M2 試玩",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_9f8dc01cdca08191b9243cff6f97ec92",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae21db4af948191b57fd49b52694b66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-04T02:20:00.304889+00:00"
+  },
+  "ci": {
+    "id": 41758702495,
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/41758702495",
+    "source_commit": "5b8911043b0e4f7bf755919ea42588e4d8823f60",
+    "artifact": {
+      "id": 13289278989,
+      "name": "godot-earth-spell-delivery",
+      "size_in_bytes": 148619070
+    }
+  },
+  "native_checks": 598,
+  "local_web": [
+    "full ten-skill/timing chain landscape and portrait",
+    "staged streaming loader and equipped Earth real hits landscape and portrait"
+  ],
+  "limits": [
+    "Provisional Earth SVG and other temporary art",
+    "No iPad Safari hardware test",
+    "No complete twenty-wave balance or original-module parity claim",
+    "Twelve source attack types and ten source gem types still pending"
+  ]
+}

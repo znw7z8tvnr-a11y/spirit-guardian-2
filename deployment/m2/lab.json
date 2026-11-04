@@ -1,15 +1,15 @@
 {
   "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
-  "deployment_id": "appgdep_6ae37bdd079c8191af89c78252d0f3d0",
-  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_a8983714dae081918adb82ff51c68d2a",
+  "deployment_id": "appgdep_6aea963ca5f0819199d1410588ce2016",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_9f8dc01cdca08191b9243cff6f97ec92",
   "status": "succeeded",
   "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
   "audience": "owner-private",
-  "game_source_commit": "3504f90c3e171e5a8e34b1ce0343e18319f32c1b",
-  "hosting_source_commit": "678340d4cbbd7dd4c136069cb376e11134442d97",
-  "ci_run": 40916214269,
-  "ci_artifact": 12917635216,
+  "game_source_commit": "5b8911043b0e4f7bf755919ea42588e4d8823f60",
+  "hosting_source_commit": "eb2193c7c39a90f554695cb288ada4f02a062809",
+  "ci_run": 41758702495,
+  "ci_artifact": 13289278989,
   "stable_root_files_unchanged": true,
-  "release": "Ninth lab attack: horizontal lightning pierce, bounded multi-hit chaining and actual timed-chain touch playthroughs",
-  "ci_source_commit": "3504f90c3e171e5a8e34b1ce0343e18319f32c1b"
+  "release": "Tenth Lab skill: Earth eruption and paged touch inventory",
+  "ci_source_commit": "5b8911043b0e4f7bf755919ea42588e4d8823f60"
 }

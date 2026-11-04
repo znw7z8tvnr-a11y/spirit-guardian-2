@@ -1,0 +1,7 @@
+{
+  "engine": "Godot 4.6.3 official",
+  "source_commit": "5b8911043b0e4f7bf755919ea42588e4d8823f60",
+  "passed_checks": 598,
+  "failures": [],
+  "scope": "Engine integration with real enemies, callbacks and inventory UI; browser and Safari verification are separate."
+}

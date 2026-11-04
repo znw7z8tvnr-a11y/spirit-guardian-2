@@ -4,6 +4,8 @@ The newly authored Godot GDScript, scene/configuration files and migration tools
 
 The newly authored `godot/experiments/chain_lab/assets/storm.svg` and `storm_bolt.svg` are also available under the MIT License below. This addition does not relicense other artwork.
 
+The newly authored `godot/experiments/chain_lab/assets/blizzard.svg` and `blizzard_shard.svg` are also available under these MIT terms. Other pre-existing artwork retains its original status.
+
 MIT License
 
 Copyright (c) 2026 Spirit Guardian contributors

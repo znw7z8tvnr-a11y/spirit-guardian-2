@@ -312,7 +312,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   if not chain.current(run):shot.queue_free();return
   var victim: Node2D=target_ref.get_ref() if target_ref!=null else null
   if not chain.alive(victim):
-   victim=null if str(item.key) in ["meteor","nova","beam","pierce","earth","wind","sword","spark","storm"] else chain.choose_target(at,run)
+   victim=null if str(item.key) in ["meteor","nova","beam","pierce","earth","wind","sword","spark","storm","blizzard"] else chain.choose_target(at,run)
    if victim!=null:
     chain.retargets+=1
     if chain.target_id(victim) not in run.visited:run.visited.append(chain.target_id(victim))
@@ -326,8 +326,8 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   spell_cast_counts[key]=int(spell_cast_counts.get(key,0))+1
   spell_hit_counts[key]=int(spell_hit_counts.get(key,0))+int(result.hit_count)
   # Ground casts retain shaped FX; only the resolver supplies real hit/kill gates.
-  if key not in ["earth","wind","sword","spark","storm"]:spell_impact(impact_at,key)
-  if key in ["meteor","nova","poison","beam","pierce","earth","wind","sword","spark","storm"]:spell_visual(key,context.origin,impact_at,result.hit_positions)
+  if key not in ["earth","wind","sword","spark","storm","blizzard"]:spell_impact(impact_at,key)
+  if key in ["meteor","nova","poison","beam","pierce","earth","wind","sword","spark","storm","blizzard"]:spell_visual(key,context.origin,impact_at,result.hit_positions)
   chain.complete_skill(slot,victim,result,run,context)
   shot.queue_free()
  )
@@ -456,6 +456,15 @@ func spell_visual(key: String, origin: Vector2, at: Vector2, hit_positions: Arra
  if fx.get_child_count()>=FX.MAX_EFFECTS:return
  var art:=Sprite2D.new();art.texture=SpellEffects.impact_texture(key);art.position=at;art.modulate.a=0.65;art.set_meta("spell_key",key);fx.add_child(art)
  var duration:=0.55
+ if key=="blizzard":
+  art.texture=null;art.modulate.a=0.9
+  var frost:=Sprite2D.new();frost.texture=SpellEffects.BLIZZARD_ART;frost.scale=Vector2(310.0/192.0,220.0/192.0);frost.modulate.a=0.55;art.add_child(frost)
+  var points: Array=hit_positions.slice(0,8) if not hit_positions.is_empty() else [at]
+  for i in points.size():
+   var shard:=Sprite2D.new();shard.texture=SpellEffects.BLIZZARD_SHARD;shard.position=points[i]-at+Vector2(0,-80);shard.offset.y=-80;shard.scale=Vector2.ONE*0.6;art.add_child(shard)
+   var fall:=shard.create_tween();fall.tween_interval(i*0.01);fall.tween_property(shard,"position",points[i]-at,0.16).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+  var thaw:=art.create_tween();thaw.tween_interval(0.32);thaw.tween_property(art,"modulate:a",0.0,0.58);thaw.tween_callback(art.queue_free)
+  return
  if key=="storm":
   art.texture=null;art.modulate.a=1.0
   var cloud:=Sprite2D.new();cloud.texture=SpellEffects.STORM_ART;cloud.position=Vector2(0,-145);cloud.scale=Vector2.ONE*(310.0/256.0);art.add_child(cloud)

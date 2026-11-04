@@ -1,0 +1,3 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+AMPLIFY_RESULT {"checks":["source level 1 bonus","source level 2 bonus","source level 3 bonus","preceding attack is not amplified","both branches inherit next-skill bonus independently","bonus expires after one skill and relay does not carry it forever","completing one branch never consumes sibling bonus","amplified fork settles without inflight leak","actual projectile impacts apply bonus to fire and ice only","real flight completes all four attacks without extra hit callbacks"],"failures":[]}

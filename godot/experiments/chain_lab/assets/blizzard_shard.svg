@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="160" viewBox="0 0 64 160">
+<!-- Original provisional layered falling ice shard, anchored at its bottom. -->
+<defs><linearGradient id="crystal" x2="1" y2="1"><stop stop-color="#f5ffff"/><stop offset=".45" stop-color="#9ce4ff"/><stop offset="1" stop-color="#4c75ad"/></linearGradient></defs>
+<path d="M31 0 57 37 42 137 31 160 18 135 7 40Z" fill="#509bd3" opacity=".25"/>
+<path d="M31 12 49 44 39 129 31 157 23 128 14 45Z" fill="url(#crystal)" stroke="#c1edff" stroke-width="2"/>
+<path d="m31 12 2 36-2 109-8-29-9-83Z" fill="#d9faff"/><path d="m33 48 16-4-10 85-8 28Z" fill="#709fc8"/><path d="m31 12 18 32-16 4Z" fill="#f5ffff"/>
+<g fill="#c6edff" opacity=".75"><path d="m8 83 7 7-4 15-6-9Z"/><path d="m52 111 6 6-5 14-4-8Z"/></g>
+</svg>

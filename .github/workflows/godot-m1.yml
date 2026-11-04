@@ -67,8 +67,8 @@ jobs:
       - name: First Boss earned-loadout WebGL playthrough
         timeout-minutes: 5
         run: python3 tools/test_first_boss_web.py
-      - name: Fourteen-skill touch and actual cast acceptance
-        timeout-minutes: 8
+      - name: Fifteen-skill touch and actual cast acceptance
+        timeout-minutes: 10
         run: python3 tools/test_eight_spells_web.py
       - name: Package importable project and Web build
         run: |
@@ -76,7 +76,7 @@ jobs:
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-storm-spell-delivery
+          name: godot-blizzard-spell-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
@@ -103,7 +103,7 @@ jobs:
             docs/first-boss/*.log
             docs/first-boss/*.json
             docs/first-boss/*.png
-            docs/storm-spell/*
+            docs/blizzard-spell/*
             docs/timing-gem/*
             docs/lowhp-gem/*
             docs/element-gems/*

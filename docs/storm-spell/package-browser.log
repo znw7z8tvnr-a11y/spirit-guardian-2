@@ -1,0 +1,24 @@
+127.0.0.1 - - [04/Nov/2026 14:15:44] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:15:44] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:15:44] "GET /lab/wasm-stream.js?build=d0fd042c7e2231400b46c4b5d773079542e415bf HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:15:44] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:15:44] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:15:44] "GET /lab/index.pck?build=59c00540de649e71256451b7828c7ce4750ec93dafd27189f15a0ffd724a6fd2 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:15:44] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:15:44] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:15:46] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:15:46] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+landscape package state {'storm': 1} {'storm': 1} True ['storm']
+landscape PACKAGED STORM PASS 1 1
+127.0.0.1 - - [04/Nov/2026 14:16:05] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:16:05] "GET /lab/wasm-stream.js?build=d0fd042c7e2231400b46c4b5d773079542e415bf HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:16:05] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:16:05] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:16:05] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:16:05] "GET /lab/index.pck?build=59c00540de649e71256451b7828c7ce4750ec93dafd27189f15a0ffd724a6fd2 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:16:05] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:16:05] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:16:07] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 14:16:07] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+portrait package state {'storm': 1} {'storm': 1} True ['storm']
+portrait PACKAGED STORM PASS 1 1

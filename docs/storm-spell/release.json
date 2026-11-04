@@ -1,0 +1,49 @@
+{
+  "release": "Fourteenth Lab attack: single-burst thunderstorm and data-driven strict radial rules",
+  "game_source_commit": "d0fd042c7e2231400b46c4b5d773079542e415bf",
+  "hosting_source_commit": "6e6cfc558a7678a1d636d3eff8abe5eace7253cc",
+  "deployment": {
+    "id": "appgdep_6aeb3e5701408191944db855ca349543",
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "title": "靈境守衛 Spirit Guardian · M2 試玩",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_5b2605e9818c81919b80c5663438a08c",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae21db4af948191b57fd49b52694b66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-04T14:17:15.396198+00:00"
+  },
+  "ci": {
+    "id": 41843779710,
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/41843779710",
+    "source_commit": "d0fd042c7e2231400b46c4b5d773079542e415bf",
+    "artifact": {
+      "id": 13330957273,
+      "name": "godot-storm-spell-delivery",
+      "size_in_bytes": 157393686
+    }
+  },
+  "native_checks": 687,
+  "local_web": [
+    "fourteen-skill inventory and timed-chain regression in both orientations",
+    "actual owned thunderstorm equipment, cast and hit in both orientations",
+    "staged streaming loader, actual thunderstorm hit with cloud/bolt Sprite group paused in both orientations"
+  ],
+  "adaptations": [
+    "Metadata lightning is used for hit/chain while original executeCast passes storm as hit type",
+    "Cloud and at most eight actual-hit vertical strike Sprites replace original eight radial branches; damage cap remains 24",
+    "Strict radial rule data shares selection for earth/wind/sword/spark/storm; meteor/nova retain their inclusive legacy Lab edges"
+  ],
+  "limits": [
+    "Temporary storm and other artwork; no final visual-quality claim",
+    "No iPad Safari hardware performance verification",
+    "No complete twenty-wave balance or full original-module parity claim",
+    "Eight original attack types and ten original gem types remain pending"
+  ]
+}

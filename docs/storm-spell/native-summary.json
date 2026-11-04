@@ -1,0 +1,7 @@
+{
+  "engine": "Godot 4.6.3 official",
+  "source_commit": "d0fd042c7e2231400b46c4b5d773079542e415bf",
+  "passed_checks": 687,
+  "failures": [],
+  "scope": "Real damage, strict radius, 24-victim cap, one continuation, eight-strike FX cap and actual-hit anchors. Browser checks separate."
+}

@@ -2,6 +2,8 @@
 
 The newly authored Godot GDScript, scene/configuration files and migration tools in this change are available under the MIT License below. This does not relicense the original HTML game, extracted artwork in `godot/assets/legacy`, screenshots containing that artwork, or other pre-existing materials. Their original license/ownership has not been established. Asset status is recorded in `docs/asset-manifest.json`. Godot Engine is separately licensed under MIT: https://godotengine.org/license/ .
 
+The newly authored `godot/experiments/chain_lab/assets/storm.svg` and `storm_bolt.svg` are also available under the MIT License below. This addition does not relicense other artwork.
+
 MIT License
 
 Copyright (c) 2026 Spirit Guardian contributors

@@ -1,0 +1,35 @@
+[
+  {
+    "file": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+    "sha256": "6e2a9443b709b87dc1ce79d0663d980d8a19a19333c0b27f5709746cbb49f02e",
+    "executeCast_line": 120,
+    "base_power_35": true,
+    "radius_155": true,
+    "strict_radius_cap_24": true,
+    "element_table_lightning": true,
+    "eight_branch_original_fx": false,
+    "integration_choice": "Lab uses metadata lightning; original hit dispatch falls through with storm. Cloud and bounded vertical strikes are provisional visual remakes."
+  },
+  {
+    "file": "reference_modules/spirit_guardian_v31_16_skills_final.html",
+    "sha256": "42f2ea78917bb51b54afe2280726c8a1431f9a0279d86ab4f701bab8861d127f",
+    "executeCast_line": 867,
+    "base_power_35": true,
+    "radius_155": true,
+    "strict_radius_cap_24": true,
+    "element_table_lightning": true,
+    "eight_branch_original_fx": true,
+    "integration_choice": "Lab uses metadata lightning; original hit dispatch falls through with storm. Cloud and bounded vertical strikes are provisional visual remakes."
+  },
+  {
+    "file": "reference_modules/spirit_guardian_v31_30_combat_vfx_final.html",
+    "sha256": "7bbf666bd601cbb14d12d3cc9374b6c39d1301b91214d18ab232076f7359754e",
+    "executeCast_line": 789,
+    "base_power_35": true,
+    "radius_155": true,
+    "strict_radius_cap_24": true,
+    "element_table_lightning": true,
+    "eight_branch_original_fx": true,
+    "integration_choice": "Lab uses metadata lightning; original hit dispatch falls through with storm. Cloud and bounded vertical strikes are provisional visual remakes."
+  }
+]

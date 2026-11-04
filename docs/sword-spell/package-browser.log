@@ -1,0 +1,24 @@
+127.0.0.1 - - [04/Nov/2026 12:47:35] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:35] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:35] "GET /lab/wasm-stream.js?build=ded4f820e2090e5e664dff87f7471b8488df60cc HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:35] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:35] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:35] "GET /lab/index.pck?build=31d1ef6fb62b1bf27c6e43c774d697c5c2e07cd93d6cf1778f760a53f4c33e44 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:35] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:35] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:37] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:37] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+landscape package state {'sword': 1} {'sword': 1} True ['sword']
+landscape PACKAGED SWORD PASS 1 1
+127.0.0.1 - - [04/Nov/2026 12:47:55] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:55] "GET /lab/wasm-stream.js?build=ded4f820e2090e5e664dff87f7471b8488df60cc HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:55] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:55] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:55] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:55] "GET /lab/index.pck?build=31d1ef6fb62b1bf27c6e43c774d697c5c2e07cd93d6cf1778f760a53f4c33e44 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:55] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:56] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:57] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 12:47:57] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+portrait package state {'sword': 1} {'sword': 1} True ['sword']
+portrait PACKAGED SWORD PASS 1 1

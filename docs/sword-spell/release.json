@@ -1,0 +1,46 @@
+{
+  "release": "Twelfth Lab attack: fire-element moon blades with single area hit and three rotating Sprites",
+  "game_source_commit": "ded4f820e2090e5e664dff87f7471b8488df60cc",
+  "hosting_source_commit": "3dfcdac5bf4f8d2da09caa7252cc95f4792869dd",
+  "deployment": {
+    "id": "appgdep_6aeb29c429ec8191b9a4d3ef40742362",
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "title": "靈境守衛 Spirit Guardian · M2 試玩",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_0e66cb4d0cb48191b4c377ce5aa91445",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae21db4af948191b57fd49b52694b66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-04T12:49:26.376162+00:00"
+  },
+  "ci": {
+    "id": 41831288137,
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/41831288137",
+    "source_commit": "ded4f820e2090e5e664dff87f7471b8488df60cc",
+    "artifact": {
+      "id": 13324615563,
+      "name": "godot-sword-spell-delivery",
+      "size_in_bytes": 151881564
+    }
+  },
+  "native_checks": 639,
+  "local_web": [
+    "twelve-skill inventory and legacy timed-chain regression in both orientations",
+    "actual owned moon-blade root equipment, cast and hit from fresh normal page in both orientations",
+    "staged streaming loader, actual moon-blade hit and three-blade Sprite paused in both orientations"
+  ],
+  "adaptation": "V9 dispatch maps sword damage to fire but V9 burn gem checks skill kind fire. Lab keeps actual hit-element gates, so moon-blade fire qualifies in Lab; not exact original-gem parity.",
+  "test_harness_note": "Initial staged smoke stopped on a window-name typo in the copied test script; corrected and rerun successfully without changing game behavior.",
+  "limits": [
+    "Temporary moon-blade and other artwork; no final visual-quality claim",
+    "No iPad Safari hardware performance verification",
+    "No complete twenty-wave balance or full original-module parity claim",
+    "Ten original attack types and ten original gem types remain pending"
+  ]
+}

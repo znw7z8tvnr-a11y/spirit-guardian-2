@@ -15,8 +15,8 @@ async def main():
     page=await browser.new_page(viewport=size,has_touch=True,device_scale_factor=1);errors=[];logs=[]
     page.on('pageerror',lambda e:errors.append(str(e)));page.on('console',lambda m:logs.append(m.text))
     await page.goto(f'http://127.0.0.1:{server.server_port}/lab/?debug=1&seed=12032')
-    await page.wait_for_function('swordow.SG_LAB_STATE!==undefined',timeout=60000)
-    async def state():return await page.evaluate('swordow.SG_LAB_STATE')
+    await page.wait_for_function('window.SG_LAB_STATE!==undefined',timeout=60000)
+    async def state():return await page.evaluate('window.SG_LAB_STATE')
     async def tap(key):
      s=await state();rect=await page.locator('#canvas').bounding_box();x,y,w,h=s['buttons'][key];vw,vh=s['viewport']
      assert 0<=x<=vw and 0<=y<=vh,(key,[x,y],s['viewport'])
@@ -29,7 +29,7 @@ async def main():
     # Additional debug/bounds protocol calls after observing FX can outlast it on software WebGL.
     controls=await state();canvas=await page.locator('#canvas').bounding_box();x,y,_,_=controls['buttons']['Pause'];vw,vh=controls['viewport']
     pause_point=(canvas['x']+x/vw*canvas['width'],canvas['y']+y/vh*canvas['height'])
-    await tap('Done');await page.wait_for_function("(swordow.SG_LAB_STATE.spell_hits.sword||0)>0 && swordow.SG_LAB_STATE.spell_visuals.includes('sword')",timeout=60000)
+    await tap('Done');await page.wait_for_function("(window.SG_LAB_STATE.spell_hits.sword||0)>0 && window.SG_LAB_STATE.spell_visuals.includes('sword')",timeout=60000)
     await page.touchscreen.tap(*pause_point);await page.wait_for_timeout(500)
     final=await state();(REPORT/f'sword-package-state-{name}.json').write_text(json.dumps(final,ensure_ascii=False,indent=2));await page.screenshot(path=str(REPORT/f'sword-package-{name}.png'));print(name,'package state',final['spell_casts'],final['spell_hits'],final['paused'],final['spell_visuals'],flush=True)
     assert final['spell_casts']['sword']>0 and final['spell_hits']['sword']>0 and final['paused'] and 'sword' in final['spell_visuals']

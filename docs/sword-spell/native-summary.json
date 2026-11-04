@@ -1,0 +1,7 @@
+{
+  "engine": "Godot 4.6.3 official",
+  "source_commit": "ded4f820e2090e5e664dff87f7471b8488df60cc",
+  "passed_checks": 639,
+  "failures": [],
+  "scope": "Real enemy damage, fire condition gates, flight and three-blade effects, one continuation and ground retention. Browser verification is separate."
+}

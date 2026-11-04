@@ -1,15 +1,15 @@
 {
   "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
-  "deployment_id": "appgdep_6aeb481623388191a7df93b9f68dde5a",
-  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_662c93c91f248191bfe4c3d7afc471a2",
+  "deployment_id": "appgdep_6aeb51323f448191aa1333766db0e2f6",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_2dfac9b16afc8191b79b839b10f9986f",
   "status": "succeeded",
   "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
   "audience": "owner-private",
-  "game_source_commit": "8c45b7a981ca774d33303e90f962e0a5b45fc8d3",
-  "hosting_source_commit": "5920c2d0c752ca40b6e1263e23fdc95749436552",
-  "ci_run": 41851101960,
-  "ci_artifact": 13335847778,
+  "game_source_commit": "d7a5c71c990d9289dad560668b5c1c85c12a5d1e",
+  "hosting_source_commit": "bd8f6dc099daaa6cb2385b9357475818d304130b",
+  "ci_run": 41857887328,
+  "ci_artifact": 13339895434,
   "stable_root_files_unchanged": true,
-  "release": "Fifteenth Lab attack: Blizzard ice burst with expiring non-stacking slow and actual-hit shard destinations",
-  "ci_source_commit": "8c45b7a981ca774d33303e90f962e0a5b45fc8d3"
+  "release": "Sixteenth Lab attack: single-hit fire-element Lava with real-hit rising flame anchors",
+  "ci_source_commit": "d7a5c71c990d9289dad560668b5c1c85c12a5d1e"
 }

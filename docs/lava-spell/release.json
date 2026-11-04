@@ -1,0 +1,50 @@
+{
+  "release": "Sixteenth Lab attack: single-hit fire-element Lava with real-hit rising flame anchors",
+  "game_source_commit": "d7a5c71c990d9289dad560668b5c1c85c12a5d1e",
+  "hosting_source_commit": "bd8f6dc099daaa6cb2385b9357475818d304130b",
+  "deployment": {
+    "id": "appgdep_6aeb51323f448191aa1333766db0e2f6",
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "title": "靈境守衛 Spirit Guardian · M2 試玩",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_2dfac9b16afc8191b79b839b10f9986f",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae21db4af948191b57fd49b52694b66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-04T15:37:42.066876+00:00"
+  },
+  "ci": {
+    "id": 41857887328,
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/41857887328",
+    "source_commit": "d7a5c71c990d9289dad560668b5c1c85c12a5d1e",
+    "artifact": {
+      "id": 13339895434,
+      "name": "godot-lava-spell-delivery",
+      "size_in_bytes": 162970454
+    }
+  },
+  "native_checks": 747,
+  "local_web": [
+    "sixteen-skill owned inventory and timed-chain regression in both orientations",
+    "actual owned Lava equipment and hits in both orientations",
+    "staged streaming loader, actual Lava hit and molten-ground/flame FX paused in both orientations"
+  ],
+  "adaptations": [
+    "Metadata fire is used for actual hit and chain while original executeCast passes lava",
+    "Lab burn gem uses actual fire outcome while original V9 checks kind fire",
+    "24 actual damaged victims versus at most six visual flames from actual hit positions; visual rise causes no extra damage"
+  ],
+  "execution_note": "A temporary executor transport disconnect did not stop the browser process; process and logs were checked after reconnection and the full test completed.",
+  "limits": [
+    "Temporary Lava and other artwork; no final visual-quality claim",
+    "No iPad Safari hardware performance verification",
+    "No complete twenty-wave balance or full original-module parity claim",
+    "Six original attack types and ten original gem types remain pending"
+  ]
+}

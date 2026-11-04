@@ -1,0 +1,7 @@
+{
+  "engine": "Godot 4.6.3 official",
+  "source_commit": "d7a5c71c990d9289dad560668b5c1c85c12a5d1e",
+  "passed_checks": 747,
+  "failures": [],
+  "scope": "Real fire damage, strict radius, 24-victim cap, no recurring damage, one continuation and bounded actual-hit flame anchors. Browser verification separate."
+}

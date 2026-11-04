@@ -1,0 +1,7 @@
+{
+  "engine": "Godot 4.6.3 official",
+  "source_commit": "8c45b7a981ca774d33303e90f962e0a5b45fc8d3",
+  "passed_checks": 718,
+  "failures": [],
+  "scope": "Actual damage and slow, strict radius, 24-victim cap, refresh/expiry, single continuation and bounded actual-hit shard destinations. Browser verification separate."
+}

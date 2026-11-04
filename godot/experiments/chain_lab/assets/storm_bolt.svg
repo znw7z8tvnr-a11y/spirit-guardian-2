@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="256" viewBox="0 0 96 256">
+<!-- Original provisional layered lightning Sprite, anchored at its bottom. -->
+<path d="M55 0 16 93h31l-17 65h20l-8 98 39-122H59l19-69H48Z" fill="#6557c8" opacity=".3" stroke="#8170ec" stroke-width="12" stroke-linejoin="round"/>
+<path d="M55 0 22 89h30l-16 65h21L42 256l33-117H54l17-69H43Z" fill="#a9b9ff"/>
+<path d="M55 0 31 83h28l-17 63h21L42 256l25-112H48l18-69H38Z" fill="#f7f9ff"/>
+<g fill="none" stroke="#c0ceff" stroke-width="4"><path d="m45 88-26 32 8 17-18 34"/><path d="m60 148 23 21-7 20 13 15"/></g>
+</svg>

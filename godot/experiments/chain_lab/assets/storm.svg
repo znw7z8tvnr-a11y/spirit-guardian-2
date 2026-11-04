@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="128" viewBox="0 0 256 128">
+<!-- Original provisional layered storm-cloud Sprite, not final art. -->
+<defs><linearGradient id="cloud" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c6c4ed"/><stop offset=".45" stop-color="#686b9f"/><stop offset="1" stop-color="#252c53" stop-opacity=".85"/></linearGradient><radialGradient id="glow"><stop stop-color="#b5bcff" stop-opacity=".85"/><stop offset="1" stop-color="#5e62b0" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="128" cy="84" rx="125" ry="42" fill="url(#glow)"/>
+<path d="M31 102C6 100 7 69 26 62c-8-23 20-40 43-30 9-35 63-40 81-13 23-8 49 3 53 23 27-7 50 12 43 33 17 20-3 38-25 37l-44-3-30 8-47-10-37 5Z" fill="url(#cloud)" stroke="#6d739e" stroke-width="2"/>
+<g fill="none" stroke="#e1e4ff" stroke-opacity=".45" stroke-width="3"><path d="M29 62c9-9 24-10 34-4 2-21 24-31 43-24"/><path d="M118 18c12-1 24 3 31 12 18-7 35-2 42 11"/><path d="M185 70c13-13 32-15 44-5"/></g>
+<path d="m125 48-18 27 18-2-11 24 34-35-20 3 13-17Z" fill="#e9edff"/>
+<path d="m72 78-11 13 10-1-7 14 19-20-11 2 6-9Z" fill="#b9c8ff"/>
+<path d="m190 74-12 14 11-1-6 15 21-21-13 1 5-9Z" fill="#d2d8ff"/>
+</svg>

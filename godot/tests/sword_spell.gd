@@ -18,7 +18,7 @@ func clear() -> void:
  allocated=[]
 func run() -> void:
  resolver=preload("res://modules/spell/combat_resolver.gd").new();root.add_child(resolver)
- check(Catalog.PLAYABLE.size()==8 and "sword" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==13 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"sword is lab-only and stable root still advertises eight")
+ check(Catalog.PLAYABLE.size()==8 and "sword" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==14 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"sword is lab-only and stable root still advertises eight")
  check(Catalog.power("sword")==26 and Catalog.element("sword")=="fire","sword retains source damage and fire mapping")
  check(Effects.texture("sword").get_height()==192 and "迴旋月刃" in Effects.description("sword"),"sword has dedicated provisional crescent blade sprite and explicit radius description")
  for level in range(1,4):

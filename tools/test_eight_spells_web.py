@@ -1,7 +1,7 @@
 """Actual eight-spell training UI, projectile flight and resolved cast smoke."""
 import argparse,asyncio,functools,http.server,json,os,pathlib,threading
 from playwright.async_api import async_playwright
-ROOT=pathlib.Path(__file__).resolve().parents[1];REPORT=ROOT/'docs/pierce-spell';REPORT.mkdir(parents=True,exist_ok=True)
+ROOT=pathlib.Path(__file__).resolve().parents[1];REPORT=ROOT/'docs/earth-spell';REPORT.mkdir(parents=True,exist_ok=True)
 p=argparse.ArgumentParser();p.add_argument('--directory',default=str(ROOT/'godot/export/lab'));p.add_argument('--entry',default='/');args=p.parse_args()
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=args.directory));threading.Thread(target=server.serve_forever,daemon=True).start()
 async def main():
@@ -14,10 +14,15 @@ async def main():
    await page.goto(f'http://127.0.0.1:{server.server_port}{args.entry}?debug=1&seed=12032');await page.wait_for_function('window.SG_LAB_STATE!==undefined',timeout=60000)
    async def state():return await page.evaluate('window.SG_LAB_STATE')
    async def tap(key):
-    s=await state();rect=await page.locator('#canvas').bounding_box();x,y,w,h=s['buttons'][key];vw,vh=s['viewport'];assert 0<=x<=vw and 0<=y<=vh,(key,[x,y],s['viewport'])
+    s=await state()
+    if key.startswith('Item '):
+     target_page=(int(key.split()[1])+1)//15
+     while s['inventory_page']!=target_page:
+      await tap('InventoryNext' if target_page>s['inventory_page'] else 'InventoryPrev');s=await state()
+    rect=await page.locator('#canvas').bounding_box();x,y,w,h=s['buttons'][key];vw,vh=s['viewport'];assert 0<=x<=vw and 0<=y<=vh,(key,[x,y],s['viewport'])
     await page.touchscreen.tap(rect['x']+x/vw*rect['width'],rect['y']+y/vh*rect['height']);await page.wait_for_timeout(500)
-   initial=await state();assert initial['slots']==[0]+[-1]*9 and len(initial['spell_keys'])==9 and not initial['spell_kit']
-   await tap('SpellKit');s=await state();assert s['spell_kit'] and s['item_count']==19 and s['edit_open'] and len(s['edges'])==8 and s['slots'].count(-1)==1
+   initial=await state();assert initial['slots']==[0]+[-1]*9 and len(initial['spell_keys'])==10 and not initial['spell_kit']
+   await tap('SpellKit');s=await state();assert s['spell_kit'] and s['item_count']==20 and s['edit_open'] and len(s['edges'])==8 and s['slots'].count(-1)==1
    await page.screenshot(path=str(REPORT/f'eight-spell-chain-{name}.png'))
    await tap('Inventory')
    await tap('Item 1');assert '下一個技能' in (await state())['inventory_detail'] and '35%' in (await state())['inventory_detail']
@@ -27,6 +32,7 @@ async def main():
    await tap(f"Item {s['gem_kit_ids']['delay']}");assert '3 秒' in (await state())['inventory_detail'] and '目前冷卻' in (await state())['inventory_detail']
    await tap(f"Item {s['spell_kit_ids']['pierce']}");assert '水平' in (await state())['inventory_detail'] and '38' in (await state())['inventory_detail']
    await page.screenshot(path=str(REPORT/f'pierce-inventory-{name}.png'))
+   await tap(f"Item {s['spell_kit_ids']['earth']}");assert '土刺' in (await state())['inventory_detail'] and '75' in (await state())['inventory_detail']
    await tap('Item 4');assert '50%' in (await state())['inventory_detail'] and '不延伸' in (await state())['inventory_detail']
    await tap(f"Item {s['spell_kit_ids']['poison']}");assert '附毒' in (await state())['inventory_detail']
    await tap(f"Item {s['spell_kit_ids']['beam']}");assert '穿透' in (await state())['inventory_detail']
@@ -69,8 +75,12 @@ async def main():
    assert timed['spell_casts'].get('pierce',0)>0 and timed['spell_hits'].get('pierce',0)>0
    assert all(b['clock']-a['clock']>=3-0.0001 for a,b in zip(successes,successes[1:]))
    await page.screenshot(path=str(REPORT/f'timing-eight-speed-{name}.png'))
+   await tap('Configure');await tap('Slot 2');await tap('Inventory');await tap(f"Item {final['spell_kit_ids']['earth']}");await tap('InventoryApply');await tap('Done');await tap('Pause')
+   await page.wait_for_function("(window.SG_LAB_STATE.spell_hits.earth||0)>0",timeout=30000)
+   await tap('Pause');earth=await state();assert earth['spell_casts']['earth']>0 and earth['spell_hits']['earth']>0
+   await page.screenshot(path=str(REPORT/f'earth-battle-{name}.png'))
    engine_errors=[s for s in logs if 'SCRIPT ERROR' in s or s.startswith('ERROR:')];assert not errors and not engine_errors,(errors,engine_errors)
-   results[name]={'viewport':size,'initial':initial,'flight':flight,'final':final,'element_equipped':equipped,'cooling':cooling,'cooldown_held':held,'timed_eight_speed':timed,'pageerrors':errors,'engine_errors':engine_errors,'passed':['arcane-only normal start','nine lab skill types; stable root remains eight','explicit nine-slot training fixture without duplicate grants','touch inventory poison and beam descriptions','actual meteor sprite in flight','four new spell completion callbacks in real battle','actual new-spell hits and no phantom target-zero hit','pierce preview and equipment','actual pierce casts and hits through a timed chain'],'limit':'Explicit training fixture, Linux Chromium software WebGL touch emulation; behavior and individual hit shapes are also verified with real enemies in native tests. No iPad or full original-parity claim.'}
+   results[name]={'viewport':size,'initial':initial,'flight':flight,'final':final,'element_equipped':equipped,'cooling':cooling,'cooldown_held':held,'timed_eight_speed':timed,'earth':earth,'pageerrors':errors,'engine_errors':engine_errors,'passed':['arcane-only normal start','ten lab skill types; stable root remains eight','explicit nine-slot training fixture without duplicate grants','touch inventory poison and beam descriptions','actual meteor sprite in flight','four new spell completion callbacks in real battle','actual new-spell hits and no phantom target-zero hit','pierce preview and equipment','actual pierce casts and hits through a timed chain'],'limit':'Explicit training fixture, Linux Chromium software WebGL touch emulation; behavior and individual hit shapes are also verified with real enemies in native tests. No iPad or full original-parity claim.'}
    print(name,'EIGHT SPELLS PASS',final['spell_casts'],flush=True);await page.close()
   await browser.close()
  (REPORT/'eight-spell-web.json').write_text(json.dumps(results,ensure_ascii=False,indent=2)+'\n')

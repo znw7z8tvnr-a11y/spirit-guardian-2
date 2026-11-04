@@ -9,7 +9,7 @@ func run() -> void:
  var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game
  game.set_physics_process(false);game.chain.load_kit();await process_frame
  game.selected=2;game.inventory.open(game.chain,2,1.5)
- check(game.inventory.cards.size()==13,"all ten physical items plus clear and two actions are visible")
+ check(game.inventory.cards.size()==15,"all ten physical items plus clear, two actions and two page controls are visible")
  var before: Array=game.chain.slots.duplicate();var edges: Array=game.chain.edges.duplicate(true)
  game.inventory.select_item(8)
  check(game.chain.slots==before and game.chain.edges==edges,"candidate preview does not change inventory or links")

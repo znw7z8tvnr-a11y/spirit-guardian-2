@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+<!-- Original provisional rock-spike artwork; final art not yet commissioned. -->
+<defs><linearGradient id="rock" x2="0.9" y2="1"><stop stop-color="#f5dba0"/><stop offset=".45" stop-color="#a77c51"/><stop offset="1" stop-color="#403043"/></linearGradient><radialGradient id="ground"><stop stop-color="#d4a36b" stop-opacity=".8"/><stop offset="1" stop-color="#45303c" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="96" cy="165" rx="94" ry="25" fill="url(#ground)"/>
+<g fill="url(#rock)" stroke="#503c38" stroke-width="2"><path d="M16 163 27 100 57 147 67 169Z"/><path d="M40 168 59 48 91 145 102 173Z"/><path d="M70 171 99 8 126 141 140 175Z"/><path d="M111 173 142 65 159 150 169 168Z"/><path d="M149 170 176 119 184 161 177 176Z"/></g>
+<g fill="#ffe7b4" opacity=".6"><path d="M59 48 64 149 40 168Z"/><path d="M99 8 103 150 70 171Z"/><path d="M142 65 145 152 111 173Z"/></g>
+<g fill="#342c39" opacity=".7"><path d="m99 8 27 133-20-28Z"/><path d="m142 65 17 85-13-19Z"/></g>
+<g fill="none" stroke="#493a3b" stroke-width="3"><path d="m89 93 17 16-9 12 17 14"/><path d="m51 117 15 12-5 9"/></g>
+<g fill="#b58b60" stroke="#58423f"><path d="m15 174 10-10 15 4-5 12Z"/><path d="m121 181 12-10 13 5-6 10Z"/><path d="m171 181 6-12 9 5-3 10Z"/></g>
+</svg>

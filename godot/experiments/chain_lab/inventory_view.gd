@@ -13,6 +13,9 @@ var detail: Label
 var apply: Button
 var entries: GridContainer
 var heading: Label
+var page:=0
+const PAGE_SIZE=15
+var page_label: Label
 func _ready() -> void:
  set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  offset_left=16;offset_right=-16;offset_top=16;offset_bottom=-16
@@ -24,6 +27,10 @@ func _ready() -> void:
  var close:=Button.new();close.text="返回連鎖樹";close.custom_minimum_size=Vector2(220,72);close.pressed.connect(hide);row.add_child(close);cards["InventoryClose"]=close
  apply=Button.new();apply.text="確認替換";apply.custom_minimum_size=Vector2(220,72);apply.pressed.connect(func():apply_requested.emit(candidate));row.add_child(apply);cards["InventoryApply"]=apply
  detail=Label.new();detail.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;detail.custom_minimum_size.y=130;box.add_child(detail)
+ var paging:=HBoxContainer.new();box.add_child(paging)
+ for direction in [-1,1]:
+  var b:=Button.new();b.text="上一頁" if direction<0 else "下一頁";b.custom_minimum_size=Vector2(220,72);paging.add_child(b);cards["InventoryPrev" if direction<0 else "InventoryNext"]=b;b.pressed.connect(func():show_page(page+direction))
+ page_label=Label.new();paging.add_child(page_label)
  entries=GridContainer.new();entries.columns=5;box.add_child(entries)
  hide()
 func title(item: Dictionary) -> String:
@@ -54,7 +61,7 @@ func open(chain: Node, index: int, boost: float) -> void:
    art.texture=load("res://experiments/chain_lab/assets/relay_gem.svg") if item.kind=="gem" else Effects.texture(str(item.key));b.add_child(art)
    if item.kind=="gem":art.modulate=preload("res://experiments/chain_lab/gem_rules.gd").tint(str(item.key))
   b.pressed.connect(func():select_item(id))
- select_item(int(model.slots[slot]));show()
+ show_page(0);select_item(int(model.slots[slot]));show()
 func select_item(id: int) -> void:
  candidate=id
  var item: Dictionary={} if id<0 else model.items[id]
@@ -63,3 +70,10 @@ func select_item(id: int) -> void:
  apply.disabled=not reason.is_empty() or int(model.slots[slot])==id
  for key in cards:
   if str(key).begins_with("Item "):cards[key].modulate=Color("ffe3a0") if key=="Item %d" % id else Color.WHITE
+
+func show_page(index: int) -> void:
+ var count:=ceili(float(entries.get_child_count())/PAGE_SIZE)
+ page=clampi(index,0,maxi(0,count-1))
+ for i in entries.get_child_count():entries.get_child(i).visible=i/PAGE_SIZE==page
+ page_label.text="%d／%d 頁" % [page+1,count]
+ cards.InventoryPrev.disabled=page==0;cards.InventoryNext.disabled=page>=count-1

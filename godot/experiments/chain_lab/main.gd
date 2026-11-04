@@ -295,6 +295,8 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
  var at: Vector2=context.aim
  var attack_boost: float=spell_attack_multiplier()*float(context.get("damage_scale",1.0))
  var target_ref: WeakRef=weakref(target) if is_instance_valid(target) else null
+ if str(item.key)=="sword":
+  var spin:=shot.create_tween();spin.tween_property(shot,"rotation",TAU*1.5,flight_time)
  var tween:=shot.create_tween()
  if str(item.key)=="meteor":
   shot.position=at+Vector2(0,-260);shot.scale=Vector2.ONE*0.38;shot.rotation=-PI/2
@@ -310,7 +312,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   if not chain.current(run):shot.queue_free();return
   var victim: Node2D=target_ref.get_ref() if target_ref!=null else null
   if not chain.alive(victim):
-   victim=null if str(item.key) in ["meteor","nova","beam","pierce","earth","wind"] else chain.choose_target(at,run)
+   victim=null if str(item.key) in ["meteor","nova","beam","pierce","earth","wind","sword"] else chain.choose_target(at,run)
    if victim!=null:
     chain.retargets+=1
     if chain.target_id(victim) not in run.visited:run.visited.append(chain.target_id(victim))
@@ -324,8 +326,8 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   spell_cast_counts[key]=int(spell_cast_counts.get(key,0))+1
   spell_hit_counts[key]=int(spell_hit_counts.get(key,0))+int(result.hit_count)
   # Ground casts retain shaped FX; only the resolver supplies real hit/kill gates.
-  if key not in ["earth","wind"]:spell_impact(impact_at,key)
-  if key in ["meteor","nova","poison","beam","pierce","earth","wind"]:spell_visual(key,context.origin,impact_at)
+  if key not in ["earth","wind","sword"]:spell_impact(impact_at,key)
+  if key in ["meteor","nova","poison","beam","pierce","earth","wind","sword"]:spell_visual(key,context.origin,impact_at)
   chain.complete_skill(slot,victim,result,run,context)
   shot.queue_free()
  )
@@ -454,6 +456,16 @@ func spell_visual(key: String, origin: Vector2, at: Vector2) -> void:
  if fx.get_child_count()>=FX.MAX_EFFECTS:return
  var art:=Sprite2D.new();art.texture=SpellEffects.impact_texture(key);art.position=at;art.modulate.a=0.65;art.set_meta("spell_key",key);fx.add_child(art)
  var duration:=0.55
+ if key=="sword":
+  art.texture=null;art.modulate.a=1.0;art.scale=Vector2.ONE*0.65
+  for i in range(3):
+   var blade:=Sprite2D.new();blade.texture=SpellEffects.SWORD_ART;blade.position=Vector2.from_angle(i*TAU/3.0)*48;blade.rotation=i*TAU/3.0+PI/2;blade.scale=Vector2.ONE*0.5;art.add_child(blade)
+  var spin:=art.create_tween().set_parallel(true)
+  spin.tween_property(art,"rotation",TAU*1.25,0.85)
+  spin.tween_property(art,"scale",Vector2.ONE*1.1,0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+  spin.tween_property(art,"modulate:a",0.0,0.45).set_delay(0.4)
+  spin.chain().tween_callback(art.queue_free)
+  return
  if key=="wind":
   art.modulate.a=0.9;art.scale=Vector2.ONE*0.35
   var swirl:=art.create_tween().set_parallel(true)

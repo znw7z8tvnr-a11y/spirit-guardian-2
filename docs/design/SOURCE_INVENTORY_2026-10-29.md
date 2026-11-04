@@ -10,7 +10,7 @@
 | 毒霧 | primary target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
 | 流星雨 | radius around primary target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
 | 奧術飛彈 | radius around primary target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
-| 迴旋月刃 | radius around primary target | catalog only; behavior port pending | not implemented |
+| 迴旋月刃 | radius around primary target | catalog only; behavior port pending | Lab fire-element moon blades; see SWORD_SPELL.md |
 | 穿透射線 | horizontal strip around target | catalog only; behavior port pending | Lab horizontal lightning strip; see PIERCE_SPELL.md |
 | 土刺 | radius around primary target | catalog only; behavior port pending | Lab ground eruption; see EARTH_SPELL.md |
 | 颶風 | radius around primary target | catalog only; behavior port pending | Lab wind burst; see WIND_SPELL.md |

@@ -1,0 +1,31 @@
+{
+  "checks": [
+    "no reward at start or ordinary first wave",
+    "third clear queues one earned selection",
+    "wave clear cannot be claimed twice, including Boss argument changes",
+    "every offer contains all three reward categories",
+    "refresh uses one charge without granting a reward",
+    "spent refresh and invalid choices are rejected",
+    "refresh trait is run-local and choice is consumed exactly once",
+    "refresh trait adds one charge to the next selection",
+    "power trait increases spell multiplier by ten percent",
+    "wave fifteen combines milestone and one-to-five Boss choices",
+    "Boss selections remain queued and each gets its own refresh budget",
+    "all offers clear when the queue is exhausted",
+    "one hundred seeded Boss rewards stay within one to five",
+    "actual wave-clear flow opens the reward modal",
+    "reward choice freezes combat and next-wave progression",
+    "earned gem enters bag without replacing any slot",
+    "earned rewards wait for loadout confirmation before combat resumes",
+    "a gem without a follow-up skill does not slow the starter attack",
+    "training kit remains valid after obtaining real loot",
+    "reloading training kit never duplicates its items",
+    "unknown resonance cannot be auto-arranged",
+    "known resonance arrangement only uses owned items",
+    "arranged reward inventory obeys alternating graph and physical capacity",
+    "seed fixtures cover the five-choice Boss boundary",
+    "final Boss rewards are offered before victory",
+    "claiming final rewards finishes at wave twenty without a new wave"
+  ],
+  "failures": []
+}

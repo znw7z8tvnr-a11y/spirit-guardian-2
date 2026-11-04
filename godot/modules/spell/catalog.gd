@@ -4,6 +4,7 @@ const PLAYABLE := ["fire", "ice", "lightning", "arcane", "poison", "meteor", "no
 static func power(key: String) -> float:
  return float(data.SK[key][3])
 static func element(key: String) -> String:
+ if key=="sword":return "fire"
  if key=="pierce":return "lightning"
  if key in ["nova"]:
   return "ice"

@@ -1,0 +1,44 @@
+{
+  "release": "Eleventh Lab attack: Wind burst with animated layered Sprite",
+  "game_source_commit": "26e9cf0155cd0cc5edf8448539c0b75e745202f4",
+  "hosting_source_commit": "606a93007009c5c0daa98df1406950b0e3da841b",
+  "deployment": {
+    "id": "appgdep_6aea9d66b7908191b61332674d58c6de",
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "title": "靈境守衛 Spirit Guardian · M2 試玩",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_b2034d5e63cc8191b2ccc08bf5c13919",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae21db4af948191b57fd49b52694b66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-04T02:50:34.084425+00:00"
+  },
+  "ci": {
+    "id": 41761752538,
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/41761752538",
+    "source_commit": "26e9cf0155cd0cc5edf8448539c0b75e745202f4",
+    "artifact": {
+      "id": 13290718655,
+      "name": "godot-wind-spell-delivery",
+      "size_in_bytes": 149975525
+    }
+  },
+  "native_checks": 617,
+  "local_web": [
+    "eleven-skill/timed chain actual Wind hits in landscape and portrait",
+    "staged streaming loader, owned Wind replacement, actual hits and visible Wind Sprite paused in both orientations"
+  ],
+  "test_harness_note": "Initial extra FX capture paused after the 0.8-second effect naturally ended. Cached actual Pause touch coordinate before casting avoids debug/bounds protocol delay. Game files were not changed for this timing adjustment.",
+  "limits": [
+    "Temporary Wind and other artwork; no final visual-quality claim",
+    "No iPad Safari hardware test",
+    "No complete twenty-wave balance or full original-module parity claim",
+    "Eleven source attack types and ten source gem types remain pending"
+  ]
+}

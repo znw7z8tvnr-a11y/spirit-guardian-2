@@ -1,0 +1,7 @@
+{
+  "engine": "Godot 4.6.3 official",
+  "game_source_commit": "26e9cf0155cd0cc5edf8448539c0b75e745202f4",
+  "passed_checks": 617,
+  "failures": [],
+  "scope": "Native engine integration with actual enemy damage, ground retention, single chain progression and wind-element tracking. Browser tests separate; no Safari claim."
+}

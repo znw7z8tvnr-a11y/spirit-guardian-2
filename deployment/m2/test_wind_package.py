@@ -25,11 +25,17 @@ async def main():
     await tap('Slot 0');await tap('Inventory');await tap('InventoryNext');assert (await state())['inventory_page']==1
     await tap(f"Item {s['spell_kit_ids']['wind']}");assert '颶風' in (await state())['inventory_detail'];await tap('InventoryApply')
     assert (await state())['slots'][0]==s['spell_kit_ids']['wind']
-    await tap('Done');await page.wait_for_function("(window.SG_LAB_STATE.spell_hits.wind||0)>0",timeout=60000);await tap('Pause')
-    final=await state();assert final['spell_casts']['wind']>0 and final['spell_hits']['wind']>0 and final['paused']
+    # Cache the real touch coordinate before the 0.8-second effect starts.
+    # Additional debug/bounds protocol calls after observing FX can outlast it on software WebGL.
+    controls=await state();canvas=await page.locator('#canvas').bounding_box();x,y,_,_=controls['buttons']['Pause'];vw,vh=controls['viewport']
+    pause_point=(canvas['x']+x/vw*canvas['width'],canvas['y']+y/vh*canvas['height'])
+    await tap('Done');await page.wait_for_function("(window.SG_LAB_STATE.spell_hits.wind||0)>0 && window.SG_LAB_STATE.spell_visuals.includes('wind')",timeout=60000)
+    await page.touchscreen.tap(*pause_point);await page.wait_for_timeout(500)
+    final=await state();(REPORT/f'wind-package-state-{name}.json').write_text(json.dumps(final,ensure_ascii=False,indent=2));await page.screenshot(path=str(REPORT/f'wind-package-{name}.png'));print(name,'package state',final['spell_casts'],final['spell_hits'],final['paused'],final['spell_visuals'],flush=True)
+    assert final['spell_casts']['wind']>0 and final['spell_hits']['wind']>0 and final['paused'] and 'wind' in final['spell_visuals']
     engine_errors=[v for v in logs if 'SCRIPT ERROR' in v or v.startswith('ERROR:')];assert not errors and not engine_errors,(errors,engine_errors)
     await page.screenshot(path=str(REPORT/f'wind-package-{name}.png'))
-    results[name]={'state':final,'pageerrors':errors,'engine_errors':engine_errors,'passed':['staged streaming loader boots','twenty-one owned items and eleven lab skills','touch second inventory page','equip wind as root from owned item','actual wind casts and resolved hits','pause battle'],'limit':'Linux Chromium touch emulation; not iPad Safari hardware or final artwork acceptance.'}
+    results[name]={'state':final,'pageerrors':errors,'engine_errors':engine_errors,'passed':['staged streaming loader boots','twenty-one owned items and eleven lab skills','touch second inventory page','equip wind as root from owned item','actual wind casts and resolved hits','dedicated wind Sprite visible in real battle','pause battle'],'limit':'Linux Chromium touch emulation; not iPad Safari hardware or final artwork acceptance.'}
     print(name,'PACKAGED WIND PASS',final['spell_casts']['wind'],final['spell_hits']['wind'],flush=True);await page.close()
   finally:await browser.close()
  (REPORT/'wind-packaged-web.json').write_text(json.dumps(results,ensure_ascii=False,indent=2)+'\n')

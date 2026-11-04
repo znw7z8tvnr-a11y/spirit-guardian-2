@@ -1,0 +1,24 @@
+127.0.0.1 - - [04/Nov/2026 02:49:07] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:07] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:07] "GET /lab/wasm-stream.js?build=26e9cf0155cd0cc5edf8448539c0b75e745202f4 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:07] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:07] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:07] "GET /lab/index.pck?build=14e83ecbc23561e0c868c9b2c0274f71c1ec315966c2da991c7145046e6226c9 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:08] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:08] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:09] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:09] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+landscape package state {'wind': 1} {'wind': 1} True ['wind']
+landscape PACKAGED WIND PASS 1 1
+127.0.0.1 - - [04/Nov/2026 02:49:27] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:27] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:27] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:27] "GET /lab/wasm-stream.js?build=26e9cf0155cd0cc5edf8448539c0b75e745202f4 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:27] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:27] "GET /lab/index.pck?build=14e83ecbc23561e0c868c9b2c0274f71c1ec315966c2da991c7145046e6226c9 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:27] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:28] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:29] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 02:49:29] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+portrait package state {'wind': 1} {'wind': 1} True ['wind']
+portrait PACKAGED WIND PASS 1 1

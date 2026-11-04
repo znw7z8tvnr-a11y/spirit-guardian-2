@@ -18,7 +18,7 @@ func clear() -> void:
  allocated=[]
 func run() -> void:
  resolver=preload("res://modules/spell/combat_resolver.gd").new();root.add_child(resolver)
- check(Catalog.PLAYABLE.size()==8 and "blizzard" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==15 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"blizzard is lab-only and stable root still advertises eight")
+ check(Catalog.PLAYABLE.size()==8 and "blizzard" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==16 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"blizzard is lab-only and stable root still advertises eight")
  check(Catalog.power("blizzard")==27 and Catalog.element("blizzard")=="ice","blizzard retains source damage and ice mapping")
  check(Effects.texture("blizzard").get_height()==192 and "暴風雪" in Effects.description("blizzard"),"blizzard has dedicated provisional faceted frost sprite and explicit radius description")
  for level in range(1,4):

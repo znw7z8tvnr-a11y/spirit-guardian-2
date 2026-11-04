@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="128" viewBox="0 0 64 128">
+<!-- Original provisional layered rising flame Sprite, anchored at its bottom. -->
+<defs><linearGradient id="flame" x2="0" y2="1"><stop stop-color="#fff2a7"/><stop offset=".45" stop-color="#ffb04c"/><stop offset="1" stop-color="#d9482d" stop-opacity=".2"/></linearGradient></defs>
+<path d="M34 4C15 24 42 38 23 57 17 48 16 43 15 34 0 65 3 83 12 97c-5 16 8 28 21 29 21-2 29-23 22-40-3-9-8-16-9-29-4 7-5 11-6 19C20 55 53 35 34 4Z" fill="#c73d2d" opacity=".35"/>
+<path d="M34 10C21 28 43 40 28 60 19 69 16 66 13 58 5 81 15 96 21 103c-5 12 3 21 13 22 16-2 23-19 16-34-6-11-7-16-8-24-2 8-4 11-6 15-17-19 18-43-2-72Z" fill="url(#flame)"/>
+<path d="M32 52c-6 14 8 20 1 35-7-5-10-7-12-13-4 17 8 25 7 35-3 6 0 12 6 13 11-2 14-15 8-25-11-17 7-28-10-45Z" fill="#ffe7a3"/>
+<path d="M33 91c-3 9 6 14 0 21-1 4 1 7 4 7 7-4 7-13-4-28Z" fill="#ffffd4"/>
+<g fill="#ffd386"><path d="m13 14 4 5-3 7-3-5Z"/><path d="m51 38 4 6-2 8-4-7Z"/></g>
+</svg>

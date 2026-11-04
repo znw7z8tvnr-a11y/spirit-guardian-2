@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="192" viewBox="0 0 256 192">
+<!-- Original provisional layered molten-ground Sprite; not final art. -->
+<defs><radialGradient id="heat"><stop stop-color="#ffb657" stop-opacity=".9"/><stop offset=".55" stop-color="#ed5e29" stop-opacity=".5"/><stop offset="1" stop-color="#8b2531" stop-opacity="0"/></radialGradient><linearGradient id="magma" x2="0" y2="1"><stop stop-color="#fff1a2"/><stop offset=".45" stop-color="#ffae42"/><stop offset="1" stop-color="#c83f2e"/></linearGradient></defs>
+<ellipse cx="128" cy="105" rx="123" ry="80" fill="url(#heat)"/>
+<path d="m15 89 32-42 44-8 39-21 43 18 55 29 16 36-20 48-52 24-64-5-55-17-34-26Z" fill="#302935" stroke="#633b3b" stroke-width="3"/>
+<g fill="url(#magma)"><path d="m128 28-5 41 22 19-12 14 37 29-19 34-5-30-41-29 17-20-12-17Z"/><path d="m28 86 57 7 28 15-19 8-26-16-32 1Z"/><path d="m128 98 30-28 51-2 19-6-15 16-49 1-21 24Z"/><path d="m117 111-25 30-33 8 20-18 21-3Z"/><path d="m169 128 43-11 18 14-28-3-24 8Z"/></g>
+<g fill="#55505a" stroke="#201f2d" stroke-width="2"><path d="m59 58 29-6 12 24-20 11-28-11Z"/><path d="m151 41 21 4 16 18-30-2-13 13Z"/><path d="m38 113 22-6 19 13-8 13-25-3Z"/><path d="m173 144 30-10 14 8-17 13Z"/></g>
+<g fill="#ffe3a0"><path d="m125 67 11 19-6 8 3-12Z"/><path d="m79 95 24 12-15-5Z"/><path d="m165 74 29-1-23 5Z"/><path d="m112 115-12 17-11 2Z"/></g>
+</svg>

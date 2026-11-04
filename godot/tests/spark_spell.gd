@@ -18,7 +18,7 @@ func clear() -> void:
  allocated=[]
 func run() -> void:
  resolver=preload("res://modules/spell/combat_resolver.gd").new();root.add_child(resolver)
- check(Catalog.PLAYABLE.size()==8 and "spark" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==15 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"spark is lab-only and stable root still advertises eight")
+ check(Catalog.PLAYABLE.size()==8 and "spark" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==16 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"spark is lab-only and stable root still advertises eight")
  check(Catalog.power("spark")==13 and Catalog.element("spark")=="lightning","spark retains source damage and lightning mapping")
  check(Effects.texture("spark").get_height()==192 and "火花術" in Effects.description("spark"),"spark has dedicated provisional plasma-flare sprite and explicit radius description")
  for level in range(1,4):

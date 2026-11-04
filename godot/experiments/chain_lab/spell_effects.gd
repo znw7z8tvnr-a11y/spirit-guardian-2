@@ -1,13 +1,15 @@
 extends RefCounted
 ## Lab spell rules, separated from projectile timing and chain traversal.
 const Catalog=preload("res://modules/spell/catalog.gd")
-const PLAYABLE=["fire","ice","lightning","arcane","poison","meteor","nova","beam","pierce","earth","wind","sword","spark","storm","blizzard"]
+const PLAYABLE=["fire","ice","lightning","arcane","poison","meteor","nova","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava"]
 const Art=preload("res://modules/spell/projectile.gd")
+const LAVA_ART=preload("res://experiments/chain_lab/assets/lava.svg")
+const LAVA_FLAME=preload("res://experiments/chain_lab/assets/lava_flame.svg")
 const BLIZZARD_ART=preload("res://experiments/chain_lab/assets/blizzard.svg")
 const BLIZZARD_SHARD=preload("res://experiments/chain_lab/assets/blizzard_shard.svg")
 const STORM_ART=preload("res://experiments/chain_lab/assets/storm.svg")
 const STORM_BOLT=preload("res://experiments/chain_lab/assets/storm_bolt.svg")
-const GROUND_RULES={"earth":{"radius":75.0,"limit":24},"wind":{"radius":125.0,"limit":24},"sword":{"radius":110.0,"limit":24},"spark":{"radius":165.0,"limit":6},"storm":{"radius":155.0,"limit":24},"blizzard":{"radius":155.0,"limit":24}}
+const GROUND_RULES={"earth":{"radius":75.0,"limit":24},"wind":{"radius":125.0,"limit":24},"sword":{"radius":110.0,"limit":24},"spark":{"radius":165.0,"limit":6},"storm":{"radius":155.0,"limit":24},"blizzard":{"radius":155.0,"limit":24},"lava":{"radius":75.0,"limit":24}}
 const SPARK_ART=preload("res://experiments/chain_lab/assets/spark.svg")
 const SWORD_ART=preload("res://experiments/chain_lab/assets/sword.svg")
 const WIND_ART=preload("res://experiments/chain_lab/assets/wind.svg")
@@ -16,6 +18,7 @@ const BEAM_ART=preload("res://experiments/chain_lab/assets/beam.svg")
 const ATLAS_REGIONS={"pierce":[&"lightning",Rect2(0,30,300,61)],"fire":[&"fire",Rect2(0,0,300,94)],"ice":[&"ice",Rect2(0,0,300,78)],"lightning":[&"lightning",Rect2(0,30,300,61)],"arcane":[&"arcane",Rect2(0,14,108,65)],"poison":[&"arcane",Rect2(110,13,190,75)],"meteor":[&"fire",Rect2(0,0,300,94)],"nova":[&"nova",Rect2(102,33,174,136)]}
 static var textures: Dictionary={}
 static func texture(key: String) -> Texture2D:
+ if key=="lava":return LAVA_ART
  if key=="blizzard":return BLIZZARD_ART
  if key=="storm":return STORM_ART
  if key=="spark":return SPARK_ART
@@ -32,7 +35,7 @@ static func impact_texture(key: String) -> Texture2D:
  if not textures.has("meteor_impact"):
   var atlas:=AtlasTexture.new();atlas.atlas=Art.TEXTURES[&"meteor"];atlas.region=Rect2(0,31,147,60);textures.meteor_impact=atlas
  return textures.meteor_impact
-const DESCRIPTIONS={"blizzard":"暴風雪：冰系，半徑 155 內最多 24 個目標，緩速 1.8 秒；冰晶只結算一次","storm":"雷電風暴：雷系，落點半徑 155 內，最多 24 個目標；落雷只結算一次","spark":"火花術：雷系，落點半徑 165 內，最多 6 個目標，每個目標完整傷害","sword":"迴旋月刃：火系，落點半徑 110 內，最多 24 個目標；旋轉只結算一次","wind":"颶風：落點半徑 125 內風系爆發，最多 24 個目標","earth":"土刺：落點半徑 75 內地面爆發，最多 24 個目標","pierce":"雷系水平掃射｜目標橫向帶半寬 38，最多 8 個目標","arcane":"單體奧術攻擊","fire":"爆裂：最多波及兩個鄰近目標","ice":"單體寒冰攻擊，附加緩速","lightning":"雷擊：最多波及兩個鄰近目標","poison":"附毒 2.5 秒，每 0.5 秒造成 3 傷害","meteor":"延遲落擊，半徑 145，最多 24 個目標","nova":"冰霜擴散，半徑 75，最多 24 個目標並緩速","beam":"沿本段施法方向穿透，最多 8 個目標"}
+const DESCRIPTIONS={"lava":"熔岩裂隙：火系，半徑 75 內最多 24 個目標；裂焰只結算一次","blizzard":"暴風雪：冰系，半徑 155 內最多 24 個目標，緩速 1.8 秒；冰晶只結算一次","storm":"雷電風暴：雷系，落點半徑 155 內，最多 24 個目標；落雷只結算一次","spark":"火花術：雷系，落點半徑 165 內，最多 6 個目標，每個目標完整傷害","sword":"迴旋月刃：火系，落點半徑 110 內，最多 24 個目標；旋轉只結算一次","wind":"颶風：落點半徑 125 內風系爆發，最多 24 個目標","earth":"土刺：落點半徑 75 內地面爆發，最多 24 個目標","pierce":"雷系水平掃射｜目標橫向帶半寬 38，最多 8 個目標","arcane":"單體奧術攻擊","fire":"爆裂：最多波及兩個鄰近目標","ice":"單體寒冰攻擊，附加緩速","lightning":"雷擊：最多波及兩個鄰近目標","poison":"附毒 2.5 秒，每 0.5 秒造成 3 傷害","meteor":"延遲落擊，半徑 145，最多 24 個目標","nova":"冰霜擴散，半徑 75，最多 24 個目標並緩速","beam":"沿本段施法方向穿透，最多 8 個目標"}
 static func description(key: String) -> String:return DESCRIPTIONS.get(key,"尚未實作")
 static func power(key: String, level: int, boost: float) -> float:
  return Catalog.power(key)*(1+0.55*(clampi(level,1,3)-1))*boost

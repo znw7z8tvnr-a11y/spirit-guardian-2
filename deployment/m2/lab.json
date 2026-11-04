@@ -1,15 +1,15 @@
 {
   "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
-  "deployment_id": "appgdep_6aeb29c429ec8191b9a4d3ef40742362",
-  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_0e66cb4d0cb48191b4c377ce5aa91445",
+  "deployment_id": "appgdep_6aeb2ee1cb548191a53d0156bc05e45b",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_81c59299f2608191ac8db624d11b431f",
   "status": "succeeded",
   "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
   "audience": "owner-private",
-  "game_source_commit": "ded4f820e2090e5e664dff87f7471b8488df60cc",
-  "hosting_source_commit": "3dfcdac5bf4f8d2da09caa7252cc95f4792869dd",
-  "ci_run": 41831288137,
-  "ci_artifact": 13324615563,
+  "game_source_commit": "f7ad37032d8ffa9140d2486d7b726c6fc04b28a9",
+  "hosting_source_commit": "822b4c337b63049e72567d357732dbbd032e6ea0",
+  "ci_run": 41834345567,
+  "ci_artifact": 13327240300,
   "stable_root_files_unchanged": true,
-  "release": "Twelfth Lab attack: fire-element moon blades with single area hit and three rotating Sprites",
-  "ci_source_commit": "ded4f820e2090e5e664dff87f7471b8488df60cc"
+  "release": "Thirteenth Lab attack: six-target lightning spark with damage-derived burst positions",
+  "ci_source_commit": "f7ad37032d8ffa9140d2486d7b726c6fc04b28a9"
 }

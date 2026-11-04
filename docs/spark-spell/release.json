@@ -1,0 +1,49 @@
+{
+  "release": "Thirteenth Lab attack: six-target lightning spark with damage-derived burst positions",
+  "game_source_commit": "f7ad37032d8ffa9140d2486d7b726c6fc04b28a9",
+  "hosting_source_commit": "822b4c337b63049e72567d357732dbbd032e6ea0",
+  "deployment": {
+    "id": "appgdep_6aeb2ee1cb548191a53d0156bc05e45b",
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "title": "靈境守衛 Spirit Guardian · M2 試玩",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_81c59299f2608191ac8db624d11b431f",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae21db4af948191b57fd49b52694b66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-04T13:11:17.767266+00:00"
+  },
+  "ci": {
+    "id": 41834345567,
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/41834345567",
+    "source_commit": "f7ad37032d8ffa9140d2486d7b726c6fc04b28a9",
+    "artifact": {
+      "id": 13327240300,
+      "name": "godot-spark-spell-delivery",
+      "size_in_bytes": 155380483
+    }
+  },
+  "native_checks": 661,
+  "local_web": [
+    "thirteen-skill inventory and timed-chain regression in both orientations",
+    "actual owned Spark equipment, cast and hit in both orientations",
+    "staged streaming loader, actual Spark hit and Sprite paused in both orientations"
+  ],
+  "adaptation": "Original ELEMENT classifies spark as lightning while executeCast sends spark to hit. Lab consistently uses metadata lightning for real hit and chain; not complete original parity.",
+  "implementation_notes": [
+    "Actual hit_positions are recorded only for resolved victims and used by spark FX",
+    "Initial radius branch error was caught by native boundary/cap tests and corrected before export; full regression then passed"
+  ],
+  "limits": [
+    "Temporary spark and other artwork; no final visual-quality claim",
+    "No iPad Safari hardware performance verification",
+    "No complete twenty-wave balance or full original-module parity claim",
+    "Nine original attack types and ten original gem types remain pending"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "engine": "Godot 4.6.3 official",
+  "source_commit": "f7ad37032d8ffa9140d2486d7b726c6fc04b28a9",
+  "passed_checks": 661,
+  "failures": [],
+  "scope": "Actual damage, six-victim cap, strict radius, hit-position FX, lightning gates and one continuation; browser testing is separate."
+}

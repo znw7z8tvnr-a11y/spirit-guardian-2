@@ -20,7 +20,7 @@
 | 引力漩渦 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 幽靈守衛 | primary target | catalog only; behavior port pending | not implemented |
 | 荊棘護城 | radius around primary target | catalog only; behavior port pending | not implemented |
-| 火花術 | within 165 of target | catalog only; behavior port pending | not implemented |
+| 火花術 | within 165 of target | catalog only; behavior port pending | Lab six-target spark burst; see SPARK_SPELL.md |
 | 雷電風暴 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 暴風雪 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 冰霜新星 | radius around primary target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |

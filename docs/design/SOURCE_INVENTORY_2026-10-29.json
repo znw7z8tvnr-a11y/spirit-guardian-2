@@ -368,7 +368,7 @@
         "max_victims": 6
       },
       "m2_1": "catalog only; behavior port pending",
-      "lab_v2": "not implemented",
+      "lab_v2": "Lab six-target spark burst; see SPARK_SPELL.md",
       "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
     },
     {

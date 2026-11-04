@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+<!-- Original provisional plasma-flare sprite; not final artwork. -->
+<defs><radialGradient id="halo"><stop stop-color="#fff3a2" stop-opacity=".8"/><stop offset="1" stop-color="#f9a241" stop-opacity="0"/></radialGradient><linearGradient id="plasma" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffde4"/><stop offset=".45" stop-color="#ffdf83"/><stop offset="1" stop-color="#dd7139" stop-opacity=".25"/></linearGradient></defs>
+<ellipse cx="96" cy="96" rx="86" ry="80" fill="url(#halo)"/>
+<g fill="url(#plasma)"><path d="m91 99-5-37 14 13 13-57 4 64 18-12-18 34 52 21-55-3 3 28-21-25-31 43 15-50-47-13 49-6Z"/><path d="M90 86C59 61 44 61 20 66c30 6 36 21 58 34-22 9-32 27-34 42 15-17 27-18 47-28 8 26 21 42 39 46-12-16-12-38-19-55 24-9 42-29 49-48-23 16-42 18-58 27Z"/></g>
+<g fill="none" stroke="#fff6bd" stroke-width="3" stroke-linejoin="round"><path d="m95 96 18-20-6-12 19-20"/><path d="m96 99-24 11-9-5-21 14"/><path d="m100 100 19 7 7 16 16 3"/></g>
+<path d="m96 76 12 15-5 20-17-3-7-15Z" fill="#ffffee"/>
+<g fill="#fff2bd"><path d="m49 35 5 11-9-2Z"/><path d="m154 147 7-2-2 10Z"/><path d="m35 152 9-3-4 9Z"/><path d="m160 87 10 4-7 5Z"/></g>
+</svg>

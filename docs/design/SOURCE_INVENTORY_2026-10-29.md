@@ -13,7 +13,7 @@
 | 迴旋月刃 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 穿透射線 | horizontal strip around target | catalog only; behavior port pending | Lab horizontal lightning strip; see PIERCE_SPELL.md |
 | 土刺 | radius around primary target | catalog only; behavior port pending | Lab ground eruption; see EARTH_SPELL.md |
-| 颶風 | radius around primary target | catalog only; behavior port pending | not implemented |
+| 颶風 | radius around primary target | catalog only; behavior port pending | Lab wind burst; see WIND_SPELL.md |
 | 聚焦光束 | horizontal strip around target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
 | 旋轉法球 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 熔岩裂隙 | radius around primary target | catalog only; behavior port pending | not implemented |

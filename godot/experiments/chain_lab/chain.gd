@@ -308,7 +308,7 @@ func arrange_discovered() -> bool:
 func load_spell_kit() -> void:
  load_kit()
  if not spell_kit_loaded:
-  for key in ["poison","meteor","nova","beam","pierce","earth"]:
+  for key in ["poison","meteor","nova","beam","pierce","earth","wind"]:
    var id:=items.size();spell_kit_ids[key]=id;items.append({"id":id,"kind":"skill","key":key,"level":2})
   for key in ["burn","freeze","lowhp","delay"]:
    var id:=items.size();gem_kit_ids[key]=id;items.append({"id":id,"kind":"gem","key":key,"level":1 if key=="delay" else 3})
@@ -318,4 +318,4 @@ func load_spell_kit() -> void:
  slots=[0,kit_ids[0],spell_kit_ids.poison,kit_ids[3],spell_kit_ids.meteor,kit_ids[5],spell_kit_ids.nova,kit_ids[8],spell_kit_ids.beam,-1]
  edges=[]
  for i in range(8):edges.append({"from":i,"to":i+1})
- reset_runtime();last_message="八技能演練：提供測試物品，不是正常掉落。";changed.emit()
+ reset_runtime();last_message="技能演練：提供測試物品，不是正常掉落。";changed.emit()

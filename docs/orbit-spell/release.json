@@ -1,0 +1,34 @@
+{
+  "deployment": {
+    "id": "appgdep_6af1c615ee9c81918ca80fbdac02deea",
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "title": "\u9748\u5883\u5b88\u885b Spirit Guardian \u00b7 M2 \u8a66\u73a9",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_23003d549b1481919d4de93c517640e8",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae21db4af948191b57fd49b52694b66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-09T13:09:59.917014+00:00"
+  },
+  "source_commit": "8cfbba9faf32e0429a01cd9fd1f7c39b019f235d",
+  "hosting_source_commit": "f6fd639a36baaa13a0cf5b350bac11e9676b0c5e",
+  "native_assertions": 836,
+  "orbit_assertions": 26,
+  "ci_run": 42621237202,
+  "ci_status": "completed",
+  "remaining_unported_chain_attack_types": 3,
+  "remaining_original_gems": 10,
+  "limits": [
+    "Temporary art",
+    "No iPad Safari hardware test",
+    "No full 20-wave balance acceptance",
+    "Tower passive orbit and contact damage remain pending; only single-hit chain cast is ported"
+  ],
+  "ci_conclusion": "success",
+  "ci_artifact": 13677356669,
+  "ci_artifact_url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/42621237202/artifacts/13677356669"
+}

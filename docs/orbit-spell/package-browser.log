@@ -1,0 +1,24 @@
+127.0.0.1 - - [09/Nov/2026 13:08:26] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:26] "GET /lab/wasm-stream.js?build=8cfbba9faf32e0429a01cd9fd1f7c39b019f235d HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:26] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:26] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:26] "GET /lab/index.pck?build=0d5153e4c974f48acaccb168a2468983d5000d2fbece039f79a11d1e436829b3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:26] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:26] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:26] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:28] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:28] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+landscape package state {'orbit': 1} {'orbit': 1} True ['orbit']
+landscape PACKAGED ORBIT PASS 1 1
+127.0.0.1 - - [09/Nov/2026 13:08:47] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:47] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:47] "GET /lab/wasm-stream.js?build=8cfbba9faf32e0429a01cd9fd1f7c39b019f235d HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:47] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:47] "GET /lab/index.pck?build=0d5153e4c974f48acaccb168a2468983d5000d2fbece039f79a11d1e436829b3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:47] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:47] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:47] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:48] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 13:08:48] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+portrait package state {'orbit': 1} {'orbit': 1} True ['orbit']
+portrait PACKAGED ORBIT PASS 1 1

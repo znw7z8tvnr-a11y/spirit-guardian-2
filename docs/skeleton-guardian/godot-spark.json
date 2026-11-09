@@ -1,0 +1,27 @@
+{
+  "checks": [
+    "spark is lab-only and stable root still advertises eight",
+    "spark retains source damage and lightning mapping",
+    "spark has dedicated provisional plasma-flare sprite and explicit radius description",
+    "level 1 applies real level and meat scaling",
+    "level 2 applies real level and meat scaling",
+    "level 3 applies real level and meat scaling",
+    "ground radius includes inner victims and excludes exact one-hundred-sixty-five boundary",
+    "spark adds no unsupported slow, poison or displacement",
+    "visual hit positions include only actual damaged victims",
+    "lightning spark cannot invent fire or ice gem conditions",
+    "aggregate result identifies actual primary hit and element",
+    "radius cap is six and selected target is retained",
+    "six real unique victims receive damage",
+    "empty ground produces no phantom hit",
+    "real chain cast damages three ground targets",
+    "real chain records lightning element without inventing a resonance recipe",
+    "multi-victim spark advances its following gem exactly once",
+    "actual shaped hit-located burst FX uses dedicated artwork",
+    "burst Sprite is anchored to actual survivor hit location",
+    "freed initial target retains original ground point and rejects distant survivor",
+    "ground hit records the real survivor rather than target zero",
+    "freed target with no nearby victims finishes as an actual miss"
+  ],
+  "failures": []
+}

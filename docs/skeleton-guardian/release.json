@@ -1,0 +1,48 @@
+{
+  "deployment": {
+    "id": "appgdep_6af1eef143688191ab5ced59f78a76f7",
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "title": "\u9748\u5883\u5b88\u885b Spirit Guardian \u00b7 M2 \u8a66\u73a9",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_6f5d361f78988191a0a401b195b7a623",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae21db4af948191b57fd49b52694b66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-09T16:04:21.403164+00:00"
+  },
+  "source_commit": "ffaa8156bc6765e5b7aa3cf1aef1f33eb02069bc",
+  "hosting_source_commit": "3d2c4baedf6fe29bf6ea7cc3afaa95c89c4a3571",
+  "native_assertions": 952,
+  "skeleton_assertions": 47,
+  "ci_run": 42648253225,
+  "ci_status": "completed",
+  "lab_catalog_attack_entries": 22,
+  "remaining_original_gems": 10,
+  "skeleton_remake_rules": {
+    "sense": 400,
+    "reach": 48,
+    "speed": 72,
+    "period": 0.8,
+    "lifetime": 8,
+    "shared_tier_limits": [
+      2,
+      3,
+      4
+    ],
+    "base_power": 11
+  },
+  "limits": [
+    "Temporary art",
+    "No iPad Safari hardware test",
+    "No full 20-wave balance acceptance",
+    "Melee skeleton AI is a new remake design; inspected originals provide direct cast and appearance FX",
+    "All 22 catalog attack entries run in Lab; original passive systems and complete module parity remain pending"
+  ],
+  "ci_conclusion": "success",
+  "ci_artifact": 13689304698,
+  "ci_artifact_url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/42648253225/artifacts/13689304698"
+}

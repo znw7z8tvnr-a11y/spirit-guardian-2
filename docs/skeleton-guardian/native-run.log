@@ -1,0 +1,66 @@
+import PASS
+labparse PASS
+integration PASS
+18 checks passed; {'enemies': 2, 'hp': 66.0, 'kills': 54, 'over': False, 'projectiles': 2, 'wave': 4}
+modules PASS
+39 checks passed; {}
+localization PASS
+21 checks passed; {}
+touch PASS
+20 checks passed; {}
+chainlab PASS
+30 checks passed; {'casts': 52, 'hp': 100.0, 'kills': 19, 'resonances': 4, 'retargets': 6, 'wave': 4}
+flow PASS
+28 checks passed; {}
+rewards PASS
+26 checks passed; {}
+inventory PASS
+13 checks passed; {}
+tree PASS
+59 checks passed; {}
+skeleton PASS
+47 checks passed; {}
+guardians PASS
+42 checks passed; {}
+thorn PASS
+26 checks passed; {}
+orbit PASS
+26 checks passed; {}
+gravity PASS
+24 checks passed; {}
+swamp PASS
+39 checks passed; {}
+lava PASS
+29 checks passed; {}
+blizzard PASS
+31 checks passed; {}
+storm PASS
+26 checks passed; {}
+spark PASS
+22 checks passed; {}
+sword PASS
+22 checks passed; {}
+wind PASS
+19 checks passed; {}
+earth PASS
+22 checks passed; {}
+pierce PASS
+17 checks passed; {}
+timing PASS
+33 checks passed; {}
+lowhp PASS
+50 checks passed; {}
+elementgems PASS
+52 checks passed; {}
+echo PASS
+18 checks passed; {}
+amplify PASS
+10 checks passed; {}
+gemtriggers PASS
+38 checks passed; {}
+eightspells PASS
+37 checks passed; {}
+firstboss PASS
+31 checks passed; {}
+flesh PASS
+37 checks passed; {}

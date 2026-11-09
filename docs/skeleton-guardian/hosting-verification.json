@@ -1,0 +1,9 @@
+{
+  "initial_lab_source": "dff00a6cd7ea345f330d137893e8dd7dd32757d4",
+  "expected_lab_source": "ffaa8156bc6765e5b7aa3cf1aef1f33eb02069bc",
+  "local_archive_and_saved_source_match": true,
+  "fresh_no_cache_request_passed": true,
+  "subsequent_normal_request_passed": true,
+  "no_repeat_publication": true,
+  "scope": "Observed stale response followed by consistent assets; exact caching or propagation mechanism not established."
+}

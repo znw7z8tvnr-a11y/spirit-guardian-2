@@ -1,0 +1,24 @@
+127.0.0.1 - - [09/Nov/2026 16:02:26] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:26] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:26] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:26] "GET /lab/wasm-stream.js?build=ffaa8156bc6765e5b7aa3cf1aef1f33eb02069bc HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:26] "GET /lab/index.pck?build=02379902a2105fc68bf61b978f8aa4485a52134d3710004ae0127d8f6985d3dc HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:26] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:27] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:27] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:28] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:28] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+landscape package state {'skeleton': 1} {'skeleton': 1} True ['skeleton', 'skeleton']
+landscape PACKAGED SKELETON PASS 1 1
+127.0.0.1 - - [09/Nov/2026 16:02:50] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:50] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:50] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:50] "GET /lab/wasm-stream.js?build=ffaa8156bc6765e5b7aa3cf1aef1f33eb02069bc HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:50] "GET /lab/index.pck?build=02379902a2105fc68bf61b978f8aa4485a52134d3710004ae0127d8f6985d3dc HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:50] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:50] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:50] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:51] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 16:02:51] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+portrait package state {'skeleton': 1} {'skeleton': 1} True ['skeleton', 'skeleton']
+portrait PACKAGED SKELETON PASS 1 1

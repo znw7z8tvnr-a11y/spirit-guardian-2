@@ -1,0 +1,48 @@
+{
+  "deployment": {
+    "id": "appgdep_6af1e78adde8819198147e3e082c8e08",
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "title": "靈境守衛 Spirit Guardian · M2 試玩",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_2cd173b4db688191997fc8f89af25238",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae21db4af948191b57fd49b52694b66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-09T15:32:44.992640+00:00"
+  },
+  "source_commit": "dff00a6cd7ea345f330d137893e8dd7dd32757d4",
+  "hosting_source_commit": "c1248367d9eab1fccad936b33acec4ec934420e3",
+  "native_assertions": 905,
+  "guardian_assertions": 42,
+  "ci_run": 42640320549,
+  "ci_status": "completed",
+  "ci_conclusion": "success",
+  "ci_artifact": 13685269271,
+  "ci_artifact_url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/42640320549/artifacts/13685269271",
+  "remaining_unported_chain_attack_types": 1,
+  "remaining_original_gems": 10,
+  "guardian_rules": {
+    "sense": 400,
+    "reach": 65,
+    "speed": 88,
+    "period": 0.55,
+    "lifetime": 8,
+    "tier_limits": [
+      2,
+      3,
+      4
+    ],
+    "base_power": 9
+  },
+  "limits": [
+    "Temporary art",
+    "No iPad Safari hardware test",
+    "No full 20-wave balance acceptance",
+    "Chain cast integrated with finite guardian; original automatic permanent passive summon remains a documented adaptation",
+    "Guardian scaling uses captured Lab skill/blood/affix values, not original global sg7Atk formula"
+  ]
+}

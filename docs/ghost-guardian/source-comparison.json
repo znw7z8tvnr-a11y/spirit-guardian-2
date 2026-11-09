@@ -1,0 +1,43 @@
+{
+  "sources": [
+    {
+      "file": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "sha256": "6e2a9443b709b87dc1ce79d0663d980d8a19a19333c0b27f5709746cbb49f02e",
+      "cast_line": 120,
+      "summon_ai_line": null
+    },
+    {
+      "file": "reference_modules/spirit_guardian_v31_16_skills_final.html",
+      "sha256": "42f2ea78917bb51b54afe2280726c8a1431f9a0279d86ab4f701bab8861d127f",
+      "cast_line": 867,
+      "summon_ai_line": 276
+    },
+    {
+      "file": "reference_modules/spirit_guardian_v31_30_combat_vfx_final.html",
+      "sha256": "7bbf666bd601cbb14d12d3cc9374b6c39d1301b91214d18ab232076f7359754e",
+      "cast_line": 789,
+      "summon_ai_line": 198
+    }
+  ],
+  "direct_power": 22,
+  "direct_class": "summon",
+  "ai_sense": 400,
+  "ai_reach": 65,
+  "ai_speed": 88,
+  "ai_period": 0.55,
+  "ai_base_power": 9,
+  "ai_element": "lightning",
+  "lab_lifetime": 8,
+  "lab_limits_by_tier": [
+    2,
+    3,
+    4
+  ],
+  "differences": [
+    "Connect chain cast to real autonomous guardian; original systems are separate",
+    "One guardian per cast rather than automatic periodic spawn",
+    "Finite eight-second life rather than permanent units",
+    "Guardian damage uses captured Lab skill/blood/affix scaling instead of original global sg7Atk formulas",
+    "Delayed guardian hit/kill does not retroactively reopen chain gates"
+  ]
+}

@@ -1,0 +1,24 @@
+127.0.0.1 - - [09/Nov/2026 15:31:06] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:06] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:06] "GET /lab/wasm-stream.js?build=dff00a6cd7ea345f330d137893e8dd7dd32757d4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:06] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:06] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:06] "GET /lab/index.pck?build=f8bb323bed19fc41a59750b271dbe311f650ee0cc18aa714296c932899b7d3bc HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:06] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:06] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:08] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:08] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+landscape package state {'summon': 1} {'summon': 1} True ['summon', 'summon']
+landscape PACKAGED GUARDIAN PASS 1 1
+127.0.0.1 - - [09/Nov/2026 15:31:29] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:29] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:29] "GET /lab/wasm-stream.js?build=dff00a6cd7ea345f330d137893e8dd7dd32757d4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:29] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:29] "GET /lab/index.pck?build=f8bb323bed19fc41a59750b271dbe311f650ee0cc18aa714296c932899b7d3bc HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:29] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:30] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:30] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:31] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 15:31:31] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+portrait package state {'summon': 1} {'summon': 1} True ['summon', 'summon']
+portrait PACKAGED GUARDIAN PASS 1 1

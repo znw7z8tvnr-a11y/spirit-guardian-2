@@ -18,7 +18,7 @@ func clear() -> void:
  allocated=[]
 func run() -> void:
  resolver=preload("res://modules/spell/combat_resolver.gd").new();root.add_child(resolver)
- check(Catalog.PLAYABLE.size()==8 and "wind" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==20 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"wind is lab-only and stable root still advertises eight")
+ check(Catalog.PLAYABLE.size()==8 and "wind" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==21 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"wind is lab-only and stable root still advertises eight")
  check(Catalog.power("wind")==17 and Catalog.element("wind")=="wind","wind retains source damage and wind mapping")
  check(Effects.texture("wind").get_height()==256 and "颶風" in Effects.description("wind"),"wind has dedicated provisional vortex sprite and explicit radius description")
  for level in range(1,4):

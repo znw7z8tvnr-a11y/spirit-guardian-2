@@ -16,6 +16,8 @@ The newly authored `godot/experiments/chain_lab/assets/orbit.svg` and `orbit_orb
 
 The newly authored `godot/experiments/chain_lab/assets/thorn.svg` and `thorn_spike.svg` are also available under these MIT terms. Other pre-existing artwork retains its original status.
 
+The newly authored `godot/experiments/chain_lab/assets/summon.svg` and `ghost_guardian.svg` are also available under these MIT terms. Other pre-existing artwork retains its original status.
+
 MIT License
 
 Copyright (c) 2026 Spirit Guardian contributors

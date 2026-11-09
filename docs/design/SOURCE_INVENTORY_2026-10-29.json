@@ -332,7 +332,7 @@
         "max_victims": 1
       },
       "m2_1": "catalog only; behavior port pending",
-      "lab_v2": "not implemented",
+      "lab_v2": "Lab single-target cast plus finite autonomous ghost guardian adaptation; see GHOST_GUARDIAN.md",
       "cross_module_behavior_review": "PENDING: V9 selection alone cannot establish complete animation, summon AI or persistent zones"
     },
     {

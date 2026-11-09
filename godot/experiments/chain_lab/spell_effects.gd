@@ -1,8 +1,10 @@
 extends RefCounted
 ## Lab spell rules, separated from projectile timing and chain traversal.
 const Catalog=preload("res://modules/spell/catalog.gd")
-const PLAYABLE=["fire","ice","lightning","arcane","poison","meteor","nova","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity","orbit","thorn"]
+const PLAYABLE=["fire","ice","lightning","arcane","poison","meteor","nova","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity","orbit","thorn","summon"]
 const Art=preload("res://modules/spell/projectile.gd")
+const SUMMON_ART=preload("res://experiments/chain_lab/assets/summon.svg")
+const GHOST_ART=preload("res://experiments/chain_lab/assets/ghost_guardian.svg")
 const THORN_ART=preload("res://experiments/chain_lab/assets/thorn.svg")
 const THORN_SPIKE=preload("res://experiments/chain_lab/assets/thorn_spike.svg")
 const ORBIT_ART=preload("res://experiments/chain_lab/assets/orbit.svg")
@@ -26,6 +28,7 @@ const BEAM_ART=preload("res://experiments/chain_lab/assets/beam.svg")
 const ATLAS_REGIONS={"pierce":[&"lightning",Rect2(0,30,300,61)],"fire":[&"fire",Rect2(0,0,300,94)],"ice":[&"ice",Rect2(0,0,300,78)],"lightning":[&"lightning",Rect2(0,30,300,61)],"arcane":[&"arcane",Rect2(0,14,108,65)],"poison":[&"arcane",Rect2(110,13,190,75)],"meteor":[&"fire",Rect2(0,0,300,94)],"nova":[&"nova",Rect2(102,33,174,136)]}
 static var textures: Dictionary={}
 static func texture(key: String) -> Texture2D:
+ if key=="summon":return GHOST_ART
  if key=="thorn":return THORN_ART
  if key=="orbit":return ORBIT_ART
  if key=="gravity":return GRAVITY_ART
@@ -47,7 +50,7 @@ static func impact_texture(key: String) -> Texture2D:
  if not textures.has("meteor_impact"):
   var atlas:=AtlasTexture.new();atlas.atlas=Art.TEXTURES[&"meteor"];atlas.region=Rect2(0,31,147,60);textures.meteor_impact=atlas
  return textures.meteor_impact
-const DESCRIPTIONS={"thorn":"荊棘護城：半徑 75 內最多 24 個目標；刺叢只結算一次，非永久城牆或反傷","orbit":"旋轉法球：半徑 75 內最多 24 個目標；五顆法球只結算一次，非永久環繞","gravity":"引力漩渦：風系，半徑 125 內最多 24 個目標；向內旋轉只結算一次，無吸怪位移","swamp":"毒沼：毒系，半徑 75 內最多 24 個目標；中毒 2.5 秒，每 0.5 秒 3 傷害","lava":"熔岩裂隙：火系，半徑 75 內最多 24 個目標；裂焰只結算一次","blizzard":"暴風雪：冰系，半徑 155 內最多 24 個目標，緩速 1.8 秒；冰晶只結算一次","storm":"雷電風暴：雷系，落點半徑 155 內，最多 24 個目標；落雷只結算一次","spark":"火花術：雷系，落點半徑 165 內，最多 6 個目標，每個目標完整傷害","sword":"迴旋月刃：火系，落點半徑 110 內，最多 24 個目標；旋轉只結算一次","wind":"颶風：落點半徑 125 內風系爆發，最多 24 個目標","earth":"土刺：落點半徑 75 內地面爆發，最多 24 個目標","pierce":"雷系水平掃射｜目標橫向帶半寬 38，最多 8 個目標","arcane":"單體奧術攻擊","fire":"爆裂：最多波及兩個鄰近目標","ice":"單體寒冰攻擊，附加緩速","lightning":"雷擊：最多波及兩個鄰近目標","poison":"附毒 2.5 秒，每 0.5 秒造成 3 傷害","meteor":"延遲落擊，半徑 145，最多 24 個目標","nova":"冰霜擴散，半徑 75，最多 24 個目標並緩速","beam":"沿本段施法方向穿透，最多 8 個目標"}
+const DESCRIPTIONS={"summon":"幽靈守衛：單體直擊後召喚 8 秒幽靈；索敵 400、近身 65、每 0.55 秒雷擊，基礎 9；上限為技能等級加一","thorn":"荊棘護城：半徑 75 內最多 24 個目標；刺叢只結算一次，非永久城牆或反傷","orbit":"旋轉法球：半徑 75 內最多 24 個目標；五顆法球只結算一次，非永久環繞","gravity":"引力漩渦：風系，半徑 125 內最多 24 個目標；向內旋轉只結算一次，無吸怪位移","swamp":"毒沼：毒系，半徑 75 內最多 24 個目標；中毒 2.5 秒，每 0.5 秒 3 傷害","lava":"熔岩裂隙：火系，半徑 75 內最多 24 個目標；裂焰只結算一次","blizzard":"暴風雪：冰系，半徑 155 內最多 24 個目標，緩速 1.8 秒；冰晶只結算一次","storm":"雷電風暴：雷系，落點半徑 155 內，最多 24 個目標；落雷只結算一次","spark":"火花術：雷系，落點半徑 165 內，最多 6 個目標，每個目標完整傷害","sword":"迴旋月刃：火系，落點半徑 110 內，最多 24 個目標；旋轉只結算一次","wind":"颶風：落點半徑 125 內風系爆發，最多 24 個目標","earth":"土刺：落點半徑 75 內地面爆發，最多 24 個目標","pierce":"雷系水平掃射｜目標橫向帶半寬 38，最多 8 個目標","arcane":"單體奧術攻擊","fire":"爆裂：最多波及兩個鄰近目標","ice":"單體寒冰攻擊，附加緩速","lightning":"雷擊：最多波及兩個鄰近目標","poison":"附毒 2.5 秒，每 0.5 秒造成 3 傷害","meteor":"延遲落擊，半徑 145，最多 24 個目標","nova":"冰霜擴散，半徑 75，最多 24 個目標並緩速","beam":"沿本段施法方向穿透，最多 8 個目標"}
 static func description(key: String) -> String:return DESCRIPTIONS.get(key,"尚未實作")
 static func power(key: String, level: int, boost: float) -> float:
  return Catalog.power(key)*(1+0.55*(clampi(level,1,3)-1))*boost

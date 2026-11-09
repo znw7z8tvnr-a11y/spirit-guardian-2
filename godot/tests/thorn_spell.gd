@@ -18,7 +18,7 @@ func clear() -> void:
  allocated=[]
 func run() -> void:
  resolver=preload("res://modules/spell/combat_resolver.gd").new();root.add_child(resolver)
- check(Catalog.PLAYABLE.size()==8 and "thorn" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==20 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"thorn is lab-only and stable root still advertises eight")
+ check(Catalog.PLAYABLE.size()==8 and "thorn" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==21 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"thorn is lab-only and stable root still advertises eight")
  check(Catalog.power("thorn")==20 and Catalog.element("thorn")=="thorn","thorn retains source damage and thorn identity")
  check(Effects.texture("thorn").get_height()==192 and "荊棘護城" in Effects.description("thorn"),"thorn has dedicated provisional vortex sprite and explicit radius description")
  for level in range(1,4):

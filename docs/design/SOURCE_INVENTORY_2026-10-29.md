@@ -18,7 +18,7 @@
 | 旋轉法球 | radius around primary target | catalog only; behavior port pending | Lab single-hit orbit cast with five visual orbs; passive tower orbit pending; see ORBIT_SPELL.md |
 | 熔岩裂隙 | radius around primary target | catalog only; behavior port pending | Lab fire-element lava burst; see LAVA_SPELL.md |
 | 引力漩渦 | radius around primary target | catalog only; behavior port pending | Lab single-hit wind-element gravity vortex without displacement; see GRAVITY_SPELL.md |
-| 幽靈守衛 | primary target | catalog only; behavior port pending | not implemented |
+| 幽靈守衛 | primary target | catalog only; behavior port pending | Lab single-target cast plus finite autonomous ghost guardian adaptation; see GHOST_GUARDIAN.md |
 | 荊棘護城 | radius around primary target | catalog only; behavior port pending | Lab single-hit thorn burst; no permanent wall or reflection; see THORN_SPELL.md |
 | 火花術 | within 165 of target | catalog only; behavior port pending | Lab six-target spark burst; see SPARK_SPELL.md |
 | 雷電風暴 | radius around primary target | catalog only; behavior port pending | Lab thunderstorm single burst; see STORM_SPELL.md |

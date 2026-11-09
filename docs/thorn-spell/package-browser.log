@@ -1,0 +1,30 @@
+127.0.0.1 - - [09/Nov/2026 14:50:00] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:00] "GET /lab/wasm-stream.js?build=46c71236018ce587099f88f9bef1aae83ecad100 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:00] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:00] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:00] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:00] "GET /lab/index.pck?build=10110e8ef4a84a41ea8a82331f521a8912a82f2573bbb3a3af0b791bac6f78b6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:00] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:01] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:02] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:02] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+landscape selection 25 25 目前：奧術飛彈・1 級｜直擊基礎傷害 18.0（含血肉攻擊加成；範圍與狀態效果另計）
+候選：荊棘護城・2 級｜直擊基礎傷害 31.0（含血肉攻擊加成；範圍與狀態效果另計）；荊棘護城：半徑 75 內最多 24 個目標；刺叢只結算一次，非永久城牆或反傷
+可以替換；容量及其他物品不變。 [370, 693, 220, 126]
+landscape package state {'thorn': 1} {'thorn': 1} True ['thorn']
+landscape PACKAGED THORN PASS 1 1
+127.0.0.1 - - [09/Nov/2026 14:50:31] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:31] "GET /lab/wasm-stream.js?build=46c71236018ce587099f88f9bef1aae83ecad100 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:31] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:31] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:31] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:31] "GET /lab/index.pck?build=10110e8ef4a84a41ea8a82331f521a8912a82f2573bbb3a3af0b791bac6f78b6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:31] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:31] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:33] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:50:33] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+portrait selection 25 25 目前：奧術飛彈・1 級｜直擊基礎傷害 18.0（含血肉攻擊加成；範圍與狀態效果另計）
+候選：荊棘護城・2 級｜直擊基礎傷害 31.0（含血肉攻擊加成；範圍與狀態效果另計）；荊棘護城：半徑 75 內最多 24 個目標；刺叢只結算一次，非永久城牆或反傷
+可以替換；容量及其他物品不變。 [370, 693, 220, 126]
+portrait package state {'thorn': 1} {'thorn': 1} True ['thorn']
+portrait PACKAGED THORN PASS 1 1

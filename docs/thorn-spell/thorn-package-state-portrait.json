@@ -1,0 +1,628 @@
+{
+  "absorbed": 0,
+  "active": true,
+  "arrange_disabled": true,
+  "attack_multiplier": 1,
+  "attack_period": 3.8,
+  "auto_growth": true,
+  "boss": {},
+  "boss_kills": 0,
+  "buttons": {
+    "Arrange": [
+      474,
+      105,
+      152,
+      72
+    ],
+    "AutoGrowth": [
+      92,
+      52,
+      152,
+      72
+    ],
+    "Configure": [
+      340,
+      1711,
+      196,
+      72
+    ],
+    "Connect": [
+      420,
+      294,
+      152,
+      72
+    ],
+    "Disconnect": [
+      576,
+      294,
+      152,
+      72
+    ],
+    "Done": [
+      135,
+      105,
+      206,
+      72
+    ],
+    "Equip": [
+      108,
+      294,
+      152,
+      72
+    ],
+    "Flesh": [
+      940,
+      1711,
+      196,
+      72
+    ],
+    "Grow armor": [
+      366,
+      59,
+      700,
+      86
+    ],
+    "Grow atk": [
+      366,
+      59,
+      700,
+      86
+    ],
+    "Grow hp": [
+      366,
+      59,
+      700,
+      86
+    ],
+    "Grow regen": [
+      366,
+      59,
+      700,
+      86
+    ],
+    "GrowthDone": [
+      92,
+      52,
+      152,
+      72
+    ],
+    "Inventory": [
+      640,
+      218,
+      1216,
+      72
+    ],
+    "InventoryApply": [
+      370,
+      109,
+      220,
+      72
+    ],
+    "InventoryClose": [
+      146,
+      109,
+      220,
+      72
+    ],
+    "InventoryNext": [
+      370,
+      330,
+      220,
+      72
+    ],
+    "InventoryPrev": [
+      146,
+      330,
+      220,
+      72
+    ],
+    "Item -1": [
+      146,
+      433,
+      220,
+      126
+    ],
+    "Item 0": [
+      370,
+      433,
+      220,
+      126
+    ],
+    "Item 1": [
+      594,
+      433,
+      220,
+      126
+    ],
+    "Item 10": [
+      370,
+      693,
+      220,
+      126
+    ],
+    "Item 11": [
+      594,
+      693,
+      220,
+      126
+    ],
+    "Item 12": [
+      818,
+      693,
+      220,
+      126
+    ],
+    "Item 13": [
+      1042,
+      693,
+      220,
+      126
+    ],
+    "Item 14": [
+      146,
+      433,
+      220,
+      126
+    ],
+    "Item 15": [
+      370,
+      433,
+      220,
+      126
+    ],
+    "Item 16": [
+      594,
+      433,
+      220,
+      126
+    ],
+    "Item 17": [
+      818,
+      433,
+      220,
+      126
+    ],
+    "Item 18": [
+      1042,
+      433,
+      220,
+      126
+    ],
+    "Item 19": [
+      146,
+      563,
+      220,
+      126
+    ],
+    "Item 2": [
+      818,
+      433,
+      220,
+      126
+    ],
+    "Item 20": [
+      370,
+      563,
+      220,
+      126
+    ],
+    "Item 21": [
+      594,
+      563,
+      220,
+      126
+    ],
+    "Item 22": [
+      818,
+      563,
+      220,
+      126
+    ],
+    "Item 23": [
+      1042,
+      563,
+      220,
+      126
+    ],
+    "Item 24": [
+      146,
+      693,
+      220,
+      126
+    ],
+    "Item 25": [
+      370,
+      693,
+      220,
+      126
+    ],
+    "Item 26": [
+      594,
+      693,
+      220,
+      126
+    ],
+    "Item 27": [
+      818,
+      693,
+      220,
+      126
+    ],
+    "Item 28": [
+      1042,
+      693,
+      220,
+      126
+    ],
+    "Item 29": [
+      146,
+      433,
+      220,
+      126
+    ],
+    "Item 3": [
+      1042,
+      433,
+      220,
+      126
+    ],
+    "Item 4": [
+      146,
+      563,
+      220,
+      126
+    ],
+    "Item 5": [
+      370,
+      563,
+      220,
+      126
+    ],
+    "Item 6": [
+      594,
+      563,
+      220,
+      126
+    ],
+    "Item 7": [
+      818,
+      563,
+      220,
+      126
+    ],
+    "Item 8": [
+      1042,
+      563,
+      220,
+      126
+    ],
+    "Item 9": [
+      146,
+      693,
+      220,
+      126
+    ],
+    "Kit": [
+      540,
+      1711,
+      196,
+      72
+    ],
+    "Pause": [
+      740,
+      1787,
+      196,
+      72
+    ],
+    "Random": [
+      318,
+      105,
+      152,
+      72
+    ],
+    "Restart": [
+      940,
+      1787,
+      196,
+      72
+    ],
+    "Reward 0": [
+      416,
+      75,
+      800,
+      118
+    ],
+    "Reward 1": [
+      416,
+      75,
+      800,
+      118
+    ],
+    "Reward 2": [
+      416,
+      75,
+      800,
+      118
+    ],
+    "RewardRefresh": [
+      20,
+      52,
+      8,
+      72
+    ],
+    "Slot 0": [
+      106,
+      406,
+      92,
+      92
+    ],
+    "Slot 1": [
+      223.5,
+      406,
+      92,
+      92
+    ],
+    "Slot 2": [
+      341,
+      406,
+      92,
+      92
+    ],
+    "Slot 3": [
+      458.5,
+      406,
+      92,
+      92
+    ],
+    "Slot 4": [
+      576,
+      406,
+      92,
+      92
+    ],
+    "Slot 5": [
+      693.5,
+      406,
+      92,
+      92
+    ],
+    "Slot 6": [
+      811,
+      406,
+      92,
+      92
+    ],
+    "Slot 7": [
+      928.5,
+      406,
+      92,
+      92
+    ],
+    "Slot 8": [
+      1046,
+      406,
+      92,
+      92
+    ],
+    "Slot 9": [
+      106,
+      744,
+      92,
+      92
+    ],
+    "Source": [
+      264,
+      294,
+      152,
+      72
+    ],
+    "Speed": [
+      540,
+      1787,
+      196,
+      72
+    ],
+    "SpellKit": [
+      740,
+      1711,
+      196,
+      72
+    ],
+    "Tempo": [
+      340,
+      1787,
+      196,
+      72
+    ]
+  },
+  "candidate": 25,
+  "capacity": 10,
+  "casts": 1,
+  "combat_seconds": 3.96666666666666,
+  "defense": 0,
+  "discovered": [],
+  "edges": [
+    {
+      "from": 0,
+      "to": 1
+    },
+    {
+      "from": 1,
+      "to": 2
+    },
+    {
+      "from": 2,
+      "to": 3
+    },
+    {
+      "from": 3,
+      "to": 4
+    },
+    {
+      "from": 4,
+      "to": 5
+    },
+    {
+      "from": 5,
+      "to": 6
+    },
+    {
+      "from": 6,
+      "to": 7
+    },
+    {
+      "from": 7,
+      "to": 8
+    }
+  ],
+  "edit_open": false,
+  "empty_casts": 0,
+  "enemies": 0,
+  "flesh": 0,
+  "gem_cooldowns": {
+    "29": 0
+  },
+  "gem_kit_ids": {
+    "burn": 26,
+    "delay": 29,
+    "freeze": 27,
+    "lowhp": 28
+  },
+  "growth_levels": {
+    "armor": 0,
+    "atk": 0,
+    "hp": 0,
+    "regen": 0
+  },
+  "growth_open": false,
+  "hits": 1,
+  "hp": 100,
+  "inventory_apply_disabled": false,
+  "inventory_detail": "目前：奧術飛彈・1 級｜直擊基礎傷害 18.0（含血肉攻擊加成；範圍與狀態效果另計）\n候選：荊棘護城・2 級｜直擊基礎傷害 31.0（含血肉攻擊加成；範圍與狀態效果另計）；荊棘護城：半徑 75 內最多 24 個目標；刺叢只結算一次，非永久城牆或反傷\n可以替換；容量及其他物品不變。",
+  "inventory_open": false,
+  "inventory_page": 1,
+  "item_count": 30,
+  "jumps": 0,
+  "kills": 1,
+  "kit": true,
+  "meat_pending": 1,
+  "misses": 0,
+  "paused": true,
+  "pending": 1,
+  "regen": 0,
+  "resonances": 0,
+  "retargets": 0,
+  "reward_attack_stacks": 0,
+  "reward_completed": [],
+  "reward_extra_refresh": 0,
+  "reward_granted": 0,
+  "reward_loadout": false,
+  "reward_offers": [],
+  "reward_pending": 0,
+  "reward_refreshes": 0,
+  "rolls": 0,
+  "selected": 0,
+  "slots": [
+    25,
+    1,
+    10,
+    4,
+    11,
+    6,
+    12,
+    9,
+    13,
+    -1
+  ],
+  "speed": 1,
+  "spell_attack_multiplier": 1,
+  "spell_casts": {
+    "thorn": 1
+  },
+  "spell_flights": [],
+  "spell_hits": {
+    "thorn": 1
+  },
+  "spell_keys": [
+    "fire",
+    "ice",
+    "lightning",
+    "arcane",
+    "poison",
+    "meteor",
+    "nova",
+    "beam",
+    "pierce",
+    "earth",
+    "wind",
+    "sword",
+    "spark",
+    "storm",
+    "blizzard",
+    "lava",
+    "swamp",
+    "gravity",
+    "orbit",
+    "thorn"
+  ],
+  "spell_kit": true,
+  "spell_kit_ids": {
+    "beam": 13,
+    "blizzard": 20,
+    "earth": 15,
+    "gravity": 23,
+    "lava": 21,
+    "meteor": 11,
+    "nova": 12,
+    "orbit": 24,
+    "pierce": 14,
+    "poison": 10,
+    "spark": 18,
+    "storm": 19,
+    "swamp": 22,
+    "sword": 17,
+    "thorn": 25,
+    "wind": 16
+  },
+  "spell_visuals": [
+    "thorn"
+  ],
+  "summon_events": 0,
+  "summoned_minions": 0,
+  "tempo": 0,
+  "trace": [
+    {
+      "at": [
+        1496.47534179688,
+        781.34375
+      ],
+      "damage_scale": 1,
+      "empty": false,
+      "is_echo": false,
+      "key": "thorn",
+      "kind": "cast",
+      "origin": [
+        900,
+        435
+      ],
+      "run": 1,
+      "slot": 0,
+      "target": 71789709102
+    },
+    {
+      "is_echo": false,
+      "kind": "hit",
+      "run": 1,
+      "slot": 0,
+      "target": 71789709102
+    }
+  ],
+  "viewport": [
+    1280,
+    1841
+  ],
+  "wall_active": true,
+  "wall_hp": 360,
+  "wall_max": 360,
+  "wave": 1
+}

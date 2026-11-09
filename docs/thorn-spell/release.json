@@ -1,0 +1,35 @@
+{
+  "deployment": {
+    "id": "appgdep_6af1de0198e48191891ff93249d06cb9",
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "title": "靈境守衛 Spirit Guardian · M2 試玩",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_17353d1deb888191affd5eaa3053eb96",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae21db4af948191b57fd49b52694b66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-09T14:52:03.550232+00:00"
+  },
+  "source_commit": "46c71236018ce587099f88f9bef1aae83ecad100",
+  "hosting_source_commit": "d34c5c81791d1ccad06980110f5ad37bc38b7ec3",
+  "native_assertions": 863,
+  "thorn_assertions": 26,
+  "ci_run": 42636278587,
+  "ci_status": "completed",
+  "ci_conclusion": "success",
+  "ci_artifact": 13684860228,
+  "ci_artifact_url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/42636278587/artifacts/13684860228",
+  "remaining_unported_chain_attack_types": 2,
+  "remaining_original_gems": 10,
+  "test_path_correction": "Thorn is owned item 25 on page 2; final timing gem is item 29 on page 3. Fixed staged test assumption and confirmed both orientations without game changes.",
+  "limits": [
+    "Temporary art",
+    "No iPad Safari hardware test",
+    "No full 20-wave balance acceptance",
+    "No permanent defensive wall, reflection or root status in this chain-cast port"
+  ]
+}

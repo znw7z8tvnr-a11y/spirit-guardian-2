@@ -1,0 +1,27 @@
+127.0.0.1 - - [09/Nov/2026 14:48:05] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:48:05] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:48:05] "GET /lab/wasm-stream.js?build=46c71236018ce587099f88f9bef1aae83ecad100 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:48:05] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:48:05] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:48:05] "GET /lab/index.pck?build=10110e8ef4a84a41ea8a82331f521a8912a82f2573bbb3a3af0b791bac6f78b6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:48:05] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:48:06] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:48:07] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:48:07] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/workspace/spirit-guardian-2/deployment/m2/test_thorn_package.py", line 42, in <module>
+    try:asyncio.run(main())
+        ^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/spirit-guardian-2/deployment/m2/test_thorn_package.py", line 26, in main
+    await tap(f"Item {s['spell_kit_ids']['thorn']}");assert '荊棘護城' in (await state())['inventory_detail'];await tap('InventoryApply')
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

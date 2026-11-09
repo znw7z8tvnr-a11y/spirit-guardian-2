@@ -1,0 +1,30 @@
+127.0.0.1 - - [09/Nov/2026 14:49:02] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:49:02] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:49:02] "GET /lab/wasm-stream.js?build=46c71236018ce587099f88f9bef1aae83ecad100 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:49:02] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:49:02] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:49:02] "GET /lab/index.pck?build=10110e8ef4a84a41ea8a82331f521a8912a82f2573bbb3a3af0b791bac6f78b6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:49:02] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:49:02] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:49:04] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 14:49:04] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+landscape selection 0 25 目前：奧術飛彈・1 級｜直擊基礎傷害 18.0（含血肉攻擊加成；範圍與狀態效果另計）
+候選：奧術飛彈・1 級｜直擊基礎傷害 18.0（含血肉攻擊加成；範圍與狀態效果另計）；單體奧術攻擊
+可以替換；容量及其他物品不變。 [370, 682, 220, 126]
+Traceback (most recent call last):
+  File "/workspace/spirit-guardian-2/deployment/m2/test_thorn_package.py", line 45, in <module>
+    try:asyncio.run(main())
+        ^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/spirit-guardian-2/deployment/m2/test_thorn_package.py", line 29, in main
+    assert '荊棘護城' in selected['inventory_detail'];await tap('InventoryApply')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

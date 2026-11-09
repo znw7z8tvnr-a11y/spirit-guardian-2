@@ -23,7 +23,13 @@ async def main():
      await page.touchscreen.tap(rect['x']+x/vw*rect['width'],rect['y']+y/vh*rect['height']);await page.wait_for_timeout(500)
     await tap('SpellKit');s=await state();assert s['item_count']==30 and len(s['spell_keys'])==20
     await tap('Slot 0');await tap('Inventory');await tap('InventoryNext');await tap('InventoryNext');assert (await state())['inventory_page']==2
-    await tap(f"Item {s['spell_kit_ids']['thorn']}");assert '荊棘護城' in (await state())['inventory_detail'];await tap('InventoryApply')
+    last_id=s['item_count']-1;await tap(f'Item {last_id}');last=await state();assert last['candidate']==last_id and '時序' in last['inventory_detail']
+    await page.screenshot(path=str(REPORT/f'thorn-package-third-page-{name}.png'))
+    await tap('InventoryPrev');assert (await state())['inventory_page']==(s['spell_kit_ids']['thorn']+1)//15
+    await tap(f"Item {s['spell_kit_ids']['thorn']}")
+    selected=await state();(REPORT/f'thorn-package-selection-{name}.json').write_text(json.dumps(selected,ensure_ascii=False,indent=2));await page.screenshot(path=str(REPORT/f'thorn-package-selection-{name}.png'))
+    print(name,'selection',selected['candidate'],s['spell_kit_ids']['thorn'],selected['inventory_detail'],selected['buttons'].get(f"Item {s['spell_kit_ids']['thorn']}"),flush=True)
+    assert '荊棘護城' in selected['inventory_detail'];await tap('InventoryApply')
     assert (await state())['slots'][0]==s['spell_kit_ids']['thorn']
     # Cache the real touch coordinate before the 1.0-second effect starts.
     # Additional debug/bounds protocol calls after observing FX can outlast it on software WebGL.
@@ -35,7 +41,7 @@ async def main():
     assert final['spell_casts']['thorn']>0 and final['spell_hits']['thorn']>0 and final['paused'] and 'thorn' in final['spell_visuals']
     engine_errors=[v for v in logs if 'SCRIPT ERROR' in v or v.startswith('ERROR:')];assert not errors and not engine_errors,(errors,engine_errors)
     await page.screenshot(path=str(REPORT/f'thorn-package-{name}.png'))
-    results[name]={'state':final,'pageerrors':errors,'engine_errors':engine_errors,'passed':['staged streaming loader boots','thirty owned items and twenty lab skills','touch third inventory page','equip thorn as root from owned item','actual thorn casts and resolved hits','dedicated thorn Sprite visible in real battle','pause battle'],'limit':'Linux Chromium touch emulation; not iPad Safari hardware or final artwork acceptance.'}
+    results[name]={'state':final,'pageerrors':errors,'engine_errors':engine_errors,'passed':['staged streaming loader boots','thirty owned items and twenty lab skills','touch third-page final timing gem, return to second-page thorn','equip thorn as root from owned item','actual thorn casts and resolved hits','dedicated thorn Sprite visible in real battle','pause battle'],'limit':'Linux Chromium touch emulation; not iPad Safari hardware or final artwork acceptance.'}
     print(name,'PACKAGED THORN PASS',final['spell_casts']['thorn'],final['spell_hits']['thorn'],flush=True);await page.close()
   finally:await browser.close()
  (REPORT/'thorn-packaged-web.json').write_text(json.dumps(results,ensure_ascii=False,indent=2)+'\n')

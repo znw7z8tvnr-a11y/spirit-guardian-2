@@ -1,0 +1,8 @@
+{
+  "engine": "Godot 4.6.3 official",
+  "source_commit": "35914c64fdda932c471f13b2ede81af2fc49ba10",
+  "passed_checks": 810,
+  "failures": [],
+  "game_tree_verified_identical_to": "2809aa08f3daf932bdebbb10452f6ef054e45554",
+  "godot_tree_sha": "d943f355078c8ac2812bceea7c394b8935d3ea37"
+}

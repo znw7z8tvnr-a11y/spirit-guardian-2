@@ -1,0 +1,29 @@
+{
+  "sources": [
+    {
+      "file": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "sha256": "6e2a9443b709b87dc1ce79d0663d980d8a19a19333c0b27f5709746cbb49f02e",
+      "selection_line": 128
+    },
+    {
+      "file": "reference_modules/spirit_guardian_v31_16_skills_final.html",
+      "sha256": "42f2ea78917bb51b54afe2280726c8a1431f9a0279d86ab4f701bab8861d127f",
+      "selection_line": 875
+    },
+    {
+      "file": "reference_modules/spirit_guardian_v31_30_combat_vfx_final.html",
+      "sha256": "7bbf666bd601cbb14d12d3cc9374b6c39d1301b91214d18ab232076f7359754e",
+      "selection_line": 797
+    }
+  ],
+  "base_power": 20,
+  "radius_strictly_less_than": 125,
+  "victim_cap": 24,
+  "element": "wind",
+  "differences": [
+    "Lab normalizes gravity damage element using ELEMENT table; source hit receives gravity",
+    "Selected primary first then nearest; original array order differs",
+    "Existing Lab level/blood/affix multipliers, not original depth scaling",
+    "No basic spell displacement or slow; resonance-specific gravity profile is separate"
+  ]
+}

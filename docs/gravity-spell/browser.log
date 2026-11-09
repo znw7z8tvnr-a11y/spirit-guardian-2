@@ -1,0 +1,30 @@
+127.0.0.1 - - [09/Nov/2026 06:43:53] "GET /?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:43:53] "GET /index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:43:53] "GET /index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:43:53] "GET /index.wasm HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:43:53] "GET /index.pck HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:43:55] "GET /index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:43:55] "GET /index.audio.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:46:37] "GET /?debug=1&seed=12032 HTTP/1.1" 304 -
+127.0.0.1 - - [09/Nov/2026 06:46:38] "GET /index.png HTTP/1.1" 304 -
+127.0.0.1 - - [09/Nov/2026 06:46:38] "GET /index.js HTTP/1.1" 304 -
+127.0.0.1 - - [09/Nov/2026 06:46:38] "GET /index.wasm HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:46:38] "GET /index.pck HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:46:39] "GET /index.audio.position.worklet.js HTTP/1.1" 304 -
+127.0.0.1 - - [09/Nov/2026 06:46:39] "GET /index.audio.worklet.js HTTP/1.1" 304 -
+landscape EIGHT SPELLS PASS {'arcane': 2, 'beam': 1, 'meteor': 2, 'nova': 1, 'poison': 2}
+127.0.0.1 - - [09/Nov/2026 06:48:39] "GET /?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:48:39] "GET /index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:48:39] "GET /index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:48:39] "GET /index.wasm HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:48:39] "GET /index.pck HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:48:40] "GET /index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:48:40] "GET /index.audio.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:51:04] "GET /?debug=1&seed=12032 HTTP/1.1" 304 -
+127.0.0.1 - - [09/Nov/2026 06:51:05] "GET /index.png HTTP/1.1" 304 -
+127.0.0.1 - - [09/Nov/2026 06:51:05] "GET /index.js HTTP/1.1" 304 -
+127.0.0.1 - - [09/Nov/2026 06:51:05] "GET /index.wasm HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:51:05] "GET /index.pck HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:51:06] "GET /index.audio.position.worklet.js HTTP/1.1" 304 -
+127.0.0.1 - - [09/Nov/2026 06:51:06] "GET /index.audio.worklet.js HTTP/1.1" 304 -
+portrait EIGHT SPELLS PASS {'arcane': 2, 'beam': 1, 'meteor': 2, 'nova': 1, 'poison': 2}

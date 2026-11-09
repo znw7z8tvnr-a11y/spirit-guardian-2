@@ -1,0 +1,24 @@
+127.0.0.1 - - [09/Nov/2026 06:53:12] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:12] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:12] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:12] "GET /lab/wasm-stream.js?build=2809aa08f3daf932bdebbb10452f6ef054e45554 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:12] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:12] "GET /lab/index.pck?build=64d8eaff64f59ab3ff22757ed84374cec5876dadbe8cc1911cdfade42ab7b3b8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:12] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:12] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:13] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:13] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+landscape package state {'gravity': 1} {'gravity': 1} True ['gravity']
+landscape PACKAGED GRAVITY PASS 1 1
+127.0.0.1 - - [09/Nov/2026 06:53:32] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:32] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:32] "GET /lab/wasm-stream.js?build=2809aa08f3daf932bdebbb10452f6ef054e45554 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:32] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:32] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:32] "GET /lab/index.pck?build=64d8eaff64f59ab3ff22757ed84374cec5876dadbe8cc1911cdfade42ab7b3b8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:32] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:32] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:33] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:53:33] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+portrait package state {'gravity': 1} {'gravity': 1} True ['gravity']
+portrait PACKAGED GRAVITY PASS 1 1

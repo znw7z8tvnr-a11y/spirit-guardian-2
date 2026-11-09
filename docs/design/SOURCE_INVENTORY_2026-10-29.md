@@ -25,7 +25,7 @@
 | 暴風雪 | radius around primary target | catalog only; behavior port pending | Lab ice burst and slow adaptation; see BLIZZARD_SPELL.md |
 | 冰霜新星 | radius around primary target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
 | 毒沼 | radius around primary target | catalog only; behavior port pending | Lab poison burst and status adaptation; see SWAMP_SPELL.md |
-| 骷髏召喚 | primary target | catalog only; behavior port pending | not implemented |
+| 骷髏召喚 | primary target | catalog only; behavior port pending | Lab single-target cast plus new melee skeleton AI; shared cap with ghosts; see SKELETON_GUARDIAN.md |
 
 來源：reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html 的 executeCast 與選敵分組；精確行數、原數值及檔案雜湊見同名JSON。
 

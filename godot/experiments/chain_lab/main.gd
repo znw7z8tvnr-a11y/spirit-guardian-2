@@ -327,10 +327,10 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
    if int(result.target_id) not in run.visited:run.visited.append(int(result.target_id))
   spell_cast_counts[key]=int(spell_cast_counts.get(key,0))+1
   spell_hit_counts[key]=int(spell_hit_counts.get(key,0))+int(result.hit_count)
-  if key=="summon":guardians.summon_at(impact_at,int(item.level),attack_boost)
+  if key in ["summon","skeleton"]:guardians.summon_at(impact_at,int(item.level),attack_boost,key)
   # Ground casts retain shaped FX; only the resolver supplies real hit/kill gates.
   if key not in ["earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity","orbit","thorn"]:spell_impact(impact_at,key)
-  if key in ["meteor","nova","poison","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity","orbit","thorn","summon"]:spell_visual(key,context.origin,impact_at,result.hit_positions)
+  if key in ["meteor","nova","poison","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity","orbit","thorn","summon","skeleton"]:spell_visual(key,context.origin,impact_at,result.hit_positions)
   chain.complete_skill(slot,victim,result,run,context)
   shot.queue_free()
  )
@@ -368,7 +368,7 @@ func publish_debug() -> void:
  if is_instance_valid(inventory):
   for key in inventory.cards:
    var rect: Rect2=inventory.cards[key].get_global_rect();bounds[key]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
- JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"spell_flights":shots.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_visuals":fx.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_casts":spell_cast_counts,"spell_hits":spell_hit_counts,"guardian_spawns":guardians.spawns,"guardian_hits":guardians.hits,"guardian_kills":guardians.kills,"guardians":guardians.snapshot(),"spell_keys":SpellEffects.PLAYABLE,"spell_kit":chain.spell_kit_loaded,"spell_kit_ids":chain.spell_kit_ids,"gem_kit_ids":chain.gem_kit_ids,"gem_cooldowns":chain.cooldown_snapshot(),"boss":boss_info,"boss_kills":boss_kills,"summoned_minions":summoned_minions,"summon_events":summon_events,"attack_period":effective_attack_period(),"reward_loadout":loadout_notice.visible,"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_page":inventory.page,"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
+ JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"spell_flights":shots.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_visuals":fx.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_casts":spell_cast_counts,"spell_hits":spell_hit_counts,"guardian_by_type":guardians.counts,"guardian_spawns":guardians.spawns,"guardian_hits":guardians.hits,"guardian_kills":guardians.kills,"guardians":guardians.snapshot(),"spell_keys":SpellEffects.PLAYABLE,"spell_kit":chain.spell_kit_loaded,"spell_kit_ids":chain.spell_kit_ids,"gem_kit_ids":chain.gem_kit_ids,"gem_cooldowns":chain.cooldown_snapshot(),"boss":boss_info,"boss_kills":boss_kills,"summoned_minions":summoned_minions,"summon_events":summon_events,"attack_period":effective_attack_period(),"reward_loadout":loadout_notice.visible,"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_page":inventory.page,"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
 
 func effective_attack_period() -> float:
  # A lone starting spell should not wait for a nonexistent long chain.
@@ -457,8 +457,8 @@ func refresh_boss_status() -> void:
 
 func spell_visual(key: String, origin: Vector2, at: Vector2, hit_positions: Array=[]) -> void:
  if fx.get_child_count()>=FX.MAX_EFFECTS:return
- if key=="summon":
-  var seal:=Sprite2D.new();seal.texture=SpellEffects.SUMMON_ART;seal.position=at;seal.scale=Vector2(0.6,0.6);seal.set_meta("spell_key",key);fx.add_child(seal)
+ if key in ["summon","skeleton"]:
+  var seal:=Sprite2D.new();seal.texture=SpellEffects.BONE_SEAL if key=="skeleton" else SpellEffects.SUMMON_ART;seal.position=at;seal.scale=Vector2(0.6,0.6);seal.set_meta("spell_key",key);fx.add_child(seal)
   var open:=seal.create_tween();open.tween_interval(0.35);open.tween_property(seal,"modulate:a",0.0,0.65);open.tween_callback(seal.queue_free);return
  if key=="thorn":
   var thorn:=preload("res://experiments/chain_lab/thorn_fx.gd").new();thorn.position=at;fx.add_child(thorn);return
@@ -566,8 +566,8 @@ func spell_visual(key: String, origin: Vector2, at: Vector2, hit_positions: Arra
 
 func spell_impact(at: Vector2, key: String) -> void:
  if fx.get_child_count()>=FX.MAX_EFFECTS:return
- if key=="summon":
-  var seal:=Sprite2D.new();seal.texture=SpellEffects.SUMMON_ART;seal.position=at;seal.scale=Vector2(0.6,0.6);seal.set_meta("spell_key",key);fx.add_child(seal)
+ if key in ["summon","skeleton"]:
+  var seal:=Sprite2D.new();seal.texture=SpellEffects.BONE_SEAL if key=="skeleton" else SpellEffects.SUMMON_ART;seal.position=at;seal.scale=Vector2(0.6,0.6);seal.set_meta("spell_key",key);fx.add_child(seal)
   var open:=seal.create_tween();open.tween_interval(0.35);open.tween_property(seal,"modulate:a",0.0,0.65);open.tween_callback(seal.queue_free);return
  if key=="thorn":
   var thorn:=preload("res://experiments/chain_lab/thorn_fx.gd").new();thorn.position=at;fx.add_child(thorn);return

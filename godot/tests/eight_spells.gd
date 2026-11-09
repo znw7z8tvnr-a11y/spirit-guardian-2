@@ -48,17 +48,17 @@ func run() -> void:
  near=enemy(Vector2(10,0));nova=Effects.impact("nova",null,Vector2(-100,0),Vector2.ZERO,1,1,allocated,resolver)
  check(nova.hit and nova.target_id==near.get_instance_id(),"ground-centered area hit identifies a real target for chain gates");clear()
  check(not Effects.impact("beam",null,Vector2.ZERO,Vector2(100,0),1,1,[],resolver).hit,"empty beam remains a visible miss without phantom hits")
- check(not Effects.impact("skeleton",null,Vector2.ZERO,Vector2.ZERO,1,1,[],resolver).hit,"unported skill cannot masquerade as working damage")
+ check(not Effects.impact("unknown_skill",null,Vector2.ZERO,Vector2.ZERO,1,1,[],resolver).hit,"unported skill cannot masquerade as working damage")
  var rewards=load("res://experiments/chain_lab/rewards.gd").new();rewards.rng.seed=1001;var seen: Array=[]
  for i in range(300):
   rewards.roll()
   for offer in rewards.offers:
    if offer.kind=="skill" and offer.key not in seen:seen.append(offer.key)
- check(seen.size()==21,"normal reward pool can produce all twenty-one lab spell types");rewards.free()
+ check(seen.size()==22,"normal reward pool can produce all twenty-two lab spell types");rewards.free()
  var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game;game.set_physics_process(false)
  game.chain.load_spell_kit();game.chain.rng.seed=32012;game.chain.resonance_chance=0
  var count: int=game.chain.items.size();game.chain.load_spell_kit()
- check(count==31 and game.chain.items.size()==31 and game.chain.slots.count(-1)==1,"spell training kit is idempotent and keeps nine used slots within capacity ten")
+ check(count==32 and game.chain.items.size()==32 and game.chain.slots.count(-1)==1,"spell training kit is idempotent and keeps nine used slots within capacity ten")
  for i in range(6):
   var e:=Enemy.new();e.max_hp=5000;e.hp=5000;e.speed=0;e.position=game.CENTER+Vector2(140+(i%3)*35,(i/3)*40);e.target=game.CENTER;e.resolver=game.resolver;game.enemies.add_child(e)
  game.chain.start(game.enemies.get_child(0))

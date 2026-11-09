@@ -24,7 +24,7 @@ func clear() -> void:
 func run() -> void:
  resolver=preload("res://modules/spell/combat_resolver.gd").new();root.add_child(resolver)
  targets=Node2D.new();root.add_child(targets);manager=Manager.new();manager.targets=targets;manager.resolver=resolver;root.add_child(manager)
- check(Catalog.PLAYABLE.size()==8 and "summon" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==21,"summon is lab-only; stable root remains eight")
+ check(Catalog.PLAYABLE.size()==8 and "summon" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==22,"summon is lab-only; stable root remains eight")
  check(Catalog.power("summon")==22 and Catalog.element("summon")=="summon","single-target summon retains source twenty-two power and class")
  check(Effects.texture("summon")==Effects.GHOST_ART and "0.55" in Effects.description("summon"),"ghost has dedicated provisional art and autonomous cadence description")
  for level in range(1,4):

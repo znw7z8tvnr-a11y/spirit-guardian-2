@@ -8,6 +8,8 @@ The newly authored `godot/experiments/chain_lab/assets/blizzard.svg` and `blizza
 
 The newly authored `godot/experiments/chain_lab/assets/lava.svg` and `lava_flame.svg` are also available under these MIT terms. Other pre-existing artwork retains its original status.
 
+The newly authored `godot/experiments/chain_lab/assets/swamp.svg` and `swamp_haze.svg` are also available under these MIT terms. Other pre-existing artwork retains its original status.
+
 MIT License
 
 Copyright (c) 2026 Spirit Guardian contributors

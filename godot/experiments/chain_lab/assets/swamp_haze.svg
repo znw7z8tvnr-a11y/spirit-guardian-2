@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="128" viewBox="0 0 64 128">
+<!-- Original provisional layered poison-vapour Sprite, anchored at its bottom. -->
+<defs><linearGradient id="vapour" x2="0" y2="1"><stop stop-color="#d4f0a0" stop-opacity="0"/><stop offset=".4" stop-color="#a6d98d" stop-opacity=".6"/><stop offset="1" stop-color="#508f75" stop-opacity=".9"/></linearGradient></defs>
+<path d="M31 1C13 16 43 29 28 45 9 61 7 76 17 91 9 109 12 124 32 127c22-2 29-17 18-35 10-19-8-29-11-42 11-19-16-27-8-49Z" fill="url(#vapour)"/>
+<path d="M30 35c-9 15 12 24 2 38-12 15-11 32 0 44 12-11 17-24 7-38C29 64 43 52 30 35Z" fill="#c3e798" opacity=".45"/>
+<g fill="none" stroke="#d8f4ad" stroke-opacity=".45" stroke-width="2"><path d="M27 68c-10 7-8 17-1 21m11 8c6 6 6 14 0 20"/><path d="M17 25c-3-8 6-12 7-5 1 6-3 9-7 5m32 33c-4-7 4-12 7-6 1 4-2 9-7 6"/></g>
+</svg>

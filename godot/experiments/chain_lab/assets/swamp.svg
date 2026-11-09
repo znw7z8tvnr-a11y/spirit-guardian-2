@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="192" viewBox="0 0 256 192">
+<!-- Original provisional layered toxic-pool Sprite; not final art. -->
+<defs><radialGradient id="venom"><stop stop-color="#d5f19c"/><stop offset=".4" stop-color="#7dbb71"/><stop offset=".8" stop-color="#3f7763" stop-opacity=".85"/><stop offset="1" stop-color="#293c4c" stop-opacity="0"/></radialGradient><linearGradient id="rim" x2="1" y2="1"><stop stop-color="#9eac67"/><stop offset="1" stop-color="#34444a"/></linearGradient></defs>
+<path d="m16 88 21-34 36-10 32-17 39 10 38-5 48 33 11 38-22 43-43 18-48-7-43 12-36-24-29-20Z" fill="#303e45" opacity=".75"/>
+<path d="m29 91 25-28 38-7 29-14 43 11 24-2 36 30 3 29-22 23-39 12-33-7-42 9-29-22-26-8Z" fill="url(#venom)"/>
+<g fill="none" stroke="#c1df8c" stroke-opacity=".6" stroke-width="3"><path d="M66 103c21-23 62-29 96-15 18 8 21 22 4 30-21 10-53 6-60-6-4-9 11-16 27-13"/><path d="M40 105c-2 16 23 28 45 27m84-69c19 2 33 12 35 23"/></g>
+<g fill="url(#rim)"><path d="m31 69 19-9 11 8-8 13-25 1Z"/><path d="m185 43 23 8 10 13-22 3-15-14Z"/><path d="m207 128 22-8 8 9-13 15-20-3Z"/><path d="m48 139 22-5 13 14-24 6Z"/></g>
+<g fill="#c9ee9a" opacity=".7"><path d="m90 73 7-2 4 5-3 6-7-1Z"/><path d="m159 116 9-1 4 5-5 6-8-3Z"/><path d="m64 103 5-2 3 4-4 4Z"/></g>
+</svg>

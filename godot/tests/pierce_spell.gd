@@ -18,7 +18,7 @@ func clear() -> void:
  allocated=[]
 func run() -> void:
  resolver=preload("res://modules/spell/combat_resolver.gd").new();root.add_child(resolver)
- check(Catalog.PLAYABLE.size()==8 and "pierce" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==16 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"ninth skill is lab-only and stable root still advertises eight")
+ check(Catalog.PLAYABLE.size()==8 and "pierce" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==17 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"ninth skill is lab-only and stable root still advertises eight")
  check(Catalog.power("pierce")==24 and Catalog.element("pierce")=="lightning","pierce retains source damage and lightning mapping")
  check(Effects.texture("pierce") is AtlasTexture and Effects.texture("pierce").get_height()==61 and "水平" in Effects.description("pierce"),"pierce has bounded temporary sprite art and explicit row description")
  for level in range(1,4):

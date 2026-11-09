@@ -15,7 +15,7 @@
 | 土刺 | radius around primary target | catalog only; behavior port pending | Lab ground eruption; see EARTH_SPELL.md |
 | 颶風 | radius around primary target | catalog only; behavior port pending | Lab wind burst; see WIND_SPELL.md |
 | 聚焦光束 | horizontal strip around target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
-| 旋轉法球 | radius around primary target | catalog only; behavior port pending | not implemented |
+| 旋轉法球 | radius around primary target | catalog only; behavior port pending | Lab single-hit orbit cast with five visual orbs; passive tower orbit pending; see ORBIT_SPELL.md |
 | 熔岩裂隙 | radius around primary target | catalog only; behavior port pending | Lab fire-element lava burst; see LAVA_SPELL.md |
 | 引力漩渦 | radius around primary target | catalog only; behavior port pending | Lab single-hit wind-element gravity vortex without displacement; see GRAVITY_SPELL.md |
 | 幽靈守衛 | primary target | catalog only; behavior port pending | not implemented |

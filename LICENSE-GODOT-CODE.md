@@ -12,6 +12,8 @@ The newly authored `godot/experiments/chain_lab/assets/swamp.svg` and `swamp_haz
 
 The newly authored `godot/experiments/chain_lab/assets/gravity.svg` and `gravity_shard.svg` are also available under these MIT terms. Other pre-existing artwork retains its original status.
 
+The newly authored `godot/experiments/chain_lab/assets/orbit.svg` and `orbit_orb.svg` are also available under these MIT terms. Other pre-existing artwork retains its original status.
+
 MIT License
 
 Copyright (c) 2026 Spirit Guardian contributors

@@ -1,7 +1,7 @@
 """Actual eight-spell training UI, projectile flight and resolved cast smoke."""
 import argparse,asyncio,functools,http.server,json,os,pathlib,threading
 from playwright.async_api import async_playwright
-ROOT=pathlib.Path(__file__).resolve().parents[1];REPORT=ROOT/'docs/gravity-spell';REPORT.mkdir(parents=True,exist_ok=True)
+ROOT=pathlib.Path(__file__).resolve().parents[1];REPORT=ROOT/'docs/orbit-spell';REPORT.mkdir(parents=True,exist_ok=True)
 p=argparse.ArgumentParser();p.add_argument('--directory',default=str(ROOT/'godot/export/lab'));p.add_argument('--entry',default='/');args=p.parse_args()
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=args.directory));threading.Thread(target=server.serve_forever,daemon=True).start()
 async def main():
@@ -23,8 +23,8 @@ async def main():
      assert s['inventory_page']==target_page,(key,s['inventory_page'],target_page)
     rect=await page.locator('#canvas').bounding_box();x,y,w,h=s['buttons'][key];vw,vh=s['viewport'];assert 0<=x<=vw and 0<=y<=vh,(key,[x,y],s['viewport'])
     await page.touchscreen.tap(rect['x']+x/vw*rect['width'],rect['y']+y/vh*rect['height']);await page.wait_for_timeout(500)
-   initial=await state();assert initial['slots']==[0]+[-1]*9 and len(initial['spell_keys'])==18 and not initial['spell_kit']
-   await tap('SpellKit');s=await state();assert s['spell_kit'] and s['item_count']==28 and s['edit_open'] and len(s['edges'])==8 and s['slots'].count(-1)==1
+   initial=await state();assert initial['slots']==[0]+[-1]*9 and len(initial['spell_keys'])==19 and not initial['spell_kit']
+   await tap('SpellKit');s=await state();assert s['spell_kit'] and s['item_count']==29 and s['edit_open'] and len(s['edges'])==8 and s['slots'].count(-1)==1
    await page.screenshot(path=str(REPORT/f'eight-spell-chain-{name}.png'))
    await tap('Inventory')
    await tap('Item 1');assert '下一個技能' in (await state())['inventory_detail'] and '35%' in (await state())['inventory_detail']
@@ -132,8 +132,14 @@ async def main():
    if not (await state())['paused']:await tap('Pause')
    gravity=await state();assert gravity['spell_casts']['gravity']>0 and gravity['spell_hits']['gravity']>0
    await page.screenshot(path=str(REPORT/f'gravity-end-state-{name}.png'))
+   await tap('Configure');await tap('Slot 0');await tap('Inventory');await tap(f"Item {sword_kit['spell_kit_ids']['orbit']}");assert '75' in (await state())['inventory_detail'] and '五顆' in (await state())['inventory_detail'];await tap('InventoryApply');await tap('Done')
+   if (await state())['paused']:await tap('Pause')
+   await page.wait_for_function("(window.SG_LAB_STATE.spell_hits.orbit||0)>0",timeout=30000)
+   if not (await state())['paused']:await tap('Pause')
+   orbit=await state();assert orbit['spell_casts']['orbit']>0 and orbit['spell_hits']['orbit']>0
+   await page.screenshot(path=str(REPORT/f'orbit-end-state-{name}.png'))
    engine_errors=[s for s in logs if 'SCRIPT ERROR' in s or s.startswith('ERROR:')];assert not errors and not engine_errors,(errors,engine_errors)
-   results[name]={'viewport':size,'initial':initial,'flight':flight,'final':final,'element_equipped':equipped,'cooling':cooling,'cooldown_held':held,'timed_eight_speed':timed,'earth':earth,'wind':wind,'sword':sword,'spark':spark,'storm':storm,'blizzard':blizzard,'lava':lava,'swamp':swamp,'gravity':gravity,'pageerrors':errors,'engine_errors':engine_errors,'passed':['arcane-only normal start','eighteen lab skill types; stable root remains eight','explicit nine-slot training fixture without duplicate grants','touch inventory poison and beam descriptions','actual meteor sprite in flight','four new spell completion callbacks in real battle','actual new-spell hits and no phantom target-zero hit','pierce preview and equipment','actual pierce casts and hits through a timed chain'],'limit':'Explicit training fixture, Linux Chromium software WebGL touch emulation; behavior and individual hit shapes are also verified with real enemies in native tests. No iPad or full original-parity claim.'}
+   results[name]={'viewport':size,'initial':initial,'flight':flight,'final':final,'element_equipped':equipped,'cooling':cooling,'cooldown_held':held,'timed_eight_speed':timed,'earth':earth,'wind':wind,'sword':sword,'spark':spark,'storm':storm,'blizzard':blizzard,'lava':lava,'swamp':swamp,'gravity':gravity,'orbit':orbit,'pageerrors':errors,'engine_errors':engine_errors,'passed':['arcane-only normal start','nineteen lab skill types; stable root remains eight','explicit nine-slot training fixture without duplicate grants','touch inventory poison and beam descriptions','actual meteor sprite in flight','four new spell completion callbacks in real battle','actual new-spell hits and no phantom target-zero hit','pierce preview and equipment','actual pierce casts and hits through a timed chain'],'limit':'Explicit training fixture, Linux Chromium software WebGL touch emulation; behavior and individual hit shapes are also verified with real enemies in native tests. No iPad or full original-parity claim.'}
    print(name,'EIGHT SPELLS PASS',final['spell_casts'],flush=True);await page.close()
   await browser.close()
  (REPORT/'eight-spell-web.json').write_text(json.dumps(results,ensure_ascii=False,indent=2)+'\n')

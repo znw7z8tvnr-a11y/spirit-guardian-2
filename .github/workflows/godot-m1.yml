@@ -30,7 +30,7 @@ jobs:
           ln -s "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64" /tmp/godot/godot
           echo /tmp/godot >> "$GITHUB_PATH"
           python3 tools/test_web_template_ranges.py
-          python3 tools/install_godot_web_templates.py --version "$GODOT_VERSION" --directory "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable" | tee docs/swamp-spell/template-range-download.json
+          python3 tools/install_godot_web_templates.py --version "$GODOT_VERSION" --directory "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable" | tee docs/gravity-spell/template-range-download.json
       - name: Verify source-derived catalogs
         run: |
           python3 tools/build_supplement_catalog.py
@@ -67,7 +67,7 @@ jobs:
       - name: First Boss earned-loadout WebGL playthrough
         timeout-minutes: 5
         run: python3 tools/test_first_boss_web.py
-      - name: Seventeen-skill touch and actual cast acceptance
+      - name: Eighteen-skill touch and actual cast acceptance
         timeout-minutes: 10
         run: python3 tools/test_eight_spells_web.py
       - name: Package importable project and Web build
@@ -76,7 +76,7 @@ jobs:
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-swamp-spell-delivery
+          name: godot-gravity-spell-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
@@ -103,7 +103,7 @@ jobs:
             docs/first-boss/*.log
             docs/first-boss/*.json
             docs/first-boss/*.png
-            docs/swamp-spell/*
+            docs/gravity-spell/*
             docs/timing-gem/*
             docs/lowhp-gem/*
             docs/element-gems/*

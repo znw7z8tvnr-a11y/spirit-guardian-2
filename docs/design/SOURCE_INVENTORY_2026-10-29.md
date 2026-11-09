@@ -17,7 +17,7 @@
 | 聚焦光束 | horizontal strip around target | partial runnable behavior | provisional runnable behavior; see EIGHT_SPELLS.md |
 | 旋轉法球 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 熔岩裂隙 | radius around primary target | catalog only; behavior port pending | Lab fire-element lava burst; see LAVA_SPELL.md |
-| 引力漩渦 | radius around primary target | catalog only; behavior port pending | not implemented |
+| 引力漩渦 | radius around primary target | catalog only; behavior port pending | Lab single-hit wind-element gravity vortex without displacement; see GRAVITY_SPELL.md |
 | 幽靈守衛 | primary target | catalog only; behavior port pending | not implemented |
 | 荊棘護城 | radius around primary target | catalog only; behavior port pending | not implemented |
 | 火花術 | within 165 of target | catalog only; behavior port pending | Lab six-target spark burst; see SPARK_SPELL.md |

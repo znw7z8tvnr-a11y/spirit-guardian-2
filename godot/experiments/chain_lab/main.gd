@@ -312,7 +312,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   if not chain.current(run):shot.queue_free();return
   var victim: Node2D=target_ref.get_ref() if target_ref!=null else null
   if not chain.alive(victim):
-   victim=null if str(item.key) in ["meteor","nova","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava","swamp"] else chain.choose_target(at,run)
+   victim=null if str(item.key) in ["meteor","nova","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity"] else chain.choose_target(at,run)
    if victim!=null:
     chain.retargets+=1
     if chain.target_id(victim) not in run.visited:run.visited.append(chain.target_id(victim))
@@ -326,8 +326,8 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   spell_cast_counts[key]=int(spell_cast_counts.get(key,0))+1
   spell_hit_counts[key]=int(spell_hit_counts.get(key,0))+int(result.hit_count)
   # Ground casts retain shaped FX; only the resolver supplies real hit/kill gates.
-  if key not in ["earth","wind","sword","spark","storm","blizzard","lava","swamp"]:spell_impact(impact_at,key)
-  if key in ["meteor","nova","poison","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava","swamp"]:spell_visual(key,context.origin,impact_at,result.hit_positions)
+  if key not in ["earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity"]:spell_impact(impact_at,key)
+  if key in ["meteor","nova","poison","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity"]:spell_visual(key,context.origin,impact_at,result.hit_positions)
   chain.complete_skill(slot,victim,result,run,context)
   shot.queue_free()
  )
@@ -456,6 +456,19 @@ func spell_visual(key: String, origin: Vector2, at: Vector2, hit_positions: Arra
  if fx.get_child_count()>=FX.MAX_EFFECTS:return
  var art:=Sprite2D.new();art.texture=SpellEffects.impact_texture(key);art.position=at;art.modulate.a=0.65;art.set_meta("spell_key",key);fx.add_child(art)
  var duration:=0.55
+ if key=="gravity":
+  art.texture=null;art.modulate.a=0.95
+  var core:=Sprite2D.new();core.texture=SpellEffects.GRAVITY_ART;core.scale=Vector2(250.0/256.0,180.0/192.0);art.add_child(core)
+  var rotation_tween:=core.create_tween();rotation_tween.tween_property(core,"rotation",-TAU*0.7,0.86)
+  var points: Array=hit_positions.slice(0,8) if not hit_positions.is_empty() else [at]
+  for i in points.size():
+   var shard:=Sprite2D.new();shard.texture=SpellEffects.GRAVITY_SHARD;shard.position=points[i]-at;shard.scale=Vector2.ONE*0.5;shard.rotation=i*TAU/8;shard.set_meta("hit_position",points[i]);art.add_child(shard)
+   var inward:=shard.create_tween().set_parallel(true)
+   inward.tween_property(shard,"position",(points[i]-at)*0.18,0.7).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+   inward.tween_property(shard,"rotation",shard.rotation-TAU,0.7)
+   inward.tween_property(shard,"modulate:a",0.0,0.3).set_delay(0.4)
+  var collapse:=art.create_tween();collapse.tween_interval(0.4);collapse.tween_property(art,"modulate:a",0.0,0.46);collapse.tween_callback(art.queue_free)
+  return
  if key=="swamp":
   art.texture=null;art.modulate.a=0.8
   var pool:=Sprite2D.new();pool.texture=SpellEffects.SWAMP_ART;pool.scale=Vector2(150.0/256.0,110.0/192.0);art.add_child(pool)

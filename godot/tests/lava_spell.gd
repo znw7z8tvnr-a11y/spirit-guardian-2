@@ -18,7 +18,7 @@ func clear() -> void:
  allocated=[]
 func run() -> void:
  resolver=preload("res://modules/spell/combat_resolver.gd").new();root.add_child(resolver)
- check(Catalog.PLAYABLE.size()==8 and "lava" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==19 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"lava is lab-only and stable root still advertises eight")
+ check(Catalog.PLAYABLE.size()==8 and "lava" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==20 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"lava is lab-only and stable root still advertises eight")
  check(Catalog.power("lava")==25 and Catalog.element("lava")=="fire","lava retains source damage and fire mapping")
  check(Effects.texture("lava").get_height()==192 and "熔岩裂隙" in Effects.description("lava"),"lava has dedicated provisional layered molten-ground sprite and explicit radius description")
  for level in range(1,4):

@@ -18,7 +18,7 @@ func clear() -> void:
  allocated=[]
 func run() -> void:
  resolver=preload("res://modules/spell/combat_resolver.gd").new();root.add_child(resolver)
- check(Catalog.PLAYABLE.size()==8 and "orbit" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==19 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"orbit is lab-only and stable root still advertises eight")
+ check(Catalog.PLAYABLE.size()==8 and "orbit" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==20 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"orbit is lab-only and stable root still advertises eight")
  check(Catalog.power("orbit")==22 and Catalog.element("orbit")=="orbit","orbit retains source damage and orbit identity")
  check(Effects.texture("orbit").get_height()==192 and "旋轉法球" in Effects.description("orbit"),"orbit has dedicated provisional vortex sprite and explicit radius description")
  for level in range(1,4):

@@ -18,7 +18,7 @@ func clear() -> void:
  allocated=[]
 func run() -> void:
  resolver=preload("res://modules/spell/combat_resolver.gd").new();root.add_child(resolver)
- check(Catalog.PLAYABLE.size()==8 and "swamp" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==19 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"swamp is lab-only and stable root still advertises eight")
+ check(Catalog.PLAYABLE.size()==8 and "swamp" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==20 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"swamp is lab-only and stable root still advertises eight")
  check(Catalog.power("swamp")==22 and Catalog.element("swamp")=="poison","swamp retains source damage and poison mapping")
  check(Effects.texture("swamp").get_height()==192 and "毒沼" in Effects.description("swamp"),"swamp has dedicated provisional layered toxic-pool sprite and explicit radius description")
  for level in range(1,4):

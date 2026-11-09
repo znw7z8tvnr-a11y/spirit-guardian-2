@@ -312,7 +312,7 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   if not chain.current(run):shot.queue_free();return
   var victim: Node2D=target_ref.get_ref() if target_ref!=null else null
   if not chain.alive(victim):
-   victim=null if str(item.key) in ["meteor","nova","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity","orbit"] else chain.choose_target(at,run)
+   victim=null if str(item.key) in ["meteor","nova","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity","orbit","thorn"] else chain.choose_target(at,run)
    if victim!=null:
     chain.retargets+=1
     if chain.target_id(victim) not in run.visited:run.visited.append(chain.target_id(victim))
@@ -326,8 +326,8 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   spell_cast_counts[key]=int(spell_cast_counts.get(key,0))+1
   spell_hit_counts[key]=int(spell_hit_counts.get(key,0))+int(result.hit_count)
   # Ground casts retain shaped FX; only the resolver supplies real hit/kill gates.
-  if key not in ["earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity","orbit"]:spell_impact(impact_at,key)
-  if key in ["meteor","nova","poison","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity","orbit"]:spell_visual(key,context.origin,impact_at,result.hit_positions)
+  if key not in ["earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity","orbit","thorn"]:spell_impact(impact_at,key)
+  if key in ["meteor","nova","poison","beam","pierce","earth","wind","sword","spark","storm","blizzard","lava","swamp","gravity","orbit","thorn"]:spell_visual(key,context.origin,impact_at,result.hit_positions)
   chain.complete_skill(slot,victim,result,run,context)
   shot.queue_free()
  )
@@ -454,6 +454,8 @@ func refresh_boss_status() -> void:
 
 func spell_visual(key: String, origin: Vector2, at: Vector2, hit_positions: Array=[]) -> void:
  if fx.get_child_count()>=FX.MAX_EFFECTS:return
+ if key=="thorn":
+  var thorn:=preload("res://experiments/chain_lab/thorn_fx.gd").new();thorn.position=at;fx.add_child(thorn);return
  if key=="orbit":
   var orbit:=preload("res://experiments/chain_lab/orbit_fx.gd").new();orbit.position=at;fx.add_child(orbit);return
  var art:=Sprite2D.new();art.texture=SpellEffects.impact_texture(key);art.position=at;art.modulate.a=0.65;art.set_meta("spell_key",key);fx.add_child(art)
@@ -558,6 +560,8 @@ func spell_visual(key: String, origin: Vector2, at: Vector2, hit_positions: Arra
 
 func spell_impact(at: Vector2, key: String) -> void:
  if fx.get_child_count()>=FX.MAX_EFFECTS:return
+ if key=="thorn":
+  var thorn:=preload("res://experiments/chain_lab/thorn_fx.gd").new();thorn.position=at;fx.add_child(thorn);return
  if key=="orbit":
   var orbit:=preload("res://experiments/chain_lab/orbit_fx.gd").new();orbit.position=at;fx.add_child(orbit);return
  var art:=Sprite2D.new();art.texture=SpellEffects.impact_texture(key);art.position=at;art.scale=Vector2.ONE*0.26;fx.add_child(art)

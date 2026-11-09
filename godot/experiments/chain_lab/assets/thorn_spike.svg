@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="128" viewBox="0 0 80 128"><defs><linearGradient id="stem" x2="1" y2=".5"><stop stop-color="#233b29"/><stop offset=".4" stop-color="#65834d"/><stop offset=".65" stop-color="#b2ca80"/><stop offset="1" stop-color="#405c37"/></linearGradient><linearGradient id="tip" x2=".5" y2="1"><stop stop-color="#f1e7b2"/><stop offset=".45" stop-color="#bcc384"/><stop offset="1" stop-color="#4b693f"/></linearGradient></defs>
+<path d="M15 125C51 98 17 65 39 30L48 8C68 49 32 72 58 97L67 125Z" fill="url(#stem)" stroke="#263d2b" stroke-width="3"/>
+<path d="M39 34L48 8 52 39Z" fill="url(#tip)"/>
+<path d="M31 49L12 33 27 64Z M48 62L70 40 55 79Z M31 91L8 73 27 109Z M56 106L76 85 65 122Z" fill="url(#tip)" stroke="#668149" stroke-width="1.3"/>
+<path d="M40 120C61 94 30 70 42 43" fill="none" stroke="#d2d8a0" stroke-width="2" opacity=".55"/>
+<path d="M26 79Q7 67 11 54Q31 57 26 79Z M55 92Q72 74 77 86Q70 103 55 92Z" fill="#71984e" stroke="#adc781" stroke-width="1"/>
+<ellipse cx="40" cy="124" rx="34" ry="4" fill="#263c28" opacity=".65"/></svg>

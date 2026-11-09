@@ -18,7 +18,7 @@ func clear() -> void:
  allocated=[]
 func run() -> void:
  resolver=preload("res://modules/spell/combat_resolver.gd").new();root.add_child(resolver)
- check(Catalog.PLAYABLE.size()==8 and "earth" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==19 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"earth is lab-only and stable root still advertises eight")
+ check(Catalog.PLAYABLE.size()==8 and "earth" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==20 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"earth is lab-only and stable root still advertises eight")
  check(Catalog.power("earth")==29 and Catalog.element("earth")=="earth","earth retains source damage and earth mapping")
  check(Effects.texture("earth").get_height()==192 and "土刺" in Effects.description("earth"),"earth has dedicated provisional rock sprite and explicit radius description")
  for level in range(1,4):
@@ -53,10 +53,13 @@ func run() -> void:
  check(model.active.is_empty() and model.trace.back().kind=="miss" and off_row.hp==5000,"freed target with no nearby victims finishes as an actual miss")
  clear()
  var bag: Node=preload("res://experiments/chain_lab/chain.gd").new();root.add_child(bag);bag.load_spell_kit();var before_items: Array=bag.items.duplicate(true);game.inventory.open(bag,2,1.0)
- check(bag.items.size()==29 and game.inventory.entries.get_children().filter(func(n):return n.visible).size()==15,"first inventory page shows fifteen cards without discarding owned items")
+ check(bag.items.size()==30 and game.inventory.entries.get_children().filter(func(n):return n.visible).size()==15,"first inventory page shows fifteen cards without discarding owned items")
  game.inventory.cards.InventoryNext.pressed.emit()
- check(game.inventory.page==1 and game.inventory.entries.get_children().filter(func(n):return n.visible).size()==15 and game.inventory.cards["Item 28"].visible,"next-page control exposes final owned item")
+ check(game.inventory.page==1 and game.inventory.entries.get_children().filter(func(n):return n.visible).size()==15 and game.inventory.cards["Item 28"].visible,"second page exposes its final item")
+ game.inventory.cards.InventoryNext.pressed.emit()
+ check(game.inventory.page==2 and game.inventory.entries.get_children().filter(func(n):return n.visible).size()==1 and game.inventory.cards["Item 29"].visible,"third page exposes the final owned item without dropping it")
  check(game.inventory.cards.InventoryNext.disabled and not game.inventory.cards.InventoryPrev.disabled,"last page has bounded navigation")
+ game.inventory.cards.InventoryPrev.pressed.emit()
  game.inventory.cards.InventoryPrev.pressed.emit()
  check(game.inventory.page==0 and bag.items==before_items,"page navigation preserves all physical items")
  bag.queue_free();game.queue_free();await process_frame

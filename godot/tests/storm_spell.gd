@@ -18,7 +18,7 @@ func clear() -> void:
  allocated=[]
 func run() -> void:
  resolver=preload("res://modules/spell/combat_resolver.gd").new();root.add_child(resolver)
- check(Catalog.PLAYABLE.size()==8 and "storm" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==19 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"storm is lab-only and stable root still advertises eight")
+ check(Catalog.PLAYABLE.size()==8 and "storm" not in Catalog.PLAYABLE and Effects.PLAYABLE.size()==20 and Effects.PLAYABLE.slice(0,8)==Catalog.PLAYABLE,"storm is lab-only and stable root still advertises eight")
  check(Catalog.power("storm")==35 and Catalog.element("storm")=="lightning","storm retains source damage and lightning mapping")
  check(Effects.texture("storm").get_height()==128 and "雷電風暴" in Effects.description("storm"),"storm has dedicated provisional layered storm-cloud sprite and explicit radius description")
  for level in range(1,4):

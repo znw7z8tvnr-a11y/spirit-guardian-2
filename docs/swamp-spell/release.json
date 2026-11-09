@@ -1,0 +1,35 @@
+{
+  "deployment": {
+    "id": "appgdep_6af1677cf4488191abc465200321fea2",
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "title": "\u9748\u5883\u5b88\u885b Spirit Guardian \u00b7 M2 \u8a66\u73a9",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_28ab8656da388191b3163204905b5626",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae21db4af948191b57fd49b52694b66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-09T06:26:23.248097+00:00"
+  },
+  "source_commit": "9eb391810e718fe8671d8978da54763f19d85ae6",
+  "hosting_source_commit": "2fa5ea93a505bfbefcde678abcdc54c33ca38ed9",
+  "native_assertions": 786,
+  "swamp_assertions": 39,
+  "template_range_tests": 4,
+  "ci_run": 42572077252,
+  "remaining_attack_types": 5,
+  "remaining_original_gems": 10,
+  "limits": [
+    "Temporary art",
+    "No iPad Safari hardware test",
+    "No full 20-wave balance acceptance",
+    "Poison status is an intentional Lab adaptation"
+  ],
+  "ci_status": "completed",
+  "ci_conclusion": "success",
+  "ci_artifact": 13654416654,
+  "ci_artifact_url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/42572077252/artifacts/13654416654"
+}

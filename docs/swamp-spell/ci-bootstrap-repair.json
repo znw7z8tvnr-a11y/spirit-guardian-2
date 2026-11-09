@@ -1,0 +1,12 @@
+{
+  "failed_run": 42571177003,
+  "failed_job": 129008656856,
+  "failure": "HTTP 504 while downloading official full export_templates.tpz before any game tests ran",
+  "pinned_version": "4.6.3",
+  "replacement": "official TPZ ranged ZIP selection, entry CRC and inner ZIP validation; no full-archive fallback",
+  "transport_unit_checks": 4,
+  "archive_bytes": 1255918323,
+  "downloaded_bytes": 26987252,
+  "same_official_template_hashes": true,
+  "game_tree_unchanged_from": "493f3be25815a5bbc9f8c57b177f4a0f449e451d"
+}

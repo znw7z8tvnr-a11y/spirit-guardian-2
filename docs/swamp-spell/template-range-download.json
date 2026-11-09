@@ -1,0 +1,18 @@
+{
+  "archive_bytes": 1255918323,
+  "downloaded_bytes": 26987252,
+  "files": [
+    {
+      "name": "web_nothreads_debug.zip",
+      "bytes": 10120053,
+      "sha256": "4a8a8ef7519637f7898fad25f09d3e466965e99c04e441682e1bc2d97a548922"
+    },
+    {
+      "name": "web_nothreads_release.zip",
+      "bytes": 9574223,
+      "sha256": "1446f79dc12f60ce5d244c39fb6628ec298337ca5c4f91a16491feea72aa1bc9"
+    }
+  ],
+  "source": "official Godot release TPZ, selected entry CRCs validated",
+  "matches_existing_pinned_templates": true
+}

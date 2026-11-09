@@ -1,0 +1,24 @@
+127.0.0.1 - - [09/Nov/2026 06:22:46] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:22:46] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:22:46] "GET /lab/wasm-stream.js?build=9eb391810e718fe8671d8978da54763f19d85ae6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:22:46] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:22:46] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:22:46] "GET /lab/index.pck?build=a9e236d1dce82cb5146c20324f86048c45a03f3a9b764abe95bb3f150894ddc4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:22:46] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:22:47] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:22:48] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:22:48] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+landscape package state {'swamp': 1} {'swamp': 1} True ['swamp']
+landscape PACKAGED SWAMP PASS 1 1
+127.0.0.1 - - [09/Nov/2026 06:23:06] "GET /lab/?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:23:06] "GET /lab/index.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:23:06] "GET /lab/wasm-stream.js?build=9eb391810e718fe8671d8978da54763f19d85ae6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:23:06] "GET /lab/index.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:23:06] "GET /lab/index.pck?build=a9e236d1dce82cb5146c20324f86048c45a03f3a9b764abe95bb3f150894ddc4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:23:06] "GET /index.wasm.part00.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:23:06] "GET /index.wasm.part01.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:23:06] "GET /index.wasm.part02.bin HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:23:07] "GET /lab/index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 06:23:07] "GET /lab/index.audio.worklet.js HTTP/1.1" 200 -
+portrait package state {'swamp': 1} {'swamp': 1} True ['swamp']
+portrait PACKAGED SWAMP PASS 1 1

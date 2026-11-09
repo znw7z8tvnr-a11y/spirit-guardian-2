@@ -1,0 +1,9 @@
+{
+  "engine": "Godot 4.6.3 official",
+  "source_commit": "493f3be25815a5bbc9f8c57b177f4a0f449e451d",
+  "passed_checks": 786,
+  "failures": [],
+  "scope": "Actual poison damage, five ticks, refresh cadence, expiry, delayed poison kill without chain restart, strict radius, victim cap and bounded hit-located haze. Browser tests separate.",
+  "game_tree_verified_identical_to": "9eb391810e718fe8671d8978da54763f19d85ae6",
+  "godot_tree_sha": "c533eb8e4bda88a3087914e76350f574bb91323b"
+}

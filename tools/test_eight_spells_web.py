@@ -38,9 +38,14 @@ async def main():
    await tap('Item 4');assert '50%' in (await state())['inventory_detail'] and '不延伸' in (await state())['inventory_detail']
    await tap(f"Item {s['spell_kit_ids']['poison']}");assert '附毒' in (await state())['inventory_detail']
    await tap(f"Item {s['spell_kit_ids']['beam']}");assert '穿透' in (await state())['inventory_detail']
-   await page.screenshot(path=str(REPORT/f'eight-spell-inventory-{name}.png'));await tap('InventoryClose');await tap('Done')
+   await page.screenshot(path=str(REPORT/f'eight-spell-inventory-{name}.png'));await tap('InventoryClose')
+   controls=await state();canvas=await page.locator('#canvas').bounding_box();x,y,_,_=controls['buttons']['Pause'];vw,vh=controls['viewport']
+   pause_point=(canvas['x']+x/vw*canvas['width'],canvas['y']+y/vh*canvas['height'])
+   await tap('Done')
    await page.wait_for_function("window.SG_LAB_STATE.spell_flights.includes('meteor')",timeout=90000)
-   await tap('Pause');flight=await state();assert flight['paused'] and 'meteor' in flight['spell_flights']
+   # Use the cached real touch coordinate before this short flight ends.
+   await page.touchscreen.tap(*pause_point);await page.wait_for_timeout(500)
+   flight=await state();assert flight['paused'] and 'meteor' in flight['spell_flights']
    await page.screenshot(path=str(REPORT/f'meteor-flight-{name}.png'));await tap('Pause')
    await page.wait_for_function("['poison','meteor','nova','beam'].every(k=>(window.SG_LAB_STATE.spell_casts[k]||0)>0)",timeout=90000)
    await page.wait_for_function("window.SG_LAB_STATE.trace.some(e=>e.kind==='cast'&&e.is_echo)",timeout=90000)

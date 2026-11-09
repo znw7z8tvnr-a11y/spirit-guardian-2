@@ -29,8 +29,8 @@ jobs:
           chmod +x "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64"
           ln -s "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64" /tmp/godot/godot
           echo /tmp/godot >> "$GITHUB_PATH"
-          curl -fL --retry 3 -o /tmp/templates.tpz "https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_export_templates.tpz"
-          unzip -j -q /tmp/templates.tpz 'templates/web_*' -d "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable"
+          python3 tools/test_web_template_ranges.py
+          python3 tools/install_godot_web_templates.py --version "$GODOT_VERSION" --directory "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable" | tee docs/swamp-spell/template-range-download.json
       - name: Verify source-derived catalogs
         run: |
           python3 tools/build_supplement_catalog.py

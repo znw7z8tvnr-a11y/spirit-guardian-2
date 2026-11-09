@@ -29,6 +29,7 @@ jobs:
           chmod +x "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64"
           ln -s "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64" /tmp/godot/godot
           echo /tmp/godot >> "$GITHUB_PATH"
+          mkdir -p docs/gravity-spell
           python3 tools/test_web_template_ranges.py
           python3 tools/install_godot_web_templates.py --version "$GODOT_VERSION" --directory "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable" | tee docs/gravity-spell/template-range-download.json
       - name: Verify source-derived catalogs

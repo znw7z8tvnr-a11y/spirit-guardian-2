@@ -42,6 +42,8 @@ func stats(item: Dictionary) -> String:
   var text: String=preload("res://experiments/chain_lab/gem_rules.gd").description(str(item.key),int(item.level))
   if item.key=="delay" and is_instance_valid(model):text+="｜目前冷卻 %.1f 秒" % (ceilf(model.gem_remaining(item)*10)/10)
   return text
+ if is_instance_valid(model) and model.preceding_attack_scale(slot)>1:
+  return "目前直擊傷害 %.1f（含血肉及後接攻擊寶石 +%d%%；不加成持續傷害）" % [Effects.power(str(item.key),int(item.level),attack_boost)*model.preceding_attack_scale(slot),roundi((model.preceding_attack_scale(slot)-1)*100)]
  return "直擊基礎傷害 %.1f（含血肉攻擊加成；範圍與狀態效果另計）" % (Effects.power(str(item.key),int(item.level),attack_boost))
 func open(chain: Node, index: int, boost: float) -> void:
  model=chain;slot=index;attack_boost=boost
@@ -58,7 +60,7 @@ func open(chain: Node, index: int, boost: float) -> void:
   b.add_theme_font_size_override("font_size",19)
   if id>=0:
    var art:=TextureRect.new();art.mouse_filter=Control.MOUSE_FILTER_IGNORE;art.position=Vector2(82,4);art.size=Vector2(56,56);art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-   art.texture=load("res://experiments/chain_lab/assets/relay_gem.svg") if item.kind=="gem" else Effects.texture(str(item.key));b.add_child(art)
+   art.texture=preload("res://experiments/chain_lab/gem_rules.gd").texture(str(item.key)) if item.kind=="gem" else Effects.texture(str(item.key));b.add_child(art)
    if item.kind=="gem":art.modulate=preload("res://experiments/chain_lab/gem_rules.gd").tint(str(item.key))
   b.pressed.connect(func():select_item(id))
  show_page(0);select_item(int(model.slots[slot]));show()

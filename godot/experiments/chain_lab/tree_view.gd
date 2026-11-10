@@ -38,7 +38,7 @@ func rebuild(chain: Node, selection: int) -> void:
   if not item.is_empty():
    var art:=TextureRect.new();art.mouse_filter=Control.MOUSE_FILTER_IGNORE;art.position=Vector2(16,10);art.size=Vector2(60,60)
    art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-   art.texture=load("res://experiments/chain_lab/assets/relay_gem.svg") if item.kind=="gem" else Effects.texture(str(item.key))
+   art.texture=preload("res://experiments/chain_lab/gem_rules.gd").texture(str(item.key)) if item.kind=="gem" else Effects.texture(str(item.key))
    b.add_child(art)
    if item.kind=="gem":art.modulate=preload("res://experiments/chain_lab/gem_rules.gd").tint(str(item.key))
   var caption:=Label.new();caption.mouse_filter=Control.MOUSE_FILTER_IGNORE;caption.text="%02d · %s" % [i+1,"—" if item.is_empty() else "L%d" % int(item.level)]

@@ -532,49 +532,49 @@
       "key": "blast",
       "name": "爆破攻擊",
       "description": "前段法術傷害 +15%／30%／50%；不分流",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab preceding-skill direct bonus and single continuation; see ATTACK_GEMS.md"
     },
     {
       "key": "bolt",
       "name": "雷擊攻擊",
       "description": "前段法術傷害 +12%／25%／45%；不分流",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab preceding-skill direct bonus and single continuation; see ATTACK_GEMS.md"
     },
     {
       "key": "venom",
       "name": "毒蝕攻擊",
       "description": "前段法術傷害 +10%／22%／40%；不分流",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab preceding-skill direct bonus and single continuation; see ATTACK_GEMS.md"
     },
     {
       "key": "frostatk",
       "name": "寒霜攻擊",
       "description": "前段法術傷害 +10%／20%／35%；不分流",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab preceding-skill direct bonus and single continuation; see ATTACK_GEMS.md"
     },
     {
       "key": "critical",
       "name": "致命攻擊",
       "description": "前段法術傷害 +20%／40%／70%；不分流",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab preceding-skill direct bonus and single continuation; see ATTACK_GEMS.md"
     },
     {
       "key": "piercing",
       "name": "穿刺攻擊",
       "description": "前段法術傷害 +12%／25%／45%；不分流",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab preceding-skill direct bonus and single continuation; see ATTACK_GEMS.md"
     },
     {
       "key": "range",
       "name": "廣域攻擊",
       "description": "前段法術傷害 +10%／20%／35%；不分流",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab preceding-skill direct bonus and single continuation; see ATTACK_GEMS.md"
     },
     {
       "key": "multi",
       "name": "多重攻擊",
       "description": "前段法術傷害 +15%／30%／50%；不分流",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab preceding-skill direct bonus and single continuation; see ATTACK_GEMS.md"
     }
   ],
   "resonance": {
@@ -1162,10 +1162,18 @@
       "burn",
       "freeze",
       "lowhp",
-      "delay"
+      "delay",
+      "blast",
+      "bolt",
+      "venom",
+      "frostatk",
+      "critical",
+      "piercing",
+      "range",
+      "multi"
     ],
-    "remaining_original_count": 10,
-    "conditional_gates": "Nine original types integrated; echo is a tooltip-based remake into rewards and inventory; unsupported keys fail closed"
+    "remaining_original_count": 2,
+    "conditional_gates": "Seventeen original gem types integrated; echo is a tooltip-based remake into rewards and inventory; unsupported keys fail closed"
   },
   "conflicts": [
     "SG7 resonance pool includes rate/shield/split, not just attack elements.",

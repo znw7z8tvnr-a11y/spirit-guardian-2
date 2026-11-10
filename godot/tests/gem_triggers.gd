@@ -26,7 +26,7 @@ func _initialize() -> void:
  check(rewards.offers.filter(func(o):return o.kind=="gem")[0].key=="relay","first reward keeps beginner relay")
  rewards.granted_count=1
  var seen: Array=[]
- for i in range(100):
+ for i in range(1000):
   rewards.roll()
   var key: String=rewards.offers.filter(func(o):return o.kind=="gem")[0].key
   if key not in seen:seen.append(key)

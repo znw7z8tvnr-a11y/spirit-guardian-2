@@ -20,6 +20,8 @@ The newly authored `godot/experiments/chain_lab/assets/summon.svg` and `ghost_gu
 
 The newly authored `godot/experiments/chain_lab/assets/skeleton_guardian.svg`, `bone_seal.svg` and `bone_slash.svg` are also available under these MIT terms. Other pre-existing artwork retains its original status.
 
+The newly authored `godot/experiments/chain_lab/assets/attack_gem.svg` is also available under these MIT terms. Other pre-existing artwork retains its original status.
+
 MIT License
 
 Copyright (c) 2026 Spirit Guardian contributors

@@ -34,6 +34,7 @@ var rolls:=0
 var resonances:=0
 var kit_loaded:=false
 var kit_ids: Array=[]
+var attack_kit_loaded:=false
 var spell_kit_loaded:=false
 var spell_kit_ids: Dictionary={}
 var gem_kit_ids: Dictionary={}
@@ -54,7 +55,7 @@ func equipment_error(slot: int, id: int) -> String:
   var a: Dictionary=({} if id<0 else items[id]) if from==slot else item_at(from)
   var b: Dictionary=({} if id<0 else items[id]) if to==slot else item_at(to)
   if a.is_empty() or b.is_empty() or from==to or to==0 or a.kind==b.kind:return "與現有連線不相容，請先移除連線。"
-  var maximum:=2 if a.kind=="gem" and int(a.level)==3 else 1
+  var maximum:=preload("res://experiments/chain_lab/gem_rules.gd").branch_limit(str(a.key),int(a.level)) if a.kind=="gem" else 1
   if outgoing(from).size()>maximum:return "此寶石無法維持目前分岔，請先移除多餘連線。"
  return ""
 func equip(slot: int, id: int) -> bool:
@@ -66,7 +67,7 @@ func outgoing(id: int) -> Array:
 func legal_edge(from: int, to: int, check_limit:=true) -> bool:
  var a:=item_at(from);var b:=item_at(to)
  if a.is_empty() or b.is_empty() or from==to or to==0 or a.kind==b.kind:return false
- var maximum:=2 if a.kind=="gem" and int(a.level)==3 else 1
+ var maximum:=preload("res://experiments/chain_lab/gem_rules.gd").branch_limit(str(a.key),int(a.level)) if a.kind=="gem" else 1
  if check_limit and (outgoing(from).size()>=maximum or edges.any(func(e):return int(e.to)==to)):return false
  if not check_limit and outgoing(from).size()>maximum:return false
  return true
@@ -145,6 +146,12 @@ func choose_target(at: Vector2, run: Dictionary) -> Node2D:
  for enemy in candidates:
   if target_id(enemy) not in run.visited:return enemy
  return candidates[0] if not candidates.is_empty() else null
+func preceding_attack_scale(slot: int) -> float:
+ var item:=item_at(slot);var links:=outgoing(slot)
+ if item.is_empty() or item.kind!="skill" or links.size()!=1:return 1.0
+ var modifier:=item_at(int(links[0].to))
+ if modifier.is_empty() or modifier.kind!="gem":return 1.0
+ return preload("res://experiments/chain_lab/gem_rules.gd").preceding_multiplier(str(modifier.key),int(modifier.level))
 func emit_skill(slot: int, target: Node2D, run: Dictionary, context: Dictionary) -> void:
  if not current(run):return
  var item:=item_at(slot)
@@ -156,13 +163,14 @@ func emit_skill(slot: int, target: Node2D, run: Dictionary, context: Dictionary)
  else:empty_casts+=1
  context["aim"]=target.position if alive(target) else context.aim
  context["target_id"]=id
+ context["own_damage_scale"]=preceding_attack_scale(slot)
  context["slot"]=slot
  context["run_id"]=run.id
  run.inflight+=1;casts+=1
  var element:=Catalog.element(str(item.key))
  if element not in run.elements:run.elements.append(element)
  run["last_at"]=context.aim
- add_trace({"kind":"cast","run":run.id,"slot":slot,"key":item.key,"target":id,"origin":[context.origin.x,context.origin.y],"at":[context.aim.x,context.aim.y],"empty":id==0,"damage_scale":float(context.get("damage_scale",1.0)),"is_echo":bool(context.get("is_echo",false))})
+ add_trace({"kind":"cast","run":run.id,"slot":slot,"key":item.key,"target":id,"origin":[context.origin.x,context.origin.y],"at":[context.aim.x,context.aim.y],"empty":id==0,"damage_scale":float(context.get("damage_scale",1.0)),"own_damage_scale":float(context.get("own_damage_scale",1.0)),"is_echo":bool(context.get("is_echo",false))})
  pulse.emit(slot,"迴響" if context.get("is_echo",false) else "施放")
  # Create the actual spell first. Its flight need not hit to provide an element.
  cast_requested.emit(slot,item.duplicate(true),target,run,context)
@@ -201,7 +209,7 @@ func complete_skill(slot: int, target: Node2D, result: Dictionary, run: Dictiona
  outcome["previous_id"]=context.get("target_id",target_id(target))
  if hit:hits+=1
  else:misses+=1
- add_trace({"kind":"hit" if hit else "miss","run":run.id,"slot":slot,"target":outcome.previous_id,"is_echo":bool(context.get("is_echo",false))})
+ add_trace({"kind":"hit" if hit else "miss","run":run.id,"slot":slot,"target":outcome.previous_id,"own_damage_scale":float(context.get("own_damage_scale",1.0)),"is_echo":bool(context.get("is_echo",false))})
  if not context.get("is_echo",false):
   for edge in outgoing(slot):schedule(int(edge.to),target,outcome,run)
   var chance: float=context.get("echo_chance",0.0)
@@ -319,3 +327,14 @@ func load_spell_kit() -> void:
  edges=[]
  for i in range(8):edges.append({"from":i,"to":i+1})
  reset_runtime();last_message="技能演練：提供測試物品，不是正常掉落。";changed.emit()
+
+func load_attack_gem_kit() -> void:
+ load_spell_kit()
+ if not attack_kit_loaded:
+  for key in preload("res://experiments/chain_lab/gem_rules.gd").ATTACK_BONUSES:
+   var id:=items.size();gem_kit_ids[key]=id;items.append({"id":id,"kind":"gem","key":key,"level":3})
+  attack_kit_loaded=true
+ slots=[0,gem_kit_ids.critical,kit_ids[1],gem_kit_ids.blast,kit_ids[2],gem_kit_ids.frostatk,kit_ids[4],gem_kit_ids.bolt,kit_ids[6],-1]
+ edges=[]
+ for i in range(8):edges.append({"from":i,"to":i+1})
+ reset_runtime();last_message="攻擊寶石演練：提供八種測試寶石，前段增傷；不是正式掉落。";changed.emit()

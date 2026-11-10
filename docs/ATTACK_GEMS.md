@@ -1,5 +1,7 @@
 # 八種前段攻擊寶石
 
+此頁記錄八寶石交付當時的測試與版本。後續迅捷與暴擊條件已加入 Lab，最新規則與驗證見 [FINAL_GEMS.md](FINAL_GEMS.md)。
+
 核對 V9 寶石模組的 ATTACK_GEMS、bonus、maxChildren、ownBoost 及 nextMult：八種攻擊寶石增強所屬前段法術，任何品質都僅一條後續線。它們與增強後續技能的 split／rapid 有不同方向；來源 executeCast 對這八種使用 ownBoost，往下一段傳遞的倍率為 1。
 
 | 寶石 | 一級 | 二級 | 三級 |

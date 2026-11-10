@@ -19,3 +19,15 @@
 `tools/test_final_gems_web.py` 用 Chromium 觸控模擬直橫向操作演練、背包與戰鬥；使用公開除錯 seed 重現正常 RNG 結果，不注入遊戲狀態或強制暴擊。與舊有攻擊寶石及 22 技能回歸測試分別執行。
 
 所有圖像與戰鬥呈現仍為暫用素材；Linux Chromium 不代表 iPad Safari 實機已通過，20 波整局平衡仍需另外驗收。
+
+## 本機已通過項目
+
+Godot 4.6.3 匯入與場景檢查、34 組測試共 1123 項斷言通過。10000 次真實直擊抽樣中 1183 次暴擊；各品質暴擊條件另取 10000 次條件抽樣。不是只驗證語法。
+
+新增寶石在原始 Web 匯出與部署用分塊載入包皆通過直、橫向 Chromium 觸控驗證：正常開局不贈送演練物品、42 件不重複領取、第三頁兩寶石詳情、真實暴擊接續、下一招 35% 加成及暫停。八種攻擊寶石觸控回歸另行通過。畫面截圖均由實際遊戲產生，非概念圖。
+
+線上 HTTPS/TLS 先以無快取再以一般請求比對 HTML、PCK、WASM 與來源版本成功；穩定入口 18 檔案不變。此項只代表線上資源一致，不冒稱遠端瀏覽器或 iPad Safari 實機驗收。
+
+22 技能及幽靈／骷髏自主攻擊的完整 Chromium 直、橫向回歸亦已通過，無頁面或引擎錯誤；包含流星飛行暫停、迴響、條件寶石替換、時序冷卻暫停及八倍速恢復。完整快照與實際畫面見 `docs/final-gems/`。
+
+GitHub Actions [42818068938](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/42818068938) 全部成功；[交付包 13766806764](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/42818068938/artifacts/13766806764)。受測程式來源 f62b9229aebb7c603a334bf03427c67f9ec9254f，分支 godot/final-gems-lab。發布來源 afd401f3846bee7360acfabfae2388c6dc394b11。

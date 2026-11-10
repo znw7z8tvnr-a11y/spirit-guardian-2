@@ -1,0 +1,10 @@
+{
+  "fresh_no_cache_passed": true,
+  "normal_requests_passed": true,
+  "tls_verified": true,
+  "owner_private_preserved": true,
+  "stable_root_files_unchanged": 18,
+  "game_source": "f62b9229aebb7c603a334bf03427c67f9ec9254f",
+  "hosting_source": "afd401f3846bee7360acfabfae2388c6dc394b11",
+  "scope": "HTTP asset integrity; gameplay interaction verified separately on raw and packaged local WebGL builds"
+}

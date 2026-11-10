@@ -1,0 +1,38 @@
+{
+  "release": "Rapid and critical condition gems; nineteen original gem types provisionally ported to Lab",
+  "branch": "godot/final-gems-lab",
+  "game_source": "f62b9229aebb7c603a334bf03427c67f9ec9254f",
+  "hosting_source": "afd401f3846bee7360acfabfae2388c6dc394b11",
+  "deployment": "appgdep_6af312054b2c8191839f2fac0612cb95",
+  "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
+  "native": {
+    "suites": 34,
+    "checks": 1123,
+    "failures": [],
+    "engine": "Godot 4.6.3",
+    "scope": "native scene and HP integration; old numeric suites explicitly noncritical, final gems tests actual criticals"
+  },
+  "web_acceptance": [
+    "final-gems-web.json",
+    "final-gems-packaged.json",
+    "attack-gems-web.json",
+    "eight-spell-web.json"
+  ],
+  "source_original_gems": 19,
+  "lab_prototype_gems": 1,
+  "lab_skills": 22,
+  "training_inventory": 42,
+  "stable_root_files_unchanged": 18,
+  "private_audience_preserved": true,
+  "live_https_assets_verified": true,
+  "ci_run": 42818068938,
+  "ci_status": "success",
+  "limits": [
+    "Temporary art, not final visual quality",
+    "Linux Chromium touch emulation, not iPad Safari hardware",
+    "Full twenty-wave balance and original module parity remain pending",
+    "Fifty recipe profiles do not mean fifty fully implemented resonance effects"
+  ],
+  "ci_artifact": 13766806764,
+  "ci_source_commit": "f62b9229aebb7c603a334bf03427c67f9ec9254f"
+}

@@ -1,0 +1,48 @@
+{
+  "deployment": {
+    "id": "appgdep_6af307b9272c81919ae8cf9e810e8672",
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "title": "靈境守衛 Spirit Guardian · M2 試玩",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_a188c024367c8191b3e56712bcd285b2",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae21db4af948191b57fd49b52694b66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-10T12:02:20.118059+00:00"
+  },
+  "source_commit": "9987579ea10bf40bbc0475474dde5aeac207cdfc",
+  "hosting_source_commit": "3b731c16b06175dfe5a5a8d8329dc757cf138357",
+  "native_assertions": 1082,
+  "attack_gem_assertions": 106,
+  "ci_run": 42809602586,
+  "ci_status": "completed",
+  "ci_conclusion": "success",
+  "ci_artifact": 13762901033,
+  "ci_artifact_url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/42809602586/artifacts/13762901033",
+  "implemented_original_gems": 17,
+  "remaining_original_gems": [
+    "rapid",
+    "crit"
+  ],
+  "attack_gems": [
+    "blast",
+    "bolt",
+    "venom",
+    "frostatk",
+    "critical",
+    "piercing",
+    "range",
+    "multi"
+  ],
+  "limits": [
+    "Temporary artwork",
+    "No iPad Safari hardware test",
+    "No full 20-wave balance acceptance",
+    "22 catalog skill entries and 17 original gem types have provisional Lab behavior; full original-module parity and complete resonance spells remain pending",
+    "New attack gems scale preceding direct skill damage only, not poison ticks or later guardian strikes"
+  ]
+}

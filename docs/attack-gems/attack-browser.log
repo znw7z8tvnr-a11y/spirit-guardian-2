@@ -1,0 +1,16 @@
+127.0.0.1 - - [10/Nov/2026 11:43:01] "GET /?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 11:43:01] "GET /index.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 11:43:01] "GET /index.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 11:43:01] "GET /index.wasm HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 11:43:01] "GET /index.pck HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 11:43:03] "GET /index.audio.position.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 11:43:03] "GET /index.audio.worklet.js HTTP/1.1" 200 -
+landscape ATTACK GEMS PASS [1.5, 1.5, 1.35, 1.45, 1] 4
+127.0.0.1 - - [10/Nov/2026 11:43:48] "GET /?debug=1&seed=12032 HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 11:43:48] "GET /index.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 11:43:48] "GET /index.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 11:43:48] "GET /index.wasm HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 11:43:48] "GET /index.pck HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 11:43:49] "GET /index.audio.worklet.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 11:43:49] "GET /index.audio.position.worklet.js HTTP/1.1" 200 -
+portrait ATTACK GEMS PASS [1.5, 1.5, 1.35, 1.45, 1] 4

@@ -1,0 +1,73 @@
+{
+  "sources": [
+    {
+      "file": "reference_modules/spirit_guardian_gem_chain_module_v9_integrated.html",
+      "sha256": "6e2a9443b709b87dc1ce79d0663d980d8a19a19333c0b27f5709746cbb49f02e",
+      "attack_set": 55,
+      "bonus": 58,
+      "own_boost": 125,
+      "next_mult": 144
+    },
+    {
+      "file": "reference_modules/spirit_guardian_v31_16_skills_final.html",
+      "sha256": "42f2ea78917bb51b54afe2280726c8a1431f9a0279d86ab4f701bab8861d127f",
+      "attack_set": 820,
+      "bonus": 823,
+      "own_boost": 872,
+      "next_mult": 891
+    },
+    {
+      "file": "reference_modules/spirit_guardian_v31_30_combat_vfx_final.html",
+      "sha256": "7bbf666bd601cbb14d12d3cc9374b6c39d1301b91214d18ab232076f7359754e",
+      "attack_set": 742,
+      "bonus": 745,
+      "own_boost": 794,
+      "next_mult": 813
+    }
+  ],
+  "preceding_skill": true,
+  "max_outputs_all_tiers": 1,
+  "bonus": {
+    "blast": [
+      0.15,
+      0.3,
+      0.5
+    ],
+    "bolt": [
+      0.12,
+      0.25,
+      0.45
+    ],
+    "venom": [
+      0.1,
+      0.22,
+      0.4
+    ],
+    "frostatk": [
+      0.1,
+      0.2,
+      0.35
+    ],
+    "critical": [
+      0.2,
+      0.4,
+      0.7
+    ],
+    "piercing": [
+      0.12,
+      0.25,
+      0.45
+    ],
+    "range": [
+      0.1,
+      0.2,
+      0.35
+    ],
+    "multi": [
+      0.15,
+      0.3,
+      0.5
+    ]
+  },
+  "lab_scope": "Direct skill damage only; no new crit, area, poison or extra projectile behavior. Does not scale poison ticks or later guardian attacks. Miss continuation follows existing Lab design."
+}

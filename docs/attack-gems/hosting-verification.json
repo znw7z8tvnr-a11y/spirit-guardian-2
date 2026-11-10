@@ -1,0 +1,6 @@
+{
+  "expected_lab_source": "9987579ea10bf40bbc0475474dde5aeac207cdfc",
+  "fresh_no_cache_request_passed": true,
+  "subsequent_normal_request_passed": true,
+  "scope": "TLS-verified asset integrity; local staged WebGL touch tests are separate evidence."
+}

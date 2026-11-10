@@ -13,6 +13,9 @@ const Zh=preload("res://localization/zh_hant.gd")
 const CENTER:=Vector2(900,500)
 const BOOK_PATH:="user://chain_lab_book.json"
 @export var persist_book:=true
+@export var criticals_enabled:=true
+var critical_casts:=0
+var critical_victims:=0
 var chain: Node
 var rewards: Node
 var reward_panel: PanelContainer
@@ -92,7 +95,7 @@ func _ready() -> void:
  shots=Node2D.new();add_child(shots)
  tower=Tower.new();tower.position=CENTER;tower.scale=Vector2.ONE/0.72;add_child(tower)
  tower.destroyed.connect(func():over=true;chain.reset_runtime();event_label.text="守護水晶已破碎；可重新開始試驗。")
- resolver=Resolver.new();add_child(resolver)
+ resolver=Resolver.new();add_child(resolver);resolver.rng.randomize()
  fx=FX.new();add_child(fx)
  guardians=preload("res://experiments/chain_lab/guardian_manager.gd").new();guardians.targets=enemies;guardians.resolver=resolver;add_child(guardians)
  drops=Node2D.new();add_child(drops)
@@ -101,7 +104,7 @@ func _ready() -> void:
  if web_debug:
   var seed_value: Variant=JavaScriptBridge.eval("Number(new URLSearchParams(location.search).get('seed') || 0)")
   if seed_value is float and is_finite(seed_value) and seed_value>0:
-   rng.seed=int(seed_value);chain.rng.seed=int(seed_value)+19980;rewards.rng.seed=int(seed_value)+31000
+   rng.seed=int(seed_value);chain.rng.seed=int(seed_value)+19980;rewards.rng.seed=int(seed_value)+31000;resolver.rng.seed=int(seed_value)+42000
  if persist_book and FileAccess.file_exists(BOOK_PATH):
   var saved: Variant=JSON.parse_string(FileAccess.get_file_as_string(BOOK_PATH))
   if saved is Array:
@@ -156,6 +159,7 @@ func create_ui() -> void:
  make_button("Random","隨機排列",row2,func():chain.random_arrange();refresh_editor.call_deferred())
  make_button("Arrange","已知共振排列",row2,arrange_known)
  make_button("AttackKit","攻擊寶石演練",row2,func():chain.load_attack_gem_kit();refresh_editor.call_deferred())
+ make_button("FinalGemKit","迅捷／暴擊演練",row2,func():chain.load_final_gem_kit();refresh_editor.call_deferred())
  loadout_notice=label("獎勵已入背包；選格子後開圖示背包裝配，準備好再繼續戰鬥。",box);loadout_notice.hide()
  editor_status=label("",box)
  picker=OptionButton.new();picker.custom_minimum_size.y=72;box.add_child(picker);picker.hide()
@@ -322,10 +326,12 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   var key: String=item.key
   var impact_at: Vector2=victim.position if chain.alive(victim) else at
   if chain.alive(victim):context["target_id"]=chain.target_id(victim)
-  var result: Dictionary=SpellEffects.impact(key,victim,context.origin,impact_at,int(item.level),attack_boost*float(context.get("own_damage_scale",1.0)),enemies.get_children(),resolver)
+  var result: Dictionary=SpellEffects.impact(key,victim,context.origin,impact_at,int(item.level),attack_boost*float(context.get("own_damage_scale",1.0)),enemies.get_children(),resolver,criticals_enabled)
   if bool(result.hit):
    context["target_id"]=int(result.target_id)
    if int(result.target_id) not in run.visited:run.visited.append(int(result.target_id))
+  if result.get("critical",false):
+   critical_casts+=1;critical_victims+=int(result.critical_count);critical_impact(impact_at)
   spell_cast_counts[key]=int(spell_cast_counts.get(key,0))+1
   spell_hit_counts[key]=int(spell_hit_counts.get(key,0))+int(result.hit_count)
   if key in ["summon","skeleton"]:guardians.summon_at(impact_at,int(item.level),attack_boost,key)
@@ -335,6 +341,10 @@ func cast_spell(slot: int, item: Dictionary, target: Node2D, run: Dictionary, co
   chain.complete_skill(slot,victim,result,run,context)
   shot.queue_free()
  )
+func critical_impact(at: Vector2) -> void:
+ if fx.get_child_count()>=FX.MAX_EFFECTS:return
+ var text:=Label.new();text.theme=root_ui.theme;text.text="暴擊 ×1.85";text.position=at+Vector2(-50,-65);text.modulate=Color("ffe8a2");text.add_theme_font_size_override("font_size",26);text.set_meta("spell_key","critical_feedback");fx.add_child(text)
+ var rise:=text.create_tween().set_parallel(true);rise.tween_property(text,"position:y",text.position.y-36,0.9);rise.tween_property(text,"modulate:a",0.0,0.9);rise.chain().tween_callback(text.queue_free)
 func show_pulse(slot: int, message: String) -> void:
  var item: Dictionary=chain.item_at(slot)
  trail.append("%02d %s%s" % [slot+1,name_of(item),"・迴響" if message=="迴響" else ("・施放" if item.kind=="skill" else "・"+message)])
@@ -360,6 +370,7 @@ func refresh_status() -> void:
  wall_label.text="城牆 %d／%d・%s　核心 %d／%d" % [tower.wall_hp,tower.wall_max,"防線正常" if tower.wall_active else "破牆，修復中",tower.hp,tower.max_hp]
  growth_label.text="血肉 %d（已吸收 %d）・攻擊 ×%.2f・減傷 %d%%・回血 %.1f／秒" % [tower.flesh,tower.total_absorbed,spell_attack_multiplier(),tower.reduction()*100,tower.regeneration()]
  settings_label.text="每輪至少 %.1f 秒・每段 %.2f 秒・共振冷卻 %.0f 秒・%d FPS" % [effective_attack_period(),chain.hop_delay,chain.resonance_cooldown,Engine.get_frames_per_second()]
+ if critical_victims>0:settings_label.text+="・暴擊 %d" % critical_victims
 func publish_debug() -> void:
  var bounds: Dictionary={}
  for key in buttons:
@@ -369,7 +380,7 @@ func publish_debug() -> void:
  if is_instance_valid(inventory):
   for key in inventory.cards:
    var rect: Rect2=inventory.cards[key].get_global_rect();bounds[key]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
- JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"spell_flights":shots.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_visuals":fx.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_casts":spell_cast_counts,"spell_hits":spell_hit_counts,"guardian_by_type":guardians.counts,"guardian_spawns":guardians.spawns,"guardian_hits":guardians.hits,"guardian_kills":guardians.kills,"guardians":guardians.snapshot(),"spell_keys":SpellEffects.PLAYABLE,"attack_kit":chain.attack_kit_loaded,"spell_kit":chain.spell_kit_loaded,"spell_kit_ids":chain.spell_kit_ids,"gem_kit_ids":chain.gem_kit_ids,"gem_cooldowns":chain.cooldown_snapshot(),"boss":boss_info,"boss_kills":boss_kills,"summoned_minions":summoned_minions,"summon_events":summon_events,"attack_period":effective_attack_period(),"reward_loadout":loadout_notice.visible,"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_page":inventory.page,"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
+ JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"spell_flights":shots.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_visuals":fx.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_casts":spell_cast_counts,"spell_hits":spell_hit_counts,"guardian_by_type":guardians.counts,"guardian_spawns":guardians.spawns,"guardian_hits":guardians.hits,"guardian_kills":guardians.kills,"guardians":guardians.snapshot(),"spell_keys":SpellEffects.PLAYABLE,"criticals_enabled":criticals_enabled,"critical_casts":critical_casts,"critical_victims":critical_victims,"final_gem_kit":chain.final_gem_kit_loaded,"attack_kit":chain.attack_kit_loaded,"spell_kit":chain.spell_kit_loaded,"spell_kit_ids":chain.spell_kit_ids,"gem_kit_ids":chain.gem_kit_ids,"gem_cooldowns":chain.cooldown_snapshot(),"boss":boss_info,"boss_kills":boss_kills,"summoned_minions":summoned_minions,"summon_events":summon_events,"attack_period":effective_attack_period(),"reward_loadout":loadout_notice.visible,"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_page":inventory.page,"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
 
 func effective_attack_period() -> float:
  # A lone starting spell should not wait for a nonexistent long chain.

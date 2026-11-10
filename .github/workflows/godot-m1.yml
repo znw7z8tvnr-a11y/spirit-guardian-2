@@ -29,9 +29,9 @@ jobs:
           chmod +x "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64"
           ln -s "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64" /tmp/godot/godot
           echo /tmp/godot >> "$GITHUB_PATH"
-          mkdir -p docs/attack-gems
+          mkdir -p docs/final-gems
           python3 tools/test_web_template_ranges.py
-          python3 tools/install_godot_web_templates.py --version "$GODOT_VERSION" --directory "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable" | tee docs/attack-gems/template-range-download.json
+          python3 tools/install_godot_web_templates.py --version "$GODOT_VERSION" --directory "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable" | tee docs/final-gems/template-range-download.json
       - name: Verify source-derived catalogs
         run: |
           python3 tools/build_supplement_catalog.py
@@ -71,6 +71,9 @@ jobs:
       - name: Attack gem touch and local damage-scale acceptance
         timeout-minutes: 4
         run: python3 tools/test_attack_gems_web.py
+      - name: Rapid and real critical-condition touch acceptance
+        timeout-minutes: 4
+        run: python3 tools/test_final_gems_web.py
       - name: Twenty-two-skill and mixed guardian touch and actual cast acceptance
         timeout-minutes: 12
         run: python3 tools/test_eight_spells_web.py
@@ -80,7 +83,7 @@ jobs:
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-attack-gems-delivery
+          name: godot-final-gems-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
@@ -107,7 +110,7 @@ jobs:
             docs/first-boss/*.log
             docs/first-boss/*.json
             docs/first-boss/*.png
-            docs/attack-gems/*
+            docs/final-gems/*
             docs/timing-gem/*
             docs/lowhp-gem/*
             docs/element-gems/*

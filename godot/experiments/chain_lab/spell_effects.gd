@@ -58,8 +58,8 @@ static func description(key: String) -> String:return DESCRIPTIONS.get(key,"å°šæ
 static func power(key: String, level: int, boost: float) -> float:
  return Catalog.power(key)*(1+0.55*(clampi(level,1,3)-1))*boost
 static func living(enemy: Node2D) -> bool:return is_instance_valid(enemy) and not enemy.dead
-static func impact(key: String, primary: Node2D, origin: Vector2, at: Vector2, level: int, boost: float, enemies: Array, resolver: Node) -> Dictionary:
- var outcome: Dictionary={"hit":false,"killed":false,"critical":false,"position":at,"element":Catalog.element(key),"damage":0.0,"hit_count":0,"target_id":0,"hit_positions":[],"slowed_hit":false,"lowest_hp_ratio":1.0}
+static func impact(key: String, primary: Node2D, origin: Vector2, at: Vector2, level: int, boost: float, enemies: Array, resolver: Node, allow_criticals: bool=false) -> Dictionary:
+ var outcome: Dictionary={"hit":false,"killed":false,"critical":false,"critical_count":0,"position":at,"element":Catalog.element(key),"damage":0.0,"hit_count":0,"target_id":0,"hit_positions":[],"slowed_hit":false,"lowest_hp_ratio":1.0}
  if key not in PLAYABLE:return outcome
  var victims: Array=[]
  var all: Array=enemies.filter(func(enemy):return living(enemy))
@@ -100,12 +100,15 @@ static func impact(key: String, primary: Node2D, origin: Vector2, at: Vector2, l
  for enemy in victims:
   if not living(enemy):continue
   var multiplier:=0.45 if key in ["fire","lightning"] and enemy!=primary else 1.0
-  var result: Dictionary=resolver.resolve(enemy,power(key,level,boost)*multiplier,Catalog.element(key),{"critical":false,"spell_key":key})
+  var hit_context: Dictionary={"spell_key":key}
+  if not allow_criticals:hit_context.critical=false
+  var result: Dictionary=resolver.resolve(enemy,power(key,level,boost)*multiplier,Catalog.element(key),hit_context)
   if result.is_empty():continue
   if int(outcome.target_id)==0 or enemy==primary:outcome.target_id=enemy.get_instance_id();outcome.position=enemy.position
   outcome.lowest_hp_ratio=minf(float(outcome.lowest_hp_ratio),clampf(enemy.hp/maxf(enemy.max_hp,0.001),0.0,1.0))
   outcome.slowed_hit=bool(outcome.slowed_hit) or enemy.slow_time>0
   outcome.hit_positions.append(enemy.position)
   outcome.hit=true;outcome.hit_count+=1;outcome.damage+=float(result.get("damage",0))
+  if result.get("critical",false):outcome.critical=true;outcome.critical_count+=1
   outcome.killed=bool(outcome.killed) or bool(result.get("killed",false))
  return outcome

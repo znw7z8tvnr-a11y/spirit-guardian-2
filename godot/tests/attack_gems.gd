@@ -34,9 +34,9 @@ func clear() -> void:
  for node in game.guardians.get_children():node.free()
  game.guardians.purge()
 func run() -> void:
- game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false);model=game.chain
+ game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false);model=game.chain
  game.resolver.hit_resolved.connect(func(e,result,context):impacts.append({"damage":float(result.damage),"key":str(context.get("spell_key","")),"tick":bool(context.get("status_tick",false))}))
- check(Rules.KEYS.size()==18 and Rules.ATTACK_BONUSES.size()==8,"nine original gems plus eight source attack gems and one prototype relay")
+ check(Rules.KEYS.size()==20 and Rules.ATTACK_BONUSES.size()==8,"all nineteen original gems plus one prototype relay")
  var expression:=RegEx.new();expression.compile("(\\d+)%")
  for key in SOURCE_ATTACK:
   var source_values:=expression.search_all(str(Catalog.data.GEM[key][2]))

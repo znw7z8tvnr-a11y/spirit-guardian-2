@@ -1,0 +1,7 @@
+{
+  "suites": 34,
+  "checks": 1123,
+  "failures": [],
+  "engine": "Godot 4.6.3",
+  "scope": "native scene and HP integration; old numeric suites explicitly noncritical, final gems tests actual criticals"
+}

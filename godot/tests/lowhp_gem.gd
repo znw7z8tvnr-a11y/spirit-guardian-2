@@ -37,7 +37,7 @@ func run() -> void:
   check(not Rules.eligible("lowhp",{"hit":true,"lowest_hp_ratio":cutoff+0.0001},level),"level %d rejects above threshold" % level)
  check(not Rules.eligible("lowhp",{"hit":false,"lowest_hp_ratio":0},3),"miss cannot fake low health or kill")
  for source in [{"hit":true},{"hit":true,"lowest_hp_ratio":INF},{"hit":true,"lowest_hp_ratio":-1}]:check(not Rules.eligible("lowhp",source,3),"invalid or missing ratio fails closed")
- var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
+ var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
  for level in range(1,4):
   var health: float=[43.0,58.0,73.0][level-1]
   await battle(game,level,health,false,true);await battle(game,level,health+0.1,false,false)

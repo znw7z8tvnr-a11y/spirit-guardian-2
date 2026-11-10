@@ -12,7 +12,7 @@ func check(ok: bool, message: String) -> void:
 func record(slot: int,item: Dictionary,target: Node2D,cycle: Dictionary, context: Dictionary) -> void:emitted.append({"slot":slot,"item":item,"target":target,"run":cycle,"context":context})
 func complete(model: Node, event: Dictionary) -> void:model.complete_skill(int(event.slot),event.target,{"position":event.context.aim,"hit":is_instance_valid(event.target) and not event.target.dead,"element":event.item.key},event.run,event.context)
 func run() -> void:
- var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game
+ var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game
  game.set_physics_process(false);game.set_process(false);game.enemies.process_mode=Node.PROCESS_MODE_DISABLED
  var m: Node=game.chain
  m.cast_requested.disconnect(game.cast_spell);m.resonance_requested.disconnect(game.resonate);m.cast_requested.connect(record)
@@ -76,7 +76,7 @@ func run() -> void:
   if m.item_at(edge.from).kind==m.item_at(edge.to).kind:valid=false
  check(valid and used.size()<=10,"random arrangement obeys capacity, inventory and alternating types")
  root.remove_child(game);game.queue_free();await process_frame
- var live=load("res://experiments/chain_lab/main.tscn").instantiate();live.persist_book=false;root.add_child(live);current_scene=live
+ var live=load("res://experiments/chain_lab/main.tscn").instantiate();live.persist_book=false;live.criticals_enabled=false;root.add_child(live);current_scene=live
  live.rng.seed=12032;live.chain.rng.seed=32012;live.rewards.rng.seed=43032
  live.chain.load_kit();live.chain.resonance_chance=1.0
  for i in 3600:

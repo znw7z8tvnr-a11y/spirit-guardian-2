@@ -31,7 +31,7 @@ func run() -> void:
   if amount<1 or amount>5:boss_bounds=false
   sample.free()
  check(boss_bounds,"one hundred seeded Boss rewards stay within one to five")
- var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game;game.set_physics_process(false)
+ var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_physics_process(false)
  game.wave=3;game.remaining=0;game.chain.reset_runtime();game._physics_process(0.1)
  check(game.rewards.pending==1 and game.reward_panel.visible,"actual wave-clear flow opens the reward modal")
  var clock: float=game.combat_seconds;game._physics_process(1.0)

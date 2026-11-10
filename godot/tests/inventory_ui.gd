@@ -6,7 +6,7 @@ func check(ok: bool,message: String) -> void:
  else:failures.append(message)
 func _initialize() -> void:call_deferred("run")
 func run() -> void:
- var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game
+ var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game
  game.set_physics_process(false);game.chain.load_kit();await process_frame
  game.selected=2;game.inventory.open(game.chain,2,1.5)
  check(game.inventory.cards.size()==15,"all ten physical items plus clear, two actions and two page controls are visible")

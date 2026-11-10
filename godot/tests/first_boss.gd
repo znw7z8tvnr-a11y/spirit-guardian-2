@@ -7,7 +7,7 @@ func check(ok: bool,message: String) -> void:
  else:failures.append(message)
 func _initialize() -> void:call_deferred("run")
 func run() -> void:
- var probe=load("res://experiments/chain_lab/main.tscn").instantiate();probe.persist_book=false;root.add_child(probe);current_scene=probe;probe.set_physics_process(false)
+ var probe=load("res://experiments/chain_lab/main.tscn").instantiate();probe.persist_book=false;probe.criticals_enabled=false;root.add_child(probe);current_scene=probe;probe.set_physics_process(false)
  probe.wave=5;probe.remaining=9
  var boss: Node2D=probe.spawn_enemy();boss.apply_hit(boss.max_hp*0.35,"arcane")
  check(boss.phase==2 and probe.summoned_minions==3 and probe.enemies.get_child_count()==4,"real phase-two signal creates three configured minions")
@@ -27,7 +27,7 @@ func run() -> void:
  check(probe.effective_attack_period()==1.8,"two-skill starter chain uses responsive cadence without altering long-chain presets")
  probe.queue_free();await process_frame
  for seed_value in [12032,24064,32012]:
-  var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game
+  var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game
   game.rng.seed=seed_value;game.chain.rng.seed=seed_value+19980;game.rewards.rng.seed=seed_value+31000
   game.cycle_speed();game.cycle_speed();game.cycle_speed()
   var frames:=0;var min_wall_ratio:=1.0;var min_core:=100.0;var attacks:=0;var phase:=0;var pauses:=0;var warning_seen:=false;var short_period:=0.0

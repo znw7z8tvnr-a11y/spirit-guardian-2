@@ -508,7 +508,7 @@
       "key": "crit",
       "name": "暴擊條件",
       "description": "暴擊連鎖機率：20%／35%／50%",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab real critical snapshot gate; see FINAL_GEMS.md"
     },
     {
       "key": "lowhp",
@@ -520,7 +520,7 @@
       "key": "rapid",
       "name": "迅捷寶石",
       "description": "後續連鎖傷害 +10%／20%／35%",
-      "status": "source metadata retained; behavior port pending"
+      "status": "Lab next-skill direct damage bonus; see AMPLIFY_GEM.md"
     },
     {
       "key": "delay",
@@ -1170,10 +1170,12 @@
       "critical",
       "piercing",
       "range",
-      "multi"
+      "multi",
+      "rapid",
+      "crit"
     ],
-    "remaining_original_count": 2,
-    "conditional_gates": "Seventeen original gem types integrated; echo is a tooltip-based remake into rewards and inventory; unsupported keys fail closed"
+    "remaining_original_count": 0,
+    "conditional_gates": "Nineteen original gem types integrated provisionally; echo is a tooltip-based remake into rewards and inventory; unsupported keys fail closed"
   },
   "conflicts": [
     "SG7 resonance pool includes rate/shield/split, not just attack elements.",

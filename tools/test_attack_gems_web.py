@@ -1,7 +1,7 @@
 """Real touch selection and direct-modifier trace acceptance; no gameplay state injection."""
 import argparse,asyncio,functools,http.server,json,os,pathlib,threading
 from playwright.async_api import async_playwright
-ROOT=pathlib.Path(__file__).resolve().parents[1];REPORT=ROOT/'docs/attack-gems';REPORT.mkdir(exist_ok=True)
+ROOT=pathlib.Path(__file__).resolve().parents[1];REPORT=ROOT/'docs/final-gems';REPORT.mkdir(exist_ok=True)
 p=argparse.ArgumentParser();p.add_argument('--directory',default=str(ROOT/'godot/export/lab'));p.add_argument('--entry',default='/');p.add_argument('--label',default='web');args=p.parse_args()
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=args.directory));threading.Thread(target=server.serve_forever,daemon=True).start()
 NAMES={'blast':'爆破攻擊','bolt':'雷擊攻擊','venom':'毒蝕攻擊','frostatk':'寒霜攻擊','critical':'致命攻擊','piercing':'穿刺攻擊','range':'廣域攻擊','multi':'多重攻擊'}

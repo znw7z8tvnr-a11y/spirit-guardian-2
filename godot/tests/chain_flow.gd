@@ -28,7 +28,7 @@ func drain(hit:=false) -> void:
   for event in emitted.duplicate():finish(event,hit)
   emitted.clear();model.advance(0.33)
 func run() -> void:
- game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game
+ game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game
  game.set_process(false);game.set_physics_process(false);game.enemies.process_mode=Node.PROCESS_MODE_DISABLED
  model=game.chain;model.cast_requested.disconnect(game.cast_spell);model.resonance_requested.disconnect(game.resonate);model.cast_requested.connect(record)
  reset()

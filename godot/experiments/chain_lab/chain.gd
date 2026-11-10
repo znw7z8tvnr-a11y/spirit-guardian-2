@@ -34,6 +34,7 @@ var rolls:=0
 var resonances:=0
 var kit_loaded:=false
 var kit_ids: Array=[]
+var final_gem_kit_loaded:=false
 var attack_kit_loaded:=false
 var spell_kit_loaded:=false
 var spell_kit_ids: Dictionary={}
@@ -209,7 +210,7 @@ func complete_skill(slot: int, target: Node2D, result: Dictionary, run: Dictiona
  outcome["previous_id"]=context.get("target_id",target_id(target))
  if hit:hits+=1
  else:misses+=1
- add_trace({"kind":"hit" if hit else "miss","run":run.id,"slot":slot,"target":outcome.previous_id,"own_damage_scale":float(context.get("own_damage_scale",1.0)),"is_echo":bool(context.get("is_echo",false))})
+ add_trace({"kind":"hit" if hit else "miss","critical":bool(outcome.critical),"run":run.id,"slot":slot,"target":outcome.previous_id,"own_damage_scale":float(context.get("own_damage_scale",1.0)),"is_echo":bool(context.get("is_echo",false))})
  if not context.get("is_echo",false):
   for edge in outgoing(slot):schedule(int(edge.to),target,outcome,run)
   var chance: float=context.get("echo_chance",0.0)
@@ -256,7 +257,7 @@ func advance(delta: float) -> void:
    var reason: String="success" if success else "cooldown" if remaining>0 else "chance" if eligible else "condition"
    var verdict: String="接續成功" if success else "冷卻中 %.1f 秒" % (ceilf(remaining*10)/10) if remaining>0 else "機率未觸發" if eligible else "條件未滿足"
    pulse.emit(int(event.slot),verdict)
-   add_trace({"kind":"gem","run":run.id,"slot":event.slot,"key":str(item.key),"eligible":eligible,"success":success,"reason":reason,"clock":clock,"cooldown_remaining":gem_remaining(item),"lowest_hp_ratio":float(event.result.get("lowest_hp_ratio",1.0))})
+   add_trace({"kind":"gem","run":run.id,"slot":event.slot,"key":str(item.key),"eligible":eligible,"success":success,"critical":bool(event.result.get("critical",false)),"reason":reason,"clock":clock,"cooldown_remaining":gem_remaining(item),"lowest_hp_ratio":float(event.result.get("lowest_hp_ratio",1.0))})
    if success:
     var continuation: Dictionary=event.result.duplicate(true)
     continuation["next_boost"]=preload("res://experiments/chain_lab/gem_rules.gd").next_multiplier(str(item.key),int(item.level))
@@ -338,3 +339,14 @@ func load_attack_gem_kit() -> void:
  edges=[]
  for i in range(8):edges.append({"from":i,"to":i+1})
  reset_runtime();last_message="攻擊寶石演練：提供八種測試寶石，前段增傷；不是正式掉落。";changed.emit()
+
+func load_final_gem_kit() -> void:
+ load_attack_gem_kit()
+ if not final_gem_kit_loaded:
+  for key in ["rapid","crit"]:
+   var id:=items.size();gem_kit_ids[key]=id;items.append({"id":id,"kind":"gem","key":key,"level":3})
+  final_gem_kit_loaded=true
+ slots=[0,gem_kit_ids.crit,kit_ids[1],gem_kit_ids.rapid,kit_ids[2],-1,-1,-1,-1,-1]
+ edges=[]
+ for i in range(4):edges.append({"from":i,"to":i+1})
+ reset_runtime();last_message="迅捷／暴擊演練：保留持有物品；暴擊條件需先暴擊，迅捷增強下一招。";changed.emit()

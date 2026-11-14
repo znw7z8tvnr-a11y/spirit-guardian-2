@@ -1,0 +1,25 @@
+{
+  "release": "Bounded and grouped enemy warning labels",
+  "branch": "godot/enemy-readability-lab",
+  "game_source": "1a94322458510870a3f0eecae37a7d112c8d791e",
+  "hosting_source": "0b7f3e39e061e52321cc442d42fef53423fc0423",
+  "deployment_id": "appgdep_6af7ea9e38088191b0afa78d36e135e8",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_b37f8ed37f5881919da5bb8b51be8aba",
+  "published": true,
+  "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
+  "live_https_assets_verified": true,
+  "private_audience_preserved": true,
+  "stable_root_files_unchanged": 18,
+  "ci_run": 43559040821,
+  "ci_status": "success",
+  "prior_failed_run": 43558166616,
+  "limitations": [
+    "Temporary art",
+    "Linux Chromium software WebGL, no iPad Safari hardware",
+    "FPS samples are not a before/after benchmark",
+    "Full twenty-wave balance and original enemy trait parity pending"
+  ],
+  "ci_artifact": 14100256189,
+  "native_checks": 1244,
+  "first_ci_regression_fixed": true
+}

@@ -3,5 +3,6 @@
   "checks": 1244,
   "failures": [],
   "engine": "Godot 4.6.3",
-  "scope": "actual Controls, live enemy actors, damage and prior skill/gem/Boss integration"
+  "scope": "actual Controls, live enemy actors, damage and prior skill/gem/Boss integration",
+  "game_source": "1a94322458510870a3f0eecae37a7d112c8d791e"
 }

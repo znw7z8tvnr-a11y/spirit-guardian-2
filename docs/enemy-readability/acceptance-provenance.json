@@ -1,0 +1,11 @@
+{
+  "game_source": "1a94322458510870a3f0eecae37a7d112c8d791e",
+  "hosting_source": "0b7f3e39e061e52321cc442d42fef53423fc0423",
+  "packaged_forty_actor_touch_source": "1a94322458510870a3f0eecae37a7d112c8d791e",
+  "first_boss_touch_source": "1a94322458510870a3f0eecae37a7d112c8d791e",
+  "raw_forty_actor_touch_prior_to_toolbar_fix": "78c6eb352bf923b781ddce4b07ea977805747049",
+  "native_post_fix_log": "godot-*.log",
+  "failed_run": 43558166616,
+  "replacement_run": 43559040821,
+  "scope": "Source provenance distinguishes initial raw tests, toolbar regression and the final packaged build."
+}

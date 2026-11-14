@@ -1,0 +1,7 @@
+{
+  "run": 43558166616,
+  "source": "78c6eb352bf923b781ddce4b07ea977805747049",
+  "step": "First Boss earned-loadout WebGL playthrough",
+  "failure": "Slot 1 center y933 outside viewport height889 in landscape earned-loadout editor",
+  "fix": "Move both enemy drill actions into existing wrapping toolbar, removing full-width rows. Re-run original earned-loadout and Boss touch tests."
+}

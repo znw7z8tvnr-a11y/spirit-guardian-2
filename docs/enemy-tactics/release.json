@@ -15,8 +15,8 @@
   ],
   "ci_run": 43553821459,
   "ci_status": "success",
-  "published": false,
-  "publication_limit": "Source synchronization tool call was aborted; no new source pushed or version deployed. Existing live version unchanged.",
+  "published": true,
+  "publication_limit": null,
   "stable_root_files_unchanged": 18,
   "limits": [
     "Temporary art",
@@ -25,5 +25,10 @@
     "Full trait and Boss parity pending"
   ],
   "ci_artifact": 14098166144,
-  "additional_boundary_checks": 4
+  "additional_boundary_checks": 4,
+  "deployment_id": "appgdep_6af7e18183c48191bb2147a322366f28",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_1c8a408e19808191832fed89c5367b7b",
+  "hosting_source_commit": "a43a69e70cdb9c5277f1398b32be3d400f833846",
+  "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
+  "live_https_assets_verified": true
 }

@@ -4,7 +4,10 @@
   "ci_run": 43553821459,
   "ci_status": "success",
   "ci_artifact": 14098166144,
-  "published": false,
-  "publication_note": "Source synchronization tool call was aborted; no new source pushed or version deployed. Existing live version unchanged.",
-  "report": "../../docs/enemy-tactics/release.json"
+  "published": true,
+  "publication_note": "Published after source synchronization resumed; private audience and stable root preserved.",
+  "report": "../../docs/enemy-tactics/release.json",
+  "deployment_id": "appgdep_6af7e18183c48191bb2147a322366f28",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_1c8a408e19808191832fed89c5367b7b",
+  "hosting_source_commit": "a43a69e70cdb9c5277f1398b32be3d400f833846"
 }

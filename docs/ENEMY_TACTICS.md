@@ -31,7 +31,7 @@ Lab 原本有薩滿 AI，但正常生成池缺少類別 3；支援效果使用�
 
 原始匯出與部署用分塊載入包的直、橫向 Chromium 觸控皆通過：五種敵人、蓄力中暫停、恢復後城牆扣血、真實治療／護盾／鼓舞與無波次獎勵；無頁面或引擎錯誤。截圖為實際遊戲。
 
-網站來源同步工具執行被中止，本輪尚未發布，線上 Lab 仍為上一版。候選程式已在 GitHub 獨立分支 godot/enemy-tactics-lab；原版入口 18 檔案雜湊不變。
+2026-11-14 已恢復來源同步並發布至既有私人 [Lab](https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/)。GitHub 獨立分支 godot/enemy-tactics-lab；原版入口 18 檔案雜湊不變。線上 HTTPS 核對 HTML、PCK、WASM 及來源版本全部一致；此項為資源完整性驗證，不是遠端瀏覽器或 iPad 真機驗收。
 
 完整 GitHub Actions [43553821459](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/43553821459) 成功，包含穩定版、血肉／倍速、首領、新敵人、寶石及 22 技能／兩類守衛完整回歸；[雲端交付包 14098166144](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/43553821459/artifacts/14098166144)。受測程式 c3fc04e6fc8c853477dffd9e017198255ebf9418。
 

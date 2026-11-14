@@ -96,7 +96,8 @@ func run() -> void:
  check(boss.kind==5 and boss.max_hp==425,"every fifth wave spawns the tuned boss")
  live.chain.reset_runtime()
  for e in live.enemies.get_children():e.free()
- live.wave=20;live.remaining=0;live.rest=0
+ live.wave=20;live.remaining=0;live.rest=0;live.boss_kills=4
+ for completed_wave in range(1,20):live.rewards.completed[completed_wave]=true
  live._physics_process(0.1)
  check(live.over and live.wave==20,"clearing final wave ends trial without starting wave twenty-one")
  print("CHAINLAB_RESULT "+JSON.stringify({"engine":Engine.get_version_info().string,"checks":checks,"failures":failures,"soak":soak}))

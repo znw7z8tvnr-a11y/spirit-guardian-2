@@ -60,6 +60,9 @@ var tempo:=0
 var kills:=0
 var next_id:=1
 var over:=false
+var run_outcome:=""
+var run_summary: Dictionary={}
+var result_view: PanelContainer
 var user_paused:=false
 var edit_open:=false
 var root_ui: Control
@@ -102,7 +105,7 @@ func _ready() -> void:
  enemies=Node2D.new();enemies.y_sort_enabled=true;add_child(enemies)
  shots=Node2D.new();add_child(shots)
  tower=Tower.new();tower.position=CENTER;tower.scale=Vector2.ONE/0.72;add_child(tower)
- tower.destroyed.connect(func():over=true;chain.reset_runtime();event_label.text="守護水晶已破碎；可重新開始試驗。")
+ tower.destroyed.connect(func():finish_run("defeat"))
  resolver=Resolver.new();add_child(resolver);resolver.rng.randomize()
  fx=FX.new();add_child(fx)
  guardians=preload("res://experiments/chain_lab/guardian_manager.gd").new();guardians.targets=enemies;guardians.resolver=resolver;add_child(guardians)
@@ -157,7 +160,7 @@ func create_ui() -> void:
  make_button("Tempo","節奏：標準",row,cycle_tempo)
  make_button("Speed","倍速：1×",row,cycle_speed)
  make_button("Pause","暫停",row,func():user_paused=not user_paused;buttons.Pause.text="繼續" if user_paused else "暫停")
- make_button("Restart","重新開始",row,func():get_tree().call_deferred("reload_current_scene"))
+ make_button("Restart","重新開始",row,restart_run)
  enemy_presentation=EnemyPresentation.new();root_ui.add_child(enemy_presentation);root_ui.move_child(enemy_presentation,0)
  panel=PanelContainer.new();panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);panel.offset_left=16;panel.offset_right=-16;panel.offset_top=16;panel.offset_bottom=-16;root_ui.add_child(panel)
  var bg:=StyleBoxFlat.new();bg.bg_color=Color("101a2c");bg.set_content_margin_all(16);panel.add_theme_stylebox_override("panel",bg)
@@ -200,6 +203,7 @@ func create_ui() -> void:
  reward_panel=preload("res://experiments/chain_lab/reward_view.gd").new();root_ui.add_child(reward_panel);reward_panel.bind(rewards)
  for i in range(3):buttons["Reward %d" % i]=reward_panel.choices[i]
  buttons.RewardRefresh=reward_panel.refresh
+ result_view=preload("res://experiments/chain_lab/run_result_view.gd").new();root_ui.add_child(result_view);result_view.restart_requested.connect(restart_run);buttons.ResultRestart=result_view.restart
 func resize_ui() -> void:
  var portrait:=get_viewport_rect().size.y>get_viewport_rect().size.x
  # Graph keeps spatial relationships in both orientations; outer panel scrolls.
@@ -239,6 +243,17 @@ func open_editor(from_reward:=false) -> void:
 func arrange_known() -> void:
  if chain.discovered.is_empty():return
  if not chain.arrange_discovered():editor_status.text="持有物品不足以排列已發現的配方；不會產生額外物品。"
+func restart_run() -> void:
+ get_tree().call_deferred("reload_current_scene")
+func finish_run(outcome: String) -> bool:
+ if not run_summary.is_empty() or outcome not in ["victory","defeat"]:return false
+ if outcome=="victory" and (enemy_drill or wave!=20 or tower.hp<=0 or remaining>0 or enemies.get_child_count()>0 or not chain.active.is_empty() or rewards.pending>0 or edit_open or growth_open or boss_kills<4 or not range(1,21).all(func(w):return rewards.completed.has(w))):return false
+ if outcome=="defeat" and tower.hp>0:return false
+ over=true;run_outcome=outcome;chain.reset_runtime()
+ run_summary={"outcome":outcome,"training":enemy_drill or chain.kit_loaded,"wave":wave,"cleared_waves":rewards.completed.size(),"seconds":combat_seconds,"kills":kills,"boss_kills":boss_kills,"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"resonances":chain.resonances,"critical_victims":critical_victims,"flesh_absorbed":tower.total_absorbed,"awards":rewards.granted_count,"skills":chain.items.filter(func(item):return item.kind=="skill").size(),"gems":chain.items.filter(func(item):return item.kind=="gem").size(),"core":tower.hp,"core_max":tower.max_hp,"wall":tower.wall_hp,"wall_max":tower.wall_max,"growth":tower.levels.duplicate(true)}
+ edit_open=false;growth_open=false;panel.hide();growth_panel.hide();reward_panel.hide();inventory.hide();enemy_presentation.hide();result_view.show_result(run_summary)
+ event_label.text="20 波試驗完成！" if outcome=="victory" else "守護水晶已破碎。"
+ return true
 func cycle_tempo() -> void:
  tempo=(tempo+1)%3
  chain.hop_delay=[0.32,0.48,0.20][tempo];attack_period=[3.8,5.2,3.2][tempo];flight_time=[0.62,0.85,0.45][tempo]
@@ -261,7 +276,7 @@ func _physics_process(delta: float) -> void:
   if rewards.pending>0:return
   rest-=delta
   if rest<=0:
-   if wave>=20:over=true;event_label.text="20 波試驗完成！";return
+   if wave>=20:finish_run("victory");return
    wave+=1;boss_defeated=false;remaining=4+mini(wave,8);rest=5.0
 func _process(delta: float) -> void:
  # Keep combat actors and projectile tweens frozen while the lab editor is open.
@@ -398,7 +413,7 @@ func refresh_status() -> void:
  refresh_boss_status()
  if not is_instance_valid(status):return
  enemy_warning_label.text=EnemyPresentation.summary(enemies.get_children())
- enemy_presentation.visible=not (edit_open or growth_open or rewards.pending>0)
+ enemy_presentation.visible=not (over or edit_open or growth_open or rewards.pending>0)
  if enemy_presentation.visible:
   var top_edge: float=top_box.get_global_rect().end.y+12
   var bottom_edge: float=bottom_box.get_global_rect().position.y-12
@@ -419,7 +434,7 @@ func publish_debug() -> void:
  if is_instance_valid(inventory):
   for key in inventory.cards:
    var rect: Rect2=inventory.cards[key].get_global_rect();bounds[key]=[rect.get_center().x,rect.get_center().y,rect.size.x,rect.size.y]
- JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"spell_flights":shots.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_visuals":fx.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_casts":spell_cast_counts,"spell_hits":spell_hit_counts,"guardian_by_type":guardians.counts,"guardian_spawns":guardians.spawns,"guardian_hits":guardians.hits,"guardian_kills":guardians.kills,"guardians":guardians.snapshot(),"spell_keys":SpellEffects.PLAYABLE,"fps":Engine.get_frames_per_second(),"enemy_labels":enemy_presentation.snapshot(),"enemy_warning":enemy_warning_label.text,"enemy_drill":enemy_drill,"enemy_spawn_counts":enemy_spawn_counts,"enemy_tactic_counts":enemy_tactic_counts,"enemy_units":enemies.get_children().filter(func(e):return e.kind!=5 and not e.dead).map(func(e):return {"id":e.entity_id,"kind":e.kind,"hp":e.hp,"max_hp":e.max_hp,"shield":e.shield,"haste":e.haste,"telegraph":e.telegraph,"ranged_warning":e.ranged_warning,"support_targets":e.support_targets,"tactical_casts":e.tactical_casts}),"criticals_enabled":criticals_enabled,"critical_casts":critical_casts,"critical_victims":critical_victims,"final_gem_kit":chain.final_gem_kit_loaded,"attack_kit":chain.attack_kit_loaded,"spell_kit":chain.spell_kit_loaded,"spell_kit_ids":chain.spell_kit_ids,"gem_kit_ids":chain.gem_kit_ids,"gem_cooldowns":chain.cooldown_snapshot(),"boss":boss_info,"boss_kills":boss_kills,"summoned_minions":summoned_minions,"summon_events":summon_events,"attack_period":effective_attack_period(),"reward_loadout":loadout_notice.visible,"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_page":inventory.page,"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
+ JavaScriptBridge.eval("window.SG_LAB_STATE="+JSON.stringify({"wave":wave,"hp":tower.hp,"wall_hp":tower.wall_hp,"wall_max":tower.wall_max,"wall_active":tower.wall_active,"flesh":tower.flesh,"absorbed":tower.total_absorbed,"attack_multiplier":tower.attack_multiplier(),"defense":tower.reduction(),"regen":tower.regeneration(),"growth_levels":tower.levels,"auto_growth":tower.auto_upgrade,"growth_open":growth_open,"speed":SPEEDS[speed_index],"combat_seconds":combat_seconds,"meat_pending":pending_flesh.size(),"kills":kills,"enemies":enemies.get_child_count(),"casts":chain.casts,"hits":chain.hits,"misses":chain.misses,"jumps":chain.jumps,"empty_casts":chain.empty_casts,"trace":chain.trace,"pending":chain.pending.size(),"active":not chain.active.is_empty(),"retargets":chain.retargets,"resonances":chain.resonances,"rolls":chain.rolls,"slots":chain.slots,"edges":chain.edges,"kit":chain.kit_loaded,"edit_open":edit_open,"paused":user_paused,"tempo":tempo,"selected":selected,"buttons":bounds,"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"spell_flights":shots.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_visuals":fx.get_children().map(func(node):return str(node.get_meta("spell_key",""))),"spell_casts":spell_cast_counts,"spell_hits":spell_hit_counts,"guardian_by_type":guardians.counts,"guardian_spawns":guardians.spawns,"guardian_hits":guardians.hits,"guardian_kills":guardians.kills,"guardians":guardians.snapshot(),"spell_keys":SpellEffects.PLAYABLE,"run_outcome":run_outcome,"run_summary":run_summary,"result_visible":result_view.visible,"fps":Engine.get_frames_per_second(),"enemy_labels":enemy_presentation.snapshot(),"enemy_warning":enemy_warning_label.text,"enemy_drill":enemy_drill,"enemy_spawn_counts":enemy_spawn_counts,"enemy_tactic_counts":enemy_tactic_counts,"enemy_units":enemies.get_children().filter(func(e):return e.kind!=5 and not e.dead).map(func(e):return {"id":e.entity_id,"kind":e.kind,"hp":e.hp,"max_hp":e.max_hp,"shield":e.shield,"haste":e.haste,"telegraph":e.telegraph,"ranged_warning":e.ranged_warning,"support_targets":e.support_targets,"tactical_casts":e.tactical_casts}),"criticals_enabled":criticals_enabled,"critical_casts":critical_casts,"critical_victims":critical_victims,"final_gem_kit":chain.final_gem_kit_loaded,"attack_kit":chain.attack_kit_loaded,"spell_kit":chain.spell_kit_loaded,"spell_kit_ids":chain.spell_kit_ids,"gem_kit_ids":chain.gem_kit_ids,"gem_cooldowns":chain.cooldown_snapshot(),"boss":boss_info,"boss_kills":boss_kills,"summoned_minions":summoned_minions,"summon_events":summon_events,"attack_period":effective_attack_period(),"reward_loadout":loadout_notice.visible,"reward_pending":rewards.pending,"reward_offers":rewards.offers,"reward_refreshes":rewards.refreshes,"reward_granted":rewards.granted_count,"reward_extra_refresh":rewards.extra_refresh,"reward_attack_stacks":rewards.attack_stacks,"item_count":chain.items.size(),"spell_attack_multiplier":spell_attack_multiplier(),"reward_completed":rewards.completed.keys(),"inventory_page":inventory.page,"inventory_open":inventory.visible,"candidate":inventory.candidate,"inventory_apply_disabled":inventory.apply.disabled,"inventory_detail":inventory.detail.text,"capacity":10,"discovered":chain.discovered,"arrange_disabled":buttons.Arrange.disabled}))
 
 func effective_attack_period() -> float:
  # A lone starting spell should not wait for a nonexistent long chain.

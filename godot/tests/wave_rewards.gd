@@ -59,7 +59,8 @@ func run() -> void:
   if sample.pending==5:captured=true
   sample.free()
  check(captured,"seed fixtures cover the five-choice Boss boundary")
- game.rewards.pending=0;game.rewards.offers=[];game.chain.reset_runtime();game.wave=20;game.remaining=0;game.rest=0;game.boss_defeated=true
+ game.rewards.pending=0;game.rewards.offers=[];game.chain.reset_runtime();game.wave=20;game.remaining=0;game.rest=0;game.boss_defeated=true;game.boss_kills=4
+ for completed_wave in range(1,20):game.rewards.completed[completed_wave]=true
  game._physics_process(0.1)
  check(not game.over and game.rewards.pending>=1 and game.rewards.pending<=5,"final Boss rewards are offered before victory")
  while game.rewards.pending>0:game.rewards.choose(0)

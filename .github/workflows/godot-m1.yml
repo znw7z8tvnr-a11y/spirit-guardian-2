@@ -12,7 +12,7 @@ permissions:
 jobs:
   validate-build:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 45
     env:
       GODOT_VERSION: '4.6.3'
       XDG_DATA_HOME: /tmp/sg-ci/data
@@ -71,6 +71,9 @@ jobs:
       - name: Attack gem touch and local damage-scale acceptance
         timeout-minutes: 4
         run: python3 tools/test_attack_gems_web.py
+      - name: Twenty-wave earned victory, defeat and restart touch acceptance
+        timeout-minutes: 9
+        run: python3 tools/test_run_results_web.py
       - name: Forty-enemy bounded label layout and touch acceptance
         timeout-minutes: 4
         run: python3 tools/test_enemy_readability_web.py
@@ -89,7 +92,7 @@ jobs:
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-enemy-readability-delivery
+          name: godot-run-results-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
@@ -119,6 +122,7 @@ jobs:
             docs/final-gems/*
             docs/enemy-tactics/*
             docs/enemy-readability/*
+            docs/run-results/*
             docs/timing-gem/*
             docs/lowhp-gem/*
             docs/element-gems/*

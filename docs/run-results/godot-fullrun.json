@@ -1,0 +1,992 @@
+{
+  "checks": [
+    "early victory and alive defeat requests fail closed",
+    "jumping to wave twenty cannot invent nineteen completed waves",
+    "real lethal wall/core damage opens defeat summary",
+    "duplicate destruction and finish calls cannot change the completed snapshot",
+    "actual scene reload resets inventory and graph to arcane-only start",
+    "restart resets flesh, growth, wall, rewards, Boss count and speed",
+    "seed 12032 completes twenty real waves and four Bosses with earned rewards",
+    "seed 12032 claims final awards and has all twenty completed wave records",
+    "seed 12032 uses normal progression without training inventory or a drill shortcut",
+    "seed 12032 result screen is derived from real combat counters",
+    "seed 12032 cannot continue simulation or double-grant final rewards after completion",
+    "seed 12032 respects live enemy and physical slot caps for the full run",
+    "seed 24064 completes twenty real waves and four Bosses with earned rewards",
+    "seed 24064 claims final awards and has all twenty completed wave records",
+    "seed 24064 uses normal progression without training inventory or a drill shortcut",
+    "seed 24064 result screen is derived from real combat counters",
+    "seed 24064 cannot continue simulation or double-grant final rewards after completion",
+    "seed 24064 respects live enemy and physical slot caps for the full run",
+    "seed 32012 completes twenty real waves and four Bosses with earned rewards",
+    "seed 32012 claims final awards and has all twenty completed wave records",
+    "seed 32012 uses normal progression without training inventory or a drill shortcut",
+    "seed 32012 result screen is derived from real combat counters",
+    "seed 32012 cannot continue simulation or double-grant final rewards after completion",
+    "seed 32012 respects live enemy and physical slot caps for the full run"
+  ],
+  "failures": [],
+  "limit": "Three deterministic native policies at eight-times speed; not all random builds, Safari hardware or final balance certification.",
+  "runs": [
+    {
+      "checkpoints": [
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 0,
+            "atk": 0,
+            "hp": 0,
+            "regen": 0
+          },
+          "items": 1,
+          "seconds": 3.06666666666667,
+          "wall": 360.0,
+          "wall_max": 360.0,
+          "wave": 1
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 1,
+            "atk": 1,
+            "hp": 1,
+            "regen": 0
+          },
+          "items": 1,
+          "seconds": 18.5333333333333,
+          "wall": 425.0,
+          "wall_max": 425.0,
+          "wave": 2
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 1,
+            "atk": 2,
+            "hp": 1,
+            "regen": 1
+          },
+          "items": 1,
+          "seconds": 35.8666666666666,
+          "wall": 425.0,
+          "wall_max": 425.0,
+          "wave": 3
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 2,
+            "atk": 2,
+            "hp": 2,
+            "regen": 1
+          },
+          "items": 2,
+          "seconds": 55.4666666666665,
+          "wall": 490.0,
+          "wall_max": 490.0,
+          "wave": 4
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 2,
+            "atk": 3,
+            "hp": 3,
+            "regen": 2
+          },
+          "items": 2,
+          "seconds": 77.6000000000005,
+          "wall": 555.0,
+          "wall_max": 555.0,
+          "wave": 5
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 3,
+            "atk": 4,
+            "hp": 4,
+            "regen": 3
+          },
+          "items": 5,
+          "seconds": 114.000000000002,
+          "wall": 620.0,
+          "wall_max": 620.0,
+          "wave": 6
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 4,
+            "atk": 4,
+            "hp": 4,
+            "regen": 4
+          },
+          "items": 6,
+          "seconds": 139.466666666669,
+          "wall": 620.0,
+          "wall_max": 620.0,
+          "wave": 7
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 4,
+            "atk": 5,
+            "hp": 5,
+            "regen": 4
+          },
+          "items": 6,
+          "seconds": 168.933333333334,
+          "wall": 685.0,
+          "wall_max": 685.0,
+          "wave": 8
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 5,
+            "atk": 5,
+            "hp": 5,
+            "regen": 5
+          },
+          "items": 6,
+          "seconds": 206.133333333332,
+          "wall": 685.0,
+          "wall_max": 685.0,
+          "wave": 9
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 5,
+            "atk": 6,
+            "hp": 6,
+            "regen": 5
+          },
+          "items": 7,
+          "seconds": 239.599999999997,
+          "wall": 750.0,
+          "wall_max": 750.0,
+          "wave": 10
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 6,
+            "atk": 7,
+            "hp": 6,
+            "regen": 6
+          },
+          "items": 10,
+          "seconds": 282.799999999994,
+          "wall": 750.0,
+          "wall_max": 750.0,
+          "wave": 11
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 6,
+            "atk": 7,
+            "hp": 7,
+            "regen": 6
+          },
+          "items": 10,
+          "seconds": 319.866666666659,
+          "wall": 815.0,
+          "wall_max": 815.0,
+          "wave": 12
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 7,
+            "atk": 7,
+            "hp": 7,
+            "regen": 7
+          },
+          "items": 10,
+          "seconds": 360.933333333323,
+          "wall": 815.0,
+          "wall_max": 815.0,
+          "wave": 13
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 7,
+            "atk": 8,
+            "hp": 7,
+            "regen": 7
+          },
+          "items": 10,
+          "seconds": 394.133333333321,
+          "wall": 815.0,
+          "wall_max": 815.0,
+          "wave": 14
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 7,
+            "atk": 8,
+            "hp": 8,
+            "regen": 7
+          },
+          "items": 10,
+          "seconds": 431.199999999986,
+          "wall": 880.0,
+          "wall_max": 880.0,
+          "wave": 15
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 8,
+            "atk": 9,
+            "hp": 8,
+            "regen": 8
+          },
+          "items": 15,
+          "seconds": 468.399999999984,
+          "wall": 880.0,
+          "wall_max": 880.0,
+          "wave": 16
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 8,
+            "atk": 9,
+            "hp": 9,
+            "regen": 8
+          },
+          "items": 15,
+          "seconds": 500.266666666649,
+          "wall": 945.0,
+          "wall_max": 945.0,
+          "wave": 17
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 9,
+            "atk": 9,
+            "hp": 9,
+            "regen": 8
+          },
+          "items": 15,
+          "seconds": 532.133333333313,
+          "wall": 945.0,
+          "wall_max": 945.0,
+          "wave": 18
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 9,
+            "atk": 9,
+            "hp": 9,
+            "regen": 9
+          },
+          "items": 15,
+          "seconds": 564.933333333312,
+          "wall": 945.0,
+          "wall_max": 945.0,
+          "wave": 19
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 9,
+            "atk": 10,
+            "hp": 9,
+            "regen": 9
+          },
+          "items": 15,
+          "seconds": 596.666666666643,
+          "wall": 945.0,
+          "wall_max": 945.0,
+          "wave": 20
+        }
+      ],
+      "frames": 4730,
+      "minimum_core": 100.0,
+      "minimum_wall_ratio": 0.940324324324324,
+      "peak_enemies": 10,
+      "prefer_refresh": false,
+      "seed": 12032,
+      "summary": {
+        "awards": 24,
+        "boss_kills": 4,
+        "casts": 366,
+        "cleared_waves": 20,
+        "core": 100.0,
+        "core_max": 100.0,
+        "critical_victims": 28,
+        "flesh_absorbed": 1460,
+        "gems": 9,
+        "growth": {
+          "armor": 10,
+          "atk": 10,
+          "hp": 10,
+          "regen": 9
+        },
+        "hits": 290,
+        "jumps": 110,
+        "kills": 228,
+        "misses": 76,
+        "outcome": "victory",
+        "resonances": 7,
+        "seconds": 628.533333333308,
+        "skills": 8,
+        "training": false,
+        "wall": 1010.0,
+        "wall_max": 1010.0,
+        "wave": 20
+      },
+      "target_skills": 5
+    },
+    {
+      "checkpoints": [
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 0,
+            "atk": 0,
+            "hp": 0,
+            "regen": 0
+          },
+          "items": 1,
+          "seconds": 3.06666666666667,
+          "wall": 360.0,
+          "wall_max": 360.0,
+          "wave": 1
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 1,
+            "atk": 1,
+            "hp": 1,
+            "regen": 0
+          },
+          "items": 1,
+          "seconds": 18.5333333333333,
+          "wall": 425.0,
+          "wall_max": 425.0,
+          "wave": 2
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 1,
+            "atk": 2,
+            "hp": 1,
+            "regen": 1
+          },
+          "items": 1,
+          "seconds": 35.8666666666666,
+          "wall": 425.0,
+          "wall_max": 425.0,
+          "wave": 3
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 2,
+            "atk": 2,
+            "hp": 2,
+            "regen": 1
+          },
+          "items": 2,
+          "seconds": 55.4666666666665,
+          "wall": 490.0,
+          "wall_max": 490.0,
+          "wave": 4
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 2,
+            "atk": 3,
+            "hp": 3,
+            "regen": 2
+          },
+          "items": 2,
+          "seconds": 76.4000000000004,
+          "wall": 555.0,
+          "wall_max": 555.0,
+          "wave": 5
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 3,
+            "atk": 4,
+            "hp": 4,
+            "regen": 3
+          },
+          "items": 6,
+          "seconds": 112.800000000002,
+          "wall": 620.0,
+          "wall_max": 620.0,
+          "wave": 6
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 4,
+            "atk": 4,
+            "hp": 4,
+            "regen": 4
+          },
+          "items": 7,
+          "seconds": 142.400000000002,
+          "wall": 620.0,
+          "wall_max": 620.0,
+          "wave": 7
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 4,
+            "atk": 5,
+            "hp": 5,
+            "regen": 4
+          },
+          "items": 7,
+          "seconds": 175.733333333334,
+          "wall": 685.0,
+          "wall_max": 685.0,
+          "wave": 8
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 5,
+            "atk": 5,
+            "hp": 5,
+            "regen": 5
+          },
+          "items": 7,
+          "seconds": 205.199999999999,
+          "wall": 685.0,
+          "wall_max": 685.0,
+          "wave": 9
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 5,
+            "atk": 6,
+            "hp": 6,
+            "regen": 5
+          },
+          "items": 7,
+          "seconds": 238.666666666663,
+          "wall": 750.0,
+          "wall_max": 750.0,
+          "wave": 10
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 6,
+            "atk": 7,
+            "hp": 6,
+            "regen": 6
+          },
+          "items": 8,
+          "seconds": 275.999999999995,
+          "wall": 750.0,
+          "wall_max": 750.0,
+          "wave": 11
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 6,
+            "atk": 7,
+            "hp": 7,
+            "regen": 6
+          },
+          "items": 8,
+          "seconds": 309.333333333326,
+          "wall": 815.0,
+          "wall_max": 815.0,
+          "wave": 12
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 7,
+            "atk": 7,
+            "hp": 7,
+            "regen": 7
+          },
+          "items": 8,
+          "seconds": 346.666666666657,
+          "wall": 815.0,
+          "wall_max": 815.0,
+          "wave": 13
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 7,
+            "atk": 8,
+            "hp": 7,
+            "regen": 7
+          },
+          "items": 8,
+          "seconds": 376.133333333322,
+          "wall": 815.0,
+          "wall_max": 815.0,
+          "wave": 14
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 7,
+            "atk": 8,
+            "hp": 8,
+            "regen": 7
+          },
+          "items": 8,
+          "seconds": 409.466666666654,
+          "wall": 880.0,
+          "wall_max": 880.0,
+          "wave": 15
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 8,
+            "atk": 8,
+            "hp": 8,
+            "regen": 8
+          },
+          "items": 9,
+          "seconds": 439.066666666652,
+          "wall": 880.0,
+          "wall_max": 880.0,
+          "wave": 16
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 8,
+            "atk": 9,
+            "hp": 9,
+            "regen": 8
+          },
+          "items": 9,
+          "seconds": 472.399999999983,
+          "wall": 945.0,
+          "wall_max": 945.0,
+          "wave": 17
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 9,
+            "atk": 9,
+            "hp": 9,
+            "regen": 8
+          },
+          "items": 9,
+          "seconds": 505.733333333315,
+          "wall": 945.0,
+          "wall_max": 945.0,
+          "wave": 18
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 9,
+            "atk": 9,
+            "hp": 9,
+            "regen": 9
+          },
+          "items": 10,
+          "seconds": 539.19999999998,
+          "wall": 945.0,
+          "wall_max": 945.0,
+          "wave": 19
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 9,
+            "atk": 10,
+            "hp": 9,
+            "regen": 9
+          },
+          "items": 10,
+          "seconds": 572.533333333311,
+          "wall": 945.0,
+          "wall_max": 945.0,
+          "wave": 20
+        }
+      ],
+      "frames": 4499,
+      "minimum_core": 100.0,
+      "minimum_wall_ratio": 0.940324324324324,
+      "peak_enemies": 8,
+      "prefer_refresh": false,
+      "seed": 24064,
+      "summary": {
+        "awards": 20,
+        "boss_kills": 4,
+        "casts": 355,
+        "cleared_waves": 20,
+        "core": 100.0,
+        "core_max": 100.0,
+        "critical_victims": 31,
+        "flesh_absorbed": 1444,
+        "gems": 9,
+        "growth": {
+          "armor": 10,
+          "atk": 10,
+          "hp": 10,
+          "regen": 9
+        },
+        "hits": 266,
+        "jumps": 80,
+        "kills": 224,
+        "misses": 89,
+        "outcome": "victory",
+        "resonances": 0,
+        "seconds": 598.266666666643,
+        "skills": 3,
+        "training": false,
+        "wall": 1010.0,
+        "wall_max": 1010.0,
+        "wave": 20
+      },
+      "target_skills": 2
+    },
+    {
+      "checkpoints": [
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 0,
+            "atk": 0,
+            "hp": 0,
+            "regen": 0
+          },
+          "items": 1,
+          "seconds": 3.06666666666667,
+          "wall": 360.0,
+          "wall_max": 360.0,
+          "wave": 1
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 1,
+            "atk": 1,
+            "hp": 1,
+            "regen": 0
+          },
+          "items": 1,
+          "seconds": 18.5333333333333,
+          "wall": 425.0,
+          "wall_max": 425.0,
+          "wave": 2
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 1,
+            "atk": 2,
+            "hp": 1,
+            "regen": 1
+          },
+          "items": 1,
+          "seconds": 35.5999999999999,
+          "wall": 425.0,
+          "wall_max": 425.0,
+          "wave": 3
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 2,
+            "atk": 2,
+            "hp": 2,
+            "regen": 1
+          },
+          "items": 2,
+          "seconds": 55.1999999999998,
+          "wall": 490.0,
+          "wall_max": 490.0,
+          "wave": 4
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 2,
+            "atk": 3,
+            "hp": 3,
+            "regen": 2
+          },
+          "items": 2,
+          "seconds": 76.1333333333338,
+          "wall": 555.0,
+          "wall_max": 555.0,
+          "wave": 5
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 3,
+            "atk": 4,
+            "hp": 4,
+            "regen": 3
+          },
+          "items": 6,
+          "seconds": 113.733333333336,
+          "wall": 620.0,
+          "wall_max": 620.0,
+          "wave": 6
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 4,
+            "atk": 4,
+            "hp": 4,
+            "regen": 4
+          },
+          "items": 7,
+          "seconds": 143.333333333335,
+          "wall": 620.0,
+          "wall_max": 620.0,
+          "wave": 7
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 4,
+            "atk": 5,
+            "hp": 5,
+            "regen": 4
+          },
+          "items": 7,
+          "seconds": 177.066666666667,
+          "wall": 685.0,
+          "wall_max": 685.0,
+          "wave": 8
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 5,
+            "atk": 5,
+            "hp": 5,
+            "regen": 5
+          },
+          "items": 7,
+          "seconds": 208.799999999998,
+          "wall": 685.0,
+          "wall_max": 685.0,
+          "wave": 9
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 5,
+            "atk": 6,
+            "hp": 6,
+            "regen": 5
+          },
+          "items": 8,
+          "seconds": 246.53333333333,
+          "wall": 750.0,
+          "wall_max": 750.0,
+          "wave": 10
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 6,
+            "atk": 7,
+            "hp": 6,
+            "regen": 6
+          },
+          "items": 10,
+          "seconds": 290.66666666666,
+          "wall": 750.0,
+          "wall_max": 750.0,
+          "wave": 11
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 6,
+            "atk": 7,
+            "hp": 7,
+            "regen": 6
+          },
+          "items": 10,
+          "seconds": 324.933333333325,
+          "wall": 815.0,
+          "wall_max": 815.0,
+          "wave": 12
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 7,
+            "atk": 7,
+            "hp": 7,
+            "regen": 7
+          },
+          "items": 10,
+          "seconds": 359.99999999999,
+          "wall": 815.0,
+          "wall_max": 815.0,
+          "wave": 13
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 7,
+            "atk": 8,
+            "hp": 7,
+            "regen": 7
+          },
+          "items": 10,
+          "seconds": 391.066666666655,
+          "wall": 815.0,
+          "wall_max": 815.0,
+          "wave": 14
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 7,
+            "atk": 8,
+            "hp": 8,
+            "regen": 7
+          },
+          "items": 10,
+          "seconds": 425.999999999986,
+          "wall": 880.0,
+          "wall_max": 880.0,
+          "wave": 15
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 8,
+            "atk": 9,
+            "hp": 8,
+            "regen": 8
+          },
+          "items": 12,
+          "seconds": 461.066666666651,
+          "wall": 880.0,
+          "wall_max": 880.0,
+          "wave": 16
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 8,
+            "atk": 9,
+            "hp": 9,
+            "regen": 8
+          },
+          "items": 12,
+          "seconds": 490.799999999982,
+          "wall": 945.0,
+          "wall_max": 945.0,
+          "wave": 17
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 9,
+            "atk": 9,
+            "hp": 9,
+            "regen": 8
+          },
+          "items": 12,
+          "seconds": 521.866666666647,
+          "wall": 945.0,
+          "wall_max": 945.0,
+          "wave": 18
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 9,
+            "atk": 9,
+            "hp": 9,
+            "regen": 9
+          },
+          "items": 12,
+          "seconds": 553.066666666646,
+          "wall": 945.0,
+          "wall_max": 945.0,
+          "wave": 19
+        },
+        {
+          "core": 100.0,
+          "growth": {
+            "armor": 9,
+            "atk": 10,
+            "hp": 9,
+            "regen": 9
+          },
+          "items": 12,
+          "seconds": 584.13333333331,
+          "wall": 945.0,
+          "wall_max": 945.0,
+          "wave": 20
+        }
+      ],
+      "frames": 4711,
+      "minimum_core": 100.0,
+      "minimum_wall_ratio": 0.940324324324324,
+      "peak_enemies": 10,
+      "prefer_refresh": true,
+      "seed": 32012,
+      "summary": {
+        "awards": 21,
+        "boss_kills": 4,
+        "casts": 401,
+        "cleared_waves": 20,
+        "core": 100.0,
+        "core_max": 100.0,
+        "critical_victims": 32,
+        "flesh_absorbed": 1456,
+        "gems": 7,
+        "growth": {
+          "armor": 10,
+          "atk": 10,
+          "hp": 10,
+          "regen": 9
+        },
+        "hits": 283,
+        "jumps": 93,
+        "kills": 227,
+        "misses": 118,
+        "outcome": "victory",
+        "resonances": 0,
+        "seconds": 626.399999999975,
+        "skills": 6,
+        "training": false,
+        "wall": 1010.0,
+        "wall_max": 1010.0,
+        "wave": 20
+      },
+      "target_skills": 5
+    }
+  ]
+}

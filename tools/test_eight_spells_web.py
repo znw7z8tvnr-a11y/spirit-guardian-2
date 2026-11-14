@@ -90,7 +90,12 @@ async def main():
    await page.wait_for_function("(window.SG_LAB_STATE.spell_hits.wind||0)>0",timeout=30000)
    await tap('Pause');wind=await state();assert wind['spell_casts']['wind']>0 and wind['spell_hits']['wind']>0
    await page.screenshot(path=str(REPORT/f'wind-battle-{name}.png'))
-   await tap('Restart');await page.wait_for_function("window.SG_LAB_STATE.item_count===1&&!window.SG_LAB_STATE.spell_kit&&!window.SG_LAB_STATE.resume_pending",timeout=60000);await tap('SpellKit');sword_kit=await state();await tap('Slot 0');await tap('Inventory');await tap(f"Item {sword_kit['spell_kit_ids']['sword']}");assert '110' in (await state())['inventory_detail'] and '火系' in (await state())['inventory_detail'];await tap('InventoryApply');await tap('Done')
+   # A reward overlay may cover battle controls after the wind hit. Reload,
+   # then explicitly choose a new run if the real checkpoint prompt appears.
+   await page.reload();await page.wait_for_function('window.SG_LAB_STATE!==undefined',timeout=60000);await page.wait_for_timeout(650)
+   if (await state())['resume_pending']:
+    await tap('CheckpointNew')
+   await page.wait_for_function("window.SG_LAB_STATE.item_count===1&&!window.SG_LAB_STATE.spell_kit&&!window.SG_LAB_STATE.resume_pending",timeout=60000);await tap('SpellKit');sword_kit=await state();await tap('Slot 0');await tap('Inventory');await tap(f"Item {sword_kit['spell_kit_ids']['sword']}");assert '110' in (await state())['inventory_detail'] and '火系' in (await state())['inventory_detail'];await tap('InventoryApply');await tap('Done')
    if (await state())['paused']:await tap('Pause')
    await page.wait_for_function("(window.SG_LAB_STATE.spell_hits.sword||0)>0",timeout=30000)
    if not (await state())['paused']:await tap('Pause')

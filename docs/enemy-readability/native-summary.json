@@ -1,0 +1,7 @@
+{
+  "suites": 36,
+  "checks": 1244,
+  "failures": [],
+  "engine": "Godot 4.6.3",
+  "scope": "actual Controls, live enemy actors, damage and prior skill/gem/Boss integration"
+}

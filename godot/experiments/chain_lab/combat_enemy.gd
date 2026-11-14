@@ -2,22 +2,11 @@ extends "res://modules/enemy/enemy.gd"
 ## Lab-only tactical overrides; movement, status and hit resolution stay shared.
 signal tactic_resolved(enemy: Node2D, skill: String, affected: int)
 var wave_level:=1
-var label_theme: Theme
-var title_label: Label
 var tactic_name:=""
 var tactical_casts:=0
 var support_targets:=0
 var ranged_warning:=0.0
 var ranged_attacks:=0
-func _ready() -> void:
- super._ready()
- title_label=Label.new();title_label.theme=label_theme;title_label.position=Vector2(-64,-83);title_label.add_theme_font_size_override("font_size",20);title_label.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(title_label)
- refresh_title()
-func refresh_title() -> void:
- if not is_instance_valid(title_label):return
- var warning: String="・靈彈蓄力" if ranged_warning>0 else "・"+tactic_name if telegraph>0 else ""
- title_label.text=preload("res://experiments/chain_lab/enemy_rules.gd").NAMES[kind]+warning
- title_label.modulate=Color("ffd89b") if not warning.is_empty() else Color("cbd9ed")
 func advance_attack(delta: float,distance: float) -> void:
  if kind!=3:super.advance_attack(delta,distance);return
  attack_clock=maxf(0,attack_clock-delta)
@@ -27,7 +16,6 @@ func advance_attack(delta: float,distance: float) -> void:
   elif ranged_warning<=0:
    attacked.emit(damage);ranged_attacks+=1;attack_clock=2.8;tactic_resolved.emit(self,"靈彈",1)
  elif distance<330 and attack_clock<=0:ranged_warning=0.75
- refresh_title()
 func advance_tactics(delta: float,distance: float) -> void:
  if kind not in [2,3,4]:return
  tactical_clock=maxf(0,tactical_clock-delta)
@@ -50,4 +38,3 @@ func advance_tactics(delta: float,distance: float) -> void:
  elif tactical_clock<=0 and distance<(320 if kind==2 else 370):
   tactic_name="護盾蓄力" if kind==2 else "治療蓄力" if kind==3 else "鼓舞蓄力"
   telegraph=0.55;tactical_clock=11.0 if kind==2 else 9.0
- refresh_title()

@@ -71,6 +71,9 @@ jobs:
       - name: Attack gem touch and local damage-scale acceptance
         timeout-minutes: 4
         run: python3 tools/test_attack_gems_web.py
+      - name: Forty-enemy bounded label layout and touch acceptance
+        timeout-minutes: 4
+        run: python3 tools/test_enemy_readability_web.py
       - name: Enemy tactical warning and bounded support touch acceptance
         timeout-minutes: 4
         run: python3 tools/test_enemy_tactics_web.py
@@ -86,7 +89,7 @@ jobs:
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-enemy-tactics-delivery
+          name: godot-enemy-readability-delivery
           path: |
             dist/*.zip
             docs/m2-1/*.log
@@ -115,6 +118,7 @@ jobs:
             docs/first-boss/*.png
             docs/final-gems/*
             docs/enemy-tactics/*
+            docs/enemy-readability/*
             docs/timing-gem/*
             docs/lowhp-gem/*
             docs/element-gems/*

@@ -1,6 +1,7 @@
 extends RefCounted
 ## One local intermission checkpoint; distinct from build and discovery-book saves.
 const PATH:="user://chain_lab_run_v1.json"
+const WEB_KEY:="sg_chain_lab_run_v1"
 const FORMAT:="spirit_guardian_checkpoint"
 const MAX_BYTES:=350000
 const Chain=preload("res://experiments/chain_lab/chain.gd")
@@ -15,7 +16,6 @@ const T_FLOATS=["hp","max_hp","wall_hp","wall_max"]
 var last_error:=""
 var last_digest:=""
 var writes:=0
-var sync_pending:=false
 static func number(v: Variant,lo: float,hi: float,whole: bool=false) -> bool:
  return (v is int or v is float) and is_finite(float(v)) and float(v)>=lo and float(v)<=hi and (not whole or float(v)==floorf(float(v)))
 static func fields(data: Variant,keys: Array,lo: float,hi: float,whole: bool=false) -> bool:
@@ -184,8 +184,11 @@ func read_file(path: String) -> Dictionary:
  if not FileAccess.file_exists(path):return {"ok":false,"reason":"missing"}
  var f:=FileAccess.open(path,FileAccess.READ)
  if f==null or f.get_length()>MAX_BYTES:return {"ok":false,"reason":"size"}
+ return decode_text(f.get_as_text())
+func decode_text(text: String) -> Dictionary:
+ if text.to_utf8_buffer().size()>MAX_BYTES:return {"ok":false,"reason":"size"}
  var outer_reader:=JSON.new()
- if outer_reader.parse(f.get_as_text())!=OK:return {"ok":false,"reason":"json"}
+ if outer_reader.parse(text)!=OK:return {"ok":false,"reason":"json"}
  var outer: Variant=outer_reader.data
  if not outer is Dictionary or outer.get("format")!=FORMAT or outer.get("schema")!=1 or not outer.get("payload") is String or not outer.get("sha256") is String:return {"ok":false,"reason":"format"}
  if outer.payload.length()>250000 or outer.payload.sha256_text()!=outer.sha256:return {"ok":false,"reason":"checksum"}
@@ -195,6 +198,7 @@ func read_file(path: String) -> Dictionary:
  if not validate(data):return {"ok":false,"reason":"invalid"}
  return {"ok":true,"data":data,"digest":outer.sha256}
 func load_checkpoint() -> Dictionary:
+ if OS.has_feature("web"):return load_web()
  var primary:=read_file(PATH)
  if primary.ok:primary.source="primary";return primary
  var backup:=read_file(PATH+".bak")
@@ -207,6 +211,7 @@ func save_game(game: Node) -> bool:
 func save_data(data: Dictionary) -> bool:
  if not validate(data):last_error="資料不完整，保留原進度";return false
  var text:=JSON.stringify(data,"",true,true);var digest:=text.sha256_text()
+ if OS.has_feature("web"):return save_web(text,digest)
  if digest==last_digest and read_file(PATH).ok:return true
  var file:=FileAccess.open(PATH+".tmp",FileAccess.WRITE)
  if file==null:last_error="無法寫入續玩進度";return false
@@ -221,25 +226,43 @@ func save_data(data: Dictionary) -> bool:
   if FileAccess.file_exists(PATH+".bak"):DirAccess.rename_absolute(PATH+".bak",PATH)
   last_error="無法完成續玩保存";return false
  last_digest=digest;last_error="";writes+=1
- sync_web()
  return true
 func clear() -> bool:
+ if OS.has_feature("web"):
+  var cleared: bool=bool(JavaScriptBridge.eval("(()=>{try{localStorage.removeItem("+JSON.stringify(WEB_KEY)+");localStorage.removeItem("+JSON.stringify(WEB_KEY+".bak")+");return true;}catch(e){return false;}})()"))
+  if cleared:last_digest=""
+  return cleared
  var ok:=true
  for suffix in ["",".bak",".tmp"]:
   if FileAccess.file_exists(PATH+suffix) and DirAccess.remove_absolute(PATH+suffix)!=OK:ok=false
  last_digest=""
- sync_web()
  return ok
 
-func sync_web() -> void:
- if not OS.has_feature("web"):return
- JavaScriptBridge.force_fs_sync()
- # Engine flushes are asynchronous; a second write may arrive while the first
- # sync is in flight. Retry the final filesystem state after a quiet interval.
- if sync_pending:return
- sync_pending=true
- var tree:=Engine.get_main_loop() as SceneTree
- if tree==null:sync_pending=false;return
- tree.create_timer(0.75,true,false,true).timeout.connect(func():
-  sync_pending=false
-  JavaScriptBridge.force_fs_sync())
+func web_read(key: String) -> Dictionary:
+ var raw: Variant=JavaScriptBridge.eval("(()=>{try{return JSON.stringify({available:true,text:localStorage.getItem("+JSON.stringify(key)+")});}catch(e){return JSON.stringify({available:false});}})()")
+ if not raw is String:return {"available":false}
+ var value: Variant=JSON.parse_string(raw)
+ return value if value is Dictionary else {"available":false}
+func web_available() -> bool:return bool(web_read(WEB_KEY).available)
+func load_web() -> Dictionary:
+ var first:=web_read(WEB_KEY);var second:=web_read(WEB_KEY+".bak")
+ if not first.available or not second.available:return {"ok":false,"reason":"storage_unavailable","exists":false}
+ var primary:=decode_text(first.text) if first.text is String else {"ok":false,"reason":"missing"}
+ if primary.ok:primary.source="primary";return primary
+ var backup:=decode_text(second.text) if second.text is String else {"ok":false,"reason":"missing"}
+ if backup.ok:backup.source="backup";backup.primary_error=primary.reason;return backup
+ return {"ok":false,"reason":primary.reason,"exists":first.text is String or second.text is String}
+func save_web(text: String,digest: String) -> bool:
+ var previous:=web_read(WEB_KEY)
+ if not previous.available:last_error="此瀏覽器無法寫入續玩進度";return false
+ var old:=decode_text(previous.text) if previous.text is String else {"ok":false}
+ if digest==last_digest and old.ok and old.digest==digest:return true
+ var envelope:=JSON.stringify({"format":FORMAT,"schema":1,"payload":text,"sha256":digest})
+ var script: String="(()=>{try{"
+ if old.ok:script+="localStorage.setItem("+JSON.stringify(WEB_KEY+".bak")+","+JSON.stringify(previous.text)+");"
+ script+="localStorage.setItem("+JSON.stringify(WEB_KEY)+","+JSON.stringify(envelope)+");return true;}catch(e){return false;}})()"
+ if not bool(JavaScriptBridge.eval(script)):last_error="本機空間不足或瀏覽器禁止儲存，保留原進度";return false
+ var readback:=web_read(WEB_KEY)
+ if not readback.available or readback.text!=envelope:last_error="續玩進度讀回驗證失敗";return false
+ last_digest=digest;last_error="";writes+=1
+ return true

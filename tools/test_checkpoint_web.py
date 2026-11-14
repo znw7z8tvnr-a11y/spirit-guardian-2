@@ -19,7 +19,7 @@ async def main():
      s=await state();rect=await page.locator('#canvas').bounding_box();x,y,w,h=s['buttons'][key];vw,vh=s['viewport'];assert 0<=x-w/2<x+w/2<=vw+1 and 0<=y-h/2<y+h/2<=vh+1,(key,[x,y,w,h],s['viewport'])
      await page.touchscreen.tap(rect['x']+x/vw*rect['width'],rect['y']+y/vh*rect['height']);await page.wait_for_timeout(350)
     async def reload():
-     await page.wait_for_timeout(1500);await page.reload();await ready();await page.wait_for_timeout(500)
+     await page.wait_for_timeout(50);await page.reload();await ready();await page.wait_for_timeout(500)
     await ready();await page.wait_for_timeout(1000);assert not (await state())['resume_pending']
     for speed in [2,4,8]:await tap('Speed');assert (await state())['speed']==speed
     await page.wait_for_function('window.SG_LAB_STATE.wave===3&&window.SG_LAB_STATE.reward_pending===1&&window.SG_LAB_STATE.checkpoint_wave===3',timeout=70000)
@@ -31,14 +31,27 @@ async def main():
     assert restored['reward_offers']==saved['reward_offers'] and restored['kills']==saved['kills'] and restored['growth_levels']==saved['growth_levels'] and restored['wall_hp']==saved['wall_hp']
     pick=next(i for i,v in enumerate(restored['reward_offers']) if v['kind']=='gem');await tap(f'Reward {pick}');owned=await state();assert owned['item_count']==2 and owned['reward_granted']==1 and owned['edit_open']
     await tap('Random');equipped=await state();assert equipped['slots'][1]>=0 and len(equipped['edges'])==1
+    stored=await page.evaluate("JSON.parse(localStorage.getItem('sg_chain_lab_run_v1'))")
+    stored_data=json.loads(stored['payload']);assert stored_data['rewards']['granted_count']==1 and stored_data['chain']['slots']==equipped['slots'] and stored_data['chain']['edges']==equipped['edges'],stored_data
     await reload();assert (await state())['resume_pending'];await tap('CheckpointResume');second=await state()
-    assert second['reward_pending']==0 and second['reward_granted']==1 and second['item_count']==2 and second['edit_open'] and second['slots']==equipped['slots'] and second['edges']==equipped['edges']
+    assert second['reward_pending']==0 and second['reward_granted']==1 and second['item_count']==2 and second['edit_open'] and second['slots']==equipped['slots'] and second['edges']==equipped['edges'], {'second':second,'equipped':equipped}
     await page.screenshot(path=str(REPORT/f'equipment-{args.label}-{orientation}.png'))
+    backup=await page.evaluate("JSON.parse(localStorage.getItem('sg_chain_lab_run_v1.bak'))")
+    backup_data=json.loads(backup['payload'])
+    await page.evaluate("localStorage.setItem('sg_chain_lab_run_v1','{truncated')")
+    await reload();assert (await state())['resume_pending'];await tap('CheckpointResume');recovered=await state()
+    assert recovered['wave']==backup_data['game']['wave'] and recovered['slots']==backup_data['chain']['slots'] and recovered['reward_granted']==backup_data['rewards']['granted_count']
     await reload();await tap('CheckpointNew');await page.wait_for_function('window.SG_LAB_STATE.resume_pending===false&&window.SG_LAB_STATE.item_count===1&&window.SG_LAB_STATE.wave<3',timeout=15000)
     fresh=await state();assert fresh['reward_granted']==0 and fresh['speed']==1
     await reload();assert not (await state())['resume_pending']
+    await page.evaluate("(()=>{const original=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k.startsWith('sg_chain_lab_run_v1'))throw new DOMException('quota','QuotaExceededError');return original.call(this,k,v);}})()")
+    for speed in [2,4,8]:await tap('Speed');assert (await state())['speed']==speed
+    await page.wait_for_function('window.SG_LAB_STATE.wave===3&&window.SG_LAB_STATE.reward_pending===1',timeout=70000)
+    quota=await state();assert quota['checkpoint_wave']==0 and '空間不足' in quota['checkpoint_status']
+    await page.add_init_script("(()=>{const original=Storage.prototype.getItem;Storage.prototype.getItem=function(k){if(k.startsWith('sg_chain_lab_run_v1'))throw new DOMException('blocked','SecurityError');return original.call(this,k);}})()")
+    await reload();blocked=await state();assert not blocked['resume_pending'] and '無法保留續玩' in blocked['checkpoint_status']
     engine=[v for v in logs if 'SCRIPT ERROR' in v or v.startswith('ERROR:')];assert not errors and not engine,(errors,engine)
-    results[orientation]={'passed':['real wave-three autosave','spent refresh and exact offers survive page reload','health and growth preserved','earned gem and arranged graph survive second reload','no repeated award','explicit new-run clears checkpoint'],'saved':saved,'restored':restored,'second':second,'pageerrors':errors,'engine_errors':engine,'limits':'Chromium WebGL local storage; not iPad Safari hardware or sudden OS termination. Saves safe intermissions, not active combat.'}
+    results[orientation]={'passed':['real wave-three autosave and near-immediate reload','spent refresh and exact offers survive page reload','health and growth preserved','earned gem and arranged graph survive second reload','no repeated award','explicit new-run clears checkpoint','corrupt primary recovers validated browser backup','quota and blocked storage fail visibly without claiming saved'],'saved':saved,'restored':restored,'second':second,'pageerrors':errors,'engine_errors':engine,'limits':'Chromium WebGL local storage; not iPad Safari hardware or sudden OS termination. Saves safe intermissions, not active combat.'}
     print(orientation,'CHECKPOINT PASS',flush=True);await context.close()
   finally:await browser.close();server.shutdown()
  (REPORT/f'browser-{args.label}.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))

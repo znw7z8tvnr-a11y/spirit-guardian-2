@@ -276,6 +276,7 @@ func toggle_pause() -> void:
 func offer_checkpoint() -> void:
  if not persist_run:return
  checkpoint_record=checkpoint_store.load_checkpoint()
+ if checkpoint_record.get("reason","")=="storage_unavailable":checkpoint_label.text="此瀏覽器無法保留續玩，請勿關閉頁面"
  if checkpoint_record.ok or checkpoint_record.get("exists",false):
   resume_pending=true;checkpoint_view.show_record(checkpoint_record)
 func resume_checkpoint() -> void:
@@ -300,7 +301,7 @@ func write_checkpoint() -> void:
  if checkpoint_store.save_data(data):
   checkpoint_wave=wave;checkpoint_writes=checkpoint_store.writes
   checkpoint_label.text="已保存第 %d 波波間進度・此瀏覽器續玩" % wave
-  if OS.has_feature("web") and not OS.is_userfs_persistent():checkpoint_label.text="此瀏覽器無法保留續玩，請勿關閉頁面"
+  if OS.has_feature("web") and not checkpoint_store.web_available():checkpoint_label.text="此瀏覽器無法保留續玩，請勿關閉頁面"
  else:checkpoint_label.text=checkpoint_store.last_error
 func cycle_tempo() -> void:
  tempo=(tempo+1)%3

@@ -1,0 +1,45 @@
+{
+  "scope": "Three earned-loadout native policies, automatic flesh upgrades, actual criticals, eight-times simulation speed",
+  "runs": [
+    {
+      "seed": 12032,
+      "target_skills": 5,
+      "prefer_refresh": false,
+      "outcome": "victory",
+      "minimum_wall_ratio": 0.940324324324324,
+      "minimum_core": 100.0,
+      "boss_kills": 4,
+      "seconds": 628.533333333308,
+      "peak_enemies": 10
+    },
+    {
+      "seed": 24064,
+      "target_skills": 2,
+      "prefer_refresh": false,
+      "outcome": "victory",
+      "minimum_wall_ratio": 0.940324324324324,
+      "minimum_core": 100.0,
+      "boss_kills": 4,
+      "seconds": 598.266666666643,
+      "peak_enemies": 8
+    },
+    {
+      "seed": 32012,
+      "target_skills": 5,
+      "prefer_refresh": true,
+      "outcome": "victory",
+      "minimum_wall_ratio": 0.940324324324324,
+      "minimum_core": 100.0,
+      "boss_kills": 4,
+      "seconds": 626.399999999975,
+      "peak_enemies": 10
+    }
+  ],
+  "observation": "All tested policies won with core 100 and minimum wall ratio about 94 percent. This sample has low defensive pressure. No combat values changed in this release.",
+  "limits": [
+    "Not a random-build success-rate estimate",
+    "Does not test every reward strategy or manual growth allocation",
+    "Not final difficulty acceptance",
+    "Native seeded timings need not match browser event timing exactly"
+  ]
+}

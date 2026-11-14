@@ -3,5 +3,6 @@
   "suites": 37,
   "checks": 1268,
   "failures": [],
-  "scope": "full twenty-wave earned runs, defeat, real scene reload and prior module integration"
+  "scope": "full twenty-wave earned runs, defeat, real scene reload and prior module integration",
+  "game_source": "c021a8194958afea301ec88e6ea37900010d1d48"
 }

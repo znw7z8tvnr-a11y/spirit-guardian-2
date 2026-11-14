@@ -1,0 +1,30 @@
+{
+  "release": "Twenty-wave victory/defeat results and run reset",
+  "branch": "godot/run-results-lab",
+  "game_source": "c021a8194958afea301ec88e6ea37900010d1d48",
+  "hosting_source": "8dfd2715d8b0d4453489e186412442d8be559e28",
+  "published": true,
+  "ci_run": 43562869344,
+  "ci_status": "success",
+  "native_checks": 1268,
+  "native_suites": 37,
+  "normal_twenty_wave_native_runs": 3,
+  "normal_twenty_wave_browser_runs": 4,
+  "browser_reports": [
+    "run-results-web.json",
+    "run-results-packaged.json"
+  ],
+  "stable_root_files_unchanged": 18,
+  "limits": [
+    "Temporary art",
+    "Linux Chromium touch emulation; no iPad Safari hardware",
+    "Three deterministic native strategies and one browser policy are not complete build balance",
+    "Current result is not a persistent run-history feature"
+  ],
+  "ci_artifact": 14101602621,
+  "deployment_id": "appgdep_6af7fadd9c3c819194a84a3ec8da4bb1",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_271439764c188191add6c72c2127fc13",
+  "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
+  "live_https_assets_verified": true,
+  "private_audience_preserved": true
+}

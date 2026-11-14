@@ -19,3 +19,11 @@
 初步三個種子都能通關，核心未損；數據只證明這些選擇策略可玩，不能代表所有隨機配置或最終難度已平衡。逐波與最低防線數據見本輪報告目錄，後續平衡應據此擴充樣本，不一律削弱前期。
 
 素材仍為暫用；Linux Chromium 觸控模擬不代表 iPad Safari 實機，原版全部特殊詞條與50組共振效果也未因此宣稱完成。
+
+## 本機通過項目
+
+37 組引擎測試共1268項通過。三個一般戰局策略完整通關，核心最低100、城牆最低比例約94%，使用血肉自動成長；完整過程、逐波資料與限制記錄於 godot-fullrun.json 及 balance-observations.json。這組樣本防守壓力偏低，尚非難度定案。
+
+原始 Web 匯出與實際部署分塊載入包都在 Chromium 直、橫向以真實觸控完成一般開局20波、四首領、最終選獎、勝利結算與重開；另以明確標示的四十隻敵人演練產生真實敗北，再觸控重開。無頁面或引擎錯誤，截圖為實際遊戲。兩方向皆有已發現的共振，場景重載後紀錄維持，當局物品、詞條與血肉成長歸零；不是瀏覽器關閉後的持久性或 Safari 實機驗收。
+
+完整 GitHub Actions [43562869344](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/43562869344) 全部成功，包含新增整局觸控與既有22技能／兩類守衛完整回歸；[雲端交付包14101602621](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/43562869344/artifacts/14101602621)。受測程式 c021a8194958afea301ec88e6ea37900010d1d48 已發布至既有私人 [Lab](https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/)，hosting source 8dfd2715d8b0d4453489e186412442d8be559e28。HTTPS核對HTML、PCK、WASM及來源全部一致；穩定入口18檔案未改。這是線上資源核對，遠端瀏覽器與iPad實機未另宣稱通過。

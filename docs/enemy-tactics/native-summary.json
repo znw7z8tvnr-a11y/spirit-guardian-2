@@ -1,0 +1,7 @@
+{
+  "suites": 35,
+  "checks": 1164,
+  "failures": [],
+  "engine": "Godot 4.6.3",
+  "scope": "actual scene, damage, support, old first-Boss playthrough, all prior skill and gem integration; not complete twenty-wave balance"
+}

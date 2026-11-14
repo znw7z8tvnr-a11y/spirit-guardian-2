@@ -57,10 +57,15 @@ func _physics_process(delta: float) -> void:
  var direction: Vector2 = brain.velocity(self, delta) if brain != null else (target - position).normalized()
  if distance > 62 or kind == 3:
   position += direction * speed * (0.5 if slow_time > 0 else 1.0) * (1.4 if haste > 0 else 1.0) * delta
+ advance_attack(delta, distance)
+ advance_tactics(delta, distance)
+ queue_redraw()
+func advance_attack(delta: float, distance: float) -> void:
  attack_clock -= delta
  if ((kind == 3 and distance < 330) or distance <= 62) and attack_clock <= 0:
   attack_clock = 2.8 if kind == 3 else 1.2
   attacked.emit(damage)
+func advance_tactics(delta: float, distance: float) -> void:
  if kind in [2, 3, 4]:
   tactical_clock -= delta
   if telegraph > 0:
@@ -77,7 +82,6 @@ func _physics_process(delta: float) -> void:
   elif tactical_clock <= 0 and distance < 370:
    telegraph = 0.55
    tactical_clock = 11.0 if kind == 2 else 9.0
- queue_redraw()
 func take_damage(amount: float, element: StringName = &"fire") -> void:
  if is_instance_valid(resolver):
   resolver.resolve(self, amount, String(element))

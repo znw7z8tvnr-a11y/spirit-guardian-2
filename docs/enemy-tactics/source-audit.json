@@ -1,0 +1,54 @@
+{
+  "scope": "First enemy behavior audit, not complete original-module parity",
+  "evidence": {
+    "tactical_ward_rally": {
+      "file": "reference_modules/spirit_guardian_enemy_ai_final.html",
+      "line": 303,
+      "sha256": "84f75ce1d85f0f088a2935342f8bedb729e5165b7e55be6537042d63b7279c4f",
+      "excerpt": "function tactical(e,target,dt,items,fx){const a=init(e),step=clamp(dt,0,.12);if(a.telegraph>0){a.telegraph=Math.max(0,a.telegraph-step);if(a.telegraph===0&&!a.skillFired){a.skillFired=true;a.castCount++;if(a.skill==='rally'){for(const z of neighbors(e,items)){if(z.type!=='boss'&&Math.hypot(z.x-e.x,z.y-e.y)<145)z.sg71Haste=Math.max(finite(z.sg71Haste),1.2)}fx?.ring?.(e,'#f5bd77',105)}\nelse if(a.skill==='ward'){e.sg7Shield=Math.max(finite(e.sg7Shield),Math.max(8,finite(e.max,40)*.12));fx?.ring?.(e,'#82dff4',75)}\nelse if(a.skill==='bosswave'){for(const z of neighbors(e,items)){if(z.type!=='boss'&&Math.hypot(z.x-e.x,z.y-e.y)<165)z.sg71Haste=Math.max(finite(z.sg71Haste),a.phase===3?2.1:1.2)}fx?.ring?.(e,a.phase===3?'#ff5c9b':'#b58cff',165)}}return a}\nif(a.skillCooldown>0||!(e.hp>0))return a;let skill='';if(e.type==='armored'&&a.dist<320)skill='ward';else if(e.type==='elite'&&a.dist<370)skill='rally';else if(e.type==='boss'&&a.dist<600)skill='bosswave';if(!skill)return a;a.skill=skill;a.skillFired=false;a.telegraph=skill==='bosswave'?.85:.55;a.skillCooldown=skill==='bosswave'?(a.phase===3?7:10):skill==='rally'?9:11;fx?.tell?.(e,skill);return a}\nfunction reset(e){if(e)delete e.ai10}\nfunction stats(items){const out={total:0,types:{},intents:{},bossPhases:{},casts:0};for(const e of items||[]){if(!(e.hp>0))continue;out.total++;const type=e.type||'grunt';out.types[type]=(out.types[type]||0)+1;const a=e.ai10;if(a){out.intents[a.intent]=(out.intents[a.intent]||0)+1;out.casts+=a.castCount;"
+    },
+    "shaman_heal": {
+      "file": "reference_modules/spirit_guardian_enemy_ai_final.html",
+      "line": 406,
+      "sha256": "84f75ce1d85f0f088a2935342f8bedb729e5165b7e55be6537042d63b7279c4f",
+      "excerpt": "if(e.type==='shaman'&&e.phase>2.5){e.phase=0;const nearby=enemies.filter(z=>z.hp>0&&z!==e&&dist(z,e)<120).slice(0,4);for(const z of nearby){z.hp=Math.min(z.max,z.hp+9+wave*2);burst(z.x,z.y,'#95ffae',3,20)}}if(d>(e.sg7Ranged?Math.max(195,265-e.r):36)){e.walkDist=(e.walkDist||0)+v*dt;e.x+=ai10.x*v*dt;e.y+=ai10.y*v*dt;sg60Footstep(e)}else{if(shieldTime>0){burst(C.x,C.y,'#7cf9f0',12,100);floatText(C.x"
+    },
+    "source_spawn": {
+      "file": "reference_modules/spirit_guardian_enemy_ai_final.html",
+      "line": 312,
+      "sha256": "84f75ce1d85f0f088a2935342f8bedb729e5165b7e55be6537042d63b7279c4f",
+      "excerpt": "function spawn(){if(enemies.length>=220)return false;let a=rand(0,Math.PI*2),r=rand(650,840),boss=wave%4===0&&spawned===Math.floor((12+wave*5)/2);let roll=Math.random(),type=boss?'boss':wave>=3&&roll<.09?'elite':wave>=2&&roll<.19?'shaman':roll<.38?'swift':roll<.59?'armored':'grunt';let rawHP=type==='boss'?300+wave*105:type==='elite'?130+wave*22:type==='shaman'?38+wave*9:type==='armored'?60+wave*11:type==='swift'?19+wave*5:30+wave*6;const p3HpScale={boss:2.6,elite:2.2,shaman:1.4,armored:1.7,swift:1.25,grunt:1.45};const p3Late=1+Math.max(0,wave-6)*.032;let hp=Math.round(rawHP*p3HpScale[type]*p3Late);let sg7Id=Math.floor(Math.random()*80);enemies.push({sg7Id,sg7Trait:sg7Id%16,sg7Shield:sg7Id%16===5?hp*.38:0,sg7Revived:false,sg7Cooldown:rand(1,3),sg7Ranged:sg7Id%16===2,sg7Heal:sg7Id%16===3,p3RangedBolt:0,p3Split:false,p3EliteAffix:null,p3Armor:0,p3AttackTimer:0,id:++uid,x:C.x+Math.cos(a)*r,y:C.y+Math.sin(a)*r,type,hp,max:hp,r:type==='boss'?34:type==='elite'?23:type==='shaman'?17:type==='armored'?18:type==='swift'?11:14,speed:type==='boss'?24:type==='elite'?36+wave:type==='shaman'?33+wave:type==='swift'?68+wave*2:type==='armored'?29+wave:40+wave*1.3,slow:0,poison:0,hit:0,walkDist:rand(0,90),phase:rand(0,7)});const e7=enemies[enemies.length-1];if(e7.sg7Trait===0||e7.sg7Trait===4)e7.speed*=1.45;if(e7.sg7Trait===1||e7.sg7Trait===5)e7.max=e7.hp*=1.35;if(e7.sg7Trait===10)e7.poison=0;if(type==='armored')e7.p3Armor=.15;if(type==='elite'){const affixes=['迅捷','荊棘','護盾','吸血'];e7.p3EliteAffi"
+    }
+  },
+  "unchanged_early_waves": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "lab_roles": [
+    "grunt",
+    "swift",
+    "armored",
+    "shaman",
+    "elite"
+  ],
+  "normal_shaman_first_wave": 6,
+  "new_trial_rules": [
+    "750ms cancellable ranged warning",
+    "nearest-four support excludes bosses and dead allies",
+    "2.5 percent extra hp/damage per wave after eight"
+  ],
+  "pending": [
+    "80 identity variants and 16 traits",
+    "revive",
+    "split",
+    "life steal",
+    "thorns",
+    "ranged trait variants",
+    "all Boss attack and stage parity",
+    "full twenty-wave balance",
+    "iPad Safari hardware"
+  ]
+}

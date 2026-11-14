@@ -1,0 +1,10 @@
+{
+  "game_source_commit": "c3fc04e6fc8c853477dffd9e017198255ebf9418",
+  "branch": "godot/enemy-tactics-lab",
+  "ci_run": 43553821459,
+  "ci_status": "success",
+  "ci_artifact": 14098166144,
+  "published": false,
+  "publication_note": "Source synchronization tool call was aborted; no new source pushed or version deployed. Existing live version unchanged.",
+  "report": "../../docs/enemy-tactics/release.json"
+}

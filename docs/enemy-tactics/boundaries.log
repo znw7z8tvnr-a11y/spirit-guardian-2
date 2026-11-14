@@ -1,0 +1,3 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+ENEMY_BOUNDARIES_RESULT {"checks":["source heal amount clamps an almost-full real ally to max HP","support excludes nearest boss and fallen ally","rally haste multiplies actual movement by 1.4","actual ice slow and rally speed combine without bypassing slow"],"failures":[]}

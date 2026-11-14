@@ -1,0 +1,29 @@
+{
+  "release": "Lab enemy tactics first batch",
+  "branch": "godot/enemy-tactics-lab",
+  "game_source": "c3fc04e6fc8c853477dffd9e017198255ebf9418",
+  "native": {
+    "suites": 35,
+    "checks": 1164,
+    "failures": [],
+    "engine": "Godot 4.6.3",
+    "scope": "actual scene, damage, support, old first-Boss playthrough, all prior skill and gem integration; not complete twenty-wave balance"
+  },
+  "web_reports": [
+    "enemy-tactics-web.json",
+    "enemy-tactics-packaged.json"
+  ],
+  "ci_run": 43553821459,
+  "ci_status": "success",
+  "published": false,
+  "publication_limit": "Source synchronization tool call was aborted; no new source pushed or version deployed. Existing live version unchanged.",
+  "stable_root_files_unchanged": 18,
+  "limits": [
+    "Temporary art",
+    "No iPad Safari hardware test",
+    "No complete twenty-wave balance",
+    "Full trait and Boss parity pending"
+  ],
+  "ci_artifact": 14098166144,
+  "additional_boundary_checks": 4
+}

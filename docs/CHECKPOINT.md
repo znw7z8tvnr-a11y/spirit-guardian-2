@@ -31,3 +31,9 @@ Web `test_checkpoint_web.py` 使用真實觸控與近即時重載，直接核對
 技能回歸切換測試局時會實際重載頁面；若出現續玩提示，再觸控重新開局，避免獎勵視窗擋住戰鬥區按鈕。
 
 目前有效報告為 `browser-synchronous.json`、最新 `browser-staged.json` 與後續 `release.json`。`browser-web.json` 為已淘汰非同步原型的歷史報告，不作最終驗收。截圖為實際遊戲；完整雲端回歸與發布結果以交付紀錄為準。
+
+## 交付結果
+
+最終程式 c37918351c047f5ca7cdcd7d49574e441e154c0b 已通過完整 [GitHub Actions 43575589885](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/43575589885)，包含正常二十波通關／敗北／重開、敵人與22技能兩類守衛。原始 Web 包兩輪、部署包一輪均通過橫直向近即時重載與儲存故障測試。
+
+已發布至私人 [Lab](https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/)。[Godot 完整專案 ZIP](https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/SpiritGuardian-Godot-ChainLab.zip) 為 5,777,073 bytes；HTTPS 逐一核對 HTML、PCK、WASM、來源及 ZIP 檢查碼／CRC 通過。解壓至乾淨目錄後，Godot 原生匯入與600幀實際中央場景啟動通過（第一波、7次施放、仍有敵人），不是 Safari 或 Web Editor 實機匯入。原版入口18檔案保持不變；詳細來源、部署與檢查碼見 release.json。

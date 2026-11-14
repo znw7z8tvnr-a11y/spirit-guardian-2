@@ -23,7 +23,7 @@ def git(*args):
 branch=credential['branch'];remote=git('ls-remote','--heads',credential['remote_url'],branch).split()[0]
 assert git('rev-parse','HEAD')==remote,'Site checkout is stale; synchronize before publication'
 git('add','--','.openai/hosting.json','dist','LAB.md')
-git('commit','-m','Publish P1 chain-flow lab; preserve original M2.1 entry')
+git('commit','-m','Publish Lab checkpoints and import ZIP; preserve original M2.1 entry')
 sha=git('rev-parse','HEAD');git('push','origin',f'HEAD:{branch}')
 assert git('ls-remote','--heads',credential['remote_url'],branch).split()[0]==sha
 archive=root/'chain-flow-site.tar.gz';git('archive','--format=tar.gz','-o',str(archive),'HEAD','.openai/hosting.json','dist')

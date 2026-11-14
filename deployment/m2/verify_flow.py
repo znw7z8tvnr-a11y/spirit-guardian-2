@@ -1,5 +1,5 @@
 """TLS-verified asset check for the existing private Site; header only via stdin."""
-import hashlib,json,pathlib,sys,termios,time,urllib.parse,urllib.request
+import hashlib,io,json,pathlib,sys,termios,time,urllib.parse,urllib.request,zipfile
 settings=termios.tcgetattr(0);settings[3]&=~termios.ECHO;termios.tcsetattr(0,termios.TCSANOW,settings)
 print('Ready for private verification headers on stdin (input is hidden).',flush=True)
 headers=json.loads(sys.stdin.readline());origin='https://spirit-guardian-m2-play.trylook.chatgpt.site/'
@@ -24,5 +24,14 @@ for entry in ['', 'lab/']:
  results[entry or '/']={'html_status':200,'source_commit':info['source_commit'],'wasm_verified':True,'pck_matches_local':True}
 assert results['/']['source_commit']=='b8d77143c0815fe79eeea26e542abbe7b23460a2'
 report={'url':origin+'lab/','entries':results,'tls_verified':True,'limit':'HTTP integrity, not remote browser interaction. Local WebGL touch tests are separate; no iPad/Safari claim.'}
+project=root/'lab/SpiritGuardian-Godot-ChainLab.zip'
+if project.exists():
+ raw=get(origin+'lab/SpiritGuardian-Godot-ChainLab.zip')
+ assert hashlib.sha256(raw).digest()==hashlib.sha256(project.read_bytes()).digest()
+ with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+  assert archive.testzip() is None
+  assert 'main_scene="res://experiments/chain_lab/main.tscn"' in archive.read('project.godot').decode()
+  assert 'experiments/chain_lab/checkpoint_store.gd' in archive.namelist()
+ report['import_zip']={'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),'crc_verified':True,'lab_entry_verified':True}
 (pathlib.Path(__file__).resolve().parents[2]/'docs/checkpoint/live-assets.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report),flush=True)

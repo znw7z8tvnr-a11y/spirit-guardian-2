@@ -1,0 +1,104 @@
+{
+  "game_source_commit": "c37918351c047f5ca7cdcd7d49574e441e154c0b",
+  "branch": "godot/checkpoint-lab",
+  "godot_version": "4.6.3",
+  "ci": {
+    "run": 43575589885,
+    "source_commit": "c37918351c047f5ca7cdcd7d49574e441e154c0b",
+    "status": "success",
+    "url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/43575589885",
+    "artifacts": [
+      {
+        "id": 14107530900,
+        "name": "godot-checkpoint-delivery",
+        "bytes": 181167015
+      }
+    ]
+  },
+  "hosting": {
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "source_commit": "a52283a2249f4e1e7a5d6690345f4d266234b315",
+    "archive_sha256": "e94ebff050daec5a56545f9eae7a9256ccf2d8262013d586234adc87dc4ec135",
+    "deployment_id": "appgdep_6af82089c2448191bf393758d6f3d7bd",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_453258a1cff481919a4b4f34a6f5f816",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
+    "audience": "owner-private"
+  },
+  "native": {
+    "suites": 38,
+    "checks": 1300,
+    "failures": 0
+  },
+  "supplemental": {
+    "real_runs": 3,
+    "safe_intermission_snapshots": 60,
+    "probe_checks_including_original_fullrun_checks": 87,
+    "not_added_to_native_count": true
+  },
+  "browser": {
+    "reports": [
+      "browser-synchronous.json",
+      "browser-synchronous-repeat.json",
+      "browser-staged.json"
+    ],
+    "orientations": [
+      "landscape",
+      "portrait"
+    ],
+    "storage_faults_simulated": [
+      "corrupt primary",
+      "QuotaExceededError",
+      "SecurityError"
+    ],
+    "gameplay_state_injected": false
+  },
+  "root_files_unchanged": 18,
+  "limits": [
+    "Intermission checkpoints only; interrupted combat returns to the latest safe intermission.",
+    "Local browser/device slot and previous backup; no cloud sync.",
+    "Chromium WebGL and native headless tests; no iPad Safari hardware or Godot Web Editor import claim.",
+    "Temporary art and existing balance samples are not final-quality or all-build certification."
+  ],
+  "project_zip": {
+    "bytes": 5777073,
+    "sha256": "9169771007bd302c06e76ffb3442851b0f58bc8029471f8039f9a7368ced3987",
+    "source_commit": "c37918351c047f5ca7cdcd7d49574e441e154c0b",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/SpiritGuardian-Godot-ChainLab.zip"
+  },
+  "live_integrity": {
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
+    "entries": {
+      "/": {
+        "html_status": 200,
+        "source_commit": "b8d77143c0815fe79eeea26e542abbe7b23460a2",
+        "wasm_verified": true,
+        "pck_matches_local": true
+      },
+      "lab/": {
+        "html_status": 200,
+        "source_commit": "c37918351c047f5ca7cdcd7d49574e441e154c0b",
+        "wasm_verified": true,
+        "pck_matches_local": true
+      }
+    },
+    "tls_verified": true,
+    "limit": "HTTP integrity, not remote browser interaction. Local WebGL touch tests are separate; no iPad/Safari claim.",
+    "import_zip": {
+      "bytes": 5777073,
+      "sha256": "9169771007bd302c06e76ffb3442851b0f58bc8029471f8039f9a7368ced3987",
+      "crc_verified": true,
+      "lab_entry_verified": true
+    }
+  },
+  "native_zip_runtime": {
+    "casts": 7,
+    "combat_seconds": 9.98333333333341,
+    "enemies": 1,
+    "entry": "res://experiments/chain_lab/main.tscn",
+    "items": 1,
+    "simulated_frames": 600,
+    "wave": 1,
+    "environment": "native headless Godot, clean extracted ZIP; no visual or Web Editor import claim"
+  }
+}

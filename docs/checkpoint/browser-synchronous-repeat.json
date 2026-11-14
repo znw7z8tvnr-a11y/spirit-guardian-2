@@ -1,0 +1,4466 @@
+{
+  "landscape": {
+    "passed": [
+      "real wave-three autosave and near-immediate reload",
+      "spent refresh and exact offers survive page reload",
+      "health and growth preserved",
+      "earned gem and arranged graph survive second reload",
+      "no repeated award",
+      "explicit new-run clears checkpoint",
+      "corrupt primary recovers validated browser backup",
+      "quota and blocked storage fail visibly without claiming saved"
+    ],
+    "saved": {
+      "absorbed": 72,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_kit": false,
+      "attack_multiplier": 2,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AttackKit": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "CheckpointNew": [
+          149,
+          60,
+          250,
+          72
+        ],
+        "CheckpointResume": [
+          94,
+          60,
+          140,
+          72
+        ],
+        "Configure": [
+          122,
+          835,
+          144,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "CrowdDrill": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          119,
+          52,
+          206,
+          72
+        ],
+        "EnemyDrill": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "FinalGemKit": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "Flesh": [
+          566,
+          835,
+          144,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryNext": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryPrev": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          270,
+          835,
+          144,
+          72
+        ],
+        "Pause": [
+          1010,
+          835,
+          144,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          1158,
+          835,
+          144,
+          72
+        ],
+        "ResultRestart": [
+          127,
+          60,
+          206,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          90,
+          88,
+          92,
+          92
+        ],
+        "Slot 1": [
+          90,
+          426,
+          92,
+          92
+        ],
+        "Slot 2": [
+          202,
+          426,
+          92,
+          92
+        ],
+        "Slot 3": [
+          314,
+          426,
+          92,
+          92
+        ],
+        "Slot 4": [
+          426,
+          426,
+          92,
+          92
+        ],
+        "Slot 5": [
+          538,
+          426,
+          92,
+          92
+        ],
+        "Slot 6": [
+          650,
+          426,
+          92,
+          92
+        ],
+        "Slot 7": [
+          762,
+          426,
+          92,
+          92
+        ],
+        "Slot 8": [
+          874,
+          426,
+          92,
+          92
+        ],
+        "Slot 9": [
+          986,
+          426,
+          92,
+          92
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Speed": [
+          862,
+          835,
+          144,
+          72
+        ],
+        "SpellKit": [
+          418,
+          835,
+          144,
+          72
+        ],
+        "Tempo": [
+          714,
+          835,
+          144,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 29,
+      "checkpoint_status": "已保存第 3 波波間進度・此瀏覽器續玩",
+      "checkpoint_wave": 3,
+      "checkpoint_writes": 4,
+      "combat_seconds": 49.8333333333332,
+      "critical_casts": 4,
+      "critical_victims": 4,
+      "criticals_enabled": true,
+      "defense": 0.28,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "enemy_drill": false,
+      "enemy_labels": {
+        "allocated": 6,
+        "hidden": 0,
+        "rects": [],
+        "refreshes": 40,
+        "scanned": 1,
+        "shown": false,
+        "text_writes": 0,
+        "trials": 0,
+        "visible": 0
+      },
+      "enemy_spawn_counts": {
+        "0": 11,
+        "1": 6,
+        "2": 1
+      },
+      "enemy_tactic_counts": {},
+      "enemy_units": [],
+      "enemy_warning": "敵情：警戒中",
+      "final_gem_kit": false,
+      "flesh": 9,
+      "fps": 16,
+      "gem_cooldowns": {},
+      "gem_kit_ids": {},
+      "growth_levels": {
+        "armor": 2,
+        "atk": 2,
+        "hp": 2,
+        "regen": 1
+      },
+      "growth_open": false,
+      "guardian_by_type": {
+        "skeleton": {
+          "hits": 0,
+          "kills": 0,
+          "spawns": 0
+        },
+        "summon": {
+          "hits": 0,
+          "kills": 0,
+          "spawns": 0
+        }
+      },
+      "guardian_hits": 0,
+      "guardian_kills": 0,
+      "guardian_spawns": 0,
+      "guardians": [],
+      "hits": 29,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "inventory_page": 0,
+      "item_count": 1,
+      "jumps": 0,
+      "kills": 18,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 2,
+      "resonances": 0,
+      "result_visible": false,
+      "resume_pending": false,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 0,
+      "reward_loadout": false,
+      "reward_offers": [
+        {
+          "key": "beam",
+          "kind": "skill",
+          "level": 1
+        },
+        {
+          "key": "refresh",
+          "kind": "affix",
+          "level": 1
+        },
+        {
+          "key": "relay",
+          "kind": "gem",
+          "level": 2
+        }
+      ],
+      "reward_pending": 1,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "run_outcome": "",
+      "run_summary": {},
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 2,
+      "spell_casts": {
+        "arcane": 29
+      },
+      "spell_flights": [],
+      "spell_hits": {
+        "arcane": 29
+      },
+      "spell_keys": [
+        "fire",
+        "ice",
+        "lightning",
+        "arcane",
+        "poison",
+        "meteor",
+        "nova",
+        "beam",
+        "pierce",
+        "earth",
+        "wind",
+        "sword",
+        "spark",
+        "storm",
+        "blizzard",
+        "lava",
+        "swamp",
+        "gravity",
+        "orbit",
+        "thorn",
+        "summon",
+        "skeleton"
+      ],
+      "spell_kit": false,
+      "spell_kit_ids": {},
+      "spell_visuals": [
+        ""
+      ],
+      "summon_events": 0,
+      "summoned_minions": 0,
+      "tempo": 0,
+      "trace": [
+        {
+          "at": [
+            1496.47534179688,
+            781.34375
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 1,
+          "slot": 0,
+          "target": 55750690579
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 1,
+          "slot": 0,
+          "target": 55750690579
+        },
+        {
+          "at": [
+            1474.23901367188,
+            770.856018066406
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 2,
+          "slot": 0,
+          "target": 55750690579
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 2,
+          "slot": 0,
+          "target": 55750690579
+        },
+        {
+          "at": [
+            1615.71337890625,
+            342.835998535156
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 3,
+          "slot": 0,
+          "target": 56270784282
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 3,
+          "slot": 0,
+          "target": 56270784282
+        },
+        {
+          "at": [
+            1573.12622070312,
+            352.187866210938
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 4,
+          "slot": 0,
+          "target": 56270784282
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 4,
+          "slot": 0,
+          "target": 56270784282
+        },
+        {
+          "at": [
+            225.935424804688,
+            696.49609375
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 5,
+          "slot": 0,
+          "target": 56656660254
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 5,
+          "slot": 0,
+          "target": 56656660254
+        },
+        {
+          "at": [
+            248.822769165039,
+            689.82421875
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 6,
+          "slot": 0,
+          "target": 56656660254
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 6,
+          "slot": 0,
+          "target": 56656660254
+        },
+        {
+          "at": [
+            332.992828369141,
+            760.02685546875
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 7,
+          "slot": 0,
+          "target": 57478743846
+        },
+        {
+          "critical": true,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 7,
+          "slot": 0,
+          "target": 57478743846
+        },
+        {
+          "at": [
+            1621.40893554688,
+            421.836975097656
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 8,
+          "slot": 0,
+          "target": 56958650146
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 8,
+          "slot": 0,
+          "target": 56958650146
+        },
+        {
+          "at": [
+            1594.7451171875,
+            424.725830078125
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 9,
+          "slot": 0,
+          "target": 56958650146
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 9,
+          "slot": 0,
+          "target": 56958650146
+        },
+        {
+          "at": [
+            99.6365356445312,
+            410.8115234375
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 10,
+          "slot": 0,
+          "target": 58653148949
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 10,
+          "slot": 0,
+          "target": 58653148949
+        },
+        {
+          "at": [
+            1445.5419921875,
+            806.098022460938
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 11,
+          "slot": 0,
+          "target": 58955138865
+        },
+        {
+          "critical": true,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 11,
+          "slot": 0,
+          "target": 58955138865
+        },
+        {
+          "at": [
+            254.602111816406,
+            752.913818359375
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 12,
+          "slot": 0,
+          "target": 59357792030
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 12,
+          "slot": 0,
+          "target": 59357792030
+        },
+        {
+          "at": [
+            279.964324951172,
+            742.975036621094
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 13,
+          "slot": 0,
+          "target": 59357792030
+        },
+        {
+          "critical": true,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 13,
+          "slot": 0,
+          "target": 59357792030
+        },
+        {
+          "at": [
+            1345.65808105469,
+            808.897827148438
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 14,
+          "slot": 0,
+          "target": 59676559156
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 14,
+          "slot": 0,
+          "target": 59676559156
+        },
+        {
+          "at": [
+            1593.74072265625,
+            702.375183105469
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 15,
+          "slot": 0,
+          "target": 60079212314
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 15,
+          "slot": 0,
+          "target": 60079212314
+        },
+        {
+          "at": [
+            993.161315917969,
+            101.615676879883
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 16,
+          "slot": 0,
+          "target": 60465088307
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 16,
+          "slot": 0,
+          "target": 60465088307
+        },
+        {
+          "at": [
+            986.958435058594,
+            128.140106201172
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 17,
+          "slot": 0,
+          "target": 60465088307
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 17,
+          "slot": 0,
+          "target": 60465088307
+        },
+        {
+          "at": [
+            1515.29174804688,
+            679.490112304688
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 18,
+          "slot": 0,
+          "target": 60079212314
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 18,
+          "slot": 0,
+          "target": 60079212314
+        },
+        {
+          "at": [
+            1633.56188964844,
+            316.774108886719
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 19,
+          "slot": 0,
+          "target": 61371057969
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 19,
+          "slot": 0,
+          "target": 61371057969
+        },
+        {
+          "at": [
+            133.372192382812,
+            354.499328613281
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 20,
+          "slot": 0,
+          "target": 61673047830
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 20,
+          "slot": 0,
+          "target": 61673047830
+        },
+        {
+          "at": [
+            160.547149658203,
+            359.656860351562
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 21,
+          "slot": 0,
+          "target": 61673047830
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 21,
+          "slot": 0,
+          "target": 61673047830
+        },
+        {
+          "at": [
+            289.0390625,
+            246.308319091797
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 22,
+          "slot": 0,
+          "target": 62159587114
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 22,
+          "slot": 0,
+          "target": 62159587114
+        },
+        {
+          "at": [
+            967.596252441406,
+            898.334350585938
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 23,
+          "slot": 0,
+          "target": 62293804851
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 23,
+          "slot": 0,
+          "target": 62293804851
+        },
+        {
+          "at": [
+            964.481079101562,
+            879.978393554688
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 24,
+          "slot": 0,
+          "target": 62293804851
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 24,
+          "slot": 0,
+          "target": 62293804851
+        },
+        {
+          "at": [
+            365.67529296875,
+            278.130218505859
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 25,
+          "slot": 0,
+          "target": 62159587114
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 25,
+          "slot": 0,
+          "target": 62159587114
+        },
+        {
+          "at": [
+            195.435134887695,
+            509.445892333984
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 26,
+          "slot": 0,
+          "target": 62595794727
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 26,
+          "slot": 0,
+          "target": 62595794727
+        },
+        {
+          "at": [
+            236.953186035156,
+            716.6572265625
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 27,
+          "slot": 0,
+          "target": 63300437806
+        },
+        {
+          "critical": true,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 27,
+          "slot": 0,
+          "target": 63300437806
+        },
+        {
+          "at": [
+            204.099548339844,
+            611.525695800781
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 28,
+          "slot": 0,
+          "target": 62897784617
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 28,
+          "slot": 0,
+          "target": 62897784617
+        },
+        {
+          "at": [
+            231.411010742188,
+            607.148742675781
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 29,
+          "slot": 0,
+          "target": 62897784617
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 29,
+          "slot": 0,
+          "target": 62897784617
+        }
+      ],
+      "userfs_persistent": true,
+      "viewport": [
+        1280,
+        889
+      ],
+      "wall_active": true,
+      "wall_hp": 490,
+      "wall_max": 490,
+      "wave": 3
+    },
+    "restored": {
+      "absorbed": 72,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_kit": false,
+      "attack_multiplier": 2,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AttackKit": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "CheckpointNew": [
+          640,
+          805,
+          1184,
+          72
+        ],
+        "CheckpointResume": [
+          640,
+          715,
+          1184,
+          72
+        ],
+        "Configure": [
+          122,
+          835,
+          144,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "CrowdDrill": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          119,
+          52,
+          206,
+          72
+        ],
+        "EnemyDrill": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "FinalGemKit": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "Flesh": [
+          566,
+          835,
+          144,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryNext": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryPrev": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          270,
+          835,
+          144,
+          72
+        ],
+        "Pause": [
+          1010,
+          835,
+          144,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          1158,
+          835,
+          144,
+          72
+        ],
+        "ResultRestart": [
+          127,
+          60,
+          206,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          90,
+          88,
+          92,
+          92
+        ],
+        "Slot 1": [
+          90,
+          426,
+          92,
+          92
+        ],
+        "Slot 2": [
+          202,
+          426,
+          92,
+          92
+        ],
+        "Slot 3": [
+          314,
+          426,
+          92,
+          92
+        ],
+        "Slot 4": [
+          426,
+          426,
+          92,
+          92
+        ],
+        "Slot 5": [
+          538,
+          426,
+          92,
+          92
+        ],
+        "Slot 6": [
+          650,
+          426,
+          92,
+          92
+        ],
+        "Slot 7": [
+          762,
+          426,
+          92,
+          92
+        ],
+        "Slot 8": [
+          874,
+          426,
+          92,
+          92
+        ],
+        "Slot 9": [
+          986,
+          426,
+          92,
+          92
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Speed": [
+          862,
+          835,
+          144,
+          72
+        ],
+        "SpellKit": [
+          418,
+          835,
+          144,
+          72
+        ],
+        "Tempo": [
+          714,
+          835,
+          144,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 29,
+      "checkpoint_status": "已保存第 3 波波間進度・此瀏覽器續玩",
+      "checkpoint_wave": 3,
+      "checkpoint_writes": 1,
+      "combat_seconds": 49.8333333333332,
+      "critical_casts": 4,
+      "critical_victims": 4,
+      "criticals_enabled": true,
+      "defense": 0.28,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "enemy_drill": false,
+      "enemy_labels": {
+        "allocated": 6,
+        "hidden": 0,
+        "rects": [],
+        "refreshes": 1,
+        "scanned": 0,
+        "shown": false,
+        "text_writes": 0,
+        "trials": 0,
+        "visible": 0
+      },
+      "enemy_spawn_counts": {
+        "0": 11,
+        "1": 6,
+        "2": 1
+      },
+      "enemy_tactic_counts": {},
+      "enemy_units": [],
+      "enemy_warning": "敵情：警戒中",
+      "final_gem_kit": false,
+      "flesh": 9,
+      "fps": 14,
+      "gem_cooldowns": {},
+      "gem_kit_ids": {},
+      "growth_levels": {
+        "armor": 2,
+        "atk": 2,
+        "hp": 2,
+        "regen": 1
+      },
+      "growth_open": false,
+      "guardian_by_type": {
+        "skeleton": {
+          "hits": 0,
+          "kills": 0,
+          "spawns": 0
+        },
+        "summon": {
+          "hits": 0,
+          "kills": 0,
+          "spawns": 0
+        }
+      },
+      "guardian_hits": 0,
+      "guardian_kills": 0,
+      "guardian_spawns": 0,
+      "guardians": [],
+      "hits": 29,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "inventory_page": 0,
+      "item_count": 1,
+      "jumps": 0,
+      "kills": 18,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 2,
+      "resonances": 0,
+      "result_visible": false,
+      "resume_pending": false,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 0,
+      "reward_loadout": false,
+      "reward_offers": [
+        {
+          "key": "beam",
+          "kind": "skill",
+          "level": 1
+        },
+        {
+          "key": "refresh",
+          "kind": "affix",
+          "level": 1
+        },
+        {
+          "key": "relay",
+          "kind": "gem",
+          "level": 2
+        }
+      ],
+      "reward_pending": 1,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "run_outcome": "",
+      "run_summary": {},
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 2,
+      "spell_casts": {
+        "arcane": 29
+      },
+      "spell_flights": [],
+      "spell_hits": {
+        "arcane": 29
+      },
+      "spell_keys": [
+        "fire",
+        "ice",
+        "lightning",
+        "arcane",
+        "poison",
+        "meteor",
+        "nova",
+        "beam",
+        "pierce",
+        "earth",
+        "wind",
+        "sword",
+        "spark",
+        "storm",
+        "blizzard",
+        "lava",
+        "swamp",
+        "gravity",
+        "orbit",
+        "thorn",
+        "summon",
+        "skeleton"
+      ],
+      "spell_kit": false,
+      "spell_kit_ids": {},
+      "spell_visuals": [],
+      "summon_events": 0,
+      "summoned_minions": 0,
+      "tempo": 0,
+      "trace": [],
+      "userfs_persistent": true,
+      "viewport": [
+        1280,
+        889
+      ],
+      "wall_active": true,
+      "wall_hp": 490,
+      "wall_max": 490,
+      "wave": 3
+    },
+    "second": {
+      "absorbed": 72,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_kit": false,
+      "attack_multiplier": 2,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          474,
+          105,
+          152,
+          72
+        ],
+        "AttackKit": [
+          630,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "CheckpointNew": [
+          640,
+          805,
+          1184,
+          72
+        ],
+        "CheckpointResume": [
+          640,
+          715,
+          1184,
+          72
+        ],
+        "Configure": [
+          122,
+          835,
+          144,
+          72
+        ],
+        "Connect": [
+          420,
+          331,
+          152,
+          72
+        ],
+        "CrowdDrill": [
+          1108,
+          105,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          331,
+          152,
+          72
+        ],
+        "Done": [
+          135,
+          105,
+          206,
+          72
+        ],
+        "EnemyDrill": [
+          952,
+          105,
+          152,
+          72
+        ],
+        "Equip": [
+          108,
+          331,
+          152,
+          72
+        ],
+        "FinalGemKit": [
+          791,
+          105,
+          162,
+          72
+        ],
+        "Flesh": [
+          566,
+          835,
+          144,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          636,
+          255,
+          1208,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryNext": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryPrev": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          270,
+          835,
+          144,
+          72
+        ],
+        "Pause": [
+          1010,
+          835,
+          144,
+          72
+        ],
+        "Random": [
+          318,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          1158,
+          835,
+          144,
+          72
+        ],
+        "ResultRestart": [
+          127,
+          60,
+          206,
+          72
+        ],
+        "Reward 0": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 1": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 2": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "RewardRefresh": [
+          20,
+          52,
+          8,
+          72
+        ],
+        "Slot 0": [
+          106,
+          443,
+          92,
+          92
+        ],
+        "Slot 1": [
+          248,
+          443,
+          92,
+          92
+        ],
+        "Slot 2": [
+          106,
+          781,
+          92,
+          92
+        ],
+        "Slot 3": [
+          218,
+          781,
+          92,
+          92
+        ],
+        "Slot 4": [
+          330,
+          781,
+          92,
+          92
+        ],
+        "Slot 5": [
+          442,
+          781,
+          92,
+          92
+        ],
+        "Slot 6": [
+          554,
+          781,
+          92,
+          92
+        ],
+        "Slot 7": [
+          666,
+          781,
+          92,
+          92
+        ],
+        "Slot 8": [
+          778,
+          781,
+          92,
+          92
+        ],
+        "Slot 9": [
+          890,
+          781,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          331,
+          152,
+          72
+        ],
+        "Speed": [
+          862,
+          835,
+          144,
+          72
+        ],
+        "SpellKit": [
+          418,
+          835,
+          144,
+          72
+        ],
+        "Tempo": [
+          714,
+          835,
+          144,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 29,
+      "checkpoint_status": "已保存第 3 波波間進度・此瀏覽器續玩",
+      "checkpoint_wave": 3,
+      "checkpoint_writes": 0,
+      "combat_seconds": 49.8333333333332,
+      "critical_casts": 4,
+      "critical_victims": 4,
+      "criticals_enabled": true,
+      "defense": 0.28,
+      "discovered": [],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "edit_open": true,
+      "empty_casts": 0,
+      "enemies": 0,
+      "enemy_drill": false,
+      "enemy_labels": {
+        "allocated": 6,
+        "hidden": 0,
+        "rects": [],
+        "refreshes": 1,
+        "scanned": 0,
+        "shown": false,
+        "text_writes": 0,
+        "trials": 0,
+        "visible": 0
+      },
+      "enemy_spawn_counts": {
+        "0": 11,
+        "1": 6,
+        "2": 1
+      },
+      "enemy_tactic_counts": {},
+      "enemy_units": [],
+      "enemy_warning": "敵情：警戒中",
+      "final_gem_kit": false,
+      "flesh": 9,
+      "fps": 14,
+      "gem_cooldowns": {},
+      "gem_kit_ids": {},
+      "growth_levels": {
+        "armor": 2,
+        "atk": 2,
+        "hp": 2,
+        "regen": 1
+      },
+      "growth_open": false,
+      "guardian_by_type": {
+        "skeleton": {
+          "hits": 0,
+          "kills": 0,
+          "spawns": 0
+        },
+        "summon": {
+          "hits": 0,
+          "kills": 0,
+          "spawns": 0
+        }
+      },
+      "guardian_hits": 0,
+      "guardian_kills": 0,
+      "guardian_spawns": 0,
+      "guardians": [],
+      "hits": 29,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "inventory_page": 0,
+      "item_count": 2,
+      "jumps": 0,
+      "kills": 18,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 2,
+      "resonances": 0,
+      "result_visible": false,
+      "resume_pending": false,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 1,
+      "reward_loadout": true,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "run_outcome": "",
+      "run_summary": {},
+      "selected": 0,
+      "slots": [
+        0,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 2,
+      "spell_casts": {
+        "arcane": 29
+      },
+      "spell_flights": [],
+      "spell_hits": {
+        "arcane": 29
+      },
+      "spell_keys": [
+        "fire",
+        "ice",
+        "lightning",
+        "arcane",
+        "poison",
+        "meteor",
+        "nova",
+        "beam",
+        "pierce",
+        "earth",
+        "wind",
+        "sword",
+        "spark",
+        "storm",
+        "blizzard",
+        "lava",
+        "swamp",
+        "gravity",
+        "orbit",
+        "thorn",
+        "summon",
+        "skeleton"
+      ],
+      "spell_kit": false,
+      "spell_kit_ids": {},
+      "spell_visuals": [],
+      "summon_events": 0,
+      "summoned_minions": 0,
+      "tempo": 0,
+      "trace": [],
+      "userfs_persistent": true,
+      "viewport": [
+        1280,
+        889
+      ],
+      "wall_active": true,
+      "wall_hp": 490,
+      "wall_max": 490,
+      "wave": 3
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "limits": "Chromium WebGL local storage; not iPad Safari hardware or sudden OS termination. Saves safe intermissions, not active combat."
+  },
+  "portrait": {
+    "passed": [
+      "real wave-three autosave and near-immediate reload",
+      "spent refresh and exact offers survive page reload",
+      "health and growth preserved",
+      "earned gem and arranged graph survive second reload",
+      "no repeated award",
+      "explicit new-run clears checkpoint",
+      "corrupt primary recovers validated browser backup",
+      "quota and blocked storage fail visibly without claiming saved"
+    ],
+    "saved": {
+      "absorbed": 72,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_kit": false,
+      "attack_multiplier": 2,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AttackKit": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "CheckpointNew": [
+          149,
+          60,
+          250,
+          72
+        ],
+        "CheckpointResume": [
+          94,
+          60,
+          140,
+          72
+        ],
+        "Configure": [
+          340,
+          1711,
+          196,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "CrowdDrill": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          119,
+          52,
+          206,
+          72
+        ],
+        "EnemyDrill": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "FinalGemKit": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "Flesh": [
+          940,
+          1711,
+          196,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryNext": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryPrev": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          540,
+          1711,
+          196,
+          72
+        ],
+        "Pause": [
+          740,
+          1787,
+          196,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          940,
+          1787,
+          196,
+          72
+        ],
+        "ResultRestart": [
+          127,
+          60,
+          206,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          90,
+          88,
+          92,
+          92
+        ],
+        "Slot 1": [
+          90,
+          426,
+          92,
+          92
+        ],
+        "Slot 2": [
+          202,
+          426,
+          92,
+          92
+        ],
+        "Slot 3": [
+          314,
+          426,
+          92,
+          92
+        ],
+        "Slot 4": [
+          426,
+          426,
+          92,
+          92
+        ],
+        "Slot 5": [
+          538,
+          426,
+          92,
+          92
+        ],
+        "Slot 6": [
+          650,
+          426,
+          92,
+          92
+        ],
+        "Slot 7": [
+          762,
+          426,
+          92,
+          92
+        ],
+        "Slot 8": [
+          874,
+          426,
+          92,
+          92
+        ],
+        "Slot 9": [
+          986,
+          426,
+          92,
+          92
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Speed": [
+          540,
+          1787,
+          196,
+          72
+        ],
+        "SpellKit": [
+          740,
+          1711,
+          196,
+          72
+        ],
+        "Tempo": [
+          340,
+          1787,
+          196,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 29,
+      "checkpoint_status": "已保存第 3 波波間進度・此瀏覽器續玩",
+      "checkpoint_wave": 3,
+      "checkpoint_writes": 4,
+      "combat_seconds": 50.1999999999998,
+      "critical_casts": 4,
+      "critical_victims": 4,
+      "criticals_enabled": true,
+      "defense": 0.28,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "enemy_drill": false,
+      "enemy_labels": {
+        "allocated": 6,
+        "hidden": 0,
+        "rects": [],
+        "refreshes": 41,
+        "scanned": 1,
+        "shown": false,
+        "text_writes": 1,
+        "trials": 0,
+        "visible": 0
+      },
+      "enemy_spawn_counts": {
+        "0": 11,
+        "1": 6,
+        "2": 1
+      },
+      "enemy_tactic_counts": {},
+      "enemy_units": [],
+      "enemy_warning": "敵情：警戒中",
+      "final_gem_kit": false,
+      "flesh": 9,
+      "fps": 21,
+      "gem_cooldowns": {},
+      "gem_kit_ids": {},
+      "growth_levels": {
+        "armor": 2,
+        "atk": 2,
+        "hp": 2,
+        "regen": 1
+      },
+      "growth_open": false,
+      "guardian_by_type": {
+        "skeleton": {
+          "hits": 0,
+          "kills": 0,
+          "spawns": 0
+        },
+        "summon": {
+          "hits": 0,
+          "kills": 0,
+          "spawns": 0
+        }
+      },
+      "guardian_hits": 0,
+      "guardian_kills": 0,
+      "guardian_spawns": 0,
+      "guardians": [],
+      "hits": 29,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "inventory_page": 0,
+      "item_count": 1,
+      "jumps": 0,
+      "kills": 18,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 2,
+      "resonances": 0,
+      "result_visible": false,
+      "resume_pending": false,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 0,
+      "reward_loadout": false,
+      "reward_offers": [
+        {
+          "key": "beam",
+          "kind": "skill",
+          "level": 1
+        },
+        {
+          "key": "refresh",
+          "kind": "affix",
+          "level": 1
+        },
+        {
+          "key": "relay",
+          "kind": "gem",
+          "level": 2
+        }
+      ],
+      "reward_pending": 1,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "run_outcome": "",
+      "run_summary": {},
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 2,
+      "spell_casts": {
+        "arcane": 29
+      },
+      "spell_flights": [],
+      "spell_hits": {
+        "arcane": 29
+      },
+      "spell_keys": [
+        "fire",
+        "ice",
+        "lightning",
+        "arcane",
+        "poison",
+        "meteor",
+        "nova",
+        "beam",
+        "pierce",
+        "earth",
+        "wind",
+        "sword",
+        "spark",
+        "storm",
+        "blizzard",
+        "lava",
+        "swamp",
+        "gravity",
+        "orbit",
+        "thorn",
+        "summon",
+        "skeleton"
+      ],
+      "spell_kit": false,
+      "spell_kit_ids": {},
+      "spell_visuals": [
+        ""
+      ],
+      "summon_events": 0,
+      "summoned_minions": 0,
+      "tempo": 0,
+      "trace": [
+        {
+          "at": [
+            1496.47534179688,
+            781.34375
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 1,
+          "slot": 0,
+          "target": 55717136145
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 1,
+          "slot": 0,
+          "target": 55717136145
+        },
+        {
+          "at": [
+            1473.56518554688,
+            770.538208007812
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 2,
+          "slot": 0,
+          "target": 55717136145
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 2,
+          "slot": 0,
+          "target": 55717136145
+        },
+        {
+          "at": [
+            1613.20825195312,
+            343.386108398438
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 3,
+          "slot": 0,
+          "target": 56237229850
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 3,
+          "slot": 0,
+          "target": 56237229850
+        },
+        {
+          "at": [
+            1570.62109375,
+            352.737976074219
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 4,
+          "slot": 0,
+          "target": 56237229850
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 4,
+          "slot": 0,
+          "target": 56237229850
+        },
+        {
+          "at": [
+            225.935333251953,
+            696.49609375
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 5,
+          "slot": 0,
+          "target": 56539219731
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 5,
+          "slot": 0,
+          "target": 56539219731
+        },
+        {
+          "at": [
+            251.683578491211,
+            688.990234375
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 6,
+          "slot": 0,
+          "target": 56539219731
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 6,
+          "slot": 0,
+          "target": 56539219731
+        },
+        {
+          "at": [
+            337.655517578125,
+            757.888549804688
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 7,
+          "slot": 0,
+          "target": 57445189410
+        },
+        {
+          "critical": true,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 7,
+          "slot": 0,
+          "target": 57445189410
+        },
+        {
+          "at": [
+            1618.4462890625,
+            422.157958984375
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 8,
+          "slot": 0,
+          "target": 57126422294
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 8,
+          "slot": 0,
+          "target": 57126422294
+        },
+        {
+          "at": [
+            1591.78247070312,
+            425.046813964844
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 9,
+          "slot": 0,
+          "target": 57126422294
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 9,
+          "slot": 0,
+          "target": 57126422294
+        },
+        {
+          "at": [
+            99.6365356445312,
+            410.8115234375
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 10,
+          "slot": 0,
+          "target": 58619594515
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 10,
+          "slot": 0,
+          "target": 58619594515
+        },
+        {
+          "at": [
+            1445.5419921875,
+            806.098022460938
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 11,
+          "slot": 0,
+          "target": 58921584432
+        },
+        {
+          "critical": true,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 11,
+          "slot": 0,
+          "target": 58921584432
+        },
+        {
+          "at": [
+            254.602111816406,
+            752.913818359375
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 12,
+          "slot": 0,
+          "target": 59324237598
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 12,
+          "slot": 0,
+          "target": 59324237598
+        },
+        {
+          "at": [
+            279.964324951172,
+            742.975036621094
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 13,
+          "slot": 0,
+          "target": 59324237598
+        },
+        {
+          "critical": true,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 13,
+          "slot": 0,
+          "target": 59324237598
+        },
+        {
+          "at": [
+            1345.65808105469,
+            808.897827148438
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 14,
+          "slot": 0,
+          "target": 59643004690
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 14,
+          "slot": 0,
+          "target": 59643004690
+        },
+        {
+          "at": [
+            1593.74072265625,
+            702.375183105469
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 15,
+          "slot": 0,
+          "target": 60045657904
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 15,
+          "slot": 0,
+          "target": 60045657904
+        },
+        {
+          "at": [
+            993.161315917969,
+            101.615676879883
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 16,
+          "slot": 0,
+          "target": 60431533857
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 16,
+          "slot": 0,
+          "target": 60431533857
+        },
+        {
+          "at": [
+            986.958435058594,
+            128.140106201172
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 17,
+          "slot": 0,
+          "target": 60431533857
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 17,
+          "slot": 0,
+          "target": 60431533857
+        },
+        {
+          "at": [
+            1515.29174804688,
+            679.490112304688
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 18,
+          "slot": 0,
+          "target": 60045657904
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 18,
+          "slot": 0,
+          "target": 60045657904
+        },
+        {
+          "at": [
+            1633.56188964844,
+            316.774108886719
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 19,
+          "slot": 0,
+          "target": 61337503530
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 19,
+          "slot": 0,
+          "target": 61337503530
+        },
+        {
+          "at": [
+            133.372192382812,
+            354.499328613281
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 20,
+          "slot": 0,
+          "target": 61639493396
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 20,
+          "slot": 0,
+          "target": 61639493396
+        },
+        {
+          "at": [
+            160.547149658203,
+            359.656860351562
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 21,
+          "slot": 0,
+          "target": 61639493396
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 21,
+          "slot": 0,
+          "target": 61639493396
+        },
+        {
+          "at": [
+            289.0390625,
+            246.308319091797
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 22,
+          "slot": 0,
+          "target": 61958260507
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 22,
+          "slot": 0,
+          "target": 61958260507
+        },
+        {
+          "at": [
+            967.596252441406,
+            898.334350585938
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 23,
+          "slot": 0,
+          "target": 62260250407
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 23,
+          "slot": 0,
+          "target": 62260250407
+        },
+        {
+          "at": [
+            964.481079101562,
+            879.978393554688
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 24,
+          "slot": 0,
+          "target": 62260250407
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 24,
+          "slot": 0,
+          "target": 62260250407
+        },
+        {
+          "at": [
+            365.67529296875,
+            278.130218505859
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 25,
+          "slot": 0,
+          "target": 61958260507
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 25,
+          "slot": 0,
+          "target": 61958260507
+        },
+        {
+          "at": [
+            195.435134887695,
+            509.445892333984
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 26,
+          "slot": 0,
+          "target": 62528685850
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 26,
+          "slot": 0,
+          "target": 62528685850
+        },
+        {
+          "at": [
+            236.953186035156,
+            716.6572265625
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 27,
+          "slot": 0,
+          "target": 63317215025
+        },
+        {
+          "critical": true,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 27,
+          "slot": 0,
+          "target": 63317215025
+        },
+        {
+          "at": [
+            204.099548339844,
+            611.525695800781
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 28,
+          "slot": 0,
+          "target": 62914561820
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 28,
+          "slot": 0,
+          "target": 62914561820
+        },
+        {
+          "at": [
+            231.411010742188,
+            607.148742675781
+          ],
+          "damage_scale": 1,
+          "empty": false,
+          "is_echo": false,
+          "key": "arcane",
+          "kind": "cast",
+          "origin": [
+            900,
+            435
+          ],
+          "own_damage_scale": 1,
+          "run": 29,
+          "slot": 0,
+          "target": 62914561820
+        },
+        {
+          "critical": false,
+          "is_echo": false,
+          "kind": "hit",
+          "own_damage_scale": 1,
+          "run": 29,
+          "slot": 0,
+          "target": 62914561820
+        }
+      ],
+      "userfs_persistent": true,
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wall_active": true,
+      "wall_hp": 490,
+      "wall_max": 490,
+      "wave": 3
+    },
+    "restored": {
+      "absorbed": 72,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_kit": false,
+      "attack_multiplier": 2,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AttackKit": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "CheckpointNew": [
+          640,
+          1757,
+          1184,
+          72
+        ],
+        "CheckpointResume": [
+          640,
+          1667,
+          1184,
+          72
+        ],
+        "Configure": [
+          340,
+          1711,
+          196,
+          72
+        ],
+        "Connect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "CrowdDrill": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Disconnect": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Done": [
+          119,
+          52,
+          206,
+          72
+        ],
+        "EnemyDrill": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Equip": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "FinalGemKit": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "Flesh": [
+          940,
+          1711,
+          196,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          97,
+          52,
+          162,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryNext": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryPrev": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          540,
+          1711,
+          196,
+          72
+        ],
+        "Pause": [
+          740,
+          1787,
+          196,
+          72
+        ],
+        "Random": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Restart": [
+          940,
+          1787,
+          196,
+          72
+        ],
+        "ResultRestart": [
+          127,
+          60,
+          206,
+          72
+        ],
+        "Reward 0": [
+          640,
+          285,
+          1200,
+          118
+        ],
+        "Reward 1": [
+          640,
+          407,
+          1200,
+          118
+        ],
+        "Reward 2": [
+          640,
+          529,
+          1200,
+          118
+        ],
+        "RewardRefresh": [
+          640,
+          186,
+          1200,
+          72
+        ],
+        "Slot 0": [
+          90,
+          88,
+          92,
+          92
+        ],
+        "Slot 1": [
+          90,
+          426,
+          92,
+          92
+        ],
+        "Slot 2": [
+          202,
+          426,
+          92,
+          92
+        ],
+        "Slot 3": [
+          314,
+          426,
+          92,
+          92
+        ],
+        "Slot 4": [
+          426,
+          426,
+          92,
+          92
+        ],
+        "Slot 5": [
+          538,
+          426,
+          92,
+          92
+        ],
+        "Slot 6": [
+          650,
+          426,
+          92,
+          92
+        ],
+        "Slot 7": [
+          762,
+          426,
+          92,
+          92
+        ],
+        "Slot 8": [
+          874,
+          426,
+          92,
+          92
+        ],
+        "Slot 9": [
+          986,
+          426,
+          92,
+          92
+        ],
+        "Source": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Speed": [
+          540,
+          1787,
+          196,
+          72
+        ],
+        "SpellKit": [
+          740,
+          1711,
+          196,
+          72
+        ],
+        "Tempo": [
+          340,
+          1787,
+          196,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 29,
+      "checkpoint_status": "已保存第 3 波波間進度・此瀏覽器續玩",
+      "checkpoint_wave": 3,
+      "checkpoint_writes": 1,
+      "combat_seconds": 50.1999999999998,
+      "critical_casts": 4,
+      "critical_victims": 4,
+      "criticals_enabled": true,
+      "defense": 0.28,
+      "discovered": [],
+      "edges": [],
+      "edit_open": false,
+      "empty_casts": 0,
+      "enemies": 0,
+      "enemy_drill": false,
+      "enemy_labels": {
+        "allocated": 6,
+        "hidden": 0,
+        "rects": [],
+        "refreshes": 1,
+        "scanned": 0,
+        "shown": false,
+        "text_writes": 0,
+        "trials": 0,
+        "visible": 0
+      },
+      "enemy_spawn_counts": {
+        "0": 11,
+        "1": 6,
+        "2": 1
+      },
+      "enemy_tactic_counts": {},
+      "enemy_units": [],
+      "enemy_warning": "敵情：警戒中",
+      "final_gem_kit": false,
+      "flesh": 9,
+      "fps": 14,
+      "gem_cooldowns": {},
+      "gem_kit_ids": {},
+      "growth_levels": {
+        "armor": 2,
+        "atk": 2,
+        "hp": 2,
+        "regen": 1
+      },
+      "growth_open": false,
+      "guardian_by_type": {
+        "skeleton": {
+          "hits": 0,
+          "kills": 0,
+          "spawns": 0
+        },
+        "summon": {
+          "hits": 0,
+          "kills": 0,
+          "spawns": 0
+        }
+      },
+      "guardian_hits": 0,
+      "guardian_kills": 0,
+      "guardian_spawns": 0,
+      "guardians": [],
+      "hits": 29,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "inventory_page": 0,
+      "item_count": 1,
+      "jumps": 0,
+      "kills": 18,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 2,
+      "resonances": 0,
+      "result_visible": false,
+      "resume_pending": false,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 0,
+      "reward_loadout": false,
+      "reward_offers": [
+        {
+          "key": "beam",
+          "kind": "skill",
+          "level": 1
+        },
+        {
+          "key": "refresh",
+          "kind": "affix",
+          "level": 1
+        },
+        {
+          "key": "relay",
+          "kind": "gem",
+          "level": 2
+        }
+      ],
+      "reward_pending": 1,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "run_outcome": "",
+      "run_summary": {},
+      "selected": 0,
+      "slots": [
+        0,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 2,
+      "spell_casts": {
+        "arcane": 29
+      },
+      "spell_flights": [],
+      "spell_hits": {
+        "arcane": 29
+      },
+      "spell_keys": [
+        "fire",
+        "ice",
+        "lightning",
+        "arcane",
+        "poison",
+        "meteor",
+        "nova",
+        "beam",
+        "pierce",
+        "earth",
+        "wind",
+        "sword",
+        "spark",
+        "storm",
+        "blizzard",
+        "lava",
+        "swamp",
+        "gravity",
+        "orbit",
+        "thorn",
+        "summon",
+        "skeleton"
+      ],
+      "spell_kit": false,
+      "spell_kit_ids": {},
+      "spell_visuals": [],
+      "summon_events": 0,
+      "summoned_minions": 0,
+      "tempo": 0,
+      "trace": [],
+      "userfs_persistent": true,
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wall_active": true,
+      "wall_hp": 490,
+      "wall_max": 490,
+      "wave": 3
+    },
+    "second": {
+      "absorbed": 72,
+      "active": false,
+      "arrange_disabled": true,
+      "attack_kit": false,
+      "attack_multiplier": 2,
+      "attack_period": 1.1,
+      "auto_growth": true,
+      "boss": {},
+      "boss_kills": 0,
+      "buttons": {
+        "Arrange": [
+          474,
+          105,
+          152,
+          72
+        ],
+        "AttackKit": [
+          630,
+          105,
+          152,
+          72
+        ],
+        "AutoGrowth": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "CheckpointNew": [
+          640,
+          1757,
+          1184,
+          72
+        ],
+        "CheckpointResume": [
+          640,
+          1667,
+          1184,
+          72
+        ],
+        "Configure": [
+          340,
+          1711,
+          196,
+          72
+        ],
+        "Connect": [
+          420,
+          331,
+          152,
+          72
+        ],
+        "CrowdDrill": [
+          1108,
+          105,
+          152,
+          72
+        ],
+        "Disconnect": [
+          576,
+          331,
+          152,
+          72
+        ],
+        "Done": [
+          135,
+          105,
+          206,
+          72
+        ],
+        "EnemyDrill": [
+          952,
+          105,
+          152,
+          72
+        ],
+        "Equip": [
+          108,
+          331,
+          152,
+          72
+        ],
+        "FinalGemKit": [
+          791,
+          105,
+          162,
+          72
+        ],
+        "Flesh": [
+          940,
+          1711,
+          196,
+          72
+        ],
+        "Grow armor": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow atk": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow hp": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "Grow regen": [
+          366,
+          59,
+          700,
+          86
+        ],
+        "GrowthDone": [
+          92,
+          52,
+          152,
+          72
+        ],
+        "Inventory": [
+          640,
+          255,
+          1216,
+          72
+        ],
+        "InventoryApply": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryClose": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryNext": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "InventoryPrev": [
+          126,
+          52,
+          220,
+          72
+        ],
+        "Kit": [
+          540,
+          1711,
+          196,
+          72
+        ],
+        "Pause": [
+          740,
+          1787,
+          196,
+          72
+        ],
+        "Random": [
+          318,
+          105,
+          152,
+          72
+        ],
+        "Restart": [
+          940,
+          1787,
+          196,
+          72
+        ],
+        "ResultRestart": [
+          127,
+          60,
+          206,
+          72
+        ],
+        "Reward 0": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 1": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "Reward 2": [
+          416,
+          75,
+          800,
+          118
+        ],
+        "RewardRefresh": [
+          20,
+          52,
+          8,
+          72
+        ],
+        "Slot 0": [
+          106,
+          443,
+          92,
+          92
+        ],
+        "Slot 1": [
+          248,
+          443,
+          92,
+          92
+        ],
+        "Slot 2": [
+          106,
+          781,
+          92,
+          92
+        ],
+        "Slot 3": [
+          218,
+          781,
+          92,
+          92
+        ],
+        "Slot 4": [
+          330,
+          781,
+          92,
+          92
+        ],
+        "Slot 5": [
+          442,
+          781,
+          92,
+          92
+        ],
+        "Slot 6": [
+          554,
+          781,
+          92,
+          92
+        ],
+        "Slot 7": [
+          666,
+          781,
+          92,
+          92
+        ],
+        "Slot 8": [
+          778,
+          781,
+          92,
+          92
+        ],
+        "Slot 9": [
+          890,
+          781,
+          92,
+          92
+        ],
+        "Source": [
+          264,
+          331,
+          152,
+          72
+        ],
+        "Speed": [
+          540,
+          1787,
+          196,
+          72
+        ],
+        "SpellKit": [
+          740,
+          1711,
+          196,
+          72
+        ],
+        "Tempo": [
+          340,
+          1787,
+          196,
+          72
+        ]
+      },
+      "candidate": -1,
+      "capacity": 10,
+      "casts": 29,
+      "checkpoint_status": "已保存第 3 波波間進度・此瀏覽器續玩",
+      "checkpoint_wave": 3,
+      "checkpoint_writes": 0,
+      "combat_seconds": 50.1999999999998,
+      "critical_casts": 4,
+      "critical_victims": 4,
+      "criticals_enabled": true,
+      "defense": 0.28,
+      "discovered": [],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "edit_open": true,
+      "empty_casts": 0,
+      "enemies": 0,
+      "enemy_drill": false,
+      "enemy_labels": {
+        "allocated": 6,
+        "hidden": 0,
+        "rects": [],
+        "refreshes": 1,
+        "scanned": 0,
+        "shown": false,
+        "text_writes": 0,
+        "trials": 0,
+        "visible": 0
+      },
+      "enemy_spawn_counts": {
+        "0": 11,
+        "1": 6,
+        "2": 1
+      },
+      "enemy_tactic_counts": {},
+      "enemy_units": [],
+      "enemy_warning": "敵情：警戒中",
+      "final_gem_kit": false,
+      "flesh": 9,
+      "fps": 17,
+      "gem_cooldowns": {},
+      "gem_kit_ids": {},
+      "growth_levels": {
+        "armor": 2,
+        "atk": 2,
+        "hp": 2,
+        "regen": 1
+      },
+      "growth_open": false,
+      "guardian_by_type": {
+        "skeleton": {
+          "hits": 0,
+          "kills": 0,
+          "spawns": 0
+        },
+        "summon": {
+          "hits": 0,
+          "kills": 0,
+          "spawns": 0
+        }
+      },
+      "guardian_hits": 0,
+      "guardian_kills": 0,
+      "guardian_spawns": 0,
+      "guardians": [],
+      "hits": 29,
+      "hp": 100,
+      "inventory_apply_disabled": false,
+      "inventory_detail": "",
+      "inventory_open": false,
+      "inventory_page": 0,
+      "item_count": 2,
+      "jumps": 0,
+      "kills": 18,
+      "kit": false,
+      "meat_pending": 0,
+      "misses": 0,
+      "paused": false,
+      "pending": 0,
+      "regen": 2,
+      "resonances": 0,
+      "result_visible": false,
+      "resume_pending": false,
+      "retargets": 0,
+      "reward_attack_stacks": 0,
+      "reward_completed": [
+        1,
+        2,
+        3
+      ],
+      "reward_extra_refresh": 0,
+      "reward_granted": 1,
+      "reward_loadout": true,
+      "reward_offers": [],
+      "reward_pending": 0,
+      "reward_refreshes": 0,
+      "rolls": 0,
+      "run_outcome": "",
+      "run_summary": {},
+      "selected": 0,
+      "slots": [
+        0,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "speed": 8,
+      "spell_attack_multiplier": 2,
+      "spell_casts": {
+        "arcane": 29
+      },
+      "spell_flights": [],
+      "spell_hits": {
+        "arcane": 29
+      },
+      "spell_keys": [
+        "fire",
+        "ice",
+        "lightning",
+        "arcane",
+        "poison",
+        "meteor",
+        "nova",
+        "beam",
+        "pierce",
+        "earth",
+        "wind",
+        "sword",
+        "spark",
+        "storm",
+        "blizzard",
+        "lava",
+        "swamp",
+        "gravity",
+        "orbit",
+        "thorn",
+        "summon",
+        "skeleton"
+      ],
+      "spell_kit": false,
+      "spell_kit_ids": {},
+      "spell_visuals": [],
+      "summon_events": 0,
+      "summoned_minions": 0,
+      "tempo": 0,
+      "trace": [],
+      "userfs_persistent": true,
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wall_active": true,
+      "wall_hp": 490,
+      "wall_max": 490,
+      "wave": 3
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "limits": "Chromium WebGL local storage; not iPad Safari hardware or sudden OS termination. Saves safe intermissions, not active combat."
+  }
+}

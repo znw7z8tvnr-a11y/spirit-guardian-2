@@ -205,7 +205,7 @@ func create_ui() -> void:
  grid.slot_selected.connect(func(index: int):selected=index;refresh_editor.call_deferred())
  links=label("",box)
  book=label("",box)
- label("替換只使用本局持有物品；同一件不能重複裝備。先移除不相容連線才能換類型。試驗版不儲存戰局與配置；共振發現獨立保存。",box)
+ label("替換只使用本局持有物品；同一件不能重複裝備。先移除不相容連線才能換類型。完成一波後保存波間進度與配置；共振發現獨立保存。",box)
  panel.hide()
  create_growth_ui()
  inventory=preload("res://experiments/chain_lab/inventory_view.gd").new();root_ui.add_child(inventory)

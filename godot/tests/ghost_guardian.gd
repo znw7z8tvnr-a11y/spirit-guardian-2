@@ -61,7 +61,7 @@ func run() -> void:
  check(manager.summon_at(Vector2.ZERO,1,1)!=null,"expired slot permits another real summon");clear()
  guard=manager.summon_at(Vector2(24,-16),1,1);e=enemy(Vector2(20,0));e.hp=1;e.max_hp=1;var kills_before: int=manager.kills;manager.advance(0.01)
  check(e.dead and manager.kills==kills_before+1,"guardian can deliver a real lethal strike");clear()
- var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
+ var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
  var model: Node=game.chain;model.resonance_chance=0;model.items=[{"id":0,"kind":"skill","key":"summon","level":1},{"id":1,"kind":"gem","key":"kill","level":3},{"id":2,"kind":"skill","key":"fire","level":1}];model.slots=[0,1,2,-1,-1,-1,-1,-1,-1,-1];model.edges=[{"from":0,"to":1},{"from":1,"to":2}]
  var real: Node2D=game.configure_enemy(Enemy.new(),false,game.CENTER+Vector2(120,30));real.hp=23;real.max_hp=23;real.set_physics_process(false)
  model.start(real)

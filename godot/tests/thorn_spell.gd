@@ -34,7 +34,7 @@ func run() -> void:
  check(row.hit_count==24 and primary.hp==4980,"radius cap is twenty-four and selected target is retained")
  check(allocated.filter(func(e):return e.hp==4980).size()==24,"twenty-four real unique victims receive damage");clear()
  check(not Effects.impact("thorn",null,Vector2.ZERO,Vector2.ZERO,1,1,[],resolver).hit,"empty ground produces no phantom hit")
- var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
+ var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
  var hit_points: Array=[]
  for i in range(24):hit_points.append(Vector2(i*3,0))
  game.spell_visual("thorn",Vector2.ZERO,Vector2.ZERO,hit_points)

@@ -7,7 +7,7 @@ func check(ok: bool,message: String) -> void:
  else:failures.append(message)
 func _initialize() -> void:call_deferred("run")
 func run() -> void:
- var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false);game.load_enemy_drill(true)
+ var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false);game.load_enemy_drill(true)
  var actors: Array=game.enemies.get_children()
  for e in actors:
   e.set_physics_process(false)

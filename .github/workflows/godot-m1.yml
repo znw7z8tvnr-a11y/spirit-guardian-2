@@ -71,6 +71,9 @@ jobs:
       - name: Attack gem touch and local damage-scale acceptance
         timeout-minutes: 4
         run: python3 tools/test_attack_gems_web.py
+      - name: Intermission checkpoint and real browser reload acceptance
+        timeout-minutes: 4
+        run: python3 tools/test_checkpoint_web.py
       - name: Twenty-wave earned victory, defeat and restart touch acceptance
         timeout-minutes: 9
         run: python3 tools/test_run_results_web.py
@@ -92,9 +95,10 @@ jobs:
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-run-results-delivery
+          name: godot-checkpoint-delivery
           path: |
             dist/*.zip
+            docs/checkpoint/*
             docs/m2-1/*.log
             docs/m2-1/*.json
             docs/m2-1/*.png

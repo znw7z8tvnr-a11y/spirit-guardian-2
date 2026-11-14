@@ -11,7 +11,7 @@ func _initialize() -> void:call_deferred("run")
 func actor(kind: int,at: Vector2) -> Node2D:
  var e:=Actor.new();e.kind=kind;game.configure_enemy(e,false,at);e.set_physics_process(false);e.speed=0;return e
 func run() -> void:
- game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game;game.set_physics_process(false);game.set_process(false)
+ game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;root.add_child(game);current_scene=game;game.set_physics_process(false);game.set_process(false)
  for wave in range(1,6):
   for kind in range(5):check(is_equal_approx(Rules.stats(kind,wave).hp,[28,20,60,38,95][kind]+wave*3),"early HP unchanged wave %d type %d" % [wave,kind])
  check(3 not in Rules.pool(5) and 3 in Rules.pool(6),"shaman starts at wave six without changing first Boss roster")

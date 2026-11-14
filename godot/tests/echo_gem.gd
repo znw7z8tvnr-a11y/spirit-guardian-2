@@ -18,7 +18,7 @@ func run() -> void:
   for i in range(10000):
    if rng.randf()<Rules.echo_chance("echo",level):count+=1
   check(absf(count/10000.0-Rules.echo_chance("echo",level))<0.025,"repeat probability distribution level %d" % level)
- var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
+ var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
  var model: Node=game.chain
  model.items=[{"id":0,"kind":"skill","key":"arcane","level":1},{"id":1,"kind":"gem","key":"echo","level":3},{"id":2,"kind":"skill","key":"fire","level":1},{"id":3,"kind":"gem","key":"relay","level":3},{"id":4,"kind":"skill","key":"ice","level":1},{"id":5,"kind":"skill","key":"lightning","level":1}]
  model.slots=[0,1,2,3,4,5,-1,-1,-1,-1];model.edges=[{"from":0,"to":1},{"from":1,"to":2},{"from":1,"to":5},{"from":2,"to":3},{"from":3,"to":4}];model.resonance_chance=0

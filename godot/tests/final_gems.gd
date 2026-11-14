@@ -9,7 +9,7 @@ func check(ok: bool,message: String) -> void:
  else:failures.append(message)
 func _initialize() -> void:call_deferred("run")
 func run() -> void:
- var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
+ var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
  check(game.criticals_enabled,"real gameplay enables source critical rules by default")
  var e:=Enemy.new();e.max_hp=1000000;e.hp=1000000;e.speed=0;e.target=Vector2(9999,9999);e.position=game.CENTER+Vector2(100,0);e.resolver=game.resolver;game.enemies.add_child(e);e.set_physics_process(false)
  var hits:=0;var criticals:=0

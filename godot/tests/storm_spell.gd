@@ -37,7 +37,7 @@ func run() -> void:
  check(row.hit_count==24 and primary.hp==4965,"radius cap is twenty-four and selected target is retained")
  check(allocated.filter(func(e):return e.hp==4965).size()==24,"twenty-four real unique victims receive damage");clear()
  check(not Effects.impact("storm",null,Vector2.ZERO,Vector2.ZERO,1,1,[],resolver).hit,"empty ground produces no phantom hit")
- var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
+ var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
  var visual_hits: Array=row.hit_positions.duplicate()
  game.spell_visual("storm",Vector2.ZERO,Vector2.ZERO,visual_hits)
  var visual: Node2D=game.fx.get_child(game.fx.get_child_count()-1)

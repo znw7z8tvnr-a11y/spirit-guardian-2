@@ -48,7 +48,7 @@ func run() -> void:
  check(allocated.filter(func(e):return e.poison_time>0).size()==24,"only twenty-four actual damaged victims receive poison")
  check(allocated.filter(func(e):return e.hp==4978).size()==24,"twenty-four real unique victims receive damage");clear()
  check(not Effects.impact("swamp",null,Vector2.ZERO,Vector2.ZERO,1,1,[],resolver).hit,"empty ground produces no phantom hit")
- var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
+ var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
  var visual_hits: Array=row.hit_positions.duplicate()
  game.spell_visual("swamp",Vector2.ZERO,Vector2.ZERO,visual_hits)
  var visual: Node2D=game.fx.get_child(game.fx.get_child_count()-1)

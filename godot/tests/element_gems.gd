@@ -32,7 +32,7 @@ func run() -> void:
   check(not Rules.eligible(key,{"hit":false,"element":"ice" if key=="freeze" else "fire","slowed_hit":true}),key+" rejects misses even with stale elemental flags")
  check(not Rules.eligible("burn",{"hit":true,"element":"ice","slowed_hit":true}),"slowed target cannot satisfy fire condition")
  check(Rules.eligible("freeze",{"hit":true,"element":"arcane","slowed_hit":true}),"non-ice hit accepts actual slowed victim snapshot")
- var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
+ var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
  for spec in [["fire","burn",0.0,5000.0,false,true],["meteor","burn",0.0,5000.0,false,true],["ice","freeze",0.0,5000.0,false,true],["nova","freeze",0.0,5000.0,false,true],["arcane","freeze",1.0,5000.0,false,true],["arcane","burn",0.0,5000.0,false,false],["fire","freeze",0.0,5000.0,false,false],["fire","burn",0.0,5000.0,true,false],["fire","burn",0.0,1.0,false,true],["ice","freeze",0.0,1.0,false,true]]:
   await battle_case(game,spec[0],spec[1],spec[2],spec[3],spec[4],spec[5])
  var model: Node=game.chain;model.reset_runtime()

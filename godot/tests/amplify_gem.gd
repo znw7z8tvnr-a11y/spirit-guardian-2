@@ -13,7 +13,7 @@ func finish(model: Node,event: Dictionary) -> void:model.complete_skill(event.sl
 func run() -> void:
  for level in range(1,4):
   check(is_equal_approx(Rules.next_multiplier("split",level),[1.1,1.2,1.35][level-1]),"source level %d bonus" % level)
- var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game
+ var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;game.criticals_enabled=false;root.add_child(game);current_scene=game
  game.set_process(false);game.set_physics_process(false)
  var model: Node=game.chain
  model.items=[{"id":0,"kind":"skill","key":"arcane","level":1},{"id":1,"kind":"gem","key":"split","level":3},{"id":2,"kind":"skill","key":"fire","level":1},{"id":3,"kind":"gem","key":"relay","level":3},{"id":4,"kind":"skill","key":"arcane","level":1},{"id":5,"kind":"skill","key":"ice","level":1}]

@@ -37,7 +37,7 @@ func run() -> void:
  castle.absorb(4);castle.reset()
  check(castle.total_absorbed==0 and castle.flesh==0 and castle.attack_multiplier()==1 and castle.wall_max==360,"new run clears meat, upgrades and wall growth")
  root.remove_child(castle);castle.queue_free();await process_frame
- var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game
+ var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;game.criticals_enabled=false;root.add_child(game);current_scene=game
  game.set_physics_process(false)
  game.wave=1;game.remaining=5
  var enemy: Node2D=game.spawn_enemy();enemy.kind=0;enemy.position=game.CENTER+Vector2(20,0)
@@ -64,7 +64,7 @@ func run() -> void:
  check(Engine.time_scale==1.0,"leaving the trial restores normal global speed")
  # Real battles with starter arcane only: no kit, no debug damage, no manual upgrades.
  for seed_value in [12032,24064,32012]:
-  var live=load("res://experiments/chain_lab/main.tscn").instantiate();live.persist_book=false;live.criticals_enabled=false;root.add_child(live);current_scene=live
+  var live=load("res://experiments/chain_lab/main.tscn").instantiate();live.persist_book=false;live.persist_run=false;live.criticals_enabled=false;root.add_child(live);current_scene=live
   live.rng.seed=seed_value;live.chain.rng.seed=seed_value+19980;live.rewards.rng.seed=seed_value+31000
   var frames:=0
   while live.wave<4 and not live.over and frames<10800:

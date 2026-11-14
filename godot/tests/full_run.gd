@@ -15,7 +15,7 @@ func choose_reward(game: Node,target_skills: int,refresh_build: bool) -> void:
   if (gems<skills and item.kind=="gem") or (gems>=skills and skills<target_skills and item.kind=="skill") or (gems>=skills and skills>=target_skills and item.kind=="affix" and item.key==("refresh" if refresh_build else "power")):picked=i;break
  game.rewards.choose(picked)
 func run() -> void:
- var probe=load("res://experiments/chain_lab/main.tscn").instantiate();probe.persist_book=false;root.add_child(probe);current_scene=probe;probe.set_process(false);probe.set_physics_process(false)
+ var probe=load("res://experiments/chain_lab/main.tscn").instantiate();probe.persist_book=false;probe.persist_run=false;root.add_child(probe);current_scene=probe;probe.set_process(false);probe.set_physics_process(false)
  check(not probe.finish_run("victory") and not probe.finish_run("defeat") and probe.run_summary.is_empty(),"early victory and alive defeat requests fail closed")
  probe.wave=20;probe.boss_kills=4;probe.remaining=0
  check(not probe.finish_run("victory"),"jumping to wave twenty cannot invent nineteen completed waves")
@@ -29,7 +29,7 @@ func run() -> void:
  check(restarted.tower.hp==100 and restarted.tower.wall_hp==360 and restarted.tower.flesh==0 and restarted.tower.levels.values().all(func(v):return v==0) and restarted.rewards.completed.is_empty() and restarted.boss_kills==0 and Engine.time_scale==1,"restart resets flesh, growth, wall, rewards, Boss count and speed")
  restarted.queue_free();await process_frame
  for seed_value in [12032,24064,32012]:
-  var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;root.add_child(game);current_scene=game
+  var game=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;root.add_child(game);current_scene=game
   game.rng.seed=seed_value;game.chain.rng.seed=seed_value+19980;game.rewards.rng.seed=seed_value+31000;game.resolver.rng.seed=seed_value+42000
   game.cycle_speed();game.cycle_speed();game.cycle_speed()
   var frames:=0;var seen_wave:=0;var checkpoints: Array=[];var min_wall:=1.0;var min_core:=100.0;var peak_enemies:=0

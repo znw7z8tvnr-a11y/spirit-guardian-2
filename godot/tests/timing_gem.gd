@@ -27,7 +27,7 @@ func run() -> void:
  model.clock=3;model.gem_succeeds(timer,{})
  check(model.gem_remaining(timer)==1,"new activation uses the new level period")
  model.free();model=Chain.new();check(model.gem_ready_at.is_empty(),"a new run starts without previous item cooldowns");model.free()
- var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
+ var game: Node=load("res://experiments/chain_lab/main.tscn").instantiate();game.persist_book=false;game.persist_run=false;game.criticals_enabled=false;root.add_child(game);current_scene=game;game.set_process(false);game.set_physics_process(false)
  game.remaining=0;game.attack_clock=100000
  model=game.chain;model.items=[{"id":0,"kind":"skill","key":"arcane","level":1},{"id":1,"kind":"gem","key":"delay","level":1},{"id":2,"kind":"skill","key":"fire","level":1}];model.slots=[0,1,2,-1,-1,-1,-1,-1,-1,-1];model.edges=[{"from":0,"to":1},{"from":1,"to":2}];model.resonance_chance=0
  var e:=preload("res://modules/enemy/enemy.gd").new();e.max_hp=5000;e.hp=5000;e.speed=0;e.target=Vector2(9999,9999);e.position=game.CENTER+Vector2(100,0);game.enemies.add_child(e);e.set_physics_process(false)

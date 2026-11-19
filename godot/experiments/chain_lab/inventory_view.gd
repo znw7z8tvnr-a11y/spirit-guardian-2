@@ -1,5 +1,6 @@
 extends PanelContainer
 signal apply_requested(id: int)
+const Filter=preload("res://experiments/chain_lab/inventory_filter.gd")
 const Art=preload("res://modules/spell/projectile.gd")
 const Zh=preload("res://localization/zh_hant.gd")
 const Effects=preload("res://experiments/chain_lab/spell_effects.gd")
@@ -9,6 +10,10 @@ var slot:=0
 var candidate:=-1
 var attack_boost:=1.0
 var cards: Dictionary={}
+var filters: Dictionary={}
+var filter_mode:="all"
+var filtered_ids: Array=[]
+var empty_notice: Label
 var detail: Label
 var apply: Button
 var entries: GridContainer
@@ -25,8 +30,12 @@ func _ready() -> void:
  heading=Label.new();box.add_child(heading)
  var row:=HBoxContainer.new();box.add_child(row)
  var close:=Button.new();close.text="返回連鎖樹";close.custom_minimum_size=Vector2(220,72);close.pressed.connect(hide);row.add_child(close);cards["InventoryClose"]=close
- apply=Button.new();apply.text="確認替換";apply.custom_minimum_size=Vector2(220,72);apply.pressed.connect(func():apply_requested.emit(candidate));row.add_child(apply);cards["InventoryApply"]=apply
+ apply=Button.new();apply.text="確認替換";apply.custom_minimum_size=Vector2(220,72);apply.pressed.connect(confirm_candidate);row.add_child(apply);cards["InventoryApply"]=apply
  detail=Label.new();detail.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;detail.custom_minimum_size.y=130;box.add_child(detail)
+ var filter_row:=HBoxContainer.new();box.add_child(filter_row)
+ for mode in Filter.MODES:
+  var tab:=Button.new();tab.toggle_mode=true;tab.custom_minimum_size=Vector2(220,72);filter_row.add_child(tab);filters[mode]=tab;tab.pressed.connect(func():set_filter(mode))
+ empty_notice=Label.new();empty_notice.text="這個分類目前沒有物品；可切換分類查看。";empty_notice.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;box.add_child(empty_notice)
  var paging:=HBoxContainer.new();box.add_child(paging)
  for direction in [-1,1]:
   var b:=Button.new();b.text="上一頁" if direction<0 else "下一頁";b.custom_minimum_size=Vector2(220,72);paging.add_child(b);cards["InventoryPrev" if direction<0 else "InventoryNext"]=b;b.pressed.connect(func():show_page(page+direction))
@@ -63,8 +72,9 @@ func open(chain: Node, index: int, boost: float) -> void:
    art.texture=preload("res://experiments/chain_lab/gem_rules.gd").texture(str(item.key)) if item.kind=="gem" else Effects.texture(str(item.key));b.add_child(art)
    if item.kind=="gem":art.modulate=preload("res://experiments/chain_lab/gem_rules.gd").tint(str(item.key))
   b.pressed.connect(func():select_item(id))
- show_page(0);select_item(int(model.slots[slot]));show()
+ candidate=int(model.slots[slot]);set_filter("all",false);show()
 func select_item(id: int) -> void:
+ if id not in filtered_ids:return
  candidate=id
  var item: Dictionary={} if id<0 else model.items[id]
  var reason: String=model.equipment_error(slot,id)
@@ -73,9 +83,33 @@ func select_item(id: int) -> void:
  for key in cards:
   if str(key).begins_with("Item "):cards[key].modulate=Color("ffe3a0") if key=="Item %d" % id else Color.WHITE
 
+func set_filter(mode: String,focus_candidate: bool=true) -> bool:
+ if mode not in Filter.MODES or not is_instance_valid(model):return false
+ filter_mode=mode;filtered_ids=Filter.ids(model,slot,mode)
+ empty_notice.text="目前沒有可裝配的物品；可切換分類查看，或先調整連線。" if mode=="available" else "這個分類目前沒有物品；可切換分類查看。"
+ var totals:=Filter.counts(model,slot)
+ for key in filters:
+  filters[key].text="%s %d" % [Filter.TITLES[key],totals[key]]
+  filters[key].set_pressed_no_signal(key==mode)
+ heading.text="本局背包｜替換第 %d 格｜%s｜點物品預覽，再確認" % [slot+1,Filter.TITLES[mode]]
+ show_page(filtered_ids.find(candidate)/PAGE_SIZE if focus_candidate and candidate in filtered_ids else 0)
+ if candidate in filtered_ids:select_item(candidate)
+ else:
+  candidate=-2;apply.disabled=true
+  detail.text="目前：%s｜%s\n請點選此分類內的物品，再確認替換。" % [title(model.item_at(slot)),stats(model.item_at(slot))]
+  for key in cards:
+   if str(key).begins_with("Item "):cards[key].modulate=Color.WHITE
+ return true
+func confirm_candidate() -> void:
+ if not is_instance_valid(model) or candidate not in filtered_ids:return
+ if int(model.slots[slot])==candidate or not model.equipment_error(slot,candidate).is_empty():set_filter(filter_mode);return
+ apply_requested.emit(candidate)
 func show_page(index: int) -> void:
- var count:=ceili(float(entries.get_child_count())/PAGE_SIZE)
+ var count:=ceili(float(filtered_ids.size())/PAGE_SIZE)
  page=clampi(index,0,maxi(0,count-1))
- for i in entries.get_child_count():entries.get_child(i).visible=i/PAGE_SIZE==page
- page_label.text="%d／%d 頁" % [page+1,count]
+ var visible_ids:=filtered_ids.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)
+ for key in cards:
+  if str(key).begins_with("Item "):cards[key].visible=int(str(key).trim_prefix("Item ")) in visible_ids
+ empty_notice.visible=filtered_ids.is_empty()
+ page_label.text="%d／%d 頁" % [page+1 if count>0 else 0,count]
  cards.InventoryPrev.disabled=page==0;cards.InventoryNext.disabled=page>=count-1

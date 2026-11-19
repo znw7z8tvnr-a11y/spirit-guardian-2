@@ -71,6 +71,9 @@ jobs:
       - name: Attack gem touch and local damage-scale acceptance
         timeout-minutes: 4
         run: python3 tools/test_attack_gems_web.py
+      - name: Inventory filters, compatible item selection and touch confirmation
+        timeout-minutes: 5
+        run: python3 tools/test_inventory_filters_web.py
       - name: Early-wave touch control, reward gating and checkpoint recovery
         timeout-minutes: 6
         run: python3 tools/test_early_wave_web.py
@@ -98,11 +101,12 @@ jobs:
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
         with:
-          name: godot-early-wave-delivery
+          name: godot-inventory-filters-delivery
           path: |
             dist/*.zip
             docs/checkpoint/*
             docs/early-wave/*
+            docs/inventory-filters/*
             docs/m2-1/*.log
             docs/m2-1/*.json
             docs/m2-1/*.png

@@ -33,5 +33,5 @@ if project.exists():
   assert 'main_scene="res://experiments/chain_lab/main.tscn"' in archive.read('project.godot').decode()
   assert 'experiments/chain_lab/checkpoint_store.gd' in archive.namelist()
  report['import_zip']={'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),'crc_verified':True,'lab_entry_verified':True}
-(pathlib.Path(__file__).resolve().parents[2]/'docs/early-wave/live-assets.json').write_text(json.dumps(report,indent=2)+'\n')
+(pathlib.Path(__file__).resolve().parents[2]/'docs/inventory-filters/live-assets.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report),flush=True)

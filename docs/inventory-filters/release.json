@@ -1,0 +1,108 @@
+{
+  "game_source_commit": "b66fa0bac02e17f4c7c5d3be71ec9a71b751d360",
+  "branch": "godot/inventory-filters-lab",
+  "godot_version": "4.6.3",
+  "ci": {
+    "run": 44473417541,
+    "source_commit": "b66fa0bac02e17f4c7c5d3be71ec9a71b751d360",
+    "status": "success",
+    "artifact": 14506888229,
+    "url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/44473417541"
+  },
+  "hosting": {
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "source_commit": "d11747fc8bd73f8f8449766c9f4cc8ac925c0d40",
+    "archive_sha256": "b4a824af51f53565a903d0e469231ca5060cf5c01e4314a3b9b936692a82d872",
+    "deployment_id": "appgdep_6afea1d778b481919d04a89f8c968a1c",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_61ee1bd875b48191a4aa9ed260771dfc",
+    "status": "succeeded",
+    "audience": "owner-private",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/"
+  },
+  "native": {
+    "suites": 40,
+    "checks": 1352,
+    "failures": 0,
+    "new_filter_checks": 23
+  },
+  "browser": {
+    "reports": [
+      "browser-web.json",
+      "browser-staged.json"
+    ],
+    "orientations": [
+      "landscape",
+      "portrait"
+    ],
+    "coverage": [
+      "normal owned-only start and empty filters",
+      "physical-ID filtered pagination",
+      "cancel hidden preview",
+      "compatible item ownership",
+      "real confirm and returned item availability",
+      "actual cast after confirmation",
+      "44 CSS pixel controls"
+    ],
+    "large_inventory": "Explicitly labelled 32-item training fixture, not normal earned progression",
+    "gameplay_state_injected": false
+  },
+  "root_files_unchanged": 18,
+  "project_zip": {
+    "source_commit": "b66fa0bac02e17f4c7c5d3be71ec9a71b751d360",
+    "bytes": 4982992,
+    "sha256": "760f20f7156883370509520d649f09169c97222721ab93671b6a1320916425b8",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/SpiritGuardian-Godot-ChainLab.zip"
+  },
+  "native_zip_runtime": {
+    "casts": 7,
+    "combat_seconds": 9.98333333333341,
+    "enemies": 2,
+    "entry": "res://experiments/chain_lab/main.tscn",
+    "items": 1,
+    "simulated_frames": 600,
+    "spawned": 5,
+    "wave": 1
+  },
+  "live_integrity": {
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
+    "entries": {
+      "/": {
+        "html_status": 200,
+        "source_commit": "b8d77143c0815fe79eeea26e542abbe7b23460a2",
+        "wasm_verified": true,
+        "pck_matches_local": true
+      },
+      "lab/": {
+        "html_status": 200,
+        "source_commit": "b66fa0bac02e17f4c7c5d3be71ec9a71b751d360",
+        "wasm_verified": true,
+        "pck_matches_local": true
+      }
+    },
+    "tls_verified": true,
+    "font_metadata": {
+      "derived_family": "Spirit Guardian TC",
+      "source_family": "Noto Sans CJK TC Regular",
+      "source_url": "https://github.com/notofonts/noto-cjk",
+      "source_file_sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a",
+      "source_collection_index": 3,
+      "license": "SIL Open Font License 1.1",
+      "modified": "Subset for UI and renamed; glyph outlines unchanged",
+      "characters": 700,
+      "bytes": 354548,
+      "sha256": "e85cf8d052f282f6ce254d69df8d750b323ee296d01206504b27dc678a10fe2e"
+    },
+    "limit": "HTTP integrity, not remote browser interaction. Local WebGL touch tests are separate; no iPad/Safari claim.",
+    "import_zip": {
+      "bytes": 4982992,
+      "sha256": "760f20f7156883370509520d649f09169c97222721ab93671b6a1320916425b8",
+      "crc_verified": true,
+      "lab_entry_verified": true
+    }
+  },
+  "limits": [
+    "Temporary art; no iPad Safari hardware or Godot Web Editor import test.",
+    "No damage, loot or balance changes; no all-build balance certification.",
+    "Filtering is local owned-inventory UI, not new spells, item grants, cloud sync or a full original-feature parity claim."
+  ]
+}

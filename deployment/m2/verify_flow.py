@@ -23,7 +23,10 @@ for entry in ['', 'lab/']:
  assert hashlib.sha256(get(urllib.parse.urljoin(base,'index.pck'))).digest()==hashlib.sha256((root/entry/'index.pck').read_bytes()).digest()
  results[entry or '/']={'html_status':200,'source_commit':info['source_commit'],'wasm_verified':True,'pck_matches_local':True}
 assert results['/']['source_commit']=='b8d77143c0815fe79eeea26e542abbe7b23460a2'
-report={'url':origin+'lab/','entries':results,'tls_verified':True,'limit':'HTTP integrity, not remote browser interaction. Local WebGL touch tests are separate; no iPad/Safari claim.'}
+font_info=json.loads(get(origin+'lab/FONT-INFO.json'))
+font_source=pathlib.Path(__file__).resolve().parents[2]/'godot/assets/fonts/SpiritGuardianTC-Regular.otf'
+assert font_info['sha256']==hashlib.sha256(font_source.read_bytes()).hexdigest()
+report={'url':origin+'lab/','entries':results,'tls_verified':True,'font_metadata':font_info,'limit':'HTTP integrity, not remote browser interaction. Local WebGL touch tests are separate; no iPad/Safari claim.'}
 project=root/'lab/SpiritGuardian-Godot-ChainLab.zip'
 if project.exists():
  raw=get(origin+'lab/SpiritGuardian-Godot-ChainLab.zip')

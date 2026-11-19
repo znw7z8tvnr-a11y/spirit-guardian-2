@@ -9,3 +9,11 @@
 獨立 inventory_filter.gd 負責純篩選；inventory_view.gd 負責分頁、預覽與確認。原生測試包含正常奧彈開局、空分類、32件演練背包、非連續實體ID分頁、候選切換、所有權改變、實際裝備及返回背包、三級分岔限制。Web 使用實際觸控操作正常背包與明確標記的技能演練背包；不注入遊戲物品或強制戰鬥狀態。
 
 測試及實際遊戲截圖見 docs/inventory-filters，最終發布狀態以 release.json 為準。原版 HTML 與穩定 M2 入口不變。美術仍為暫用；iPad Safari 實機未測。雙魔杖、擴格、完整共振與正式美術依主計畫繼續處理，未因背包分類宣稱完成。
+
+## 已完成交付
+
+40組原生測試共1,352項（新增23項）通過。原始Web包與部署分塊包均通過橫直向實際觸控、分類分頁、空分類與隱藏候選防誤裝、物品返回及確認後施法；截圖為實際遊戲。完整 [GitHub Actions 44473417541](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/44473417541) 成功，含提前開波、續玩、20波與22技能兩類守衛回歸。
+
+受測程式 b66fa0bac02e17f4c7c5d3be71ec9a71b751d360 已發布至既有私人 [Lab](https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/)。[Godot專案ZIP](https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/SpiritGuardian-Godot-ChainLab.zip) 為4,982,992 bytes，乾淨解壓後Godot匯入及600幀真實生成／施法通過。HTTPS核對HTML、PCK、WASM、來源、700字中文字型資訊與下載ZIP檢查碼／CRC一致；原版入口18檔案保持不變。
+
+本機匯出後需同步FONT-INFO.json與FONT-LICENSE.txt；此批已對照目前來源字型檢查碼校正，遊戲PCK內容未因此改動。詳細版本與限制見 docs/inventory-filters/release.json；沒有宣稱Safari、Web Editor實機或最終美術驗收。

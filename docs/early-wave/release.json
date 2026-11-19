@@ -1,0 +1,89 @@
+{
+  "game_source_commit": "4264deb24b17557f8b952996464f65e9ee05c3d4",
+  "branch": "godot/early-wave-lab",
+  "godot_version": "4.6.3",
+  "ci": {
+    "run": 44445981319,
+    "source_commit": "4264deb24b17557f8b952996464f65e9ee05c3d4",
+    "status": "success",
+    "artifact": 14495135600,
+    "url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/44445981319"
+  },
+  "hosting": {
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "source_commit": "b6edce8a8b8f320771c501230bac3cce8bb64fe8",
+    "archive_sha256": "bda96825a6ae0aacbd8efd185d6ce37e2b512cabbd64e51c10105dc6428ce719",
+    "deployment_id": "appgdep_6afe836bcc848191aa1e5ea6a4645ab1",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_3ec682ccca388191b6e5357334a0caa1",
+    "status": "succeeded",
+    "audience": "owner-private",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/"
+  },
+  "native": {
+    "suites": 39,
+    "checks": 1329,
+    "failures": 0,
+    "early_wave_checks": 29
+  },
+  "browser": {
+    "reports": [
+      "browser-web.json",
+      "browser-staged.json"
+    ],
+    "orientations": [
+      "landscape",
+      "portrait"
+    ],
+    "actual_manual_early_wave_playthrough": "Opening through wave four at 1x, including real third-wave award and a checkpoint reload",
+    "full_ci_regression": "Twenty-wave victory/defeat/restart, checkpoint storage, enemy tactics, all 22 skills and guardians",
+    "gameplay_state_injected": false
+  },
+  "root_files_unchanged": 18,
+  "project_zip": {
+    "source_commit": "4264deb24b17557f8b952996464f65e9ee05c3d4",
+    "bytes": 9322919,
+    "sha256": "f7f44e5633a0d8d089b9820a46588e42cbfcca59a3b3968453e0bf8776badb5a",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/SpiritGuardian-Godot-ChainLab.zip"
+  },
+  "native_zip_runtime": {
+    "casts": 7,
+    "combat_seconds": 9.98333333333341,
+    "enemies": 2,
+    "entry": "res://experiments/chain_lab/main.tscn",
+    "items": 1,
+    "simulated_frames": 600,
+    "spawned": 5,
+    "wave": 1
+  },
+  "live_integrity": {
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
+    "entries": {
+      "/": {
+        "html_status": 200,
+        "source_commit": "b8d77143c0815fe79eeea26e542abbe7b23460a2",
+        "wasm_verified": true,
+        "pck_matches_local": true
+      },
+      "lab/": {
+        "html_status": 200,
+        "source_commit": "4264deb24b17557f8b952996464f65e9ee05c3d4",
+        "wasm_verified": true,
+        "pck_matches_local": true
+      }
+    },
+    "tls_verified": true,
+    "limit": "HTTP integrity, not remote browser interaction. Local WebGL touch tests are separate; no iPad/Safari claim.",
+    "import_zip": {
+      "bytes": 9322919,
+      "sha256": "f7f44e5633a0d8d089b9820a46588e42cbfcca59a3b3968453e0bf8776badb5a",
+      "crc_verified": true,
+      "lab_entry_verified": true
+    }
+  },
+  "limits": [
+    "Temporary art; iPad Safari hardware and Web Editor import not tested.",
+    "Early start only shortens opening or settled intermission waiting; no overlapping active waves.",
+    "No enemy, loot, damage or Boss number changes; no all-build balance certification.",
+    "Intermission save remains local with no cloud sync or arbitrary mid-combat resume."
+  ]
+}

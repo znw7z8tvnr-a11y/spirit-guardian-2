@@ -1,5 +1,5 @@
 """Standalone lab import ZIP selects lab scene; repository default remains M2.1."""
-import hashlib,pathlib,zipfile
+import hashlib,pathlib,shutil,zipfile
 ROOT=pathlib.Path(__file__).resolve().parents[1];out=ROOT/'dist';out.mkdir(exist_ok=True)
 project=out/'SpiritGuardian-Godot-ChainLab.zip'
 with zipfile.ZipFile(project,'w',zipfile.ZIP_DEFLATED) as z:
@@ -8,6 +8,7 @@ with zipfile.ZipFile(project,'w',zipfile.ZIP_DEFLATED) as z:
   if p.is_file() and not any(v in {'.godot','export'} for v in rel.parts):
    if str(rel)=='project.godot':z.writestr(str(rel),p.read_text().replace('run/main_scene="res://scenes/main.tscn"','run/main_scene="res://experiments/chain_lab/main.tscn"'))
    else:z.write(p,rel)
+ z.write(ROOT/'docs/REWARD_REROLL.md','REWARD_REROLL.md');
  z.write(ROOT/'docs/INVENTORY_FILTERS.md','INVENTORY_FILTERS.md');
  z.write(ROOT/'docs/EARLY_WAVE.md','EARLY_WAVE.md');
  z.write(ROOT/'docs/CHECKPOINT.md','CHECKPOINT.md');
@@ -44,8 +45,12 @@ with zipfile.ZipFile(project,'w',zipfile.ZIP_DEFLATED) as z:
  z.write(ROOT/'docs/FLESH_WALL.md','FLESH_WALL.md');
  z.write(ROOT/'docs/CHAIN_FLOW.md','CHAIN_FLOW.md');
  z.write(ROOT/'docs/CHAIN_LAB.md','CHAIN_LAB.md');z.write(ROOT/'LICENSE-GODOT-CODE.md','LICENSE-GODOT-CODE.md')
- for p in sorted((ROOT/'docs/inventory-filters').glob('*')):
+ for p in sorted((ROOT/'docs/reward-reroll').glob('*')):
   if p.is_file():z.write(p,'test_reports/'+p.name)
+# Keep standalone export metadata aligned with its source font on local builds.
+for original,exported in [('OFL.txt','FONT-LICENSE.txt'),('FONT_INFO.json','FONT-INFO.json')]:
+ source=ROOT/'godot/assets/fonts'/original;target=ROOT/'godot/export/lab'/exported
+ if not target.exists() or target.read_bytes()!=source.read_bytes():shutil.copy2(source,target)
 web=out/'SpiritGuardian-Web-ChainLab.zip'
 with zipfile.ZipFile(web,'w',zipfile.ZIP_DEFLATED) as z:
  for p in sorted((ROOT/'godot/export/lab').iterdir()):

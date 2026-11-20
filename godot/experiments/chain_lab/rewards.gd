@@ -2,6 +2,8 @@ extends Node
 ## Run-local progression. No inventory mutation while browsing or refreshing.
 signal changed
 signal granted(reward: Dictionary)
+const Reroll=preload("res://experiments/chain_lab/reward_reroll.gd")
+const MAX_REROLL_ATTEMPTS=8
 const SKILLS=preload("res://experiments/chain_lab/spell_effects.gd").PLAYABLE
 var rng:=RandomNumberGenerator.new()
 var pending:=0
@@ -32,7 +34,15 @@ func roll() -> void:
   var j:=rng.randi_range(0,i);var value: Dictionary=offers[i];offers[i]=offers[j];offers[j]=value
 func refresh_offer() -> bool:
  if pending<=0 or refreshes<=0:return false
- refreshes-=1;roll();changed.emit();return true
+ var previous: Array=offers.duplicate(true)
+ var previous_rng: int=rng.state
+ var signature:=Reroll.signature(previous)
+ for attempt in MAX_REROLL_ATTEMPTS:
+  roll()
+  if Reroll.signature(offers)!=signature:break
+ if Reroll.signature(offers)==signature and not Reroll.replace_skill(offers,SKILLS,rng):
+  offers=previous;rng.state=previous_rng;return false
+ refreshes-=1;changed.emit();return true
 func choose(index: int) -> bool:
  if pending<=0 or index<0 or index>=offers.size():return false
  var reward: Dictionary=offers[index].duplicate(true)

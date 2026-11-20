@@ -26,6 +26,6 @@ func description(item: Dictionary) -> String:
 func sync() -> void:
  visible=model.pending>0
  if not visible:return
- summary.text="尚有 %d 次選擇｜刷新詞條 %d 層｜法術詞條加成 +%d%%\n每次固定包含技能、寶石與詞條各一項；刷新不消耗已取得物品。" % [model.pending,model.extra_refresh,model.attack_stacks*10]
+ summary.text="尚有 %d 次選擇｜刷新詞條 %d 層｜法術詞條加成 +%d%%\n每次固定包含技能、寶石與詞條各一項；刷新不消耗已取得物品；整組至少一項內容不同，換順序不算，不保證升級。" % [model.pending,model.extra_refresh,model.attack_stacks*10]
  refresh.text="刷新選項（剩餘 %d 次）" % model.refreshes;refresh.disabled=model.refreshes<=0
  for i in choices.size():choices[i].text=description(model.offers[i])

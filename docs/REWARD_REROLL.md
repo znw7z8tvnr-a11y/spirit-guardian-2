@@ -9,3 +9,11 @@
 reward_reroll.gd 純處理內容識別與替代技能，rewards.gd 保留原發獎流程。原生測試含順序識別、強制重複抽選的有界回退、1000種子抽樣、原三分類／接續保證、成本與詞條；Web測試從真實第三波領獎，以觸控刷新、重載、領物及再次重載檢查不重領。
 
 原版HTML與穩定M2入口不變。美術仍暫用，iPad Safari實機未測。測試與實際遊戲截圖見 docs/reward-reroll，最終發布狀態以 release.json 為準。這輪未加入雙魔杖、擴格或新的共振種類。
+
+## 已完成交付
+
+41組原生測試共1,366項（新增14項，含1000種子抽樣與強制重複回退）通過。原始Web包與部署分塊包均通過橫直向真實第三波刷新、預算扣除、重載後不補回及領物不重複；截圖為實際遊戲。完整 [GitHub Actions 44689715660](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/44689715660) 成功，含背包、提前開波、續玩、20波與22技能兩類守衛回歸。
+
+受測程式 d6f42b37c8bf045b5064e96b724fd587097c7c4d 已發布至既有私人 [Lab](https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/)。[Godot專案ZIP](https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/SpiritGuardian-Godot-ChainLab.zip) 為4,467,805 bytes，乾淨解壓後Godot匯入及600幀生成／施法通過。HTTPS核對HTML、PCK、WASM、來源、703字字型資訊及下載ZIP檢查碼／CRC一致；原版入口18檔案保持不變。
+
+打包工具已自動同步匯出用字型資訊與授權檔，避免本機匯出沿用舊說明。詳細來源、部署與限制見 docs/reward-reroll/release.json；未宣稱Safari、Web Editor實機或最終美術驗收。

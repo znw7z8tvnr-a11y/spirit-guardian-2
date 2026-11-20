@@ -1,0 +1,37 @@
+{
+  "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
+  "entries": {
+    "/": {
+      "html_status": 200,
+      "source_commit": "b8d77143c0815fe79eeea26e542abbe7b23460a2",
+      "wasm_verified": true,
+      "pck_matches_local": true
+    },
+    "lab/": {
+      "html_status": 200,
+      "source_commit": "d6f42b37c8bf045b5064e96b724fd587097c7c4d",
+      "wasm_verified": true,
+      "pck_matches_local": true
+    }
+  },
+  "tls_verified": true,
+  "font_metadata": {
+    "derived_family": "Spirit Guardian TC",
+    "source_family": "Noto Sans CJK TC Regular",
+    "source_url": "https://github.com/notofonts/noto-cjk",
+    "source_file_sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a",
+    "source_collection_index": 3,
+    "license": "SIL Open Font License 1.1",
+    "modified": "Subset for UI and renamed; glyph outlines unchanged",
+    "characters": 703,
+    "bytes": 355304,
+    "sha256": "0ebad4d4500718b104d9d31c901a541d38df3448bbcf82262d22c283b32051ed"
+  },
+  "limit": "HTTP integrity, not remote browser interaction. Local WebGL touch tests are separate; no iPad/Safari claim.",
+  "import_zip": {
+    "bytes": 4467805,
+    "sha256": "cb7aed92dcfc4808f25d2916a920d350f8d919914f48fae9a5a63e0109b4d8a3",
+    "crc_verified": true,
+    "lab_entry_verified": true
+  }
+}

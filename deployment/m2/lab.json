@@ -1,18 +1,18 @@
 {
   "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
-  "deployment_id": "appgdep_6afea1d778b481919d04a89f8c968a1c",
-  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_61ee1bd875b48191a4aa9ed260771dfc",
+  "deployment_id": "appgdep_6afff2e98f2c81919818bffdb30db916",
+  "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_f4b66e6e837081919f0ceef388ad8254",
   "status": "succeeded",
   "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
   "audience": "owner-private",
-  "game_source_commit": "b66fa0bac02e17f4c7c5d3be71ec9a71b751d360",
-  "hosting_source_commit": "d11747fc8bd73f8f8449766c9f4cc8ac925c0d40",
-  "ci_run": 44473417541,
-  "ci_artifact": 14506888229,
+  "game_source_commit": "d6f42b37c8bf045b5064e96b724fd587097c7c4d",
+  "hosting_source_commit": "840e5283eed543736fce2379d0cc03f446fbcaf7",
+  "ci_run": 44689715660,
+  "ci_artifact": 14609680836,
   "stable_root_files_unchanged": true,
-  "release": "Owned inventory kind filters, compatible physical items and safe preview confirmation",
-  "ci_source_commit": "b66fa0bac02e17f4c7c5d3be71ec9a71b751d360",
+  "release": "Reward refresh content-change guarantee, bounded fallback and reload integrity",
+  "ci_source_commit": "d6f42b37c8bf045b5064e96b724fd587097c7c4d",
   "ci_status": "success",
   "project_zip": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/SpiritGuardian-Godot-ChainLab.zip",
-  "project_zip_sha256": "760f20f7156883370509520d649f09169c97222721ab93671b6a1320916425b8"
+  "project_zip_sha256": "cb7aed92dcfc4808f25d2916a920d350f8d919914f48fae9a5a63e0109b4d8a3"
 }

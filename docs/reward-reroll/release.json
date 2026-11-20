@@ -1,0 +1,110 @@
+{
+  "game_source_commit": "d6f42b37c8bf045b5064e96b724fd587097c7c4d",
+  "branch": "godot/reward-reroll-lab",
+  "godot_version": "4.6.3",
+  "ci": {
+    "run": 44689715660,
+    "source_commit": "d6f42b37c8bf045b5064e96b724fd587097c7c4d",
+    "status": "success",
+    "artifact": 14609680836,
+    "url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/44689715660"
+  },
+  "hosting": {
+    "project_id": "appgprj_6ae21db4af948191b57fd49b52694b66",
+    "source_commit": "840e5283eed543736fce2379d0cc03f446fbcaf7",
+    "archive_sha256": "5e1cac1f01bcab6892cceb43e05f57f00af791b68f7ed3432e7f8b197edf8a62",
+    "deployment_id": "appgdep_6afff2e98f2c81919818bffdb30db916",
+    "version_id": "appgprj_6ae21db4af948191b57fd49b52694b66~appgver_f4b66e6e837081919f0ceef388ad8254",
+    "status": "succeeded",
+    "audience": "owner-private",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/"
+  },
+  "native": {
+    "suites": 41,
+    "checks": 1366,
+    "failures": 0,
+    "new_reroll_checks": 14,
+    "seeded_refresh_samples": 1000,
+    "bounded_repeat_fallback_tested": true
+  },
+  "browser": {
+    "reports": [
+      "browser-web.json",
+      "browser-staged.json"
+    ],
+    "orientations": [
+      "landscape",
+      "portrait"
+    ],
+    "coverage": [
+      "real third-wave refresh costs one charge and changes content",
+      "three categories and initial relay guarantee",
+      "no award or combat-time advance during refresh",
+      "spent budget blocks another roll",
+      "post-refresh choices and spent charge survive page reload",
+      "earned item remains single after another reload",
+      "44 CSS pixel controls"
+    ],
+    "gameplay_state_injected": false
+  },
+  "root_files_unchanged": 18,
+  "project_zip": {
+    "source_commit": "d6f42b37c8bf045b5064e96b724fd587097c7c4d",
+    "bytes": 4467805,
+    "sha256": "cb7aed92dcfc4808f25d2916a920d350f8d919914f48fae9a5a63e0109b4d8a3",
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/SpiritGuardian-Godot-ChainLab.zip"
+  },
+  "native_zip_runtime": {
+    "casts": 7,
+    "combat_seconds": 9.98333333333341,
+    "enemies": 2,
+    "entry": "res://experiments/chain_lab/main.tscn",
+    "items": 1,
+    "simulated_frames": 600,
+    "spawned": 5,
+    "wave": 1
+  },
+  "live_integrity": {
+    "url": "https://spirit-guardian-m2-play.trylook.chatgpt.site/lab/",
+    "entries": {
+      "/": {
+        "html_status": 200,
+        "source_commit": "b8d77143c0815fe79eeea26e542abbe7b23460a2",
+        "wasm_verified": true,
+        "pck_matches_local": true
+      },
+      "lab/": {
+        "html_status": 200,
+        "source_commit": "d6f42b37c8bf045b5064e96b724fd587097c7c4d",
+        "wasm_verified": true,
+        "pck_matches_local": true
+      }
+    },
+    "tls_verified": true,
+    "font_metadata": {
+      "derived_family": "Spirit Guardian TC",
+      "source_family": "Noto Sans CJK TC Regular",
+      "source_url": "https://github.com/notofonts/noto-cjk",
+      "source_file_sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a",
+      "source_collection_index": 3,
+      "license": "SIL Open Font License 1.1",
+      "modified": "Subset for UI and renamed; glyph outlines unchanged",
+      "characters": 703,
+      "bytes": 355304,
+      "sha256": "0ebad4d4500718b104d9d31c901a541d38df3448bbcf82262d22c283b32051ed"
+    },
+    "limit": "HTTP integrity, not remote browser interaction. Local WebGL touch tests are separate; no iPad/Safari claim.",
+    "import_zip": {
+      "bytes": 4467805,
+      "sha256": "cb7aed92dcfc4808f25d2916a920d350f8d919914f48fae9a5a63e0109b4d8a3",
+      "crc_verified": true,
+      "lab_entry_verified": true
+    }
+  },
+  "limits": [
+    "Temporary art; iPad Safari hardware and Godot Web Editor import not tested.",
+    "Content-change guarantee is not a rarity or grade-upgrade guarantee.",
+    "Rejecting repeated sets changes consecutive-offer distribution; base pools and quality roll weights remain.",
+    "No new spells, item grants, damage rules, cloud sync, or all-build balance certification."
+  ]
+}

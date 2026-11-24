@@ -17,3 +17,5 @@
 交付來源：`f31efd3912ac8e2623adf15cb980a11cafb8f41b`（獨立 Godot 分支，原 HTML 保留）。`dist/SpiritGuardian-Godot-ChainLab-PageGuard.zip` 是該來源的獨立 Lab 專案，已將主場景設為 Lab，附本輪局部驗收證據；大小與 SHA256 見 project-zip.json。ZIP CRC、乾淨解壓匯入，以及解壓版啟動 600 幀引擎冒煙檢查通過；此冒煙不代表畫面或完整戰局驗收。
 
 遠端 [GitHub Actions 45332830994](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45332830994) 已啟動；編寫本段時仍執行中，不能視為通過。本地 Web 與原生結果如上。測試來源未變，因此僅補交付文件不再重跑測試。
+
+更新：上述遠端驗證已完成，plan、validate-build 及唯一選中的 `test_inventory_filters_web.py` 瀏覽器工作皆 success。這是本輪局部驗收成功，不是完整 20 波／全技能回歸。線上站仍未發布本輪修改。

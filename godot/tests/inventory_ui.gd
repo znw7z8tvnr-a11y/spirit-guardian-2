@@ -27,6 +27,13 @@ func run() -> void:
  game.inventory.open(game.chain,8,1.0);game.inventory.select_item(2)
  check(not game.inventory.apply.disabled,"returned item can be selected for an empty slot")
  game.inventory.cards.InventoryClose.pressed.emit();check(game.chain.slots[8]==-1,"closing preview cancels without consuming the item")
+ check(game.inventory.candidate== -2 and game.inventory.apply.disabled,"closing the drawer clears the candidate and disables confirmation")
+ game.inventory.confirm_candidate();game.inventory.apply.pressed.emit()
+ check(game.chain.slots[8]==-1,"late confirmation after closing cannot equip the cancelled candidate")
+ game.inventory.open(game.chain,8,1.0)
+ check(game.inventory.candidate== -1 and game.inventory.apply.disabled,"reopening previews the actual empty slot rather than the cancelled item")
+ game.inventory.select_item(2);game.inventory.hide();game.inventory.confirm_candidate()
+ check(game.chain.slots[8]==-1 and game.inventory.candidate== -2,"programmatic hide also cancels preview and rejects a stale confirm")
  var snapshot: Array=game.chain.slots.duplicate();game.chain.pending=[{"sentinel":true}]
  check(not game.chain.equipment_error(1,9).is_empty() and game.chain.slots==snapshot and game.chain.pending.size()==1,"validation never mutates graph or pending attacks")
  check(not game.chain.equip(1,9) and game.chain.slots==snapshot and game.chain.pending.size()==1,"rejected application preserves pending chain")

@@ -41,6 +41,10 @@ func _ready() -> void:
   var b:=Button.new();b.text="上一頁" if direction<0 else "下一頁";b.custom_minimum_size=Vector2(220,72);paging.add_child(b);cards["InventoryPrev" if direction<0 else "InventoryNext"]=b;b.pressed.connect(func():show_page(page+direction))
  page_label=Label.new();paging.add_child(page_label)
  entries=GridContainer.new();entries.columns=5;box.add_child(entries)
+ visibility_changed.connect(func():
+  if not visible:
+   candidate=-2;apply.disabled=true
+ )
  hide()
 func title(item: Dictionary) -> String:
  if item.is_empty():return "空格"
@@ -101,7 +105,7 @@ func set_filter(mode: String,focus_candidate: bool=true) -> bool:
    if str(key).begins_with("Item "):cards[key].modulate=Color.WHITE
  return true
 func confirm_candidate() -> void:
- if not is_instance_valid(model) or candidate not in visible_item_ids():return
+ if not visible or not is_instance_valid(model) or candidate not in visible_item_ids():return
  if int(model.slots[slot])==candidate or not model.equipment_error(slot,candidate).is_empty():set_filter(filter_mode);return
  apply_requested.emit(candidate)
 func visible_item_ids() -> Array:

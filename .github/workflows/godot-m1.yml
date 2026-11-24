@@ -4,13 +4,41 @@ on:
     branches: ['godot/**']
     paths: ['godot/**', 'tools/**', 'reference_modules/**', '.github/workflows/godot-m1.yml']
   workflow_dispatch:
+    inputs:
+      profile:
+        description: 'focused: changed modules; integration: short cross-module checks; full: release regression'
+        type: choice
+        options: [focused, integration, full]
+        default: focused
 concurrency:
   group: godot-${{ github.ref }}
   cancel-in-progress: true
 permissions:
   contents: read
 jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      native: ${{ steps.plan.outputs.native }}
+      browsers: ${{ steps.plan.outputs.browsers }}
+      profile: ${{ steps.plan.outputs.profile }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify validation selection rules
+        run: python3 tools/test_validation_plan.py
+      - id: plan
+        env:
+          BASE_SHA: ${{ github.event.before }}
+          PROFILE: ${{ inputs.profile || 'focused' }}
+        run: python3 tools/plan_validation.py --profile "$PROFILE" --base "$BASE_SHA" --github-output "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: validation-selection
+          path: qa/selection.json
   validate-build:
+    needs: plan
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
@@ -20,18 +48,28 @@ jobs:
       XDG_CACHE_HOME: /tmp/sg-ci/cache
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/godot
+            /tmp/sg-ci/data/godot/export_templates
+          key: godot-${{ runner.os }}-4.6.3-v1
       - name: Install matching official Godot and Web templates
         shell: bash
         run: |
           mkdir -p "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable" "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" /tmp/godot
-          curl -fL --retry 3 -o /tmp/godot.zip "https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_linux.x86_64.zip"
+          if [ ! -x /tmp/godot/godot ]; then
+            curl -fL --retry 3 -o /tmp/godot.zip "https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_linux.x86_64.zip"
           unzip -q /tmp/godot.zip -d /tmp/godot
           chmod +x "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64"
           ln -s "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64" /tmp/godot/godot
+          fi
           echo /tmp/godot >> "$GITHUB_PATH"
           mkdir -p docs/final-gems
           python3 tools/test_web_template_ranges.py
-          python3 tools/install_godot_web_templates.py --version "$GODOT_VERSION" --directory "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable" | tee docs/final-gems/template-range-download.json
+          if [ ! -s "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable/web_nothreads_release.zip" ] || [ ! -s "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable/web_nothreads_debug.zip" ]; then
+            python3 tools/install_godot_web_templates.py --version "$GODOT_VERSION" --directory "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable" | tee docs/final-gems/template-range-download.json
+          fi
       - name: Verify source-derived catalogs
         run: |
           python3 tools/build_supplement_catalog.py
@@ -39,7 +77,7 @@ jobs:
       - name: Preserved source inventory
         run: python3 tools/inventory_port_sources.py
       - name: Import and engine integration
-        run: python3 tools/check_godot.py
+        run: python3 tools/check_godot.py --suites '${{ needs.plan.outputs.native }}' --report-dir qa/native
       - name: Export single-thread Web
         run: |
           mkdir -p godot/export/web
@@ -54,98 +92,55 @@ jobs:
           if rg "SCRIPT ERROR|ERROR:" docs/flesh-wall/godot-lab-export.log; then exit 1; fi
           cp godot/assets/fonts/OFL.txt godot/export/lab/FONT-LICENSE.txt
           cp godot/assets/fonts/FONT_INFO.json godot/export/lab/FONT-INFO.json
-      - name: Browser test dependencies
-        run: |
-          python3 -m pip install playwright==1.62.0
-          python3 -m playwright install --with-deps chromium
-      - name: WebGL touch smoke
-        run: python3 tools/test_web.py
-      - name: Chain Lab WebGL touch smoke
-        run: python3 tools/test_chain_lab_web.py
-      - name: Flesh wall and real speed WebGL acceptance
-        timeout-minutes: 5
-        run: python3 tools/test_flesh_wall_web.py
-      - name: First Boss earned-loadout WebGL playthrough
-        timeout-minutes: 5
-        run: python3 tools/test_first_boss_web.py
-      - name: Attack gem touch and local damage-scale acceptance
-        timeout-minutes: 4
-        run: python3 tools/test_attack_gems_web.py
-      - name: Reward refresh content guarantee and reload integrity
-        timeout-minutes: 4
-        run: python3 tools/test_reward_reroll_web.py
-      - name: Inventory filters, compatible item selection and touch confirmation
-        timeout-minutes: 5
-        run: python3 tools/test_inventory_filters_web.py
-      - name: Early-wave touch control, reward gating and checkpoint recovery
-        timeout-minutes: 6
-        run: python3 tools/test_early_wave_web.py
-      - name: Intermission checkpoint and real browser reload acceptance
-        timeout-minutes: 4
-        run: python3 tools/test_checkpoint_web.py
-      - name: Twenty-wave earned victory, defeat and restart touch acceptance
-        timeout-minutes: 9
-        run: python3 tools/test_run_results_web.py
-      - name: Forty-enemy bounded label layout and touch acceptance
-        timeout-minutes: 4
-        run: python3 tools/test_enemy_readability_web.py
-      - name: Enemy tactical warning and bounded support touch acceptance
-        timeout-minutes: 4
-        run: python3 tools/test_enemy_tactics_web.py
-      - name: Rapid and real critical-condition touch acceptance
-        timeout-minutes: 4
-        run: python3 tools/test_final_gems_web.py
-      - name: Twenty-two-skill and mixed guardian touch and actual cast acceptance
-        timeout-minutes: 14
-        run: python3 tools/test_eight_spells_web.py
-      - name: Package importable project and Web build
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-validation
+          path: qa/native
+      - uses: actions/upload-artifact@v4
+        with:
+          name: web-builds
+          path: godot/export
+      - name: Package full-release candidate only
+        if: needs.plan.outputs.profile == 'full'
         run: |
           python3 tools/package_project.py
           python3 tools/package_chain_lab.py
       - uses: actions/upload-artifact@v4
+        if: needs.plan.outputs.profile == 'full'
         with:
-          name: godot-reward-reroll-delivery
+          name: full-release-candidate-requires-browser-pass
+          path: dist/*.zip
+  browser:
+    needs: [plan, validate-build]
+    if: needs.plan.outputs.browsers != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        script: ${{ fromJSON(needs.plan.outputs.browsers) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: web-builds
+          path: godot/export
+      - run: python3 -m pip install playwright==1.62.0
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: chromium-${{ runner.os }}-playwright-1.62.0
+      - run: python3 -m playwright install --with-deps chromium
+      - name: Remove historical reports before generating current evidence
+        run: find docs -type f \( -name '*.png' -o -name '*.json' -o -name '*.log' \) -delete
+      - run: python3 tools/${{ matrix.script }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-${{ matrix.script }}
           path: |
-            dist/*.zip
-            docs/checkpoint/*
-            docs/early-wave/*
-            docs/inventory-filters/*
-            docs/reward-reroll/*
-            docs/m2-1/*.log
-            docs/m2-1/*.json
-            docs/m2-1/*.png
-            docs/chain-lab/*.log
-            docs/chain-lab/*.json
-            docs/chain-lab/*.png
-            docs/chain-flow/*.log
-            docs/chain-flow/*.json
-            docs/chain-flow/*.png
-            docs/flesh-wall/*.log
-            docs/flesh-wall/*.json
-            docs/flesh-wall/*.png
-            docs/chain-tree/*.log
-            docs/chain-tree/*.json
-            docs/chain-tree/*.png
-            docs/inventory/*.log
-            docs/inventory/*.json
-            docs/inventory/*.png
-            docs/rewards/*.log
-            docs/rewards/*.json
-            docs/rewards/*.png
-            docs/first-boss/*.log
-            docs/first-boss/*.json
-            docs/first-boss/*.png
-            docs/final-gems/*
-            docs/enemy-tactics/*
-            docs/enemy-readability/*
-            docs/run-results/*
-            docs/timing-gem/*
-            docs/lowhp-gem/*
-            docs/element-gems/*
-            docs/echo-gem/*
-            docs/amplify-gem/*
-            docs/gem-triggers/*
-            docs/eight-spells/*.log
-            docs/eight-spells/*.json
-            docs/eight-spells/*.png
-          if-no-files-found: error
+            docs/**/*.png
+            docs/**/*.json
+            docs/**/*.log

@@ -1,0 +1,16 @@
+[
+  "tools/test_web.py",
+  "tools/test_chain_lab_web.py",
+  "tools/test_flesh_wall_web.py",
+  "tools/test_first_boss_web.py",
+  "tools/test_attack_gems_web.py",
+  "tools/test_reward_reroll_web.py",
+  "tools/test_inventory_filters_web.py",
+  "tools/test_early_wave_web.py",
+  "tools/test_checkpoint_web.py",
+  "tools/test_run_results_web.py",
+  "tools/test_enemy_readability_web.py",
+  "tools/test_enemy_tactics_web.py",
+  "tools/test_final_gems_web.py",
+  "tools/test_eight_spells_web.py"
+]

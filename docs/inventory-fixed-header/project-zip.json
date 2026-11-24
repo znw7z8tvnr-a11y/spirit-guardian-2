@@ -1,0 +1,9 @@
+{
+  "source_commit": "edeefc7cc02f72487832f45e07b395ec79550bc2",
+  "bytes": 4523364,
+  "sha256": "3133696f4756ab4e450d2a24702b8a62841c47951b445705b53f479aaa9d4a55",
+  "crc": "pass",
+  "zip": "SpiritGuardian-Godot-ChainLab-FixedHeader.zip",
+  "clean_import": "pass",
+  "600_frame_startup": "pass"
+}

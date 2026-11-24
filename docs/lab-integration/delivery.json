@@ -1,0 +1,26 @@
+{
+  "packaging_source_commit": "be2d166ca79232835a2143daef7eaf8b392c13e5",
+  "game_source_commit": "edeefc7cc02f72487832f45e07b395ec79550bc2",
+  "native_checks": 183,
+  "failures": 0,
+  "new_browser_run": false,
+  "browser_evidence": "docs/inventory-fixed-header/browser-fixed-header.json",
+  "published": false,
+  "project_contents_match_tested_zip": true,
+  "project_files_compared": 288,
+  "clean_zip_import": "pass",
+  "packages": [
+    {
+      "name": "SpiritGuardian-Godot-ChainLab-Integrated-2026-11-24.zip",
+      "bytes": 4533795,
+      "sha256": "4fe1025715bd80668f6577626598bebaa5b25bfe797e8940cf3ac6339ed4b4c6",
+      "crc": "pass"
+    },
+    {
+      "name": "SpiritGuardian-Web-ChainLab-Integrated-2026-11-24.zip",
+      "bytes": 20354913,
+      "sha256": "4975f5773f29ae65338d22ad58abb73f68631dbe341ad48459f94bb637e3a7b1",
+      "crc": "pass"
+    }
+  ]
+}

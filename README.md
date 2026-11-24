@@ -1,5 +1,7 @@
 # 靈境守衛 Spirit Guardian — Godot M2.1 觸控版
 
+[2026-11-24 Lab 整合版：功能、單一下載包與局部驗收](docs/lab-integration/README.md) · Git 版本標記 `lab-integrated-2026-11-24`。整合近期背包防誤裝、取消預選與觸控捲動；線上站尚未更新。
+
 [2026-10-29 完整設計統整與開發順序](docs/design/MASTER_PLAN_2026-10-29.md) · [開發計畫書文字檔（TXT）](docs/design/SpiritGuardian_Project_Plan_2026-10-29.txt)
 
 [最新：血肉城牆與1／2／4／8倍速](docs/FLESH_WALL.md)

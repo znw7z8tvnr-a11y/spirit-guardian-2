@@ -21,12 +21,16 @@ var heading: Label
 var page:=0
 const PAGE_SIZE=15
 var page_label: Label
+var item_scroll: ScrollContainer
+var drag_finger:=-1
+var drag_origin:=Vector2.ZERO
+var dragging_items:=false
 func _ready() -> void:
  set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  offset_left=16;offset_right=-16;offset_top=16;offset_bottom=-16
  var style:=StyleBoxFlat.new();style.bg_color=Color("101a2c");style.set_content_margin_all(20);add_theme_stylebox_override("panel",style)
- var scroll:=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;add_child(scroll)
- var box:=VBoxContainer.new();box.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(box)
+ var fallback_scroll:=ScrollContainer.new();fallback_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;add_child(fallback_scroll)
+ var box:=VBoxContainer.new();box.size_flags_horizontal=Control.SIZE_EXPAND_FILL;box.size_flags_vertical=Control.SIZE_EXPAND_FILL;fallback_scroll.add_child(box)
  heading=Label.new();box.add_child(heading)
  var row:=HBoxContainer.new();box.add_child(row)
  var close:=Button.new();close.text="返回連鎖樹";close.custom_minimum_size=Vector2(220,72);close.pressed.connect(hide);row.add_child(close);cards["InventoryClose"]=close
@@ -40,10 +44,11 @@ func _ready() -> void:
  for direction in [-1,1]:
   var b:=Button.new();b.text="上一頁" if direction<0 else "下一頁";b.custom_minimum_size=Vector2(220,72);paging.add_child(b);cards["InventoryPrev" if direction<0 else "InventoryNext"]=b;b.pressed.connect(func():show_page(page+direction))
  page_label=Label.new();paging.add_child(page_label)
- entries=GridContainer.new();entries.columns=5;box.add_child(entries)
+ item_scroll=ScrollContainer.new();item_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;item_scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL;box.add_child(item_scroll)
+ entries=GridContainer.new();entries.columns=5;entries.size_flags_horizontal=Control.SIZE_EXPAND_FILL;item_scroll.add_child(entries)
  visibility_changed.connect(func():
   if not visible:
-   candidate=-2;apply.disabled=true
+   candidate=-2;apply.disabled=true;drag_finger=-1;dragging_items=false
  )
  hide()
 func title(item: Dictionary) -> String:
@@ -113,6 +118,7 @@ func visible_item_ids() -> Array:
 func show_page(index: int) -> void:
  var count:=ceili(float(filtered_ids.size())/PAGE_SIZE)
  page=clampi(index,0,maxi(0,count-1))
+ item_scroll.scroll_vertical=0
  var visible_ids:=visible_item_ids()
  for key in cards:
   if str(key).begins_with("Item "):cards[key].visible=int(str(key).trim_prefix("Item ")) in visible_ids
@@ -125,3 +131,21 @@ func show_page(index: int) -> void:
   detail.text="目前：%s｜%s\n請點選此分類內的物品，再確認替換。" % [title(model.item_at(slot)),stats(model.item_at(slot))]
   for key in cards:
    if str(key).begins_with("Item "):cards[key].modulate=Color.WHITE
+
+func _input(event: InputEvent) -> void:
+ if not is_visible_in_tree():return
+ if event is InputEventScreenTouch:
+  if event.pressed:
+   if drag_finger<0 and item_scroll.get_global_rect().has_point(event.position):
+    drag_finger=event.index;drag_origin=event.position;dragging_items=false
+  elif event.index==drag_finger:
+   if dragging_items:get_viewport().set_input_as_handled()
+   drag_finger=-1;dragging_items=false
+ elif event is InputEventScreenDrag and event.index==drag_finger:
+  if dragging_items or absf(event.position.y-drag_origin.y)>12.0:
+   if not dragging_items:
+    dragging_items=true
+    for key in cards:
+     if str(key).begins_with("Item "):cards[key].notification(Control.NOTIFICATION_SCROLL_BEGIN)
+   item_scroll.scroll_vertical-=roundi(event.relative.y)
+   get_viewport().set_input_as_handled()

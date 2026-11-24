@@ -1,0 +1,27 @@
+{
+  "checks": [
+    "game explicitly selects Traditional Chinese on any device locale",
+    "battle HUD displays Chinese while stable button IDs remain usable",
+    "live battle counters use Chinese",
+    "embedded Traditional Chinese font is actually assigned to the UI",
+    "battle HUD glyphs are present in embedded font",
+    "pause/resume state changes remain translated",
+    "audio state is translated without changing its stable ID",
+    "translated spell dropdown preserves canonical spell IDs",
+    "translated gem dropdown preserves canonical gem IDs",
+    "adding from Chinese dropdown writes compatible English-ID save data",
+    "undo preserves original English-ID build exactly",
+    "export remains schema-compatible after localization",
+    "invalid import reports a Chinese error and preserves the build",
+    "Chinese import error contains no missing glyphs",
+    "graph node titles use readable Chinese with embedded glyphs",
+    "built-in graph/text-edit terminology uses Chinese translations",
+    "reward heading and reroll count are translated",
+    "legendary reward card displays Chinese with all glyphs",
+    "Boss name and phase use Traditional Chinese",
+    "Boss display has no missing glyphs",
+    "defeat screen message is translated"
+  ],
+  "engine": "4.6.3-stable (official)",
+  "failures": []
+}

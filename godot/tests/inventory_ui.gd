@@ -34,6 +34,29 @@ func run() -> void:
  check(game.inventory.candidate== -1 and game.inventory.apply.disabled,"reopening previews the actual empty slot rather than the cancelled item")
  game.inventory.select_item(2);game.inventory.hide();game.inventory.confirm_candidate()
  check(game.chain.slots[8]==-1 and game.inventory.candidate== -2,"programmatic hide also cancels preview and rejects a stale confirm")
+ game.chain.load_spell_kit();game.inventory.open(game.chain,0,1.0)
+ game.inventory.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT);game.inventory.size=Vector2(1180,660)
+ await process_frame;await process_frame
+ var confirm_before: Vector2=game.inventory.apply.global_position
+ var close_before: Vector2=game.inventory.cards.InventoryClose.global_position
+ var card_before: Vector2=game.inventory.cards["Item 0"].global_position
+ game.inventory.item_scroll.scroll_vertical=150
+ await process_frame
+ check(game.inventory.item_scroll.scroll_vertical>0,"short drawer scrolls only its overflowing item grid")
+ check(game.inventory.apply.global_position==confirm_before and game.inventory.cards.InventoryClose.global_position==close_before,"return and confirmation remain fixed while inventory items scroll")
+ check(game.inventory.cards["Item 0"].global_position.y<card_before.y,"item cards actually move inside the scroll region")
+ game.inventory.item_scroll.scroll_vertical=0
+ var touch:=InputEventScreenTouch.new();touch.index=0;touch.pressed=true;touch.position=game.inventory.item_scroll.get_global_rect().get_center();game.inventory._input(touch)
+ var drag:=InputEventScreenDrag.new();drag.index=1;drag.position=touch.position+Vector2(0,-70);drag.relative=Vector2(0,-70);game.inventory._input(drag)
+ check(game.inventory.item_scroll.scroll_vertical==0,"a second finger cannot take over the active inventory drag")
+ drag.index=0;drag.position=touch.position+Vector2(0,-5);drag.relative=Vector2(0,-5);game.inventory._input(drag)
+ check(not game.inventory.dragging_items and game.inventory.item_scroll.scroll_vertical==0,"small touch movement remains a tap without scrolling")
+ drag.position=touch.position+Vector2(0,-70);drag.relative=Vector2(0,-65);game.inventory._input(drag)
+ check(game.inventory.dragging_items and game.inventory.item_scroll.scroll_vertical>0,"vertical touch drag moves overflowing items after the deadzone")
+ touch.pressed=false;game.inventory._input(touch)
+ check(game.inventory.drag_finger== -1 and not game.inventory.dragging_items,"touch release ends inventory drag ownership")
+ game.inventory.show_page(1);await process_frame
+ check(game.inventory.item_scroll.scroll_vertical==0,"changing inventory pages resets item scroll to the top")
  var snapshot: Array=game.chain.slots.duplicate();game.chain.pending=[{"sentinel":true}]
  check(not game.chain.equipment_error(1,9).is_empty() and game.chain.slots==snapshot and game.chain.pending.size()==1,"validation never mutates graph or pending attacks")
  check(not game.chain.equip(1,9) and game.chain.slots==snapshot and game.chain.pending.size()==1,"rejected application preserves pending chain")

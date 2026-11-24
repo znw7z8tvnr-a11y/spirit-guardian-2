@@ -31,3 +31,5 @@ python3 tools/test_validation_plan.py
 實際驗證：選測／錯誤處理共 19 項 Python 測試通過，包含手動 integration 入口、未知基準安全回退、未知子目錄同名檔案不套用局部規則，以及 GitHub 輸出格式。另檢查 YAML、Shell 語法及四處 Web 建置條件。未修改遊戲程式，因此本地未重跑上一輪已通過的 98 項引擎檢查。
 
 上一版 GitHub run 45331566745 的 plan 與 validate-build 均已成功；瀏覽器矩陣仍執行時推送後續修正，可能被既有 concurrency 規則取消。這不代表完整瀏覽器驗收通過。
+
+後續修正的遠端實測已完成：[GitHub Actions 45331914486](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45331914486)，來源 `f580a4d97a5da0c7e0aa7de951c233214e1e7460`，結果 success。plan 與 validate-build 成功；Web 模板安裝、兩個 Web 匯出、Web artifact、候選封裝及整個瀏覽器工作均按規劃略過。這證實純原生驗證路徑可用，並不代表瀏覽器或完整遊戲回歸通過。

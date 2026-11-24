@@ -74,7 +74,7 @@ func open(chain: Node, index: int, boost: float) -> void:
   b.pressed.connect(func():select_item(id))
  candidate=int(model.slots[slot]);set_filter("all",false);show()
 func select_item(id: int) -> void:
- if id not in filtered_ids:return
+ if id not in visible_item_ids():return
  candidate=id
  var item: Dictionary={} if id<0 else model.items[id]
  var reason: String=model.equipment_error(slot,id)
@@ -101,15 +101,23 @@ func set_filter(mode: String,focus_candidate: bool=true) -> bool:
    if str(key).begins_with("Item "):cards[key].modulate=Color.WHITE
  return true
 func confirm_candidate() -> void:
- if not is_instance_valid(model) or candidate not in filtered_ids:return
+ if not is_instance_valid(model) or candidate not in visible_item_ids():return
  if int(model.slots[slot])==candidate or not model.equipment_error(slot,candidate).is_empty():set_filter(filter_mode);return
  apply_requested.emit(candidate)
+func visible_item_ids() -> Array:
+ return filtered_ids.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)
 func show_page(index: int) -> void:
  var count:=ceili(float(filtered_ids.size())/PAGE_SIZE)
  page=clampi(index,0,maxi(0,count-1))
- var visible_ids:=filtered_ids.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)
+ var visible_ids:=visible_item_ids()
  for key in cards:
   if str(key).begins_with("Item "):cards[key].visible=int(str(key).trim_prefix("Item ")) in visible_ids
  empty_notice.visible=filtered_ids.is_empty()
  page_label.text="%d／%d 頁" % [page+1 if count>0 else 0,count]
  cards.InventoryPrev.disabled=page==0;cards.InventoryNext.disabled=page>=count-1
+
+ if candidate not in visible_ids:
+  candidate=-2;apply.disabled=true
+  detail.text="目前：%s｜%s\n請點選此分類內的物品，再確認替換。" % [title(model.item_at(slot)),stats(model.item_at(slot))]
+  for key in cards:
+   if str(key).begins_with("Item "):cards[key].modulate=Color.WHITE

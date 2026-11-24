@@ -6,6 +6,8 @@ class SelectionTests(unittest.TestCase):
   r=select([], 'full');self.assertEqual(r['native'],'');self.assertEqual(set(r['browsers']),set(BROWSERS))
  def test_reroll(self):
   r=select(['godot/experiments/chain_lab/reward_reroll.gd'],'focused');self.assertIn('reroll',r['native']);self.assertIn('checkpoint',r['native']);self.assertNotIn('test_eight_spells_web.py',r['browsers'])
+ def test_inventory_native_suite_selects_related_coverage(self):
+  r=select(['godot/tests/inventory_filters.gd'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('inventoryfilters',r['native']);self.assertIn('test_inventory_filters_web.py',r['browsers'])
  def test_shared_overrides_leaf(self):
   r=select(['godot/experiments/chain_lab/reward_reroll.gd','godot/experiments/chain_lab/main.gd'],'focused');self.assertEqual(r['profile'],'full')
  def test_unknown_game_is_full(self):self.assertEqual(select(['godot/new_resource.tres'],'focused')['profile'],'full')

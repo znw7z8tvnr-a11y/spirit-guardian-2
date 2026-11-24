@@ -16,6 +16,8 @@ def select(paths,profile):
   name=pathlib.PurePosixPath(path).name
   if path == 'godot/experiments/chain_lab/'+name and name in RULES:
    n,b=RULES[name];native.update(n);browsers.update(b);reasons.append(f'{path}: isolated helper dependency rule')
+  elif path=='godot/tests/inventory_filters.gd':
+   n,b=RULES['inventory_view.gd'];native.update(n);browsers.update(b);reasons.append(f'{path}: inventory UI regression suite')
   elif path.startswith('tools/test_') and name in BROWSERS:
    browsers.add(name);reasons.append(f'{path}: rerun changed browser test')
   elif path.startswith(('godot/','reference_modules/')) or path in ('tools/check_godot.py','tools/validation_suites.json','tools/build_supplement_catalog.py'):

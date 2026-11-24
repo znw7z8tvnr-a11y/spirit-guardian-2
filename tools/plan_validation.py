@@ -14,7 +14,7 @@ def select(paths,profile):
  full=profile=='full'
  for path in paths:
   name=pathlib.PurePosixPath(path).name
-  if path.startswith('godot/experiments/chain_lab/') and name in RULES:
+  if path == 'godot/experiments/chain_lab/'+name and name in RULES:
    n,b=RULES[name];native.update(n);browsers.update(b);reasons.append(f'{path}: isolated helper dependency rule')
   elif path.startswith('tools/test_') and name in BROWSERS:
    browsers.add(name);reasons.append(f'{path}: rerun changed browser test')
@@ -31,17 +31,42 @@ def select(paths,profile):
   native_arg='';browsers=set(BROWSERS)
  else:native_arg=','.join(sorted(native))
  return {'profile':'full' if full else profile,'native':native_arg,'browsers':sorted(browsers),'changed_files':paths,'reasons':reasons,'coverage_note':'Full regression' if full else 'Partial validation; 20-wave and all-skill regression omitted unless explicitly selected.'}
+def request_selection(paths,profile,comparison_known=True,manual=False):
+ if comparison_known:
+  result=select(paths,profile)
+  result['comparison']='git diff of supplied base against HEAD'
+ elif manual and profile=='integration':
+  result=select([],'integration')
+  result['comparison']='none: explicitly requested fixed integration checklist'
+  result['reasons'].append('Manual integration checks only; changed-file coverage is not established.')
+ else:
+  result=select([],'full')
+  result['comparison']='none: complete regression required'
+  result['reasons'].append('No trustworthy changed-file baseline; expanded to full regression.')
+ result['web_required']=bool(result['browsers'])
+ return result
+
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--profile',choices=['focused','integration','full'],default='focused');p.add_argument('--base',default='');p.add_argument('--github-output');p.add_argument('--files',nargs='*');a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__)
+ p.add_argument('--profile',choices=['focused','integration','full'],default='focused')
+ p.add_argument('--base',default='')
+ p.add_argument('--event',choices=['push','workflow_dispatch'],default='push')
+ p.add_argument('--github-output')
+ p.add_argument('--files',nargs='*')
+ a=p.parse_args()
+ known=True
  if a.files is not None:paths=a.files
- elif not a.base or set(a.base)=={'0'}:
-  paths=[];a.profile='full' # No trustworthy comparison: fail closed.
+ elif not a.base or set(a.base)=={'0'}:paths=[];known=False
  else:
   try:paths=subprocess.check_output(['git','diff','--name-only',a.base,'HEAD'],cwd=ROOT,text=True).splitlines()
-  except subprocess.CalledProcessError:paths=[];a.profile='full'
- result=select(paths,a.profile);result['source_sha']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
- out=ROOT/'qa/selection.json';out.parent.mkdir(exist_ok=True);out.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(out.read_text())
+  except subprocess.CalledProcessError:paths=[];known=False
+ result=request_selection(paths,a.profile,known,a.event=='workflow_dispatch')
+ result['source_sha']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+ out=ROOT/'qa/selection.json';out.parent.mkdir(exist_ok=True)
+ out.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(out.read_text())
  if a.github_output:
   with open(a.github_output,'a') as f:
-   for k in ['profile','native','browsers']:f.write(k+'='+(json.dumps(result[k]) if k=='browsers' else result[k])+'\n')
+   for k in ['profile','native','browsers','web_required']:
+    value=json.dumps(result[k]) if k in ('browsers','web_required') else result[k]
+    f.write(k+'='+value+'\n')
 if __name__=='__main__':main()

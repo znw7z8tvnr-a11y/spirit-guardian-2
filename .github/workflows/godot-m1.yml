@@ -22,6 +22,7 @@ jobs:
       native: ${{ steps.plan.outputs.native }}
       browsers: ${{ steps.plan.outputs.browsers }}
       profile: ${{ steps.plan.outputs.profile }}
+      web_required: ${{ steps.plan.outputs.web_required }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,7 +33,8 @@ jobs:
         env:
           BASE_SHA: ${{ github.event.before }}
           PROFILE: ${{ inputs.profile || 'focused' }}
-        run: python3 tools/plan_validation.py --profile "$PROFILE" --base "$BASE_SHA" --github-output "$GITHUB_OUTPUT"
+          EVENT_NAME: ${{ github.event_name }}
+        run: python3 tools/plan_validation.py --profile "$PROFILE" --base "$BASE_SHA" --event "$EVENT_NAME" --github-output "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v4
         with:
           name: validation-selection
@@ -54,17 +56,21 @@ jobs:
             /tmp/godot
             /tmp/sg-ci/data/godot/export_templates
           key: godot-${{ runner.os }}-4.6.3-v1
-      - name: Install matching official Godot and Web templates
+      - name: Install pinned Godot engine
         shell: bash
         run: |
           mkdir -p "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable" "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" /tmp/godot
           if [ ! -x /tmp/godot/godot ]; then
             curl -fL --retry 3 -o /tmp/godot.zip "https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_linux.x86_64.zip"
-          unzip -q /tmp/godot.zip -d /tmp/godot
-          chmod +x "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64"
-          ln -s "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64" /tmp/godot/godot
+            unzip -q /tmp/godot.zip -d /tmp/godot
+            chmod +x "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64"
+            ln -s "/tmp/godot/Godot_v$GODOT_VERSION-stable_linux.x86_64" /tmp/godot/godot
           fi
           echo /tmp/godot >> "$GITHUB_PATH"
+      - name: Install Web templates only when browser tests are selected
+        if: needs.plan.outputs.web_required == 'true'
+        shell: bash
+        run: |
           mkdir -p docs/final-gems
           python3 tools/test_web_template_ranges.py
           if [ ! -s "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable/web_nothreads_release.zip" ] || [ ! -s "$XDG_DATA_HOME/godot/export_templates/$GODOT_VERSION.stable/web_nothreads_debug.zip" ]; then
@@ -79,6 +85,7 @@ jobs:
       - name: Import and engine integration
         run: python3 tools/check_godot.py --suites '${{ needs.plan.outputs.native }}' --report-dir qa/native
       - name: Export single-thread Web
+        if: needs.plan.outputs.web_required == 'true'
         run: |
           mkdir -p godot/export/web
           godot --headless --path godot --export-release Web > docs/m2-1/godot-export.log 2>&1
@@ -86,6 +93,7 @@ jobs:
           cp godot/assets/fonts/OFL.txt godot/export/web/FONT-LICENSE.txt
           cp godot/assets/fonts/FONT_INFO.json godot/export/web/FONT-INFO.json
       - name: Export separate Chain Lab
+        if: needs.plan.outputs.web_required == 'true'
         run: |
           mkdir -p godot/export/lab
           godot --headless --path godot --export-release "Web Chain Lab" > docs/flesh-wall/godot-lab-export.log 2>&1
@@ -98,9 +106,11 @@ jobs:
           name: native-validation
           path: qa/native
       - uses: actions/upload-artifact@v4
+        if: needs.plan.outputs.web_required == 'true'
         with:
           name: web-builds
           path: godot/export
+          if-no-files-found: error
       - name: Package full-release candidate only
         if: needs.plan.outputs.profile == 'full'
         run: |

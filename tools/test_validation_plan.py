@@ -1,6 +1,6 @@
 """Selection controls skipped coverage, so test narrow rules and conservative fallback."""
 import unittest
-from plan_validation import select,BROWSERS,ROOT
+from plan_validation import select,BROWSERS,ROOT,request_selection
 class SelectionTests(unittest.TestCase):
  def test_full(self):
   r=select([], 'full');self.assertEqual(r['native'],'');self.assertEqual(set(r['browsers']),set(BROWSERS))
@@ -13,6 +13,37 @@ class SelectionTests(unittest.TestCase):
  def test_infrastructure_is_short(self):self.assertEqual(select(['.github/workflows/godot-m1.yml','tools/check_godot.py','tools/plan_validation.py'],'focused')['browsers'],[])
  def test_integration_excludes_long_runs(self):
   r=select([],'integration');self.assertIn('firstboss',r['native']);self.assertNotIn('test_run_results_web.py',r['browsers']);self.assertNotIn('test_eight_spells_web.py',r['browsers'])
+class RequestTests(unittest.TestCase):
+ def test_push_without_baseline_stays_full(self):
+  r=request_selection([],'focused',False,False)
+  self.assertEqual(r['profile'],'full');self.assertTrue(r['web_required'])
+ def test_manual_integration_is_partial_without_baseline(self):
+  r=request_selection([],'integration',False,True)
+  self.assertEqual(r['profile'],'integration');self.assertIn('firstboss',r['native']);self.assertNotIn('test_run_results_web.py',r['browsers']);self.assertIn('not established',r['reasons'][0]);self.assertTrue(r['web_required'])
+ def test_manual_focused_without_baseline_stays_full(self):
+  self.assertEqual(request_selection([],'focused',False,True)['profile'],'full')
+ def test_manual_full_stays_full(self):
+  self.assertEqual(request_selection([],'full',False,True)['profile'],'full')
+ def test_native_only_requires_no_web_build(self):
+  r=request_selection(['tools/plan_validation.py'],'focused')
+  self.assertFalse(r['web_required']);self.assertEqual(r['browsers'],[])
+ def test_nested_unknown_helper_is_not_isolated(self):
+  self.assertEqual(select(['godot/experiments/chain_lab/unknown/reward_reroll.gd'],'focused')['profile'],'full')
+ def test_cli_manual_integration_output(self):
+  import tempfile,pathlib,subprocess,sys,json
+  with tempfile.TemporaryDirectory() as directory:
+   output=pathlib.Path(directory)/'output'
+   result=subprocess.run([sys.executable,str(ROOT/'tools/plan_validation.py'),'--event','workflow_dispatch','--profile','integration','--github-output',str(output)],capture_output=True,text=True)
+   self.assertEqual(result.returncode,0,result.stderr)
+   plan=json.loads(result.stdout);self.assertEqual(plan['profile'],'integration')
+   self.assertIn('web_required=true',output.read_text());self.assertNotIn('test_eight_spells_web.py',output.read_text())
+ def test_cli_known_baseline_native_only(self):
+  import tempfile,pathlib,subprocess,sys,json
+  with tempfile.TemporaryDirectory() as directory:
+   output=pathlib.Path(directory)/'output'
+   result=subprocess.run([sys.executable,str(ROOT/'tools/plan_validation.py'),'--files','tools/plan_validation.py','--github-output',str(output)],capture_output=True,text=True)
+   self.assertEqual(result.returncode,0,result.stderr)
+   self.assertFalse(json.loads(result.stdout)['web_required']);self.assertIn('web_required=false',output.read_text())
 class RunnerTests(unittest.TestCase):
  def run_fake(self, mode):
   import tempfile,pathlib,subprocess,sys,os

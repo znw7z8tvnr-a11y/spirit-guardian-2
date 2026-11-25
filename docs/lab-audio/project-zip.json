@@ -1,0 +1,11 @@
+{
+  "source": "b23bff65fc3313015eb91aa87b04877e3582fdcc",
+  "file": "SpiritGuardian-Godot-LabAudio-2026-11-25.zip",
+  "bytes": 6396330,
+  "sha256": "6a76ddc08717c609294f46ce5b3c0c0414af23a21b3f09043ad3ddc1ac48fe92",
+  "crc": "passed",
+  "entry": "res://experiments/chain_lab/main.tscn",
+  "lab_audio_connected": true,
+  "clean_import": "passed",
+  "startup_600_frames": "passed"
+}

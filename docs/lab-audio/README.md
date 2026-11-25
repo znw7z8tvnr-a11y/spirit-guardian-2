@@ -9,3 +9,7 @@ Godot 4.6.3 匯入、Lab 解析及六組相關測試共 153 項通過；原生�
 browser/ 與 m2-regression/ 記錄 Lab、原 M2 橫直向 Chromium 觸控測試：預設靜音、開啟後非零 Web Audio 訊號、關閉回靜音、再次開啟及 44 CSS px 觸控目標，無頁面或引擎錯誤。分析器量測音訊圖，不等同實機喇叭或真人聽感；未強制解除 autoplay 限制。iPad Safari、背景音訊中斷與實機延遲尚未測試。
 
 本次新增場景節點，遠端 CI 應執行完整回歸；結果另記，不能把本機局部通過當成完整 20 波驗收。專案 ZIP 預設入口改為 Lab，儲存庫預設入口仍保留穩定 M2。沒有更新線上網址、原 HTML 或舊版本標記。正式配樂、更多技能音效、音量設定與裝置驗收留待後續。
+
+背包介面橫直向各 11 項觸控流程通過（inventory-regression/），包含切換篩選、分頁取消過期選取、裝備確認及恢復實際施法。ZIP 通過 CRC、乾淨解壓匯入與 600 幀啟動；啟動測試不是完整戰局驗收。交付來源 b23bff65fc3313015eb91aa87b04877e3582fdcc，檔案與 SHA256 見 project-zip.json。
+
+[GitHub Actions 45558473229](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45558473229) 交付時仍在執行，尚未宣稱完整回歸通過。

@@ -19,6 +19,8 @@ def select(paths,profile):
   name=pathlib.PurePosixPath(path).name
   if path == 'godot/experiments/chain_lab/'+name and name in RULES:
    n,b=RULES[name];native.update(n);browsers.update(b);reasons.append(f'{path}: isolated helper dependency rule')
+  elif path in ('godot/modules/audio/audio.gd','godot/tests/audio_pool.gd','godot/tests/audio_pool.gd.uid'):
+   native.update(['audio','integration','modules','localization','touch']);browsers.add('test_audio_web.py');reasons.append(f'{path}: shared M2 audio module')
   elif path=='godot/tests/chain_tree.gd':
    n,b=RULES['tree_view.gd'];native.update(n);browsers.update(b);reasons.append(f'{path}: tree touch regression suite')
   elif path=='godot/tests/enemy_readability.gd':

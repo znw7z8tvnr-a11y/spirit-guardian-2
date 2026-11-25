@@ -10,6 +10,8 @@ class SelectionTests(unittest.TestCase):
   r=select(['godot/experiments/chain_lab/enemy_presentation.gd','godot/tests/enemy_readability.gd'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('readability',r['native']);self.assertIn('test_enemy_readability_web.py',r['browsers']);self.assertNotIn('test_run_results_web.py',r['browsers'])
  def test_tree_touch_selection(self):
   r=select(['godot/experiments/chain_lab/tree_view.gd','godot/tests/chain_tree.gd'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('tree',r['native']);self.assertIn('test_chain_lab_web.py',r['browsers']);self.assertIn('test_inventory_filters_web.py',r['browsers'])
+ def test_audio_selection(self):
+  r=select(['godot/modules/audio/audio.gd','godot/tests/audio_pool.gd','godot/tests/audio_pool.gd.uid'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('audio',r['native']);self.assertIn('modules',r['native']);self.assertEqual(r['browsers'],['test_audio_web.py'])
  def test_full(self):
   r=select([], 'full');self.assertEqual(r['native'],'');self.assertEqual(set(r['browsers']),set(BROWSERS))
  def test_reroll(self):

@@ -12,5 +12,6 @@
   "tools/test_enemy_readability_web.py",
   "tools/test_enemy_tactics_web.py",
   "tools/test_final_gems_web.py",
-  "tools/test_eight_spells_web.py"
+  "tools/test_eight_spells_web.py",
+  "tools/test_audio_web.py"
 ]

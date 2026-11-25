@@ -1,0 +1,26 @@
+{
+  "checks": [
+    "default mute allocates no wave or player",
+    "first enabled cue acquires one player",
+    "90ms throttle rejects cue before allocating stream or player",
+    "overlapping cues have independent players",
+    "completed voices return to the pool without deleting players",
+    "cached PCM matches original waveform for fire",
+    "cached PCM matches original waveform for ice",
+    "cached PCM matches original waveform for lightning",
+    "cached PCM matches original waveform for arcane",
+    "cached PCM matches original waveform for other",
+    "all supported frequencies use only five shared wave resources",
+    "unknown cue shares original fallback frequency: poison",
+    "unknown cue shares original fallback frequency: wind",
+    "unknown cue shares original fallback frequency: unknown",
+    "voice and node allocation remain bounded at eight",
+    "ninth concurrent voice is rejected",
+    "repeated effects reuse player instances and immutable fire stream",
+    "player reuse never duplicates completion callbacks",
+    "duplicate idle completion never makes voice count negative",
+    "mute still rejects subsequent cues after pool warmup",
+    "clock follows existing process delta semantics"
+  ],
+  "failures": []
+}

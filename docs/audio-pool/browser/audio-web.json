@@ -1,0 +1,108 @@
+{
+  "landscape": {
+    "muted": {
+      "maxAbs": 0,
+      "samples": 141,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "playing": {
+      "maxAbs": 0.07600151747465134,
+      "samples": 179,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "silent": {
+      "maxAbs": 0,
+      "samples": 30,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "resumed": {
+      "maxAbs": 0.08580145984888077,
+      "samples": 72,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "default muted UI",
+      "trusted touch enables audio",
+      "nonzero master output observed",
+      "muting returns output to silence after short existing tail",
+      "touch re-enable restores output",
+      "44 CSS pixel audio target"
+    ],
+    "limit": "Web Audio analyser side-branch observes actual browser output; no game-state injection or autoplay-policy bypass, no human listening or iPad Safari claim. This is stable M2, not Lab audio integration."
+  },
+  "portrait": {
+    "muted": {
+      "maxAbs": 0,
+      "samples": 175,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "playing": {
+      "maxAbs": 0.08450667560100555,
+      "samples": 237,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "silent": {
+      "maxAbs": 0,
+      "samples": 56,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "resumed": {
+      "maxAbs": 0.04492923617362976,
+      "samples": 100,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "default muted UI",
+      "trusted touch enables audio",
+      "nonzero master output observed",
+      "muting returns output to silence after short existing tail",
+      "touch re-enable restores output",
+      "44 CSS pixel audio target"
+    ],
+    "limit": "Web Audio analyser side-branch observes actual browser output; no game-state injection or autoplay-policy bypass, no human listening or iPad Safari claim. This is stable M2, not Lab audio integration."
+  }
+}

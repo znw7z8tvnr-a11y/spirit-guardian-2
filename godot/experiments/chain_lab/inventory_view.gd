@@ -161,3 +161,9 @@ func _input(event: InputEvent) -> void:
      if str(key).begins_with("Item "):cards[key].notification(Control.NOTIFICATION_SCROLL_BEGIN)
    item_scroll.scroll_vertical-=roundi(event.relative.y)
    get_viewport().set_input_as_handled()
+
+func _notification(what: int) -> void:
+ if what==NOTIFICATION_WM_WINDOW_FOCUS_OUT or what==NOTIFICATION_APPLICATION_FOCUS_OUT or what==NOTIFICATION_APPLICATION_PAUSED:
+  drag_finger=-1;dragging_items=false
+  for key in cards:
+   if str(key).begins_with("Item ") and is_instance_valid(cards[key]):cards[key].notification(Control.NOTIFICATION_SCROLL_BEGIN)

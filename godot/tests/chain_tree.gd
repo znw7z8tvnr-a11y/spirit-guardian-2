@@ -52,8 +52,22 @@ func run() -> void:
  check(scroll.scroll_vertical==0,"second finger cannot take over tree scrolling")
  drag.index=0;view._input(drag)
  check(view.dragging_tree and scroll.scroll_vertical>0 and hit==[3],"vertical drag scrolls the containing panel without selecting a node")
+ var stopped_scroll: int=scroll.scroll_vertical
+ view.notification(Node.NOTIFICATION_WM_WINDOW_FOCUS_OUT)
+ check(view.drag_finger== -1 and not view.dragging_tree and scroll.scroll_vertical==stopped_scroll,"focus loss cancels tree drag without changing scroll position")
+ view._input(drag);check(scroll.scroll_vertical==stopped_scroll,"old tree finger is ignored after focus loss")
+ scroll.scroll_vertical=0;touch.index=3;touch.pressed=true;touch.position=scroll.get_global_rect().get_center();view._input(touch)
+ drag.index=3;drag.position=touch.position+Vector2(0,-70);drag.relative=Vector2(0,-70);view._input(drag)
+ check(view.dragging_tree and scroll.scroll_vertical>0,"fresh tree finger can scroll after focus loss without an old release event")
  touch.pressed=false;view._input(touch)
  check(view.drag_finger== -1 and not view.dragging_tree,"releasing touch ends tree scrolling")
+ var app_cancelled:=true
+ for notification in [Node.NOTIFICATION_APPLICATION_FOCUS_OUT,Node.NOTIFICATION_APPLICATION_PAUSED]:
+  touch.pressed=true;view._input(touch);view._input(drag)
+  app_cancelled=app_cancelled and view.dragging_tree
+  view.notification(notification)
+  app_cancelled=app_cancelled and view.drag_finger== -1 and not view.dragging_tree
+ check(app_cancelled,"application focus loss and pause both cancel restarted tree gestures")
  check(model.slots==slots_before and model.edges==edges_before and model.rng.state==rng_before,"tree scrolling preserves equipment, graph and RNG")
  var overlay:=PanelContainer.new();overlay.size=Vector2(1180,360);root.add_child(overlay)
  # Put both under a Control so normal sibling modal layering applies.

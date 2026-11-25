@@ -33,13 +33,24 @@ async def main():
      await cdp.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':x,'y':start}]})
      for step in range(1,11):
       await cdp.send('Input.dispatchTouchEvent',{'type':'touchMove','touchPoints':[{'x':x,'y':start+(end-start)*step/10}]});await page.wait_for_timeout(30)
+      if step==5:
+       await page.evaluate("document.getElementById('canvas').blur();window.dispatchEvent(new Event('blur'))");await page.wait_for_timeout(150)
+       focus_loss=await state();await page.locator('#canvas').focus()
      await cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]});await page.wait_for_timeout(600)
+     after_interrupt=await state()
+     assert abs(after_interrupt['buttons']['Item 0'][1]-focus_loss['buttons']['Item 0'][1])<=2
+     await cdp.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':x,'y':start,'id':2}]})
+     for step in range(1,11):
+      await cdp.send('Input.dispatchTouchEvent',{'type':'touchMove','touchPoints':[{'x':x,'y':start+(end-start)*step/10,'id':2}]});await page.wait_for_timeout(30)
+     await cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]});await page.wait_for_timeout(500)
      after_scroll=await state()
+     assert after_scroll['buttons']['Item 0'][1]<after_interrupt['buttons']['Item 0'][1], 'fresh gesture did not resume after canvas blur'
+
      assert after_scroll['buttons']['Item 0'][1]<before_scroll['buttons']['Item 0'][1],(before_scroll['buttons']['Item 0'],after_scroll['buttons']['Item 0'])
      assert before_scroll['buttons']['Slot 2']==after_scroll['buttons']['Slot 2'], 'inventory gesture moved underlying tree'
      for key in ['InventoryApply','InventoryClose','InventoryFilter skill']:assert before_scroll['buttons'][key]==after_scroll['buttons'][key],key
      assert after_scroll['slots']==training['slots'] and after_scroll['item_count']==32 and after_scroll['candidate']==before_scroll['candidate']
-     scroll_probe={'before':before_scroll,'after':after_scroll,'input':'Chromium CDP touch drag; not Safari hardware'}
+     scroll_probe={'before':before_scroll,'focus_loss':focus_loss,'after_interrupt':after_interrupt,'after':after_scroll,'input':'Chromium CDP touch drag; not Safari hardware'}
      await page.screenshot(path=str(REPORT/f'scrolled-{args.label}-{name}.png'))
      await page.set_viewport_size(size);await page.wait_for_timeout(650)
     await tap('InventoryFilter skill');skills=await state();skill_ids=skills['inventory_filtered_ids'];assert len(skill_ids)==skills['inventory_filter_counts']['skill'] and len(skill_ids)>15 and -1 not in skill_ids

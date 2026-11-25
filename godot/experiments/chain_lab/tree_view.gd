@@ -124,3 +124,9 @@ func _input(event: InputEvent) -> void:
     for button in nodes:button.notification(Control.NOTIFICATION_SCROLL_BEGIN)
    scroll.scroll_vertical-=roundi(event.relative.y)
    get_viewport().set_input_as_handled()
+
+func _notification(what: int) -> void:
+ if what==NOTIFICATION_WM_WINDOW_FOCUS_OUT or what==NOTIFICATION_APPLICATION_FOCUS_OUT or what==NOTIFICATION_APPLICATION_PAUSED:
+  reset_drag()
+  for button in nodes:
+   if is_instance_valid(button):button.notification(Control.NOTIFICATION_SCROLL_BEGIN)

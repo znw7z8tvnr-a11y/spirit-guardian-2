@@ -63,8 +63,23 @@ func run() -> void:
  check(not game.inventory.dragging_items and game.inventory.item_scroll.scroll_vertical==0,"small touch movement remains a tap without scrolling")
  drag.position=touch.position+Vector2(0,-70);drag.relative=Vector2(0,-65);game.inventory._input(drag)
  check(game.inventory.dragging_items and game.inventory.item_scroll.scroll_vertical>0,"vertical touch drag moves overflowing items after the deadzone")
+ var stopped_scroll: int=game.inventory.item_scroll.scroll_vertical;var preview_before: int=game.inventory.candidate;var slots_before_focus: Array=game.chain.slots.duplicate()
+ game.inventory.notification(Node.NOTIFICATION_WM_WINDOW_FOCUS_OUT)
+ check(game.inventory.drag_finger== -1 and not game.inventory.dragging_items and game.inventory.candidate==preview_before and game.chain.slots==slots_before_focus and game.inventory.item_scroll.scroll_vertical==stopped_scroll,"focus loss cancels inventory gesture while preserving preview, equipment and scroll")
+ game.inventory._input(drag)
+ check(game.inventory.item_scroll.scroll_vertical==stopped_scroll,"old inventory finger cannot continue after focus loss")
+ game.inventory.item_scroll.scroll_vertical=0;touch.index=3;touch.pressed=true;touch.position=game.inventory.item_scroll.get_global_rect().get_center();game.inventory._input(touch)
+ drag.index=3;drag.position=touch.position+Vector2(0,-70);drag.relative=Vector2(0,-70);game.inventory._input(drag)
+ check(game.inventory.dragging_items and game.inventory.item_scroll.scroll_vertical>0,"a fresh inventory finger works after an interrupted gesture")
  touch.pressed=false;game.inventory._input(touch)
  check(game.inventory.drag_finger== -1 and not game.inventory.dragging_items,"touch release ends inventory drag ownership")
+ var app_cancelled:=true
+ for notification in [Node.NOTIFICATION_APPLICATION_FOCUS_OUT,Node.NOTIFICATION_APPLICATION_PAUSED]:
+  touch.pressed=true;game.inventory._input(touch);game.inventory._input(drag)
+  app_cancelled=app_cancelled and game.inventory.dragging_items
+  game.inventory.notification(notification)
+  app_cancelled=app_cancelled and game.inventory.drag_finger== -1 and not game.inventory.dragging_items
+ check(app_cancelled,"application focus loss and pause both cancel restarted inventory gestures")
  game.inventory.show_page(1);await process_frame
  check(game.inventory.item_scroll.scroll_vertical==0,"changing inventory pages resets item scroll to the top")
  var existing_cards: Array=game.inventory.entries.get_children().map(func(card):return card.get_instance_id())

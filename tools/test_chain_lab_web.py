@@ -22,18 +22,27 @@ async def main():
     s=await state();rect=await page.locator('#canvas').bounding_box();x,y,w,h=s['buttons'][key];vw,vh=s['viewport']
     await page.touchscreen.tap(rect['x']+x/vw*rect['width'],rect['y']+y/vh*rect['height'])
     await page.wait_for_timeout(650)
-   async def swipe_slot(key,dy):
+   async def swipe_slot(key,dy,interrupt=False):
     s=await state();rect=await page.locator('#canvas').bounding_box();x,y,w,h=s['buttons'][key];vw,vh=s['viewport'];x=rect['x']+x/vw*rect['width'];y=rect['y']+y/vh*rect['height']
     assert rect['y']<y+dy<rect['y']+rect['height'],(key,y,dy,rect)
+    await page.locator('#canvas').focus();interrupted=None
     cdp=await page.context.new_cdp_session(page)
     await cdp.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':x,'y':y}]})
     for step in range(1,11):
      await cdp.send('Input.dispatchTouchEvent',{'type':'touchMove','touchPoints':[{'x':x,'y':y+dy*step/10}]});await page.wait_for_timeout(25)
+     if interrupt and step==5:
+      await page.evaluate("document.getElementById('canvas').blur();window.dispatchEvent(new Event('blur'))");await page.wait_for_timeout(150)
+      interrupted=await state();await page.locator('#canvas').focus()
     await cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]});await page.wait_for_timeout(500);await cdp.detach()
+    return interrupted
    initial=await state();assert initial['capacity']==10 and initial['slots']==[0]+[-1]*9 and initial['arrange_disabled']
    await tap('Kit');s=await state();assert s['kit'] and s['edit_open'] and len(s['edges'])==7
    await page.screenshot(path=str(REPORT/f'lab-editor-{name}.png'))
-   before_pan=await state();await swipe_slot('Slot 2',-140);panned=await state()
+   before_pan=await state();focus_loss=await swipe_slot('Slot 2',-140,True);after_interrupt=await state()
+   assert abs(after_interrupt['buttons']['Slot 2'][1]-focus_loss['buttons']['Slot 2'][1])<=2
+   await swipe_slot('Slot 2',-30);panned=await state()
+   if name=='landscape':assert panned['buttons']['Slot 2'][1]<after_interrupt['buttons']['Slot 2'][1]
+
    assert panned['selected']==before_pan['selected']
    assert panned['buttons']['Slot 2'][1]<=before_pan['buttons']['Slot 2'][1]
    if name=='landscape':assert panned['buttons']['Slot 2'][1]<before_pan['buttons']['Slot 2'][1]
@@ -60,7 +69,7 @@ async def main():
    if args.editor_only:
     engine_errors=[m for m in logs if 'SCRIPT ERROR' in m['text'] or m['text'].startswith('ERROR:')]
     assert not errors and not engine_errors,(errors,engine_errors)
-    results[name]={'tree_pan':{'before':before_pan,'panned':panned,'restored':restored_pan},'passed':['touch drag preserves selected node and graph','overflowing landscape scrolls; roomy portrait may remain stationary','graph selection','illegal link rejection','unique inventory arrangement','icon bag candidate preview and apply','cancel preserves gear','reject duplicate and fork downgrade','close editor'],'pageerrors':errors,'engine_errors':engine_errors}
+    results[name]={'tree_pan':{'before':before_pan,'focus_loss':focus_loss,'after_interrupt':after_interrupt,'panned':panned,'restored':restored_pan},'passed':['touch drag preserves selected node and graph','overflowing landscape scrolls; roomy portrait may remain stationary','graph selection','illegal link rejection','unique inventory arrangement','icon bag candidate preview and apply','cancel preserves gear','reject duplicate and fork downgrade','close editor'],'pageerrors':errors,'engine_errors':engine_errors}
     print(name,'editor PASS',flush=True);await page.close();continue
    # Reapply the known lab fixture, not a recipe-based automatic unlock.
    await tap('Kit');await tap('Done')
@@ -79,7 +88,7 @@ async def main():
    assert all(v['kind']!='hit' or v['target']!=0 for v in final['trace'])
    engine_errors=[m for m in logs if 'SCRIPT ERROR' in m['text'] or m['text'].startswith('ERROR:')]
    assert not errors and not engine_errors,(errors,engine_errors)
-   results[name]={'viewport':size,'initial':initial,'tree_pan':{'before':before_pan,'panned':panned,'restored':restored_pan},'final':final,'pageerrors':errors,'engine_errors':engine_errors,'passed':['lab feature-scene export','arcane-only ten-slot start','unknown recipe gate','training kit inventory','icon bag preview, confirm and cancel','no duplicate equipment or lost forks','slot selection','reject skill-to-skill link','legal unique-item random arrangement','close editor and resume','tempo presets','pause/resume','actual chained impacts in battle','living-target jumps','visible empty continuations','no phantom hits on null target'],'limit':'Linux Chromium software WebGL touch emulation; no Safari or iPad performance claim'}
+   results[name]={'viewport':size,'initial':initial,'tree_pan':{'before':before_pan,'focus_loss':focus_loss,'after_interrupt':after_interrupt,'panned':panned,'restored':restored_pan},'final':final,'pageerrors':errors,'engine_errors':engine_errors,'passed':['lab feature-scene export','arcane-only ten-slot start','unknown recipe gate','training kit inventory','icon bag preview, confirm and cancel','no duplicate equipment or lost forks','slot selection','reject skill-to-skill link','legal unique-item random arrangement','close editor and resume','tempo presets','pause/resume','actual chained impacts in battle','living-target jumps','visible empty continuations','no phantom hits on null target'],'limit':'Linux Chromium software WebGL touch emulation; no Safari or iPad performance claim'}
    print(name,'PASS',{'casts':final['casts'],'wave':final['wave']},flush=True)
    await page.close()
   await browser.close()

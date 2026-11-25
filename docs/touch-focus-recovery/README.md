@@ -13,3 +13,11 @@
 Web 以 browser-tree/tree-editor-web.json 與 browser-inventory/browser-focus-recovery.json 為準，未產生時不得當成已通過。用 Chromium CDP 實際觸控拖曳，途中呼叫 canvas.blur() 並派送 window blur，復焦後確認舊拖曳停止及新拖曳可用。樹跑橫直向，背包失焦探針放在短橫向，另保留原橫直向背包回歸。這是瀏覽器焦點事件模擬，不是 iPad OS 真正切 App 或鎖屏驗收，也不注入遊戲狀態。
 
 獨立保存本批，不移動先前標記或更新線上試玩站。實機 Safari／App 切換仍待驗收，美術仍是既有暫用素材；截圖若提供均為實際遊戲。
+
+本地 Web 已完成：連鎖樹 editor-only 與背包橫直向回歸皆通過。樹在橫直向途中失焦／復焦後，剩餘舊拖曳不再移動，後續新拖曳、點選、預覽／替換仍正常；背包短橫向失焦探針也確認停止舊手勢並可重新捲動。候選、物品與連線未被焦點事件改變，無 pageerror 或引擎錯誤。測試保留正常 TouchEnd 清理 CDP 接觸；漏掉原手指放開的案例由原生通知測試覆蓋，不冒充瀏覽器實際 OS 中斷。來源 096c627。
+
+上一批背包卡片重用的遠端 [GitHub Actions 45549042455](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45549042455) 已 success，與本批數量分開記錄。
+
+獨立交付：`dist/SpiritGuardian-Godot-TouchRecovery-2026-11-25.zip`，來源 `096c627c5e9f244af76f07de47e9f3494c7c817a`；大小與 SHA256 見 project-zip.json。CRC、乾淨解壓匯入與啟動 600 幀均通過；不把啟動檢查當成完整戰局驗收。
+
+本批遠端局部 [GitHub Actions 45550933828](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45550933828) 已 success，包含選中的引擎與兩份瀏覽器套件；沒有執行完整 20 波／全技能回歸。線上站與既有版本標記保持不變。

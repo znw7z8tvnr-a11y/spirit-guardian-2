@@ -1,0 +1,11 @@
+{
+  "source_commit": "a1e77b300f064d529a1705de99ee701a19cd7917",
+  "entry": "res://scenes/main.tscn",
+  "lab_audio_connected": false,
+  "bytes": 5061393,
+  "sha256": "140803c343bcb3ae94f3b67106244366f03c1a905a7800d894ba30da68db6ac2",
+  "crc": "pass",
+  "zip": "SpiritGuardian-Godot-AudioPool-M2-2026-11-25.zip",
+  "clean_import": "pass",
+  "600_frame_startup": "pass"
+}

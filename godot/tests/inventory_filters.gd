@@ -3,6 +3,16 @@ const Filter=preload("res://experiments/chain_lab/inventory_filter.gd")
 var checks: Array=[]
 var failures: Array=[]
 var emitted:=0
+class CountedModel extends Node:
+ var source: Node
+ var validations:=0
+ var items: Array:
+  get:return source.items
+ var slots: Array:
+  get:return source.slots
+ func equipment_error(slot: int,id: int) -> String:
+  validations+=1
+  return source.equipment_error(slot,id)
 func _initialize() -> void:call_deferred("run")
 func check(ok: bool,message: String) -> void:
  if ok:checks.append(message)
@@ -26,6 +36,19 @@ func run() -> void:
  var skills: Array=chain.items.filter(func(i):return i.kind=="skill").map(func(i):return int(i.id))
  var gems: Array=chain.items.filter(func(i):return i.kind=="gem").map(func(i):return int(i.id))
  check(Filter.counts(chain,0).all==32 and skills.size()+gems.size()==32,"counts use physical copies, including duplicate spell names and levels")
+ var expected_counts: Dictionary={}
+ for mode in Filter.MODES:expected_counts[mode]=Filter.ids(chain,0,mode).size()-(1 if mode=="all" else 0)
+ for mode in Filter.MODES:
+  var scanned: Dictionary=Filter.snapshot(chain,0,mode)
+  check(scanned.ids==Filter.ids(chain,0,mode) and scanned.counts==expected_counts,"single-pass snapshot preserves ordered IDs and all counts for "+mode)
+ var counted:=CountedModel.new();counted.source=chain;root.add_child(counted)
+ var once: Dictionary=Filter.snapshot(counted,0,"available")
+ check(counted.validations==chain.items.size()-1 and once.ids==Filter.ids(chain,0,"available"),"available snapshot validates each non-current physical item exactly once")
+ counted.queue_free()
+ check(Filter.counts(chain,-1)=={"all":0,"skill":0,"gem":0,"available":0} and Filter.snapshot(chain,10,"all").ids.is_empty(),"invalid slot returns zero counts rather than negative all-items count")
+ check(Filter.counts(null,0)=={"all":0,"skill":0,"gem":0,"available":0} and Filter.ids(null,0,"all").is_empty(),"missing model returns empty results without dereferencing it")
+ var isolated: Dictionary=Filter.snapshot(chain,0,"all");isolated.ids.append(999)
+ check(Filter.snapshot(chain,0,"all").ids==range(-1,32) and chain.items==owned and chain.slots==slots and chain.edges==edges and chain.rng.state==rng_state,"snapshot output cannot mutate ownership, graph, RNG or later results")
  view.set_filter("skill")
  check(view.filtered_ids==skills and view.filtered_ids.size()>15 and not view.filtered_ids.has(-1),"skill filter preserves acquisition order and excludes gems and the clear action")
  view.show_page(999)

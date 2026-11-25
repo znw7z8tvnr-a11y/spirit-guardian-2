@@ -94,9 +94,10 @@ func select_item(id: int) -> void:
 
 func set_filter(mode: String,focus_candidate: bool=true) -> bool:
  if mode not in Filter.MODES or not is_instance_valid(model):return false
- filter_mode=mode;filtered_ids=Filter.ids(model,slot,mode)
+ var scanned:=Filter.snapshot(model,slot,mode)
+ filter_mode=mode;filtered_ids=scanned.ids
  empty_notice.text="目前沒有可裝配的物品；可切換分類查看，或先調整連線。" if mode=="available" else "這個分類目前沒有物品；可切換分類查看。"
- var totals:=Filter.counts(model,slot)
+ var totals: Dictionary=scanned.counts
  for key in filters:
   filters[key].text="%s %d" % [Filter.TITLES[key],totals[key]]
   filters[key].set_pressed_no_signal(key==mode)

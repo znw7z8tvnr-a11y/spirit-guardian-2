@@ -11,3 +11,11 @@ Godot 4.6.3 匯入、Lab 解析與 inventory 32／inventoryfilters 35／tree 75�
 Web 結果以 browser-card-reuse.json 為準，未產生報告時不能當成已通過。執行橫直向的真實背包／明確標示演練背包分類、分頁、替換、取消、重開、觸控拖曳與背景樹遮擋測試；不重跑完整 20 波或全部技能。
 
 這批驗證減少 UI 節點重建，沒有量測 iPad FPS。iPad Safari 真機及正式美術未驗收。獨立保存，不移動舊版本標記，也不更新線上試玩站。
+
+本地 Web 已通過：Chromium WebGL 橫向 1180×820、直向 820×1180；真實開局背包與明確標示的演練背包在分類、分頁、關閉／重開、候選取消、確認替換、物品返回與施法都正常；背包拖曳沒有移動背景樹。無 pageerror 或引擎錯誤。來源 b5eb13f。
+
+上一批單次掃描的遠端 [GitHub Actions 45547409261](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45547409261) 已 success；不與本批測試數重複相加。
+
+獨立交付：`dist/SpiritGuardian-Godot-InventoryCards-2026-11-25.zip`，來源 `b5eb13fa649c48294637035117db416095ed9a21`；大小與 SHA256 見 project-zip.json。已測 CRC、乾淨解壓匯入與啟動 600 幀；不把啟動檢查冒充完整戰局。
+
+本批遠端局部 [GitHub Actions 45549042455](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45549042455) 已啟動，編寫本段時仍執行中，不能當成遠端成功。此批獨立標記，不更新原整合包或線上站。

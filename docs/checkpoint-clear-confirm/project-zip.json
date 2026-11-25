@@ -1,0 +1,10 @@
+{
+  "source_commit": "7aba616309166425733cb443789021942a017cf8",
+  "bytes": 4471349,
+  "sha256": "e6e14ea94166e66f6c9b3292124edd51b6a8e5b54106fbb814617b545b462fe6",
+  "crc": "pass",
+  "zip": "SpiritGuardian-Godot-CheckpointConfirm-2026-11-25.zip",
+  "clean_import": "pass",
+  "600_frame_startup": "pass",
+  "documentation_update": "Added Web evidence; all non-validation files verified unchanged"
+}

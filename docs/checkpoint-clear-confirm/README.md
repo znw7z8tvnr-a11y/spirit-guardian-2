@@ -13,3 +13,9 @@ Web 以 browser-clear-confirm.json 為準；尚未產生報告時不得視為已
 前批獎勵防連點的遠端 [GitHub Actions 45533065461](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45533065461) 已 success；不把前批的測試項目加到本批數量。
 
 本批獨立提交、獨立交付，不移動既有整合版與獎勵批次標記；沒有更新線上站。未跑完整 20 波／全部技能，未做 iPad Safari 實機驗收，美術仍是既有暫用素材。
+
+本地 Web 已通過：Chromium WebGL 橫向 1180×820、直向 820×1180；首次與快速第二次清除點選後，續玩提示仍在且 localStorage 主檔逐字相同；稍後明確確認可重新開局且不再提示舊進度。既有真實第三波保存、刷新預算、領物／配置重載、備份復原、額滿／禁止儲存的可見失敗處理也通過；沒有 pageerror 或引擎錯誤。
+
+交付來源：`7aba616309166425733cb443789021942a017cf8`。本批完整可匯入測試專案為 `dist/SpiritGuardian-Godot-CheckpointConfirm-2026-11-25.zip`；CRC、乾淨解壓匯入與啟動 600 幀檢查通過。之後只補驗收文件與 Web 證據到包內，逐檔核對程式／資源內容不變。大小及 SHA256 見 project-zip.json。
+
+本批遠端局部 [GitHub Actions 45533712889](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45533712889) 已啟動，編寫本段時未作完成判定；本地通過不冒充遠端成功。

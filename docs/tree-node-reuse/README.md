@@ -11,3 +11,9 @@ Godot 4.6.3 匯入、Lab 解析與 tree 75／inventory 25／inventoryfilters 27�
 Web 結果以 browser-tree/tree-editor-web.json 與 browser-inventory/browser-node-reuse.json 為準；未產生報告時不能當成已通過。本地使用 editor-only 短配置流程，並另外跑背包橫直向觸控與遮擋回歸；遠端保留既有短戰鬥檢查，不跑完整 20 波或全部技能。
 
 這次驗證的是減少實際控制項重建，沒有量測或宣稱 iPad FPS 提升。iPad Safari 真機未測，美術仍為既有暫用素材。獨立保存本批，不移動先前版本標記，不更新線上站。
+
+本地 Web 已完成：連鎖樹 editor-only 與背包回歸各自的橫向 1180×820、直向 820×1180，四次方向驗收皆通過。換選節點、拖曳、背包預覽／確認／取消、拒絕不相容連線、合法隨機配置，以及背包捲動不拖到背景樹均正常，無 pageerror 或引擎錯誤。來源 bdda905。
+
+獨立交付：`dist/SpiritGuardian-Godot-TreeReuse-2026-11-25.zip`，來源 `bdda9059f12cf3b11364fca6ddf2f2a5a7294a75`；大小及 SHA256 見 project-zip.json。已測 CRC、乾淨解壓匯入與啟動 600 幀；啟動檢查不是完整戰局驗收。
+
+本批遠端局部 [GitHub Actions 45546392693](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45546392693) 已 success，包含選中的引擎與兩份瀏覽器套件；遠端樹套件保留短戰鬥驗收。本地短配置流程、背包回歸與遠端結果分開記錄，沒有把測試項目重複相加。

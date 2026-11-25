@@ -47,7 +47,11 @@ func run() -> void:
  call_deferred("reload_current_scene");await frames(3)
  game=current_scene;game.set_process(false);game.set_physics_process(false)
  check(game.resume_pending and game.checkpoint_view.visible and game.combat_seconds==0,"fresh scene pauses behind explicit continue/new-run prompt")
+ var before_clear_prompt:=FileAccess.get_file_as_string(Store.PATH)
+ game.buttons.CheckpointNew.pressed.emit();game.buttons.CheckpointNew.pressed.emit()
+ check(game.resume_pending and game.checkpoint_view.fresh_armed and FileAccess.get_file_as_string(Store.PATH)==before_clear_prompt,"first clear tap and rapid second tap preserve checkpoint and pending resume")
  game.buttons.CheckpointResume.pressed.emit();await frames()
+ check(not game.checkpoint_view.fresh_armed,"continuing cancels the armed clear operation")
  check(not game.resume_pending and game.wave==3 and game.rewards.pending==1 and game.rewards.refreshes==0,"real continue button restores saved intermission and award queue")
  var pick:=0
  for i in game.rewards.offers.size():
@@ -81,7 +85,14 @@ func run() -> void:
  var backup:=storage.load_checkpoint();check(backup.ok and backup.source=="backup","corrupt primary falls back to previously validated backup")
  storage.clear();file=FileAccess.open(Store.PATH,FileAccess.WRITE);file.store_string(JSON.stringify({"format":Store.FORMAT,"schema":99,"payload":"{}","sha256":"{}".sha256_text()}));file.close()
  var unsupported:=storage.load_checkpoint();check(not unsupported.ok and unsupported.exists and FileAccess.file_exists(Store.PATH),"unsupported schema is rejected and retained until explicit new-run choice")
- game.persist_run=true;game.restart_run();await frames(3);game=current_scene;game.set_process(false);game.set_physics_process(false)
+ game.persist_run=true;game.resume_pending=true;game.checkpoint_view.show_record(unsupported)
+ game.buttons.CheckpointNew.pressed.emit()
+ check(FileAccess.file_exists(Store.PATH) and game.checkpoint_view.fresh_armed,"corrupt or unsupported progress is retained after first clear tap")
+ game.checkpoint_view.hide();game.buttons.CheckpointNew.pressed.emit()
+ check(not game.checkpoint_view.fresh_armed and FileAccess.file_exists(Store.PATH),"hidden checkpoint prompt rejects stale clear input and resets confirmation")
+ game.checkpoint_view.show_record(unsupported);game.buttons.CheckpointNew.pressed.emit()
+ game.checkpoint_view.confirm_after=Time.get_ticks_msec()-1
+ game.buttons.CheckpointNew.pressed.emit();await frames(3);game=current_scene;game.set_process(false);game.set_physics_process(false)
  check(not game.resume_pending and game.chain.items.size()==1 and not FileAccess.file_exists(Store.PATH) and not FileAccess.file_exists(Store.PATH+".bak"),"explicit new-run button clears checkpoint and backup before fresh start")
  check((FileAccess.get_file_as_string("user://sg_m2_build.json") if FileAccess.file_exists("user://sg_m2_build.json") else "")==build_before,"legacy build save is not interpreted or overwritten as a run checkpoint")
  game.queue_free();await frames();storage.clear()

@@ -4,6 +4,7 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 BROWSERS=[pathlib.Path(p).name for p in json.loads((ROOT/'tools/validation_suites.json').read_text())]
 # Only isolated helpers have narrow dependency rules. Shared or unknown game code expands to full.
 RULES={
+ 'checkpoint_view.gd':(['checkpoint','touch'],['test_checkpoint_web.py']),
  'reward_view.gd':(['rewardinput','reroll','rewards','checkpoint','touch'],['test_reward_reroll_web.py']),
  'reward_reroll.gd':(['reroll','rewards','checkpoint'],['test_reward_reroll_web.py','test_checkpoint_web.py']),
  'inventory_filter.gd':(['inventoryfilters','inventory','tree'],['test_inventory_filters_web.py']),
@@ -17,6 +18,8 @@ def select(paths,profile):
   name=pathlib.PurePosixPath(path).name
   if path == 'godot/experiments/chain_lab/'+name and name in RULES:
    n,b=RULES[name];native.update(n);browsers.update(b);reasons.append(f'{path}: isolated helper dependency rule')
+  elif path=='godot/tests/checkpoint.gd':
+   n,b=RULES['checkpoint_view.gd'];native.update(n);browsers.update(b);reasons.append(f'{path}: checkpoint UI regression suite')
   elif path=='godot/tests/reward_input.gd':
    n,b=RULES['reward_view.gd'];native.update(n);browsers.update(b);reasons.append(f'{path}: reward input regression suite')
   elif path in ('godot/tests/inventory_filters.gd','godot/tests/inventory_ui.gd'):

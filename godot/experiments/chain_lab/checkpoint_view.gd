@@ -5,15 +5,23 @@ var heading: Label
 var detail: Label
 var resume: Button
 var fresh: Button
+var fresh_armed:=false
+var confirm_after:=0
+const CONFIRM_DELAY_MS=350
 func _ready() -> void:
  set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);offset_left=24;offset_right=-24;offset_top=24;offset_bottom=-24
  var bg:=StyleBoxFlat.new();bg.bg_color=Color("101a2c");bg.set_content_margin_all(24);add_theme_stylebox_override("panel",bg)
  var box:=VBoxContainer.new();box.add_theme_constant_override("separation",18);add_child(box)
  heading=Label.new();heading.add_theme_font_size_override("font_size",34);box.add_child(heading)
  detail=Label.new();detail.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;detail.size_flags_vertical=Control.SIZE_EXPAND_FILL;box.add_child(detail)
- resume=Button.new();resume.text="繼續波間進度";resume.custom_minimum_size.y=72;box.add_child(resume);resume.pressed.connect(func():resume_requested.emit())
- fresh=Button.new();fresh.text="重新開局・清除波間進度";fresh.custom_minimum_size.y=72;box.add_child(fresh);fresh.pressed.connect(func():new_run_requested.emit());hide()
+ resume=Button.new();resume.text="繼續波間進度";resume.custom_minimum_size.y=72;box.add_child(resume);resume.pressed.connect(request_resume)
+ fresh=Button.new();fresh.text="重新開局・清除波間進度";fresh.custom_minimum_size.y=72;box.add_child(fresh);fresh.pressed.connect(request_new_run)
+ visibility_changed.connect(func():
+  if not visible:reset_confirmation()
+ )
+ hide()
 func show_record(record: Dictionary) -> void:
+ reset_confirmation()
  resume.disabled=not record.ok
  if record.ok:
   var data: Dictionary=record.data;var wave:=int(data.game.wave)
@@ -25,3 +33,18 @@ func show_record(record: Dictionary) -> void:
   heading.text="波間進度無法讀取"
   detail.text="進度格式不支援、資料損壞或驗證未通過。原檔會先保留，選擇重新開局才會清除。共振紀錄書不受影響。"
  show()
+
+func reset_confirmation() -> void:
+ fresh_armed=false;confirm_after=0
+ fresh.text="重新開局・清除波間進度"
+func request_resume() -> void:
+ if not is_visible_in_tree() or resume.disabled:return
+ reset_confirmation();resume_requested.emit()
+func request_new_run() -> void:
+ if not is_visible_in_tree():return
+ if not fresh_armed:
+  fresh_armed=true;confirm_after=Time.get_ticks_msec()+CONFIRM_DELAY_MS
+  fresh.text="確認清除波間進度・重新開局"
+  return
+ if Time.get_ticks_msec()<confirm_after:return
+ reset_confirmation();new_run_requested.emit()

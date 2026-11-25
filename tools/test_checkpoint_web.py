@@ -41,7 +41,13 @@ async def main():
     await page.evaluate("localStorage.setItem('sg_chain_lab_run_v1','{truncated')")
     await reload();assert (await state())['resume_pending'];await tap('CheckpointResume');recovered=await state()
     assert recovered['wave']==backup_data['game']['wave'] and recovered['slots']==backup_data['chain']['slots'] and recovered['reward_granted']==backup_data['rewards']['granted_count']
-    await reload();await tap('CheckpointNew');await page.wait_for_function('window.SG_LAB_STATE.resume_pending===false&&window.SG_LAB_STATE.item_count===1&&window.SG_LAB_STATE.wave<3',timeout=15000)
+    await reload();protected_save=await page.evaluate("localStorage.getItem('sg_chain_lab_run_v1')")
+    before_clear=await state();rect=await page.locator('#canvas').bounding_box();x,y,w,h=before_clear['buttons']['CheckpointNew'];vw,vh=before_clear['viewport']
+    for _ in range(2):await page.touchscreen.tap(rect['x']+x/vw*rect['width'],rect['y']+y/vh*rect['height'])
+    await page.wait_for_timeout(400)
+    assert (await state())['resume_pending'] and await page.evaluate("localStorage.getItem('sg_chain_lab_run_v1')")==protected_save
+    await page.screenshot(path=str(REPORT/f'confirm-clear-{args.label}-{orientation}.png'))
+    await tap('CheckpointNew');await page.wait_for_function('window.SG_LAB_STATE.resume_pending===false&&window.SG_LAB_STATE.item_count===1&&window.SG_LAB_STATE.wave<3',timeout=15000)
     fresh=await state();assert fresh['reward_granted']==0 and fresh['speed']==1
     await reload();assert not (await state())['resume_pending']
     await page.evaluate("(()=>{const original=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k.startsWith('sg_chain_lab_run_v1'))throw new DOMException('quota','QuotaExceededError');return original.call(this,k,v);}})()")
@@ -51,7 +57,7 @@ async def main():
     await page.add_init_script("(()=>{const original=Storage.prototype.getItem;Storage.prototype.getItem=function(k){if(k.startsWith('sg_chain_lab_run_v1'))throw new DOMException('blocked','SecurityError');return original.call(this,k);}})()")
     await reload();blocked=await state();assert not blocked['resume_pending'] and '無法保留續玩' in blocked['checkpoint_status']
     engine=[v for v in logs if 'SCRIPT ERROR' in v or v.startswith('ERROR:')];assert not errors and not engine,(errors,engine)
-    results[orientation]={'passed':['real wave-three autosave and near-immediate reload','spent refresh and exact offers survive page reload','health and growth preserved','earned gem and arranged graph survive second reload','no repeated award','explicit new-run clears checkpoint','corrupt primary recovers validated browser backup','quota and blocked storage fail visibly without claiming saved'],'saved':saved,'restored':restored,'second':second,'pageerrors':errors,'engine_errors':engine,'limits':'Chromium WebGL local storage; not iPad Safari hardware or sudden OS termination. Saves safe intermissions, not active combat.'}
+    results[orientation]={'passed':['real wave-three autosave and near-immediate reload','spent refresh and exact offers survive page reload','health and growth preserved','earned gem and arranged graph survive second reload','no repeated award','first and rapid second clear taps preserve saved progress; later explicit confirm clears it','corrupt primary recovers validated browser backup','quota and blocked storage fail visibly without claiming saved'],'saved':saved,'restored':restored,'second':second,'pageerrors':errors,'engine_errors':engine,'limits':'Chromium WebGL local storage; not iPad Safari hardware or sudden OS termination. Saves safe intermissions, not active combat.'}
     print(orientation,'CHECKPOINT PASS',flush=True);await context.close()
   finally:await browser.close();server.shutdown()
  (REPORT/f'browser-{args.label}.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))

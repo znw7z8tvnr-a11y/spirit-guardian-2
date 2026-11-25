@@ -16,6 +16,6 @@ Web 以兩份敵人專用 JSON 報告 為準，未產生時不能視為通過：
 
 上一批存檔清除確認的遠端 [GitHub Actions 45533712889](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45533712889) 已 success，與本批效能驗收分開記錄。
 
-獨立交付：`dist/SpiritGuardian-Godot-EnemyWarningIndex-2026-11-25.zip`，9,137,704 bytes，來源 `c1e9513115723c711aeedb18895cbd3be745e966`；SHA256 見 project-zip.json。已測 CRC、乾淨解壓匯入與啟動 600 幀；這些檢查不當成完整戰局或裝置 FPS 驗收。
+獨立交付：`dist/SpiritGuardian-Godot-EnemyWarningIndex-2026-11-25.zip`，來源 `c1e9513115723c711aeedb18895cbd3be745e966`；SHA256 見 project-zip.json。已測 CRC、乾淨解壓匯入與啟動 600 幀；這些檢查不當成完整戰局或裝置 FPS 驗收。
 
 本批遠端局部 [GitHub Actions 45534671893](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45534671893) 已啟動，編寫本段時仍執行中，不能視為已通過。本地結果與遠端狀態分開記錄。

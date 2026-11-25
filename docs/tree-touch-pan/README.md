@@ -13,3 +13,9 @@ Godot 4.6.3 匯入、Lab 解析與 tree 67／inventory 25／inventoryfilters 27�
 Web 結果以 browser-tree/tree-editor-web.json 與 browser-inventory/browser-tree-overlay.json 為準，未產生報告前不能當成通過。本地樹測試用 editor-only 短流程，測拖曳／返回、正常點選、圖示背包預覽與替換、連線拒絕與隨機配置；背包測試另驗證拖曳背包時，背景樹節點位置不變。兩份測試各自跑橫直向，單機順序執行。
 
 獨立保存本批，不移動既有版本標記，不更新線上站。未跑完整 20 波或全部技能，未測 iPad Safari 實機；美術仍為暫用，截圖均為實際遊戲。
+
+本地 Web 結果已完成：連鎖樹 editor-only 與背包回歸各自的橫向 1180×820、直向 820×1180 均通過。短橫向實際觸控拖曳可移動樹，返回後可正常選節點；直向樹放得下時不強迫位移，但拖曳仍不誤選。裝備、連線與選取不被拖曳改變；背包拖曳沒有改變背後 Slot 2 的座標。後續分類、取消、替換與施法仍通過，無 pageerror 或引擎錯誤。來源 59e5b91。
+
+獨立交付：`dist/SpiritGuardian-Godot-TreeTouch-2026-11-25.zip`，來源 `59e5b91976d4097523c2a4bbfe08e51c0e027fe1`；大小與 SHA256 見 project-zip.json。已測 CRC、乾淨解壓匯入及啟動 600 幀，不把啟動檢查冒充完整戰局。
+
+本批遠端局部 [GitHub Actions 45544797880](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45544797880) 的 plan／validate-build 已成功；編寫本段時兩份瀏覽器測試仍在執行，不能當成遠端全數通過。遠端保留原本短戰鬥流程，本地樹檢查則明確使用 editor-only。

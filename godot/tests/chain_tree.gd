@@ -28,5 +28,29 @@ func run() -> void:
   for j in range(i+1,10):
    if view.centers[i].distance_to(view.centers[j])<92:unique=false
  check(unique,"disconnected components and empty slots keep distinct hit areas")
- view.queue_free();model.queue_free();await process_frame
+ var scroll:=ScrollContainer.new();scroll.size=Vector2(1180,360);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;root.add_child(scroll)
+ view.reparent(scroll);view.custom_minimum_size.x=1120
+ await process_frame;await process_frame
+ var slots_before: Array=model.slots.duplicate();var edges_before: Array=model.edges.duplicate(true);var rng_before: int=model.rng.state
+ var touch:=InputEventScreenTouch.new();touch.index=0;touch.pressed=true;touch.position=view.nodes[0].get_global_rect().get_center();view._input(touch)
+ var drag:=InputEventScreenDrag.new();drag.index=0;drag.position=touch.position+Vector2(0,-5);drag.relative=Vector2(0,-5);view._input(drag)
+ check(not view.dragging_tree and scroll.scroll_vertical==0,"small movement preserves node tapping")
+ drag.index=1;drag.position=touch.position+Vector2(0,-70);drag.relative=Vector2(0,-70);view._input(drag)
+ check(scroll.scroll_vertical==0,"second finger cannot take over tree scrolling")
+ drag.index=0;view._input(drag)
+ check(view.dragging_tree and scroll.scroll_vertical>0 and hit==[3],"vertical drag scrolls the containing panel without selecting a node")
+ touch.pressed=false;view._input(touch)
+ check(view.drag_finger== -1 and not view.dragging_tree,"releasing touch ends tree scrolling")
+ check(model.slots==slots_before and model.edges==edges_before and model.rng.state==rng_before,"tree scrolling preserves equipment, graph and RNG")
+ var overlay:=PanelContainer.new();overlay.size=Vector2(1180,360);root.add_child(overlay)
+ # Put both under a Control so normal sibling modal layering applies.
+ var host:=Control.new();host.size=Vector2(1280,720);root.add_child(host);scroll.reparent(host);overlay.reparent(host)
+ scroll.scroll_vertical=0;await process_frame
+ touch.pressed=true;touch.position=view.nodes[0].get_global_rect().get_center();view._input(touch);view._input(drag)
+ check(view.drag_finger== -1 and scroll.scroll_vertical==0,"blocking modal overlay prevents dragging the tree behind it")
+ overlay.hide();view._input(touch);view.hide()
+ check(view.drag_finger== -1,"hiding tree cancels pending gesture")
+ view.show();view._input(touch);view.rebuild(model,0)
+ check(view.drag_finger== -1,"rebuilding tree clears any stale touch gesture")
+ host.queue_free();model.queue_free();await process_frame
  print("TREE_RESULT "+JSON.stringify({"checks":checks,"failures":failures}));quit(1 if failures.size() else 0)

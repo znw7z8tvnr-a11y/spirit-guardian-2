@@ -6,7 +6,11 @@ var model: Node
 var selected:=0
 var nodes: Array=[]
 var centers: Dictionary={}
+var drag_finger:=-1
+var drag_origin:=Vector2.ZERO
+var dragging_tree:=false
 func rebuild(chain: Node, selection: int) -> void:
+ reset_drag()
  model=chain;selected=selection
  for child in get_children():remove_child(child);child.queue_free()
  nodes=[];centers={}
@@ -62,3 +66,43 @@ func _draw() -> void:
   var direction: Vector2=(b-a).normalized();var start: Vector2=a+direction*48;var end: Vector2=b-direction*50
   draw_line(start,end,Color("193f49"),12,true);draw_line(start,end,Color("69e8c3"),4,true)
   draw_colored_polygon(PackedVector2Array([end,end-direction*16+direction.orthogonal()*7,end-direction*16-direction.orthogonal()*7]),Color("a7ffe2"))
+
+func _ready() -> void:
+ visibility_changed.connect(func():
+  if not is_visible_in_tree():reset_drag()
+ )
+func reset_drag() -> void:
+ drag_finger=-1;dragging_tree=false
+func scroll_owner() -> ScrollContainer:
+ var ancestor:=get_parent()
+ while ancestor!=null:
+  if ancestor is ScrollContainer:return ancestor
+  ancestor=ancestor.get_parent()
+ return null
+func touch_area_contains(point: Vector2,scroll: ScrollContainer) -> bool:
+ if not get_global_rect().has_point(point) or not scroll.get_global_rect().has_point(point):return false
+ # A later blocking sibling on any ancestor branch can cover this view.
+ var branch: Node=self
+ while branch.get_parent() is Control:
+  for sibling in branch.get_parent().get_children().slice(branch.get_index()+1):
+   if sibling is Control and sibling.is_visible_in_tree() and sibling.mouse_filter==Control.MOUSE_FILTER_STOP and sibling.get_global_rect().has_point(point):return false
+  branch=branch.get_parent()
+ return true
+func _input(event: InputEvent) -> void:
+ if not is_visible_in_tree():return
+ var scroll:=scroll_owner()
+ if scroll==null:return
+ if event is InputEventScreenTouch:
+  if event.pressed:
+   if drag_finger<0 and touch_area_contains(event.position,scroll):
+    drag_finger=event.index;drag_origin=event.position;dragging_tree=false
+  elif event.index==drag_finger:
+   if dragging_tree:get_viewport().set_input_as_handled()
+   reset_drag()
+ elif event is InputEventScreenDrag and event.index==drag_finger:
+  if dragging_tree or absf(event.position.y-drag_origin.y)>12.0:
+   if not dragging_tree:
+    dragging_tree=true
+    for button in nodes:button.notification(Control.NOTIFICATION_SCROLL_BEGIN)
+   scroll.scroll_vertical-=roundi(event.relative.y)
+   get_viewport().set_input_as_handled()

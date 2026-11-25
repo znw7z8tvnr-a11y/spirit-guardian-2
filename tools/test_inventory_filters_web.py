@@ -36,6 +36,7 @@ async def main():
      await cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]});await page.wait_for_timeout(600)
      after_scroll=await state()
      assert after_scroll['buttons']['Item 0'][1]<before_scroll['buttons']['Item 0'][1],(before_scroll['buttons']['Item 0'],after_scroll['buttons']['Item 0'])
+     assert before_scroll['buttons']['Slot 2']==after_scroll['buttons']['Slot 2'], 'inventory gesture moved underlying tree'
      for key in ['InventoryApply','InventoryClose','InventoryFilter skill']:assert before_scroll['buttons'][key]==after_scroll['buttons'][key],key
      assert after_scroll['slots']==training['slots'] and after_scroll['item_count']==32 and after_scroll['candidate']==before_scroll['candidate']
      scroll_probe={'before':before_scroll,'after':after_scroll,'input':'Chromium CDP touch drag; not Safari hardware'}

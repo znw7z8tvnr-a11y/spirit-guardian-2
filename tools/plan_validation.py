@@ -4,6 +4,7 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 BROWSERS=[pathlib.Path(p).name for p in json.loads((ROOT/'tools/validation_suites.json').read_text())]
 # Only isolated helpers have narrow dependency rules. Shared or unknown game code expands to full.
 RULES={
+ 'tree_view.gd':(['tree','inventory','inventoryfilters','touch'],['test_chain_lab_web.py','test_inventory_filters_web.py']),
  'checkpoint_view.gd':(['checkpoint','touch'],['test_checkpoint_web.py']),
  'reward_view.gd':(['rewardinput','reroll','rewards','checkpoint','touch'],['test_reward_reroll_web.py']),
  'reward_reroll.gd':(['reroll','rewards','checkpoint'],['test_reward_reroll_web.py','test_checkpoint_web.py']),
@@ -18,6 +19,8 @@ def select(paths,profile):
   name=pathlib.PurePosixPath(path).name
   if path == 'godot/experiments/chain_lab/'+name and name in RULES:
    n,b=RULES[name];native.update(n);browsers.update(b);reasons.append(f'{path}: isolated helper dependency rule')
+  elif path=='godot/tests/chain_tree.gd':
+   n,b=RULES['tree_view.gd'];native.update(n);browsers.update(b);reasons.append(f'{path}: tree touch regression suite')
   elif path=='godot/tests/enemy_readability.gd':
    n,b=RULES['enemy_presentation.gd'];native.update(n);browsers.update(b);reasons.append(f'{path}: enemy presentation regression suite')
   elif path=='godot/tests/checkpoint.gd':

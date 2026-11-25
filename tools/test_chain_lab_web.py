@@ -3,7 +3,7 @@ import argparse,asyncio,functools,http.server,json,os,pathlib,threading
 from playwright.async_api import async_playwright
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 REPORT=ROOT/'docs/eight-spells';REPORT.mkdir(parents=True,exist_ok=True)
-parser=argparse.ArgumentParser();parser.add_argument('--directory',default=str(ROOT/'godot/export/lab'));parser.add_argument('--entry',default='/');parser.add_argument('--editor-only',action='store_true');args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--directory',default=str(ROOT/'godot/export/lab'));parser.add_argument('--entry',default='/');parser.add_argument('--editor-only',action='store_true');parser.add_argument('--report-dir',type=pathlib.Path,default=REPORT);args=parser.parse_args();REPORT=args.report_dir;REPORT.mkdir(parents=True,exist_ok=True)
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=args.directory))
 threading.Thread(target=server.serve_forever,daemon=True).start()
 async def main():
@@ -22,9 +22,26 @@ async def main():
     s=await state();rect=await page.locator('#canvas').bounding_box();x,y,w,h=s['buttons'][key];vw,vh=s['viewport']
     await page.touchscreen.tap(rect['x']+x/vw*rect['width'],rect['y']+y/vh*rect['height'])
     await page.wait_for_timeout(650)
+   async def swipe_slot(key,dy):
+    s=await state();rect=await page.locator('#canvas').bounding_box();x,y,w,h=s['buttons'][key];vw,vh=s['viewport'];x=rect['x']+x/vw*rect['width'];y=rect['y']+y/vh*rect['height']
+    assert rect['y']<y+dy<rect['y']+rect['height'],(key,y,dy,rect)
+    cdp=await page.context.new_cdp_session(page)
+    await cdp.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':x,'y':y}]})
+    for step in range(1,11):
+     await cdp.send('Input.dispatchTouchEvent',{'type':'touchMove','touchPoints':[{'x':x,'y':y+dy*step/10}]});await page.wait_for_timeout(25)
+    await cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]});await page.wait_for_timeout(500);await cdp.detach()
    initial=await state();assert initial['capacity']==10 and initial['slots']==[0]+[-1]*9 and initial['arrange_disabled']
    await tap('Kit');s=await state();assert s['kit'] and s['edit_open'] and len(s['edges'])==7
    await page.screenshot(path=str(REPORT/f'lab-editor-{name}.png'))
+   before_pan=await state();await swipe_slot('Slot 2',-140);panned=await state()
+   assert panned['selected']==before_pan['selected']
+   assert panned['buttons']['Slot 2'][1]<=before_pan['buttons']['Slot 2'][1]
+   if name=='landscape':assert panned['buttons']['Slot 2'][1]<before_pan['buttons']['Slot 2'][1]
+   assert panned['slots']==before_pan['slots'] and panned['edges']==before_pan['edges']
+   await page.screenshot(path=str(REPORT/f'tree-panned-{name}.png'))
+   await swipe_slot('Slot 2',140);restored_pan=await state()
+   assert abs(restored_pan['buttons']['Slot 2'][1]-before_pan['buttons']['Slot 2'][1])<=3
+   assert restored_pan['selected']==before_pan['selected']
    await tap('Slot 2');assert (await state())['selected']==2
    await tap('Inventory');assert (await state())['inventory_open']
    before_inventory=(await state())['slots']
@@ -43,7 +60,7 @@ async def main():
    if args.editor_only:
     engine_errors=[m for m in logs if 'SCRIPT ERROR' in m['text'] or m['text'].startswith('ERROR:')]
     assert not errors and not engine_errors,(errors,engine_errors)
-    results[name]={'passed':['graph selection','illegal link rejection','unique inventory arrangement','icon bag candidate preview and apply','cancel preserves gear','reject duplicate and fork downgrade','close editor'],'pageerrors':errors,'engine_errors':engine_errors}
+    results[name]={'tree_pan':{'before':before_pan,'panned':panned,'restored':restored_pan},'passed':['touch drag preserves selected node and graph','overflowing landscape scrolls; roomy portrait may remain stationary','graph selection','illegal link rejection','unique inventory arrangement','icon bag candidate preview and apply','cancel preserves gear','reject duplicate and fork downgrade','close editor'],'pageerrors':errors,'engine_errors':engine_errors}
     print(name,'editor PASS',flush=True);await page.close();continue
    # Reapply the known lab fixture, not a recipe-based automatic unlock.
    await tap('Kit');await tap('Done')
@@ -62,7 +79,7 @@ async def main():
    assert all(v['kind']!='hit' or v['target']!=0 for v in final['trace'])
    engine_errors=[m for m in logs if 'SCRIPT ERROR' in m['text'] or m['text'].startswith('ERROR:')]
    assert not errors and not engine_errors,(errors,engine_errors)
-   results[name]={'viewport':size,'initial':initial,'final':final,'pageerrors':errors,'engine_errors':engine_errors,'passed':['lab feature-scene export','arcane-only ten-slot start','unknown recipe gate','training kit inventory','icon bag preview, confirm and cancel','no duplicate equipment or lost forks','slot selection','reject skill-to-skill link','legal unique-item random arrangement','close editor and resume','tempo presets','pause/resume','actual chained impacts in battle','living-target jumps','visible empty continuations','no phantom hits on null target'],'limit':'Linux Chromium software WebGL touch emulation; no Safari or iPad performance claim'}
+   results[name]={'viewport':size,'initial':initial,'tree_pan':{'before':before_pan,'panned':panned,'restored':restored_pan},'final':final,'pageerrors':errors,'engine_errors':engine_errors,'passed':['lab feature-scene export','arcane-only ten-slot start','unknown recipe gate','training kit inventory','icon bag preview, confirm and cancel','no duplicate equipment or lost forks','slot selection','reject skill-to-skill link','legal unique-item random arrangement','close editor and resume','tempo presets','pause/resume','actual chained impacts in battle','living-target jumps','visible empty continuations','no phantom hits on null target'],'limit':'Linux Chromium software WebGL touch emulation; no Safari or iPad performance claim'}
    print(name,'PASS',{'casts':final['casts'],'wave':final['wave']},flush=True)
    await page.close()
   await browser.close()

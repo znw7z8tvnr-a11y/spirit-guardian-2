@@ -66,21 +66,32 @@ func stats(item: Dictionary) -> String:
 func open(chain: Node, index: int, boost: float) -> void:
  model=chain;slot=index;attack_boost=boost
  heading.text="本局背包｜替換第 %d 格｜點物品預覽，再確認" % (slot+1)
+ drag_finger=-1;dragging_items=false
  for key in cards.keys():
-  if str(key).begins_with("Item "):cards.erase(key)
- for child in entries.get_children():entries.remove_child(child);child.queue_free()
+  if str(key).begins_with("Item ") and int(str(key).trim_prefix("Item "))>=model.items.size():
+   var removed: Button=cards[key];cards.erase(key);entries.remove_child(removed);removed.queue_free()
  for id in range(-1,model.items.size()):
   var item: Dictionary={} if id<0 else model.items[id]
-  var b:=Button.new();b.custom_minimum_size=Vector2(220,126);entries.add_child(b);cards["Item %d" % id]=b
+  var key: String="Item %d" % id
+  var b: Button=cards.get(key)
+  if not is_instance_valid(b):
+   b=Button.new();b.custom_minimum_size=Vector2(220,126);entries.add_child(b);cards[key]=b
+   b.add_theme_font_size_override("font_size",19)
+   if id>=0:
+    var icon:=TextureRect.new();icon.mouse_filter=Control.MOUSE_FILTER_IGNORE;icon.position=Vector2(82,4);icon.size=Vector2(56,56);icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;b.add_child(icon)
+   b.pressed.connect(func():select_item(id))
+  if b.button_pressed:b.notification(Control.NOTIFICATION_SCROLL_BEGIN)
   var owner: int=model.slots.find(id) if id>=0 else -1
   var state: String="清空" if id<0 else ("目前此格" if owner==slot else ("第 %d 格使用中" % (owner+1) if owner>=0 else "背包可用"))
-  b.text="\n\n%s\n%s" % [title(item),state]
-  b.add_theme_font_size_override("font_size",19)
+  var text: String="\n\n%s\n%s" % [title(item),state]
+  if b.text!=text:b.text=text
   if id>=0:
-   var art:=TextureRect.new();art.mouse_filter=Control.MOUSE_FILTER_IGNORE;art.position=Vector2(82,4);art.size=Vector2(56,56);art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-   art.texture=preload("res://experiments/chain_lab/gem_rules.gd").texture(str(item.key)) if item.kind=="gem" else Effects.texture(str(item.key));b.add_child(art)
-   if item.kind=="gem":art.modulate=preload("res://experiments/chain_lab/gem_rules.gd").tint(str(item.key))
-  b.pressed.connect(func():select_item(id))
+   var art: TextureRect=b.get_child(0)
+   var appearance: Array=[item.kind,item.key]
+   if art.get_meta("appearance",[])!=appearance:
+    art.texture=preload("res://experiments/chain_lab/gem_rules.gd").texture(str(item.key)) if item.kind=="gem" else Effects.texture(str(item.key))
+    art.modulate=preload("res://experiments/chain_lab/gem_rules.gd").tint(str(item.key)) if item.kind=="gem" else Color.WHITE
+    art.set_meta("appearance",appearance)
  candidate=int(model.slots[slot]);set_filter("all",false);show()
 func select_item(id: int) -> void:
  if id not in visible_item_ids():return

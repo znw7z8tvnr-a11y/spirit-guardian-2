@@ -10,6 +10,14 @@ func run() -> void:
  game.set_physics_process(false);game.chain.load_kit();await process_frame
  game.selected=2;game.inventory.open(game.chain,2,1.5)
  check(game.inventory.cards.size()==15,"all ten physical items plus clear, two actions and two page controls are visible")
+ var card_ids: Array=game.inventory.entries.get_children().map(func(card):return card.get_instance_id())
+ var icon_ids: Array=game.inventory.entries.get_children().map(func(card):return card.get_children().map(func(icon):return icon.get_instance_id()))
+ for repetition in range(20):game.inventory.open(game.chain,2,1.5)
+ check(game.inventory.entries.get_children().map(func(card):return card.get_instance_id())==card_ids and game.inventory.entries.get_children().map(func(card):return card.get_children().map(func(icon):return icon.get_instance_id()))==icon_ids,"reopening reuses physical buttons and icon nodes")
+ check(game.inventory.cards["Item 8"].get_signal_connection_list("pressed").size()==1,"reopening never duplicates card callbacks")
+ game.inventory.open(game.chain,0,1.0)
+ check("目前此格" in game.inventory.cards["Item 0"].text and "第 3 格使用中" in game.inventory.cards["Item 2"].text,"reused cards reflect the newly edited slot")
+ game.inventory.open(game.chain,2,1.5)
  var before: Array=game.chain.slots.duplicate();var edges: Array=game.chain.edges.duplicate(true)
  game.inventory.select_item(8)
  check(game.chain.slots==before and game.chain.edges==edges,"candidate preview does not change inventory or links")
@@ -18,7 +26,9 @@ func run() -> void:
  game.inventory.apply.pressed.emit();await process_frame
  check(game.chain.slots[2]==8 and not game.inventory.visible,"confirm equips the selected physical item and closes drawer")
  check(not game.chain.slots.has(2) and game.chain.edges==edges,"old item returns to bag while compatible links remain")
- game.inventory.open(game.chain,2,1.0);game.inventory.select_item(3)
+ game.inventory.open(game.chain,2,1.0)
+ check("目前此格" in game.inventory.cards["Item 8"].text and "背包可用" in game.inventory.cards["Item 2"].text and game.inventory.entries.get_children().map(func(card):return card.get_instance_id())==card_ids,"equipment changes update ownership without rebuilding the bag")
+ game.inventory.select_item(3)
  check(game.inventory.apply.disabled and game.inventory.detail.text.contains("不能重複"),"an item equipped elsewhere is viewable but cannot be duplicated")
  game.inventory.open(game.chain,1,1.0);game.inventory.select_item(9)
  check(game.inventory.apply.disabled and game.inventory.detail.text.contains("分岔"),"lower gem cannot silently remove an existing fork")
@@ -57,6 +67,14 @@ func run() -> void:
  check(game.inventory.drag_finger== -1 and not game.inventory.dragging_items,"touch release ends inventory drag ownership")
  game.inventory.show_page(1);await process_frame
  check(game.inventory.item_scroll.scroll_vertical==0,"changing inventory pages resets item scroll to the top")
+ var existing_cards: Array=game.inventory.entries.get_children().map(func(card):return card.get_instance_id())
+ var added_id: int=game.chain.items.size();game.chain.items.append({"id":added_id,"kind":"gem","key":"relay","level":3});game.inventory.open(game.chain,0,1.0)
+ check(game.inventory.entries.get_children().map(func(card):return card.get_instance_id()).slice(0,existing_cards.size())==existing_cards and game.inventory.entries.get_child_count()==existing_cards.size()+1,"new loot adds one card and retains all existing cards")
+ var added: Button=game.inventory.cards["Item %d" % added_id];var art: TextureRect=added.get_child(0);var gem_texture: Texture2D=art.texture
+ game.chain.items[added_id]={"id":added_id,"kind":"skill","key":"fire","level":2};game.inventory.open(game.chain,0,1.0)
+ check(game.inventory.cards["Item %d" % added_id]==added and added.get_child(0)==art and art.texture!=gem_texture and art.modulate==Color.WHITE and "2 級" in added.text,"reused card updates type, texture, tint and level")
+ game.chain.items.pop_back();game.inventory.open(game.chain,0,1.0);added.pressed.emit()
+ check(not game.inventory.cards.has("Item %d" % added_id) and game.inventory.entries.get_child_count()==existing_cards.size() and game.inventory.candidate==0,"removed loot releases its card and stale input cannot select it")
  var snapshot: Array=game.chain.slots.duplicate();game.chain.pending=[{"sentinel":true}]
  check(not game.chain.equipment_error(1,9).is_empty() and game.chain.slots==snapshot and game.chain.pending.size()==1,"validation never mutates graph or pending attacks")
  check(not game.chain.equip(1,9) and game.chain.slots==snapshot and game.chain.pending.size()==1,"rejected application preserves pending chain")

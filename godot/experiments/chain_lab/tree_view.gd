@@ -6,11 +6,16 @@ var model: Node
 var selected:=0
 var nodes: Array=[]
 var centers: Dictionary={}
+var cached_visual: Array=[]
 var drag_finger:=-1
 var drag_origin:=Vector2.ZERO
 var dragging_tree:=false
 func rebuild(chain: Node, selection: int) -> void:
  reset_drag()
+ var visual:=visual_signature(chain)
+ if is_instance_valid(model) and model==chain and cached_visual==visual and nodes.size()==10 and nodes.all(func(button):return is_instance_valid(button) and not button.is_queued_for_deletion() and button.get_parent()==self):
+  selected=selection;refresh_selection_styles();queue_redraw();return
+ cached_visual=visual
  model=chain;selected=selection
  for child in get_children():remove_child(child);child.queue_free()
  nodes=[];centers={}
@@ -49,6 +54,19 @@ func rebuild(chain: Node, selection: int) -> void:
   caption.add_theme_font_size_override("font_size",18);caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;caption.position=Vector2(0,66);caption.size=Vector2(92,24);b.add_child(caption)
   b.pressed.connect(func():slot_selected.emit(i))
  queue_redraw()
+func visual_signature(chain: Node) -> Array:
+ var equipped: Array=[]
+ for i in range(10):
+  var item: Dictionary=chain.item_at(i)
+  equipped.append([item.get("id",-1),item.get("kind",""),item.get("key",""),int(item.get("level",0))])
+ return [chain.slots.duplicate(),chain.edges.duplicate(true),equipped]
+func refresh_selection_styles() -> void:
+ for i in nodes.size():
+  var style: StyleBoxFlat=nodes[i].get_theme_stylebox("normal")
+  var width:=4 if i==selected else 2
+  var color:=Color("ffe9a2") if i==selected else Color("5c94b7")
+  if style.border_width_left!=width or style.border_color!=color:
+   style.border_color=color;style.set_border_width_all(width);nodes[i].queue_redraw()
 func place_subtree(index: int, level: int, cursor: Array, depth: Dictionary, lane: Dictionary) -> void:
  depth[index]=level
  var children: Array=[]

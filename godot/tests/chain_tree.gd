@@ -17,11 +17,24 @@ func run() -> void:
  check(view.centers[2].y!=view.centers[3].y,"gem forks occupy visibly separate lanes")
  var hit: Array=[];view.slot_selected.connect(func(index: int):hit.append(index))
  view.nodes[3].pressed.emit();check(hit==[3],"touch node emits the exact physical slot")
+ var node_ids: Array=view.nodes.map(func(button):return button.get_instance_id())
+ var child_ids: Array=view.nodes.map(func(button):return button.get_children().map(func(child):return child.get_instance_id()))
  var inventory: Array=model.slots.duplicate();view.rebuild(model,7)
+ check(view.nodes.map(func(button):return button.get_instance_id())==node_ids and view.nodes.map(func(button):return button.get_children().map(func(child):return child.get_instance_id()))==child_ids,"selection reuses buttons, textures and captions")
+ check(view.nodes[7].get_theme_stylebox("normal").border_width_left==4 and view.nodes[3].get_theme_stylebox("normal").border_width_left==2,"old and new selection highlights update")
+ var geometry: Dictionary=view.centers.duplicate(true)
+ for iteration in range(200):view.rebuild(model,7)
+ check(view.nodes.map(func(button):return button.get_instance_id())==node_ids and view.centers==geometry and view.get_child_count()==10,"unchanged refreshes retain controls and layout without growth")
+ model.items.append({"id":model.items.size(),"kind":"skill","key":"fire","level":1});view.rebuild(model,7)
+ check(view.nodes.map(func(button):return button.get_instance_id())==node_ids,"unequipped loot does not invalidate unchanged tree visuals")
+ model.items[int(model.slots[0])].level+=1;view.rebuild(model,7)
+ check(view.nodes.map(func(button):return button.get_instance_id())!=node_ids and view.nodes[0].get_children().any(func(child):return child is Label and child.text.contains("L2")),"equipped level changes rebuild actual caption")
+ node_ids=view.nodes.map(func(button):return button.get_instance_id())
  check(model.slots==inventory,"selection redraw does not change equipment")
  for i in range(10):
   for j in range(i+1,10):check(view.centers[i].distance_to(view.centers[j])>=92,"node hit areas do not overlap")
  model.edges.clear();view.rebuild(model,0)
+ check(view.nodes.map(func(button):return button.get_instance_id())!=node_ids,"edge changes invalidate cached layout")
  check(view.custom_minimum_size.y>720,"disconnected inventory grows scroll area instead of compressing hit areas")
  var unique:=true
  for i in range(10):
@@ -52,5 +65,10 @@ func run() -> void:
  check(view.drag_finger== -1,"hiding tree cancels pending gesture")
  view.show();view._input(touch);view.rebuild(model,0)
  check(view.drag_finger== -1,"rebuilding tree clears any stale touch gesture")
- host.queue_free();model.queue_free();await process_frame
+ node_ids=view.nodes.map(func(button):return button.get_instance_id())
+ var other=load("res://experiments/chain_lab/chain.gd").new();root.add_child(other);other.items=model.items.duplicate(true);other.slots=model.slots.duplicate();other.edges=model.edges.duplicate(true)
+ view.rebuild(other,0)
+ check(view.model==other and view.nodes.map(func(button):return button.get_instance_id())!=node_ids,"new model owner invalidates cache even for matching graph data")
+ view.nodes[9].pressed.emit();check(hit==[3,9],"cached refreshes do not duplicate signal connections")
+ host.queue_free();model.queue_free();other.queue_free();await process_frame
  print("TREE_RESULT "+JSON.stringify({"checks":checks,"failures":failures}));quit(1 if failures.size() else 0)

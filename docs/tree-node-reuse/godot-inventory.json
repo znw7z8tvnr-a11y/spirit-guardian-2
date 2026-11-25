@@ -1,0 +1,30 @@
+{
+  "checks": [
+    "all ten physical items plus clear, two actions and two page controls are visible",
+    "candidate preview does not change inventory or links",
+    "level-three fire upgrade can be compared before applying",
+    "preview uses the same level and meat power formula as direct damage",
+    "confirm equips the selected physical item and closes drawer",
+    "old item returns to bag while compatible links remain",
+    "an item equipped elsewhere is viewable but cannot be duplicated",
+    "lower gem cannot silently remove an existing fork",
+    "root skill cannot be cleared",
+    "returned item can be selected for an empty slot",
+    "closing preview cancels without consuming the item",
+    "closing the drawer clears the candidate and disables confirmation",
+    "late confirmation after closing cannot equip the cancelled candidate",
+    "reopening previews the actual empty slot rather than the cancelled item",
+    "programmatic hide also cancels preview and rejects a stale confirm",
+    "short drawer scrolls only its overflowing item grid",
+    "return and confirmation remain fixed while inventory items scroll",
+    "item cards actually move inside the scroll region",
+    "a second finger cannot take over the active inventory drag",
+    "small touch movement remains a tap without scrolling",
+    "vertical touch drag moves overflowing items after the deadzone",
+    "touch release ends inventory drag ownership",
+    "changing inventory pages resets item scroll to the top",
+    "validation never mutates graph or pending attacks",
+    "rejected application preserves pending chain"
+  ],
+  "failures": []
+}

@@ -2,6 +2,8 @@
 import unittest
 from plan_validation import select,BROWSERS,ROOT,request_selection
 class SelectionTests(unittest.TestCase):
+ def test_reward_input_selection(self):
+  r=select(['godot/experiments/chain_lab/reward_view.gd','godot/tests/reward_input.gd'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('rewardinput',r['native']);self.assertIn('test_reward_reroll_web.py',r['browsers'])
  def test_full(self):
   r=select([], 'full');self.assertEqual(r['native'],'');self.assertEqual(set(r['browsers']),set(BROWSERS))
  def test_reroll(self):

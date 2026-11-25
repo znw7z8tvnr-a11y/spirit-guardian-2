@@ -23,7 +23,12 @@ async def main():
     await wait('window.SG_LAB_STATE!==undefined');await page.wait_for_timeout(650)
     for speed in [2,4,8]:await tap('Speed');assert (await state())['speed']==speed
     await wait('window.SG_LAB_STATE.wave===3&&window.SG_LAB_STATE.reward_pending===1&&window.SG_LAB_STATE.checkpoint_wave===3')
-    before=await state();await tap('RewardRefresh');after=await state()
+    before=await state()
+    rect=await page.locator('#canvas').bounding_box();vw,vh=before['viewport']
+    for key in ['RewardRefresh','Reward 0']:
+     x,y,w,h=before['buttons'][key]
+     await page.touchscreen.tap(rect['x']+x/vw*rect['width'],rect['y']+y/vh*rect['height'])
+    await page.wait_for_timeout(350);after=await state()
     assert signature(before['reward_offers'])!=signature(after['reward_offers']) and after['reward_refreshes']==before['reward_refreshes']-1
     assert sorted(x['kind'] for x in after['reward_offers'])==['affix','gem','skill'] and next(x for x in after['reward_offers'] if x['kind']=='gem')['key']=='relay'
     assert after['item_count']==before['item_count']==1 and after['reward_pending']==1 and after['reward_granted']==0 and after['combat_seconds']==before['combat_seconds']

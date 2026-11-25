@@ -19,6 +19,17 @@ func run() -> void:
  var text:=View.summary(actors)
  check("靈彈 ×8" in text and "另 8 項蓄力" in text,"HUD accounts for both simultaneous attacks and support without losing fourth category")
  check(View.seconds(0.001)=="0.1" and View.seconds(0.71)=="0.8","active warning never formats as zero seconds")
+ var urgent:=View.threats(actors)
+ var candidates: Array=View.candidates_for(actors,urgent)
+ check(candidates.map(func(row):return row.id)==legacy_candidates(actors,urgent).map(func(row):return row.id),"indexed candidates preserve legacy warning and idle actor order")
+ check(candidates.filter(func(row):return row.id==actors[2].entity_id).size()==1,"simultaneous warnings still use the first urgent entry for one physical enemy")
+ var crowded: Array=[]
+ for repeat_index in range(32):crowded.append_array(actors)
+ crowded.append(null)
+ var crowded_urgent:=View.threats(crowded)
+ var legacy: Array=legacy_candidates(crowded,crowded_urgent)
+ check(View.candidates_for(crowded,crowded_urgent).map(func(row):return [row.id,row.key,row.left])==legacy.map(func(row):return [row.id,row.key,row.left]),"1280 actor references plus invalid entry preserve exact candidate identity, warning and time")
+ check(View.candidates_for([],[]).is_empty(),"empty battle has no stale candidate IDs")
  var overlay: Control=game.enemy_presentation
  for box in [Rect2(0,0,1280,720),Rect2(0,0,820,1180),Rect2(40,270,1200,260)]:
   overlay.update_actors(actors,box)
@@ -39,3 +50,14 @@ func run() -> void:
  dying.dead=true;var rows:=View.threats(actors);check(not rows.any(func(row):return row.id==dying.entity_id),"dead actor does not keep a warning")
  game.queue_free();await process_frame
  print("READABILITY_RESULT "+JSON.stringify({"checks":checks,"failures":failures}));quit(0 if failures.is_empty() else 1)
+
+func legacy_candidates(actors: Array,urgent: Array) -> Array:
+ # Frozen pre-optimization behavior: compare ordering, not implementation details.
+ var candidates: Array=[];var listed: Array=[]
+ for row in urgent:
+  if row.id not in listed:candidates.append(row);listed.append(row.id)
+ for e in actors:
+  if not is_instance_valid(e) or e.dead or not ("ranged_warning" in e) or e.kind not in [2,3,4]:continue
+  if urgent.any(func(row):return row.id==e.entity_id):continue
+  candidates.append({"id":e.entity_id,"key":"","left":0.0,"actor":e})
+ return candidates

@@ -31,6 +31,15 @@ static func summary(actors: Array) -> String:
  for key in order.slice(3):remaining+=int(groups[key].count)
  if remaining>0:parts.append("另 %d 項蓄力" % remaining)
  return "敵情："+("／".join(parts) if not parts.is_empty() else "警戒中")
+static func candidates_for(actors: Array,urgent: Array) -> Array:
+ var candidates: Array=[];var listed: Dictionary={}
+ for row in urgent:
+  if not listed.has(row.id):candidates.append(row);listed[row.id]=true
+ for e in actors:
+  if not is_instance_valid(e) or e.dead or not ("ranged_warning" in e) or e.kind not in [2,3,4]:continue
+  if listed.has(e.entity_id):continue
+  candidates.append({"id":e.entity_id,"key":"","left":0.0,"actor":e})
+ return candidates
 func _ready() -> void:
  mouse_filter=Control.MOUSE_FILTER_IGNORE
  for i in LIMIT:
@@ -39,13 +48,7 @@ func _ready() -> void:
 func update_actors(actors: Array,safe: Rect2) -> void:
  refreshes+=1;trials=0;scanned=actors.size();placed=[]
  for l in labels:l.hide()
- var urgent:=threats(actors);var candidates: Array=[];var listed: Array=[]
- for row in urgent:
-  if row.id not in listed:candidates.append(row);listed.append(row.id)
- for e in actors:
-  if not is_instance_valid(e) or e.dead or not ("ranged_warning" in e) or e.kind not in [2,3,4]:continue
-  if urgent.any(func(row):return row.id==e.entity_id):continue
-  candidates.append({"id":e.entity_id,"key":"","left":0.0,"actor":e})
+ var candidates:=candidates_for(actors,threats(actors))
  hidden_count=candidates.size()
  if safe.size.x<BOX.x or safe.size.y<BOX.y:queue_redraw();return
  var groups_shown: Dictionary={}

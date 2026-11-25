@@ -6,6 +6,8 @@ class SelectionTests(unittest.TestCase):
   r=select(['godot/experiments/chain_lab/reward_view.gd','godot/tests/reward_input.gd'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('rewardinput',r['native']);self.assertIn('test_reward_reroll_web.py',r['browsers'])
  def test_checkpoint_prompt_selection(self):
   r=select(['godot/experiments/chain_lab/checkpoint_view.gd','godot/tests/checkpoint.gd'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('checkpoint',r['native']);self.assertEqual(r['browsers'],['test_checkpoint_web.py'])
+ def test_enemy_presentation_selection(self):
+  r=select(['godot/experiments/chain_lab/enemy_presentation.gd','godot/tests/enemy_readability.gd'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('readability',r['native']);self.assertIn('test_enemy_readability_web.py',r['browsers']);self.assertNotIn('test_run_results_web.py',r['browsers'])
  def test_full(self):
   r=select([], 'full');self.assertEqual(r['native'],'');self.assertEqual(set(r['browsers']),set(BROWSERS))
  def test_reroll(self):

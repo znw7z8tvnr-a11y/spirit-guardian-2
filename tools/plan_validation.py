@@ -18,6 +18,8 @@ def select(paths,profile):
   name=pathlib.PurePosixPath(path).name
   if path == 'godot/experiments/chain_lab/'+name and name in RULES:
    n,b=RULES[name];native.update(n);browsers.update(b);reasons.append(f'{path}: isolated helper dependency rule')
+  elif path=='godot/tests/enemy_readability.gd':
+   n,b=RULES['enemy_presentation.gd'];native.update(n);browsers.update(b);reasons.append(f'{path}: enemy presentation regression suite')
   elif path=='godot/tests/checkpoint.gd':
    n,b=RULES['checkpoint_view.gd'];native.update(n);browsers.update(b);reasons.append(f'{path}: checkpoint UI regression suite')
   elif path=='godot/tests/reward_input.gd':

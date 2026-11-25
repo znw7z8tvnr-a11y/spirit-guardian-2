@@ -2,7 +2,7 @@
 import argparse,asyncio,functools,http.server,json,os,pathlib,threading
 from playwright.async_api import async_playwright
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-p=argparse.ArgumentParser();p.add_argument('--directory',default=str(ROOT/'godot/export/web'));p.add_argument('--report-dir',type=pathlib.Path,default=ROOT/'docs/audio-pool/browser');args=p.parse_args();args.report_dir.mkdir(parents=True,exist_ok=True)
+p=argparse.ArgumentParser();p.add_argument('--mode',choices=['m2','lab'],default='m2');p.add_argument('--directory');p.add_argument('--report-dir',type=pathlib.Path);args=p.parse_args();args.directory=args.directory or str(ROOT/('godot/export/lab' if args.mode=='lab' else 'godot/export/web'));args.report_dir=args.report_dir or ROOT/('docs/lab-audio/browser' if args.mode=='lab' else 'docs/audio-pool/browser');args.report_dir.mkdir(parents=True,exist_ok=True)
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=args.directory));threading.Thread(target=server.serve_forever,daemon=True).start()
 PROBE=r'''(() => {
  const p={maxAbs:0,samples:0,links:[],errors:[]};window.SG_AUDIO_PROBE=p;
@@ -30,8 +30,11 @@ async def main():
     context=await browser.new_context(viewport=size,has_touch=True,device_scale_factor=1);await context.add_init_script(PROBE);page=await context.new_page();errors=[];logs=[]
     page.on('pageerror',lambda e:errors.append(str(e)));page.on('console',lambda m:logs.append(m.text))
     await page.goto(f'http://127.0.0.1:{server.server_port}/index.html?debug=1')
-    await page.wait_for_function('window.SG_M1_STATE?.enemies>0',timeout=60000)
-    async def state():return await page.evaluate('window.SG_M1_STATE')
+    state_js='window.SG_LAB_STATE' if args.mode=='lab' else 'window.SG_M1_STATE'
+    audio_key='Audio' if args.mode=='lab' else 'Audio: off'
+    await page.wait_for_function(state_js+'?.enemies>0',timeout=60000)
+    if args.mode=='lab':await page.wait_for_function('window.SG_LAB_STATE?.buttons?.Audio!==undefined',timeout=15000)
+    async def state():return await page.evaluate(state_js)
     async def probe():return await page.evaluate('window.SG_AUDIO_PROBE.snapshot()')
     async def tap(key):
      s=await state();rect=await page.locator('#canvas').bounding_box();x,y,w,h=s['buttons'][key];vw,vh=s['viewport']
@@ -39,18 +42,22 @@ async def main():
      assert 0<=x-w/2<x+w/2<=vw+1 and 0<=y-h/2<y+h/2<=vh+1,(key,s['buttons'][key])
      await page.touchscreen.tap(rect['x']+x/vw*rect['width'],rect['y']+y/vh*rect['height']);await page.wait_for_timeout(500)
     await page.wait_for_timeout(1000);initial=await state();muted=await probe()
-    assert initial['labels']['Audio: off']=='音效：關' and muted['maxAbs']<=0.00001,muted
-    await tap('Audio: off');assert (await state())['labels']['Audio: off']=='音效：開'
+    assert muted['maxAbs']<=0.00001,muted
+    if args.mode=='m2':assert initial['labels'][audio_key]=='音效：關'
+    await tap(audio_key)
+    if args.mode=='m2':assert (await state())['labels'][audio_key]=='音效：開'
     await page.wait_for_function('window.SG_AUDIO_PROBE.maxAbs>0.00001',timeout=15000);playing=await probe();assert playing['analysers']>0 and not playing['errors'],playing
-    await tap('Ice');await page.wait_for_timeout(1500)
-    await tap('Audio: off');assert (await state())['labels']['Audio: off']=='音效：關'
+    if args.mode=='m2':await tap('Ice')
+    await page.wait_for_timeout(1500)
+    await tap(audio_key)
+    if args.mode=='m2':assert (await state())['labels'][audio_key]=='音效：關'
     await page.wait_for_timeout(400);await page.evaluate('window.SG_AUDIO_PROBE.reset()');await page.wait_for_timeout(1000);silent=await probe()
     assert silent['maxAbs']<=0.00001,silent
-    await tap('Audio: off');await page.wait_for_function('window.SG_AUDIO_PROBE.maxAbs>0.00001',timeout=15000);resumed=await probe()
+    await tap(audio_key);await page.wait_for_function('window.SG_AUDIO_PROBE.maxAbs>0.00001',timeout=15000);resumed=await probe()
     await page.screenshot(path=str(args.report_dir/f'audio-{name}.png'))
-    await tap('Audio: off')
+    await tap(audio_key)
     engine=[v for v in logs if 'SCRIPT ERROR' in v or v.startswith('ERROR:')];assert not errors and not engine,(errors,engine)
-    results[name]={'muted':muted,'playing':playing,'silent':silent,'resumed':resumed,'pageerrors':errors,'engine_errors':engine,'passed':['default muted UI','trusted touch enables audio','nonzero master output observed','muting returns output to silence after short existing tail','touch re-enable restores output','44 CSS pixel audio target'],'limit':'Web Audio analyser side-branch observes actual browser output; no game-state injection or autoplay-policy bypass, no human listening or iPad Safari claim. This is stable M2, not Lab audio integration.'}
+    results[name]={'entry':args.mode,'initial':initial,'muted':muted,'playing':playing,'silent':silent,'resumed':resumed,'pageerrors':errors,'engine_errors':engine,'passed':['default muted UI','trusted touch enables audio','nonzero master output observed','muting returns output to silence after short existing tail','touch re-enable restores output','44 CSS pixel audio target'],'limit':'Web Audio analyser side-branch observes actual browser output; no game-state injection or autoplay-policy bypass, no human listening or iPad Safari claim. Entry is recorded separately; temporary synthesized cues only, not human listening or iPad verification.'}
     print(name,'AUDIO PASS',flush=True);await context.close()
   finally:await browser.close();server.shutdown()
  (args.report_dir/'audio-web.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))

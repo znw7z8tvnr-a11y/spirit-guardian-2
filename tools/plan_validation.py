@@ -4,6 +4,7 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 BROWSERS=[pathlib.Path(p).name for p in json.loads((ROOT/'tools/validation_suites.json').read_text())]
 # Only isolated helpers have narrow dependency rules. Shared or unknown game code expands to full.
 RULES={
+ 'audio_controller.gd':(['labaudio','audio','chainlab','checkpoint','inventoryfilters','touch'],['test_lab_audio_web.py','test_inventory_filters_web.py','test_checkpoint_web.py']),
  'tree_view.gd':(['tree','inventory','inventoryfilters','touch'],['test_chain_lab_web.py','test_inventory_filters_web.py']),
  'checkpoint_view.gd':(['checkpoint','touch'],['test_checkpoint_web.py']),
  'reward_view.gd':(['rewardinput','reroll','rewards','checkpoint','touch'],['test_reward_reroll_web.py']),
@@ -19,6 +20,8 @@ def select(paths,profile):
   name=pathlib.PurePosixPath(path).name
   if path == 'godot/experiments/chain_lab/'+name and name in RULES:
    n,b=RULES[name];native.update(n);browsers.update(b);reasons.append(f'{path}: isolated helper dependency rule')
+  elif path in ('godot/experiments/chain_lab/audio_controller.gd.uid','godot/tests/lab_audio.gd','godot/tests/lab_audio.gd.uid'):
+   n,b=RULES['audio_controller.gd'];native.update(n);browsers.update(b);reasons.append(f'{path}: Lab audio observer regression')
   elif path in ('godot/modules/audio/audio.gd','godot/tests/audio_pool.gd','godot/tests/audio_pool.gd.uid'):
    native.update(['audio','integration','modules','localization','touch']);browsers.add('test_audio_web.py');reasons.append(f'{path}: shared M2 audio module')
   elif path=='godot/tests/chain_tree.gd':

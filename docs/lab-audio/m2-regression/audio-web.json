@@ -1,0 +1,430 @@
+{
+  "landscape": {
+    "entry": "m2",
+    "initial": {
+      "buttons": {
+        "1x": [
+          570,
+          829,
+          136,
+          72
+        ],
+        "Arcane": [
+          570,
+          753,
+          136,
+          72
+        ],
+        "Audio: off": [
+          640,
+          640,
+          136,
+          72
+        ],
+        "Beam": [
+          1130,
+          753,
+          136,
+          72
+        ],
+        "Chain": [
+          500,
+          640,
+          136,
+          72
+        ],
+        "Fire": [
+          150,
+          753,
+          136,
+          72
+        ],
+        "Ice": [
+          290,
+          753,
+          136,
+          72
+        ],
+        "Lightning": [
+          430,
+          753,
+          136,
+          72
+        ],
+        "Meteor": [
+          850,
+          753,
+          136,
+          72
+        ],
+        "Next wave": [
+          710,
+          829,
+          136,
+          72
+        ],
+        "Nova": [
+          990,
+          753,
+          136,
+          72
+        ],
+        "Pause": [
+          430,
+          829,
+          136,
+          72
+        ],
+        "Performance": [
+          780,
+          640,
+          136,
+          72
+        ],
+        "Poison": [
+          710,
+          753,
+          136,
+          72
+        ],
+        "Restart": [
+          850,
+          829,
+          136,
+          72
+        ]
+      },
+      "chain_casts": 2,
+      "damage": 123.5,
+      "edges": [
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 2,
+          "to": 5
+        }
+      ],
+      "element": "fire",
+      "enemies": 0,
+      "finishers": 1,
+      "fps": 15,
+      "fusions": 2,
+      "graph_open": false,
+      "graph_scroll": [
+        0,
+        0
+      ],
+      "hp": 100,
+      "kills": 2,
+      "labels": {
+        "1x": "1×",
+        "Arcane": "奧術飛彈",
+        "Audio: off": "音效：關",
+        "Beam": "聚焦光束",
+        "Chain": "寶石連鎖",
+        "Fire": "爆裂火球",
+        "Ice": "寒冰長槍",
+        "Lightning": "連鎖雷電",
+        "Meteor": "流星雨",
+        "Next wave": "提前開波",
+        "Nova": "冰霜新星",
+        "Pause": "暫停",
+        "Performance": "效能：關",
+        "Poison": "毒霧",
+        "Restart": "重新開始"
+      },
+      "link_hint": "選擇節點的起點，再選目標；取消不會改動配置。",
+      "locale": "zh_TW",
+      "nodes": 5,
+      "over": false,
+      "paused": false,
+      "pending_source": -1,
+      "performance_visible": false,
+      "reward_open": false,
+      "shots": 0,
+      "speed": 1,
+      "spell_columns": 8,
+      "status_text": "第 1 波　／　擊殺 2　／　水晶生命 100／100　／　爆裂火球",
+      "viewport": [
+        1280,
+        889
+      ],
+      "wave": 1
+    },
+    "muted": {
+      "maxAbs": 0,
+      "samples": 183,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "playing": {
+      "maxAbs": 0.07622810453176498,
+      "samples": 229,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "silent": {
+      "maxAbs": 0,
+      "samples": 46,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "resumed": {
+      "maxAbs": 0.07600151747465134,
+      "samples": 76,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "default muted UI",
+      "trusted touch enables audio",
+      "nonzero master output observed",
+      "muting returns output to silence after short existing tail",
+      "touch re-enable restores output",
+      "44 CSS pixel audio target"
+    ],
+    "limit": "Web Audio analyser side-branch observes actual browser output; no game-state injection or autoplay-policy bypass, no human listening or iPad Safari claim. Entry is recorded separately; temporary synthesized cues only, not human listening or iPad verification."
+  },
+  "portrait": {
+    "entry": "m2",
+    "initial": {
+      "buttons": {
+        "1x": [
+          540,
+          1781,
+          196,
+          72
+        ],
+        "Arcane": [
+          940,
+          1629,
+          196,
+          72
+        ],
+        "Audio: off": [
+          640,
+          1516,
+          196,
+          72
+        ],
+        "Beam": [
+          940,
+          1705,
+          196,
+          72
+        ],
+        "Chain": [
+          440,
+          1516,
+          196,
+          72
+        ],
+        "Fire": [
+          340,
+          1629,
+          196,
+          72
+        ],
+        "Ice": [
+          540,
+          1629,
+          196,
+          72
+        ],
+        "Lightning": [
+          740,
+          1629,
+          196,
+          72
+        ],
+        "Meteor": [
+          540,
+          1705,
+          196,
+          72
+        ],
+        "Next wave": [
+          740,
+          1781,
+          196,
+          72
+        ],
+        "Nova": [
+          740,
+          1705,
+          196,
+          72
+        ],
+        "Pause": [
+          340,
+          1781,
+          196,
+          72
+        ],
+        "Performance": [
+          840,
+          1516,
+          196,
+          72
+        ],
+        "Poison": [
+          340,
+          1705,
+          196,
+          72
+        ],
+        "Restart": [
+          940,
+          1781,
+          196,
+          72
+        ]
+      },
+      "chain_casts": 2,
+      "damage": 123.5,
+      "edges": [
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 2,
+          "to": 5
+        }
+      ],
+      "element": "fire",
+      "enemies": 0,
+      "finishers": 1,
+      "fps": 25,
+      "fusions": 2,
+      "graph_open": false,
+      "graph_scroll": [
+        0,
+        0
+      ],
+      "hp": 100,
+      "kills": 2,
+      "labels": {
+        "1x": "1×",
+        "Arcane": "奧術飛彈",
+        "Audio: off": "音效：關",
+        "Beam": "聚焦光束",
+        "Chain": "寶石連鎖",
+        "Fire": "爆裂火球",
+        "Ice": "寒冰長槍",
+        "Lightning": "連鎖雷電",
+        "Meteor": "流星雨",
+        "Next wave": "提前開波",
+        "Nova": "冰霜新星",
+        "Pause": "暫停",
+        "Performance": "效能：關",
+        "Poison": "毒霧",
+        "Restart": "重新開始"
+      },
+      "link_hint": "選擇節點的起點，再選目標；取消不會改動配置。",
+      "locale": "zh_TW",
+      "nodes": 5,
+      "over": false,
+      "paused": false,
+      "pending_source": -1,
+      "performance_visible": false,
+      "reward_open": false,
+      "shots": 0,
+      "speed": 1,
+      "spell_columns": 4,
+      "status_text": "第 1 波　／　擊殺 2　／　水晶生命 100／100　／　爆裂火球",
+      "viewport": [
+        1280,
+        1841
+      ],
+      "wave": 1
+    },
+    "muted": {
+      "maxAbs": 0,
+      "samples": 157,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "playing": {
+      "maxAbs": 0.10651811957359314,
+      "samples": 213,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "silent": {
+      "maxAbs": 0,
+      "samples": 24,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "resumed": {
+      "maxAbs": 0.08580145984888077,
+      "samples": 68,
+      "analysers": 2,
+      "states": [
+        "running",
+        "running"
+      ],
+      "errors": []
+    },
+    "pageerrors": [],
+    "engine_errors": [],
+    "passed": [
+      "default muted UI",
+      "trusted touch enables audio",
+      "nonzero master output observed",
+      "muting returns output to silence after short existing tail",
+      "touch re-enable restores output",
+      "44 CSS pixel audio target"
+    ],
+    "limit": "Web Audio analyser side-branch observes actual browser output; no game-state injection or autoplay-policy bypass, no human listening or iPad Safari claim. Entry is recorded separately; temporary synthesized cues only, not human listening or iPad verification."
+  }
+}

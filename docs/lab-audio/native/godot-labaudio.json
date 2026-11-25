@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "Lab exposes a default-muted audio control after ready",
+    "audio uses event row without adding a battle-grid row",
+    "repeated binding does not duplicate observers or buttons",
+    "audio toggle changes neither checkpoint schema nor game snapshot",
+    "all 22 spell keys route through existing element frequencies or fallback",
+    "current resonance uses existing arcane cue",
+    "stale run cast and resonance events produce no sound",
+    "sound observers never change chain execution state",
+    "mute remains explicit and observers never unmute automatically",
+    "real opening combat signal reaches sound module without replacing cast handler",
+    "Lab inherits bounded player and voice limits"
+  ],
+  "failures": []
+}

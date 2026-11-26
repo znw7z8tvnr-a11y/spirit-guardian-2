@@ -14,5 +14,6 @@
   "tools/test_final_gems_web.py",
   "tools/test_eight_spells_web.py",
   "tools/test_audio_web.py",
-  "tools/test_lab_audio_web.py"
+  "tools/test_lab_audio_web.py",
+  "tools/test_guardian_visuals_web.py"
 ]

@@ -7,7 +7,7 @@ const BONE_SEAL=preload("res://experiments/chain_lab/assets/bone_seal.svg")
 const SLASH=preload("res://experiments/chain_lab/assets/bone_slash.svg")
 var species:="summon"
 var facing_left:=false
-const Art=preload("res://modules/spell/projectile.gd")
+const GHOST_STRIKE=preload("res://experiments/chain_lab/assets/ghost_strike.tres")
 var remaining:=8.0
 var age:=0.0
 var cooldown:=0.0
@@ -22,7 +22,7 @@ var bolt: Sprite2D
 func _ready() -> void:
  var seal:=Sprite2D.new();seal.texture=BONE_SEAL if species=="skeleton" else SEAL;seal.scale=Vector2(0.24,0.15);seal.modulate.a=0.35;add_child(seal)
  spirit=Sprite2D.new();spirit.texture=BONE if species=="skeleton" else GHOST;spirit.scale=Vector2.ONE*0.5;spirit.position.y=-30;add_child(spirit)
- bolt=Sprite2D.new();var atlas:=AtlasTexture.new();atlas.atlas=Art.TEXTURES[&"lightning"];atlas.region=Rect2(0,30,300,61);bolt.texture=SLASH if species=="skeleton" else atlas;bolt.hide();add_child(bolt)
+ bolt=Sprite2D.new();bolt.texture=SLASH if species=="skeleton" else GHOST_STRIKE;bolt.hide();add_child(bolt)
 func present(delta: float) -> void:
  flash=maxf(0.0,flash-delta)
  spirit.flip_h=facing_left

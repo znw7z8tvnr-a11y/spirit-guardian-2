@@ -98,6 +98,7 @@ func run() -> void:
  var ghost_before: int=manager.counts.summon.hits;var bone_before: int=manager.counts.skeleton.hits
  e=enemy(Vector2(60,0));manager.advance(0.01)
  check(manager.counts.summon.hits==ghost_before+1 and manager.counts.skeleton.hits==bone_before and bone.intent=="追擊","mixed units use different reach and independent strike metrics")
+ check(ghost.bolt.texture==preload("res://experiments/chain_lab/assets/ghost_strike.tres") and bone.bolt.texture==preload("res://experiments/chain_lab/assets/bone_slash.svg") and not bone.bolt.texture is AtlasTexture,"mixed units use shared ghost crop versus the original skeleton slash without a skeleton atlas")
  check(ghost.spirit.texture==Effects.GHOST_ART and bone.spirit.texture==Effects.SKELETON_ART,"mixed summons keep distinct actual Sprite artwork")
  summon_at(Vector2.ZERO,3,1);manager.summon_at(Vector2.ZERO,3,1,"summon")
  check(manager.guards.size()==4 and summon_at(Vector2.ZERO,3,1)==null,"ghosts and skeletons share one four-unit global limit")

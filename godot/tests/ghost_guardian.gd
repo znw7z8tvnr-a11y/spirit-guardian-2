@@ -37,6 +37,18 @@ func run() -> void:
   for i in range(8):manager.summon_at(Vector2.ZERO,level,1)
   check(manager.guards.size()==level+1,"tier %d repeated casts respect the live-guardian limit" % level)
   clear()
+ var shared_atlas: AtlasTexture=preload("res://experiments/chain_lab/assets/ghost_strike.tres")
+ check(shared_atlas.atlas==preload("res://assets/legacy/lightning.webp") and shared_atlas.region==Rect2(0,30,300,61),"shared ghost strike preserves the exact source texture and crop")
+ var first_guard: Node2D=manager.summon_at(Vector2.ZERO,3,1)
+ var second_guard: Node2D=manager.summon_at(Vector2.ZERO,3,1)
+ check(first_guard.bolt.texture==shared_atlas and second_guard.bolt.texture==shared_atlas and first_guard.bolt!=second_guard.bolt,"ghosts share one atlas resource while retaining independent strike sprites")
+ first_guard.flash=0.14;first_guard.strike_point=Vector2(70,30);first_guard.present(0.01)
+ check(first_guard.bolt.visible and not second_guard.bolt.visible and second_guard.bolt.scale==Vector2.ONE and shared_atlas.region==Rect2(0,30,300,61),"one ghost strike changes only its own Sprite state without mutating the atlas")
+ clear()
+ for repeat_index in range(12):
+  var reused: Node2D=manager.summon_at(Vector2.ZERO,1,1)
+  check(reused.bolt.texture==shared_atlas,"successive ghost summon reuses atlas resource: "+str(repeat_index))
+  clear()
  check(manager.summon_at(Vector2.ZERO,1,0)==null and manager.summon_at(Vector2.ZERO,1,INF)==null,"invalid power cannot create a phantom guardian")
  var guard: Node2D=manager.summon_at(Vector2(24,-16),1,1)
  var e:=enemy(Vector2(200,0));var start:=guard.position;var hits_before: int=manager.hits

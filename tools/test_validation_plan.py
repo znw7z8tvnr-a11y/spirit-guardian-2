@@ -10,6 +10,10 @@ class SelectionTests(unittest.TestCase):
   r=select(['godot/experiments/chain_lab/enemy_presentation.gd','godot/tests/enemy_readability.gd'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('readability',r['native']);self.assertIn('test_enemy_readability_web.py',r['browsers']);self.assertNotIn('test_run_results_web.py',r['browsers'])
  def test_tree_touch_selection(self):
   r=select(['godot/experiments/chain_lab/tree_view.gd','godot/tests/chain_tree.gd'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('tree',r['native']);self.assertIn('test_chain_lab_web.py',r['browsers']);self.assertIn('test_inventory_filters_web.py',r['browsers'])
+ def test_guardian_presentation_selection(self):
+  r=select(['godot/experiments/chain_lab/guardian_actor.gd','godot/experiments/chain_lab/assets/ghost_strike.tres','godot/tests/skeleton_guardian.gd'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('guardians',r['native']);self.assertIn('skeleton',r['native']);self.assertEqual(r['browsers'],['test_guardian_visuals_web.py'])
+ def test_guardian_ai_remains_full(self):
+  self.assertEqual(select(['godot/experiments/chain_lab/guardian_manager.gd'],'focused')['profile'],'full')
  def test_audio_selection(self):
   r=select(['godot/modules/audio/audio.gd','godot/tests/audio_pool.gd','godot/tests/audio_pool.gd.uid'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('audio',r['native']);self.assertIn('modules',r['native']);self.assertEqual(r['browsers'],['test_audio_web.py'])
  def test_lab_audio_observer_selection(self):

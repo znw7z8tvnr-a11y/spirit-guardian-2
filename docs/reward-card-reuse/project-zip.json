@@ -1,0 +1,11 @@
+{
+  "source": "48900aa68aac5f6a360c22715f9b3685b50d8b07",
+  "file": "SpiritGuardian-Godot-RewardCardReuse-2026-11-26.zip",
+  "bytes": 3834784,
+  "sha256": "2a7f4975a920e2a087f3bc70350ec8a5480dacf7e55ab6ed8fed69f51b214697",
+  "crc": "passed",
+  "source_comparison": "passed",
+  "entry": "res://experiments/chain_lab/main.tscn",
+  "clean_import": "passed",
+  "startup_600_frames": "passed"
+}

@@ -25,6 +25,7 @@ var item_scroll: ScrollContainer
 var drag_finger:=-1
 var drag_origin:=Vector2.ZERO
 var dragging_items:=false
+var drag_fraction:=0.0
 func _ready() -> void:
  set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  offset_left=16;offset_right=-16;offset_top=16;offset_bottom=-16
@@ -48,7 +49,7 @@ func _ready() -> void:
  entries=GridContainer.new();entries.columns=5;entries.size_flags_horizontal=Control.SIZE_EXPAND_FILL;item_scroll.add_child(entries)
  visibility_changed.connect(func():
   if not visible:
-   candidate=-2;apply.disabled=true;drag_finger=-1;dragging_items=false
+   candidate=-2;apply.disabled=true;reset_drag()
  )
  hide()
 func title(item: Dictionary) -> String:
@@ -66,7 +67,7 @@ func stats(item: Dictionary) -> String:
 func open(chain: Node, index: int, boost: float) -> void:
  model=chain;slot=index;attack_boost=boost
  heading.text="本局背包｜替換第 %d 格｜點物品預覽，再確認" % (slot+1)
- drag_finger=-1;dragging_items=false
+ reset_drag()
  for key in cards.keys():
   if str(key).begins_with("Item ") and int(str(key).trim_prefix("Item "))>=model.items.size():
    var removed: Button=cards[key];cards.erase(key);entries.remove_child(removed);removed.queue_free()
@@ -128,6 +129,9 @@ func confirm_candidate() -> void:
 func visible_item_ids() -> Array:
  return filtered_ids.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)
 func show_page(index: int) -> void:
+ reset_drag()
+ for key in cards:
+  if str(key).begins_with("Item "):cards[key].notification(Control.NOTIFICATION_SCROLL_BEGIN)
  var count:=ceili(float(filtered_ids.size())/PAGE_SIZE)
  page=clampi(index,0,maxi(0,count-1))
  item_scroll.scroll_vertical=0
@@ -149,21 +153,29 @@ func _input(event: InputEvent) -> void:
  if event is InputEventScreenTouch:
   if event.pressed:
    if drag_finger<0 and item_scroll.get_global_rect().has_point(event.position):
-    drag_finger=event.index;drag_origin=event.position;dragging_items=false
+    drag_finger=event.index;drag_origin=event.position;dragging_items=false;drag_fraction=0.0
   elif event.index==drag_finger:
    if dragging_items:get_viewport().set_input_as_handled()
-   drag_finger=-1;dragging_items=false
+   reset_drag()
  elif event is InputEventScreenDrag and event.index==drag_finger:
   if dragging_items or absf(event.position.y-drag_origin.y)>12.0:
    if not dragging_items:
     dragging_items=true
     for key in cards:
      if str(key).begins_with("Item "):cards[key].notification(Control.NOTIFICATION_SCROLL_BEGIN)
-   item_scroll.scroll_vertical-=roundi(event.relative.y)
+   drag_fraction-=event.relative.y
+   var step:=int(drag_fraction)
+   drag_fraction-=step
+   var before: int=item_scroll.scroll_vertical
+   item_scroll.scroll_vertical+=step
+   if item_scroll.scroll_vertical-before!=step:drag_fraction=0.0
    get_viewport().set_input_as_handled()
+
+func reset_drag() -> void:
+ drag_finger=-1;dragging_items=false;drag_fraction=0.0
 
 func _notification(what: int) -> void:
  if what==NOTIFICATION_WM_WINDOW_FOCUS_OUT or what==NOTIFICATION_APPLICATION_FOCUS_OUT or what==NOTIFICATION_APPLICATION_PAUSED:
-  drag_finger=-1;dragging_items=false
+  reset_drag()
   for key in cards:
    if str(key).begins_with("Item ") and is_instance_valid(cards[key]):cards[key].notification(Control.NOTIFICATION_SCROLL_BEGIN)

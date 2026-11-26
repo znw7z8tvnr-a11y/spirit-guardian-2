@@ -1,0 +1,26 @@
+{
+  "game_source": "559c84f0f7765e7e9b8bc5ceb65dc8ea4df9e375",
+  "hosting_source": "6561a62c9c7b1d64da3b0421363ae0a6c0588aad",
+  "deployment": {
+    "id": "appgdep_6b07a122ccd481919510f3da014de36b",
+    "project_id": "appgprj_6b07a0aaa3a08191a788d23afd20da82",
+    "title": "靈境守衛｜最新優化試玩版",
+    "version_id": "appgprj_6b07a0aaa3a08191a788d23afd20da82~appgver_1f0172c61afc8191ad53b1553d24a893",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-preview-20261126.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "release---6b07a122ccd481919510f3da014de36b",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-26T03:02:14.055763+00:00"
+  },
+  "ci": {
+    "id": 45745775671,
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "old_site_changed": false,
+  "ipad_tested": false
+}

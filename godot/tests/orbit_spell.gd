@@ -41,6 +41,25 @@ func run() -> void:
  var bounded: Node=game.fx.get_child(game.fx.get_child_count()-1)
  check(bounded.get_child_count()==6,"twenty-four real hits create one rune and exactly five bounded orbs")
  check(bounded.get_children().slice(1).all(func(n):return n.texture==Effects.ORBIT_ORB),"all five orbit Sprites use dedicated temporary artwork")
+ bounded.set_process(false)
+ var paths_match:=true;var max_error:=0.0
+ for frame_index in range(129):
+  var age: float=0.899*float(frame_index)/128.0;bounded.age=age;bounded.update_pose()
+  for orb_index in range(5):
+   var angle: float=orb_index*TAU/5.0+age*7.0
+   var expected:=Vector2(cos(angle)*60.0,sin(angle)*35.0)
+   var error: float=bounded.orbs[orb_index].position.distance_to(expected);max_error=maxf(max_error,error)
+   paths_match=paths_match and error<0.0001 and is_equal_approx(bounded.orbs[orb_index].rotation,angle)
+  paths_match=paths_match and is_equal_approx(bounded.rune.rotation,age*3.0) and is_equal_approx(bounded.modulate.a,1.0-smoothstep(0.45,0.9,age))
+ check(paths_match,"645 sampled orb poses preserve legacy ellipse and rotation within 0.0001 world units; max error %.8f" % max_error)
+ bounded.age=0.2;bounded.update_pose();bounded.set_process(true)
+ game.user_paused=true;game._process(0)
+ var pause_age: float=bounded.age;var pause_positions: Array=bounded.orbs.map(func(orb):return orb.position)
+ await process_frame;await process_frame
+ check(bounded.age==pause_age and bounded.orbs.map(func(orb):return orb.position)==pause_positions,"real pause disables orbit age and all five positions")
+ game.user_paused=false;game._process(0)
+ await process_frame;await process_frame
+ check(bounded.age>pause_age,"real resume advances the existing orbit effect")
  bounded.free();game.spell_visual("orbit",Vector2.ZERO,game.CENTER,[])
  bounded=game.fx.get_child(game.fx.get_child_count()-1)
  check(bounded.get_child_count()==6 and bounded.position==game.CENTER,"empty cast still renders harmless orbit at original aim")

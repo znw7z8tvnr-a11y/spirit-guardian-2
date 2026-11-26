@@ -4,6 +4,7 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 BROWSERS=[pathlib.Path(p).name for p in json.loads((ROOT/'tools/validation_suites.json').read_text())]
 # Only isolated helpers have narrow dependency rules. Shared or unknown game code expands to full.
 RULES={
+ 'orbit_fx.gd':(['orbit','chainlab','touch'],['test_orbit_visuals_web.py']),
  'guardian_actor.gd':(['guardians','skeleton','checkpoint','touch'],['test_guardian_visuals_web.py']),
  'audio_controller.gd':(['labaudio','audio','chainlab','checkpoint','inventoryfilters','touch'],['test_lab_audio_web.py','test_inventory_filters_web.py','test_checkpoint_web.py']),
  'tree_view.gd':(['tree','inventory','inventoryfilters','touch'],['test_chain_lab_web.py','test_inventory_filters_web.py']),
@@ -21,6 +22,8 @@ def select(paths,profile):
   name=pathlib.PurePosixPath(path).name
   if path == 'godot/experiments/chain_lab/'+name and name in RULES:
    n,b=RULES[name];native.update(n);browsers.update(b);reasons.append(f'{path}: isolated helper dependency rule')
+  elif path=='godot/tests/orbit_spell.gd':
+   n,b=RULES['orbit_fx.gd'];native.update(n);browsers.update(b);reasons.append(f'{path}: orbit presentation regression')
   elif path in ('godot/experiments/chain_lab/assets/ghost_strike.tres','godot/tests/ghost_guardian.gd','godot/tests/skeleton_guardian.gd'):
    n,b=RULES['guardian_actor.gd'];native.update(n);browsers.update(b);reasons.append(f'{path}: guardian presentation regression')
   elif path in ('godot/experiments/chain_lab/audio_controller.gd.uid','godot/tests/lab_audio.gd','godot/tests/lab_audio.gd.uid'):

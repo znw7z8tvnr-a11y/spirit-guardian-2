@@ -1,0 +1,11 @@
+{
+  "source": "6c35fbddb4a223bc02a4196e252356da4b04053d",
+  "file": "SpiritGuardian-Godot-OrbitPose-2026-11-26.zip",
+  "bytes": 3838155,
+  "sha256": "f26273f9d24bb480defc7bf750b8b12abb3dac2ed897afeb433c588244dd0ba6",
+  "crc": "passed",
+  "source_comparison": "passed",
+  "entry": "res://experiments/chain_lab/main.tscn",
+  "clean_import": "passed",
+  "startup_600_frames": "passed"
+}

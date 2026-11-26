@@ -1,0 +1,11 @@
+{
+  "source": "5edd24bc04f0c21d7370834f9cdc3c7e665e725e",
+  "file": "SpiritGuardian-Godot-InventoryFineScroll-2026-11-26.zip",
+  "bytes": 3835177,
+  "sha256": "9f8717af1e6eb53c44ff4aedce91611e6d8972bceef858c7cae0be5a0bd2cb3d",
+  "crc": "passed",
+  "source_comparison": "passed",
+  "entry": "res://experiments/chain_lab/main.tscn",
+  "clean_import": "passed",
+  "startup_600_frames": "passed"
+}

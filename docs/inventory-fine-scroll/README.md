@@ -7,3 +7,7 @@
 Godot 4.6.3 匯入、Lab 解析通過；inventory 44、inventoryfilters 35、tree 79、touch 20，共 178 項相關檢查通過。新增真實 ScrollContainer 測試：四次 0.25 像素拖曳累積成一像素、反向返回、上下邊界清除超量位移、失焦清除小數及換頁拒絕舊手勢。初輪後只增加邊界測試，因此只重跑 inventory，不重跑其他三組。Python 選測規則 27 項通過。
 
 小數位移是 Godot 輸入事件測試，不能當作 iPad 高更新率觸控實測。Web 回歸及專案交付結果另記；本輪沒有重跑完整 20 波／所有技能。美術仍有暫用內容，Safari 真機與慣性捲動未驗收。本批未修改連鎖樹拖曳方式，也未更新線上試玩站。
+
+本機 Web 回歸完成：Chromium 橫向與直向各 11 項背包流程通過，包含實際觸控、拖曳失焦恢復、換頁取消預選、分類、替換及恢復施法，無頁面或引擎錯誤（browser/）。專案 ZIP 預設 Lab，通過 CRC、來源逐檔比對、乾淨匯入與 600 幀啟動；檔名與雜湊見 project-zip.json。
+
+遊戲來源 5edd24bc04f0c21d7370834f9cdc3c7e665e725e；[遠端局部 CI 45749051126](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45749051126) 交付時尚未確認完成，不列為通過。

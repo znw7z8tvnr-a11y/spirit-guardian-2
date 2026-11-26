@@ -1,0 +1,11 @@
+{
+  "source": "d17b5425a7949ab7e9fe99937517707979150661",
+  "file": "SpiritGuardian-Godot-TreeFineScroll-2026-11-26.zip",
+  "bytes": 3835426,
+  "sha256": "1bf7ec93bf38593e64bbb4812107b0aee549658a961d4f3f8756f5dac217786a",
+  "crc": "passed",
+  "source_comparison": "passed",
+  "entry": "res://experiments/chain_lab/main.tscn",
+  "clean_import": "passed",
+  "startup_600_frames": "passed"
+}

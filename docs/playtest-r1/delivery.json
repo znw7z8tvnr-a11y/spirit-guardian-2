@@ -1,0 +1,41 @@
+{
+  "game_source": "c7142b9a368137215f82119e7cf5c361e49eaa66",
+  "packages": {
+    "Godot": {
+      "file": "SpiritGuardian-Godot-Playtest-R1-2026-11-26.zip",
+      "bytes": 3841830,
+      "sha256": "0d3592ad46288eeb0f6b009f7eef30107226cca8e0fa0da75a44ddc764e55c3b",
+      "crc": "passed"
+    },
+    "Web": {
+      "file": "SpiritGuardian-Web-Playtest-R1-2026-11-26.zip",
+      "bytes": 20361892,
+      "sha256": "693f2ec2edaa2135a11c84994e12692c5cdb1743f4d1db4802ac78e97a0295ff",
+      "crc": "passed"
+    }
+  },
+  "native": {
+    "source": "c7142b9a368137215f82119e7cf5c361e49eaa66",
+    "engine": "4.6.3",
+    "suites": 45,
+    "checks": 1554,
+    "import": "passed",
+    "scene_parse": "passed",
+    "failures": []
+  },
+  "online_updated": false,
+  "ipad_tested": false,
+  "project_zip_import": "passed",
+  "project_zip_start": "passed",
+  "integrated_batch_commits": [
+    "559c84f",
+    "48900aa",
+    "5edd24b",
+    "d17b542",
+    "b565dae",
+    "04a52ce",
+    "4d6bd18",
+    "6c35fbd",
+    "dbe81dd"
+  ]
+}

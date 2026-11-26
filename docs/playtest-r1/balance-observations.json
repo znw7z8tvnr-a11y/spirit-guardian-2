@@ -1,0 +1,30 @@
+{
+  "source": "c7142b9a368137215f82119e7cf5c361e49eaa66",
+  "native_seeded_runs": [
+    {
+      "seed": 12032,
+      "target_skills": 5,
+      "prefer_refresh": false,
+      "minimum_core": 100.0,
+      "minimum_wall_ratio": 0.940324324324324,
+      "peak_enemies": 10
+    },
+    {
+      "seed": 24064,
+      "target_skills": 2,
+      "prefer_refresh": false,
+      "minimum_core": 100.0,
+      "minimum_wall_ratio": 0.940324324324324,
+      "peak_enemies": 8
+    },
+    {
+      "seed": 32012,
+      "target_skills": 5,
+      "prefer_refresh": true,
+      "minimum_core": 100.0,
+      "minimum_wall_ratio": 0.940324324324324,
+      "peak_enemies": 10
+    }
+  ],
+  "limit": "Three seeded test policies. Minimum health is measured throughout combat, not inferred from healed wave-end checkpoints. Not final difficulty."
+}

@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "interruption pauses active battle and updates its real control: 1005",
+    "paused interruption freezes real combat clock, casts and health: 1005",
+    "duplicate interruption or focus return never unpauses: 1005",
+    "deliberate continue restores controls without changing inventory, graph, RNG or save snapshot: 1005",
+    "interruption pauses active battle and updates its real control: 2017",
+    "paused interruption freezes real combat clock, casts and health: 2017",
+    "duplicate interruption or focus return never unpauses: 2017",
+    "deliberate continue restores controls without changing inventory, graph, RNG or save snapshot: 2017",
+    "interruption pauses active battle and updates its real control: 2015",
+    "paused interruption freezes real combat clock, casts and health: 2015",
+    "duplicate interruption or focus return never unpauses: 2015",
+    "deliberate continue restores controls without changing inventory, graph, RNG or save snapshot: 2015",
+    "interruption does not change modal or completed state: edit_open",
+    "interruption does not change modal or completed state: growth_open",
+    "interruption does not change modal or completed state: resume_pending",
+    "interruption does not change modal or completed state: over",
+    "reward interruption neither adds a manual pause nor consumes an offer",
+    "existing manual pause stays paused"
+  ],
+  "failures": []
+}

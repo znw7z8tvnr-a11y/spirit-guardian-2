@@ -10,6 +10,7 @@ var cached_visual: Array=[]
 var drag_finger:=-1
 var drag_origin:=Vector2.ZERO
 var dragging_tree:=false
+var drag_fraction:=0.0
 func rebuild(chain: Node, selection: int) -> void:
  reset_drag()
  var visual:=visual_signature(chain)
@@ -90,7 +91,7 @@ func _ready() -> void:
   if not is_visible_in_tree():reset_drag()
  )
 func reset_drag() -> void:
- drag_finger=-1;dragging_tree=false
+ drag_finger=-1;dragging_tree=false;drag_fraction=0.0
 func scroll_owner() -> ScrollContainer:
  var ancestor:=get_parent()
  while ancestor!=null:
@@ -113,7 +114,7 @@ func _input(event: InputEvent) -> void:
  if event is InputEventScreenTouch:
   if event.pressed:
    if drag_finger<0 and touch_area_contains(event.position,scroll):
-    drag_finger=event.index;drag_origin=event.position;dragging_tree=false
+    drag_finger=event.index;drag_origin=event.position;dragging_tree=false;drag_fraction=0.0
   elif event.index==drag_finger:
    if dragging_tree:get_viewport().set_input_as_handled()
    reset_drag()
@@ -122,7 +123,12 @@ func _input(event: InputEvent) -> void:
    if not dragging_tree:
     dragging_tree=true
     for button in nodes:button.notification(Control.NOTIFICATION_SCROLL_BEGIN)
-   scroll.scroll_vertical-=roundi(event.relative.y)
+   drag_fraction-=event.relative.y
+   var step:=int(drag_fraction)
+   drag_fraction-=step
+   var before: int=scroll.scroll_vertical
+   scroll.scroll_vertical+=step
+   if scroll.scroll_vertical-before!=step:drag_fraction=0.0
    get_viewport().set_input_as_handled()
 
 func _notification(what: int) -> void:

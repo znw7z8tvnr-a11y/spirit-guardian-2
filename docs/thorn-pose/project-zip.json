@@ -1,0 +1,11 @@
+{
+  "source": "dbe81ddc3848dfc1a65fe5a64e24c68fcf86e2b4",
+  "file": "SpiritGuardian-Godot-ThornPose-2026-11-26.zip",
+  "bytes": 3838886,
+  "sha256": "661b5606470200dd6b30feb50797f382e2ab86bd3536e860520e1f50e9ae77a9",
+  "crc": "passed",
+  "source_comparison": "passed",
+  "entry": "res://experiments/chain_lab/main.tscn",
+  "clean_import": "passed",
+  "startup_600_frames": "passed"
+}

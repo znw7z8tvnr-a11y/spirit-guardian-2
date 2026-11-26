@@ -1,0 +1,11 @@
+{
+  "source": "559c84f0f7765e7e9b8bc5ceb65dc8ea4df9e375",
+  "file": "SpiritGuardian-Godot-EnemyLabelVisibility-2026-11-26.zip",
+  "bytes": 3833967,
+  "sha256": "d8dfdced9b392097a90ddd84bf3c9cc7c4347ab83c0368c93736ddcfa8fdb2b7",
+  "crc": "passed",
+  "source_comparison": "passed",
+  "entry": "res://experiments/chain_lab/main.tscn",
+  "clean_import": "passed",
+  "startup_600_frames": "passed"
+}

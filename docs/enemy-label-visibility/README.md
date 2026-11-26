@@ -7,3 +7,7 @@
 這是減少重複 UI 狀態變更，沒有量測實機 FPS 增幅。美術仍為暫用，iPad Safari 尚未驗收。後續 Web 局部回歸與交付檔案記錄在本目錄，不重跑完整 20 波或宣稱全部系統重新驗收。
 
 保持獨立提交與標記，未移動 lab-integrated-2026-11-26，也未發布線上站或修改原 HTML。
+
+Web 局部回歸已完成：Chromium 橫向 1180×820、直向 820×1180，四十隻敵人預警及治療／護盾／鼓舞／靈彈測試通過（browser/）。截圖是實際遊戲，不是概念圖。完整專案 ZIP 預設執行 Lab，通過 CRC、逐檔來源比對、乾淨匯入與 600 幀啟動，大小及 SHA256 見 project-zip.json。
+
+來源 559c84f0f7765e7e9b8bc5ceb65dc8ea4df9e375；[局部 CI 45745775671](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45745775671) 狀態另見 ci.json。

@@ -47,10 +47,10 @@ func _ready() -> void:
   var bg:=StyleBoxFlat.new();bg.bg_color=Color(0.035,0.055,0.1,0.92);bg.set_content_margin_all(5);l.add_theme_stylebox_override("normal",bg);add_child(l);labels.append(l);l.hide()
 func update_actors(actors: Array,safe: Rect2) -> void:
  refreshes+=1;trials=0;scanned=actors.size();placed=[]
- for l in labels:l.hide()
  var candidates:=candidates_for(actors,threats(actors))
  hidden_count=candidates.size()
- if safe.size.x<BOX.x or safe.size.y<BOX.y:queue_redraw();return
+ if safe.size.x<BOX.x or safe.size.y<BOX.y:
+  hide_unused(0);queue_redraw();return
  var groups_shown: Dictionary={}
  for row in candidates:
   if placed.size()>=LIMIT:break
@@ -71,10 +71,15 @@ func update_actors(actors: Array,safe: Rect2) -> void:
     if placed.any(func(p):return p.rect.grow(GAP).intersects(rect)):continue
     var l:=labels[placed.size()]
     if l.text!=text:l.text=text;text_writes+=1
-    l.position=point;l.size=BOX;l.modulate=Color("ffe2a1") if not row.key.is_empty() else Color("b8cadf");l.show()
+    l.position=point;l.size=BOX;l.modulate=Color("ffe2a1") if not row.key.is_empty() else Color("b8cadf")
+    if not l.visible:l.show()
     placed.append({"id":row.id,"key":row.key,"rect":rect,"anchor":at,"urgent":not row.key.is_empty()});groups_shown[group]=int(groups_shown.get(group,0))+1;hidden_count-=1;found=true;break
    if found:break
+ hide_unused(placed.size())
  queue_redraw()
+func hide_unused(first: int) -> void:
+ for i in range(first,labels.size()):
+  if labels[i].visible:labels[i].hide()
 func _draw() -> void:
  for row in placed:draw_line(row.anchor+Vector2(0,-20),Vector2(row.rect.get_center().x,row.rect.end.y),Color(0.65,0.75,0.9,0.55),1.0,true)
 func snapshot() -> Dictionary:

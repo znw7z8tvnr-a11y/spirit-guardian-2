@@ -1,0 +1,11 @@
+{
+  "source": "4d6bd18687168cf5aca77737d11e6099f9a094a4",
+  "file": "SpiritGuardian-Godot-GuardianPose-2026-11-26.zip",
+  "bytes": 3837461,
+  "sha256": "b1ed911999bc98c477a2579542242ee00e3eed9b737aad3fd90524f8bd63fef5",
+  "crc": "passed",
+  "source_comparison": "passed",
+  "entry": "res://experiments/chain_lab/main.tscn",
+  "clean_import": "passed",
+  "startup_600_frames": "passed"
+}

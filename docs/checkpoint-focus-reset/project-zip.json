@@ -1,0 +1,11 @@
+{
+  "source": "b565daed2e7baedfe18063a6d4da9cffebe01149",
+  "file": "SpiritGuardian-Godot-CheckpointFocusReset-2026-11-26.zip",
+  "bytes": 3836069,
+  "sha256": "c9b818a8f2fcad90b30ab85e0902304b1e4ada1f948e83e1aef3adc32fc9e5d1",
+  "crc": "passed",
+  "source_comparison": "passed",
+  "entry": "res://experiments/chain_lab/main.tscn",
+  "clean_import": "passed",
+  "startup_600_frames": "passed"
+}

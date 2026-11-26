@@ -48,3 +48,10 @@ func request_new_run() -> void:
   return
  if Time.get_ticks_msec()<confirm_after:return
  reset_confirmation();new_run_requested.emit()
+
+func _notification(what: int) -> void:
+ if what==NOTIFICATION_WM_WINDOW_FOCUS_OUT or what==NOTIFICATION_APPLICATION_FOCUS_OUT or what==NOTIFICATION_APPLICATION_PAUSED:
+  if not is_instance_valid(fresh):return
+  reset_confirmation()
+  fresh.notification(Control.NOTIFICATION_SCROLL_BEGIN)
+  if is_instance_valid(resume):resume.notification(Control.NOTIFICATION_SCROLL_BEGIN)

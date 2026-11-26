@@ -47,6 +47,11 @@ async def main():
     await page.wait_for_timeout(400)
     assert (await state())['resume_pending'] and await page.evaluate("localStorage.getItem('sg_chain_lab_run_v1')")==protected_save
     await page.screenshot(path=str(REPORT/f'confirm-clear-{args.label}-{orientation}.png'))
+    await page.evaluate("document.getElementById('canvas').blur();window.dispatchEvent(new Event('blur'))")
+    await page.wait_for_timeout(150);await page.locator('#canvas').focus()
+    await tap('CheckpointNew')
+    assert (await state())['resume_pending'] and await page.evaluate("localStorage.getItem('sg_chain_lab_run_v1')")==protected_save
+    await page.screenshot(path=str(REPORT/f'focus-clear-{args.label}-{orientation}.png'))
     await tap('CheckpointNew');await page.wait_for_function('window.SG_LAB_STATE.resume_pending===false&&window.SG_LAB_STATE.item_count===1&&window.SG_LAB_STATE.wave<3',timeout=15000)
     fresh=await state();assert fresh['reward_granted']==0 and fresh['speed']==1
     await reload();assert not (await state())['resume_pending']
@@ -57,7 +62,7 @@ async def main():
     await page.add_init_script("(()=>{const original=Storage.prototype.getItem;Storage.prototype.getItem=function(k){if(k.startsWith('sg_chain_lab_run_v1'))throw new DOMException('blocked','SecurityError');return original.call(this,k);}})()")
     await reload();blocked=await state();assert not blocked['resume_pending'] and '無法保留續玩' in blocked['checkpoint_status']
     engine=[v for v in logs if 'SCRIPT ERROR' in v or v.startswith('ERROR:')];assert not errors and not engine,(errors,engine)
-    results[orientation]={'passed':['real wave-three autosave and near-immediate reload','spent refresh and exact offers survive page reload','health and growth preserved','earned gem and arranged graph survive second reload','no repeated award','first and rapid second clear taps preserve saved progress; later explicit confirm clears it','corrupt primary recovers validated browser backup','quota and blocked storage fail visibly without claiming saved'],'saved':saved,'restored':restored,'second':second,'pageerrors':errors,'engine_errors':engine,'limits':'Chromium WebGL local storage; not iPad Safari hardware or sudden OS termination. Saves safe intermissions, not active combat.'}
+    results[orientation]={'passed':['real wave-three autosave and near-immediate reload','spent refresh and exact offers survive page reload','health and growth preserved','earned gem and arranged graph survive second reload','no repeated award','first and rapid second clear taps preserve saved progress; later explicit confirm clears it','focus interruption cancels mature confirmation; first returning touch preserves saved bytes','corrupt primary recovers validated browser backup','quota and blocked storage fail visibly without claiming saved'],'saved':saved,'restored':restored,'second':second,'pageerrors':errors,'engine_errors':engine,'limits':'Chromium WebGL local storage; not iPad Safari hardware or sudden OS termination. Saves safe intermissions, not active combat.'}
     print(orientation,'CHECKPOINT PASS',flush=True);await context.close()
   finally:await browser.close();server.shutdown()
  (REPORT/f'browser-{args.label}.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))

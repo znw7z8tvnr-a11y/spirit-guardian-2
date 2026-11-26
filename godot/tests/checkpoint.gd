@@ -52,6 +52,21 @@ func run() -> void:
  check(game.resume_pending and game.checkpoint_view.fresh_armed and FileAccess.get_file_as_string(Store.PATH)==before_clear_prompt,"first clear tap and rapid second tap preserve checkpoint and pending resume")
  game.buttons.CheckpointResume.pressed.emit();await frames()
  check(not game.checkpoint_view.fresh_armed,"continuing cancels the armed clear operation")
+ var before_focus_checks:=FileAccess.get_file_as_string(Store.PATH)
+ var focus_prompt=load("res://experiments/chain_lab/checkpoint_view.gd").new();root.add_child(focus_prompt);focus_prompt.show_record({"ok":false})
+ var clear_requests: Array=[];focus_prompt.new_run_requested.connect(func():clear_requests.append(true))
+ for notification in [Node.NOTIFICATION_WM_WINDOW_FOCUS_OUT,Node.NOTIFICATION_APPLICATION_FOCUS_OUT,Node.NOTIFICATION_APPLICATION_PAUSED]:
+  focus_prompt.request_new_run();focus_prompt.confirm_after=Time.get_ticks_msec()-1
+  focus_prompt.notification(notification)
+  check(not focus_prompt.fresh_armed and focus_prompt.confirm_after==0 and focus_prompt.fresh.text=="重新開局・清除波間進度","focus interruption cancels an already mature clear confirmation: "+str(notification))
+  focus_prompt.request_new_run()
+  check(focus_prompt.fresh_armed and clear_requests.is_empty(),"first post-interruption tap only arms confirmation: "+str(notification))
+  focus_prompt.reset_confirmation()
+ focus_prompt.request_new_run();focus_prompt.confirm_after=Time.get_ticks_msec()-1;focus_prompt.request_new_run()
+ check(clear_requests.size()==1 and not focus_prompt.fresh_armed,"deliberate two-step clear still emits once after interrupted attempts")
+ check(FileAccess.get_file_as_string(Store.PATH)==before_focus_checks,"isolated focus-confirmation checks preserve real checkpoint bytes")
+ focus_prompt.queue_free()
+
  check(not game.resume_pending and game.wave==3 and game.rewards.pending==1 and game.rewards.refreshes==0,"real continue button restores saved intermission and award queue")
  var pick:=0
  for i in game.rewards.offers.size():

@@ -1,11 +1,12 @@
-"""Focused trusted-touch orbit cast, pause and effect lifetime checks."""
+"""Focused trusted-touch finite spell FX, pause and effect lifetime checks."""
 import argparse, asyncio, functools, http.server, json, os, pathlib, threading
 from playwright.async_api import async_playwright
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 p = argparse.ArgumentParser()
 p.add_argument('--directory', default=str(ROOT/'godot/export/lab'))
-p.add_argument('--report-dir', type=pathlib.Path, default=ROOT/'docs/orbit-pose/browser')
-args = p.parse_args(); args.report_dir.mkdir(parents=True, exist_ok=True)
+p.add_argument('--spell', choices=['orbit','thorn'], default='orbit')
+p.add_argument('--report-dir', type=pathlib.Path)
+args = p.parse_args(); args.report_dir = args.report_dir or ROOT/f'docs/{args.spell}-pose/browser'; args.report_dir.mkdir(parents=True, exist_ok=True)
 server = http.server.ThreadingHTTPServer(('127.0.0.1', 0), functools.partial(http.server.SimpleHTTPRequestHandler, directory=args.directory))
 threading.Thread(target=server.serve_forever, daemon=True).start()
 async def main():
@@ -15,7 +16,7 @@ async def main():
   try:
    for direction, size in [('landscape', {'width':1180, 'height':820}), ('portrait', {'width':820, 'height':1180})]:
     results[direction] = {}
-    for species in ['orbit']:
+    for species in [args.spell]:
      context = await browser.new_context(viewport=size, has_touch=True, device_scale_factor=1)
      page = await context.new_page(); errors = []; logs = []
      page.on('pageerror', lambda error: errors.append(str(error)))
@@ -40,20 +41,20 @@ async def main():
      if (await state())['paused']: await tap('Pause')
      await page.wait_for_function("key => (window.SG_LAB_STATE.spell_hits[key]||0)>0 && window.SG_LAB_STATE.spell_visuals.includes(key)", arg=species, timeout=60000)
      await tap('Pause'); battle = await state()
-     assert battle['paused'] and battle['slots'][0] == item and 'orbit' in battle['spell_visuals']
+     assert battle['paused'] and battle['slots'][0] == item and species in battle['spell_visuals']
      await page.wait_for_timeout(500); held = await state()
      assert held['spell_visuals'] == battle['spell_visuals'] and held['spell_hits'] == battle['spell_hits'] and held['spell_casts'] == battle['spell_casts']
      await page.screenshot(path=str(args.report_dir/f'{species}-{direction}.png'))
      engine = [line for line in logs if 'SCRIPT ERROR' in line or line.startswith('ERROR:')]
      assert not errors and not engine, (errors, engine)
      await tap('Pause')
-     await page.wait_for_function("!window.SG_LAB_STATE.paused && !window.SG_LAB_STATE.spell_visuals.includes('orbit')", timeout=15000)
+     await page.wait_for_function("key => !window.SG_LAB_STATE.paused && !window.SG_LAB_STATE.spell_visuals.includes(key)", arg=species, timeout=15000)
      resumed = await state()
      engine = [line for line in logs if 'SCRIPT ERROR' in line or line.startswith('ERROR:')]
      assert not errors and not engine, (errors, engine)
-     results[direction][species] = {'battle':battle, 'held':held, 'resumed':resumed, 'pageerrors':errors, 'engine_errors':engine, 'passed':['touch training loadout and owned item equip', 'real orbit hit and active shaped effect', 'pause preserves effect set and cast/hit counts', 'resume permits finite effect cleanup', '44 CSS pixel touch controls'], 'limit':'Explicit training fixture, Chromium software WebGL; no Safari hardware or final art claim.'}
+     results[direction][species] = {'battle':battle, 'held':held, 'resumed':resumed, 'pageerrors':errors, 'engine_errors':engine, 'passed':['touch training loadout and owned item equip', 'real spell hit and active shaped effect', 'pause preserves effect set and cast/hit counts', 'resume permits finite effect cleanup', '44 CSS pixel touch controls'], 'limit':'Explicit training fixture, Chromium software WebGL; no Safari hardware or final art claim.'}
      print(direction, species, 'PASS', flush=True); await context.close()
   finally:
    await browser.close(); server.shutdown()
- (args.report_dir/'orbit-visuals-web.json').write_text(json.dumps(results, ensure_ascii=False, indent=2))
+ (args.report_dir/f'{args.spell}-visuals-web.json').write_text(json.dumps(results, ensure_ascii=False, indent=2))
 asyncio.run(main())

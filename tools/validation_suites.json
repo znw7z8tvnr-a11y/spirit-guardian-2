@@ -16,5 +16,6 @@
   "tools/test_audio_web.py",
   "tools/test_lab_audio_web.py",
   "tools/test_guardian_visuals_web.py",
-  "tools/test_orbit_visuals_web.py"
+  "tools/test_orbit_visuals_web.py",
+  "tools/test_thorn_visuals_web.py"
 ]

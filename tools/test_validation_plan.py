@@ -16,6 +16,8 @@ class SelectionTests(unittest.TestCase):
   self.assertEqual(select(['godot/experiments/chain_lab/guardian_manager.gd'],'focused')['profile'],'full')
  def test_orbit_presentation_selection(self):
   r=select(['godot/experiments/chain_lab/orbit_fx.gd','godot/tests/orbit_spell.gd'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('orbit',r['native']);self.assertIn('chainlab',r['native']);self.assertEqual(r['browsers'],['test_orbit_visuals_web.py'])
+ def test_thorn_presentation_selection(self):
+  r=select(['godot/experiments/chain_lab/thorn_fx.gd','godot/tests/thorn_spell.gd'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('thorn',r['native']);self.assertIn('orbit',r['native']);self.assertEqual(set(r['browsers']),{'test_thorn_visuals_web.py','test_orbit_visuals_web.py'})
  def test_audio_selection(self):
   r=select(['godot/modules/audio/audio.gd','godot/tests/audio_pool.gd','godot/tests/audio_pool.gd.uid'],'focused');self.assertEqual(r['profile'],'focused');self.assertIn('audio',r['native']);self.assertIn('modules',r['native']);self.assertEqual(r['browsers'],['test_audio_web.py'])
  def test_lab_audio_observer_selection(self):

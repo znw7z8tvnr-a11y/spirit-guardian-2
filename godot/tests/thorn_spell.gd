@@ -41,6 +41,31 @@ func run() -> void:
  var bounded: Node=game.fx.get_child(game.fx.get_child_count()-1)
  check(bounded.get_child_count()==9,"twenty-four real hits create one root bed and exactly eight bounded thorn Sprites")
  check(bounded.get_children().slice(1).all(func(n):return n.texture==Effects.THORN_SPIKE),"all eight thorn Sprites use dedicated temporary artwork")
+ bounded.set_process(false)
+ var poses_match:=true;var max_error:=0.0
+ for frame_index in range(129):
+  var age: float=0.999*float(frame_index)/128.0;bounded.age=age;bounded.update_pose()
+  var height:=smoothstep(0.0,0.22,age)*(1.0-smoothstep(0.45,1.0,age))
+  for spike_index in range(8):
+   var expected:=Vector2(0.4+(spike_index%3)*0.06,maxf(0.02,height*(0.5+(spike_index%3)*0.08)))
+   var at:=Vector2(cos(spike_index*2.399),sin(spike_index*2.399)*0.65)*(18+(spike_index%4)*14)
+   var error: float=bounded.spikes[spike_index].scale.distance_to(expected);max_error=maxf(max_error,error)
+   poses_match=poses_match and error<0.000001 and bounded.spikes[spike_index].position.is_equal_approx(at) and bounded.spikes[spike_index].offset==Vector2(0,-64)
+  poses_match=poses_match and is_equal_approx(bounded.modulate.a,1.0-smoothstep(0.55,1.0,age))
+ check(poses_match,"1032 sampled thorn scales preserve legacy widths, heights, placement and fade; max error %.9f" % max_error)
+ var peer=preload("res://experiments/chain_lab/thorn_fx.gd").new();game.fx.add_child(peer);peer.set_process(false);peer.age=0.15;peer.update_pose()
+ var peer_scales: Array=peer.spikes.map(func(spike):return spike.scale)
+ bounded.age=0.7;bounded.update_pose()
+ check(peer.spikes.map(func(spike):return spike.scale)==peer_scales and peer.spike_groups[0].size()==3 and bounded.spike_groups[0].size()==3 and peer.spikes.all(func(spike):return not bounded.spikes.has(spike)),"simultaneous thorn effects own independent groups and animation state")
+ peer.free()
+ bounded.age=0.1;bounded.update_pose();bounded.set_process(true)
+ game.user_paused=true;game._process(0)
+ var pause_age: float=bounded.age;var pause_scales: Array=bounded.spikes.map(func(spike):return spike.scale)
+ await process_frame;await process_frame
+ check(bounded.age==pause_age and bounded.spikes.map(func(spike):return spike.scale)==pause_scales,"real pause freezes thorn age and all eight spike scales")
+ game.user_paused=false;game._process(0)
+ await process_frame;await process_frame
+ check(bounded.age>pause_age,"real resume advances the existing thorn effect")
  bounded.free();game.spell_visual("thorn",Vector2.ZERO,game.CENTER,[])
  bounded=game.fx.get_child(game.fx.get_child_count()-1)
  check(bounded.get_child_count()==9 and bounded.position==game.CENTER,"empty cast still renders harmless thorn at original aim")

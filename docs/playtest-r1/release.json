@@ -1,0 +1,141 @@
+{
+  "game_source": "c7142b9a368137215f82119e7cf5c361e49eaa66",
+  "hosting_source": "2427e6bbacd03c1020b86b615c69b8b8a2587503",
+  "ci": {
+    "id": 45753870081,
+    "status": "completed",
+    "conclusion": "success",
+    "sha": "c7142b9a368137215f82119e7cf5c361e49eaa66",
+    "url": "https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45753870081",
+    "jobs": [
+      {
+        "name": "plan",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "validate-build",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_enemy_tactics_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_final_gems_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_focus_pause_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_checkpoint_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_audio_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_enemy_readability_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_chain_lab_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_early_wave_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_guardian_visuals_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_eight_spells_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_inventory_filters_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_first_boss_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_attack_gems_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_flesh_wall_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_lab_audio_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_reward_reroll_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_orbit_visuals_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_run_results_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_thorn_visuals_web.py)",
+        "status": "completed",
+        "result": "success"
+      },
+      {
+        "name": "browser (test_web.py)",
+        "status": "completed",
+        "result": "success"
+      }
+    ]
+  },
+  "deployment": {
+    "id": "appgdep_6b07b8566fcc819197f111c16db09fc6",
+    "project_id": "appgprj_6b07b21482648191b6d61c91cabaad10",
+    "title": "靈境守衛｜整合試玩版 R1",
+    "version_id": "appgprj_6b07b21482648191b6d61c91cabaad10~appgver_89d4d5a9f2f8819188eec91bba8e36e5",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://spirit-guardian-playtest-r1-20261126.trylook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "release---6b07b8566fcc819197f111c16db09fc6",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-26T04:41:14.459975+00:00"
+  },
+  "previous_sites_changed": false,
+  "ipad_tested": false,
+  "art_and_audio": "provisional"
+}

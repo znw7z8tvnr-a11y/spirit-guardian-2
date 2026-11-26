@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "hidden reward panel rejects stale input",
+    "25 unchanged reward signals reuse three card descriptions without rewriting content",
+    "presentation refresh does not consume RNG or change offers",
+    "in-place skill level change refreshes only its own card",
+    "restoring an offer restores its exact description",
+    "equal copied offers reuse cached text rather than dictionary identity",
+    "reordered reward cards refresh their displayed positions",
+    "first visible reward choice consumes exactly one pending reward",
+    "new offer is visible with controls briefly disabled",
+    "rapid choice and refresh cannot consume another offer or RNG",
+    "controls recover after the real-time input guard",
+    "a deliberate later refresh remains available",
+    "refresh then immediate choice leaves new offer and remaining charges unchanged",
+    "rejected refresh does not leave controls stuck",
+    "invalid card index is rejected without locking input",
+    "reward remains selectable after rejected input",
+    "guard releases even if the last choice hides the panel"
+  ],
+  "failures": []
+}

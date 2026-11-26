@@ -3,6 +3,8 @@ const Zh=preload("res://localization/zh_hant.gd")
 var model: Node
 var summary: Label
 var choices: Array=[]
+# One immutable value signature per visible card; never retain mutable offers.
+var card_signatures: Array=[]
 var refresh: Button
 var input_locked:=false
 const INPUT_GUARD_SECONDS=0.25
@@ -16,6 +18,7 @@ func _ready() -> void:
  refresh=Button.new();refresh.custom_minimum_size.y=72;box.add_child(refresh);refresh.pressed.connect(func():activate(-1))
  for i in range(3):
   var button:=Button.new();button.custom_minimum_size=Vector2(800,118);button.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;box.add_child(button);choices.append(button)
+  card_signatures.append([])
   button.pressed.connect(func():activate(i))
  var help:=Label.new();help.text="物品進入圖示背包，由你決定裝在哪一格；詞條立即生效。選擇期間戰鬥暫停。";help.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;box.add_child(help)
  hide()
@@ -32,7 +35,12 @@ func sync() -> void:
  refresh.text="刷新選項（剩餘 %d 次）" % model.refreshes;refresh.disabled=input_locked or model.refreshes<=0
  for i in choices.size():
   choices[i].disabled=input_locked
-  choices[i].text=description(model.offers[i])
+  var item: Dictionary=model.offers[i]
+  var signature: Array=[str(item.kind),str(item.key),int(item.level)]
+  if card_signatures[i]!=signature:
+   var text:=description(item)
+   if choices[i].text!=text:choices[i].text=text
+   card_signatures[i]=signature
 
 func activate(index: int) -> bool:
  if not is_visible_in_tree() or input_locked or not is_instance_valid(model):return false

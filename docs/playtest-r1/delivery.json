@@ -37,5 +37,16 @@
     "4d6bd18",
     "6c35fbd",
     "dbe81dd"
-  ]
+  ],
+  "staged_resource_comparison": {
+    "wasm": "passed",
+    "pck": "passed",
+    "project_download": "passed",
+    "html_sources_unchanged_since": "559c84f"
+  },
+  "staged_web": {
+    "focus_pause": "passed_landscape_portrait",
+    "full_run": "passed_landscape_portrait",
+    "checkpoint": "passed_landscape_portrait"
+  }
 }

@@ -1,0 +1,11 @@
+{
+  "source": "04a52ce03784cb0d7939790996da3dfac54a4d35",
+  "file": "SpiritGuardian-Godot-GuardianAtlas-2026-11-26.zip",
+  "bytes": 3836805,
+  "sha256": "5ea4b6172951a3f0d6bf83197ca1212dd67b0bf449252a9b839a074c76681265",
+  "crc": "passed",
+  "source_comparison": "passed",
+  "entry": "res://experiments/chain_lab/main.tscn",
+  "clean_import": "passed",
+  "startup_600_frames": "passed"
+}

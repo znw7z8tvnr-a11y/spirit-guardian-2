@@ -31,7 +31,9 @@ func present(delta: float) -> void:
  spirit.modulate=Color(1.3,1.6,1.8) if flash>0 else Color.WHITE
  bolt.visible=flash>0
  if bolt.visible:
-  var offset:=strike_point-position
-  bolt.position=offset*0.5+Vector2(0,-16);bolt.rotation=offset.angle();bolt.scale=Vector2(maxf(12,offset.length())/300.0,0.20)
-  if species=="skeleton":bolt.position=Vector2(-18 if facing_left else 18,-22);bolt.rotation=(-0.8+flash/0.14*1.6)*(-1 if facing_left else 1);bolt.scale=Vector2.ONE*0.65
+  if species=="skeleton":
+   bolt.position=Vector2(-18 if facing_left else 18,-22);bolt.rotation=(-0.8+flash/0.14*1.6)*(-1 if facing_left else 1);bolt.scale=Vector2.ONE*0.65
+  else:
+   var offset:=strike_point-position
+   bolt.position=offset*0.5+Vector2(0,-16);bolt.rotation=offset.angle();bolt.scale=Vector2(maxf(12,offset.length())/300.0,0.20)
  modulate.a=clampf(remaining/0.65,0.0,1.0)

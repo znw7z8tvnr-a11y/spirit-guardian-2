@@ -103,6 +103,29 @@ func run() -> void:
  summon_at(Vector2.ZERO,3,1);manager.summon_at(Vector2.ZERO,3,1,"summon")
  check(manager.guards.size()==4 and summon_at(Vector2.ZERO,3,1)==null,"ghosts and skeletons share one four-unit global limit")
  check(manager.summon_at(Vector2.ZERO,1,1,"unknown")==null,"unknown guardian species fails closed")
+ for species in ["summon","skeleton"]:
+  var visual=preload("res://experiments/chain_lab/guardian_actor.gd").new();visual.species=species;root.add_child(visual)
+  for row in [
+   {"flash":0.0,"delta":0.016,"age":0.0,"life":8.0,"at":Vector2.ZERO,"aim":Vector2(40,20),"left":false,"intent":"待命"},
+   {"flash":0.10,"delta":0.02,"age":0.35,"life":0.32,"at":Vector2(-20,12),"aim":Vector2(300,70),"left":true,"intent":"追擊"},
+   {"flash":0.16,"delta":0.02,"age":1.2,"life":0.65,"at":Vector2(20,40),"aim":Vector2(20,40),"left":false,"intent":"攻擊"},
+   {"flash":0.01,"delta":0.02,"age":2.0,"life":0.0,"at":Vector2(70,30),"aim":Vector2(-300,-70),"left":true,"intent":"待命"}]:
+   check_legacy_pose(visual,row)
+  visual.free()
  check(manager.snapshot().all(func(row):return row.type in ["summon","skeleton"]),"snapshot exposes truthful per-species actors")
  clear();manager.queue_free();targets.queue_free();resolver.queue_free();await process_frame
  print("SKELETON_RESULT "+JSON.stringify({"checks":checks,"failures":failures}));quit(0 if failures.is_empty() else 1)
+
+func check_legacy_pose(actor: Node2D,row: Dictionary) -> void:
+ # Frozen pre-optimization pose, including the old ghost calculation then override.
+ actor.flash=row.flash;actor.age=row.age;actor.remaining=row.life;actor.position=row.at;actor.strike_point=row.aim;actor.facing_left=row.left;actor.intent=row.intent
+ var flash: float=maxf(0.0,float(row.flash)-float(row.delta))
+ var at: Vector2=actor.bolt.position;var angle: float=actor.bolt.rotation;var size: Vector2=actor.bolt.scale
+ if flash>0:
+  var offset: Vector2=row.aim-row.at
+  at=offset*0.5+Vector2(0,-16);angle=offset.angle();size=Vector2(maxf(12,offset.length())/300.0,0.20)
+  if actor.species=="skeleton":at=Vector2(-18 if row.left else 18,-22);angle=(-0.8+flash/0.14*1.6)*(-1 if row.left else 1);size=Vector2.ONE*0.65
+ var bob: float=-30+(sin(row.age*9.0)*1.5 if actor.species=="skeleton" and row.intent=="追擊" else sin(row.age*3.5)*(1.0 if actor.species=="skeleton" else 4.0))
+ var turn: float=sin(flash*22)*0.12 if actor.species=="skeleton" and flash>0 else 0.0
+ actor.present(row.delta)
+ check(actor.bolt.position.is_equal_approx(at) and is_equal_approx(actor.bolt.rotation,angle) and actor.bolt.scale.is_equal_approx(size) and actor.bolt.visible==(flash>0) and is_equal_approx(actor.spirit.position.y,bob) and is_equal_approx(actor.spirit.rotation,turn) and actor.spirit.flip_h==row.left and actor.spirit.modulate==(Color(1.3,1.6,1.8) if flash>0 else Color.WHITE) and is_equal_approx(actor.modulate.a,clampf(row.life/0.65,0,1)),"legacy pose preserved for %s, flash %.2f, age %.2f" % [actor.species,row.flash,row.age])

@@ -1,0 +1,55 @@
+{
+  "source": "b421ed2223a1f33129076568359863be7b880a08",
+  "tested_game_source": "b23bff65fc3313015eb91aa87b04877e3582fdcc",
+  "game_diff_from_tested_source": [],
+  "included_batch_commits": [
+    "a0659bd",
+    "7aba616",
+    "c1e9513",
+    "59e5b91",
+    "bdda905",
+    "99d846b",
+    "b5eb13f",
+    "096c627",
+    "a1e77b3",
+    "b23bff6"
+  ],
+  "complete_ci": {
+    "id": 45558473229,
+    "conclusion": "success"
+  },
+  "online_updated": false,
+  "art": "temporary",
+  "ipad_tested": false,
+  "packages": {
+    "Godot": {
+      "file": "SpiritGuardian-Godot-ChainLab-Integrated-2026-11-26.zip",
+      "bytes": 3834108,
+      "sha256": "44034c09e85a642fd1fbf4a6ea46598b91b6541f0a04743f1add683058c75d43",
+      "crc": "passed",
+      "source_file_comparison": "passed"
+    },
+    "Web": {
+      "file": "SpiritGuardian-Web-ChainLab-Integrated-2026-11-26.zip",
+      "bytes": 20362698,
+      "sha256": "653661513230b999960b427ef0388e8c359f7a41fb6d8b5ca51c2a549197d646",
+      "crc": "passed",
+      "source_file_comparison": "passed"
+    }
+  },
+  "import_test": "passed",
+  "start_test": "passed",
+  "startup_frames": 600,
+  "packaged_web_touch_audio": {
+    "landscape": {
+      "passed": 6,
+      "pageerrors": [],
+      "engine_errors": []
+    },
+    "portrait": {
+      "passed": 6,
+      "pageerrors": [],
+      "engine_errors": []
+    }
+  }
+}

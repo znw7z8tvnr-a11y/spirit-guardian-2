@@ -12,4 +12,4 @@ browser/ 與 m2-regression/ 記錄 Lab、原 M2 橫直向 Chromium 觸控測試�
 
 背包介面橫直向各 11 項觸控流程通過（inventory-regression/），包含切換篩選、分頁取消過期選取、裝備確認及恢復實際施法。ZIP 通過 CRC、乾淨解壓匯入與 600 幀啟動；啟動測試不是完整戰局驗收。交付來源 b23bff65fc3313015eb91aa87b04877e3582fdcc，檔案與 SHA256 見 project-zip.json。
 
-[GitHub Actions 45558473229](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45558473229) 交付時仍在執行，尚未宣稱完整回歸通過。
+[GitHub Actions 45558473229](https://github.com/znw7z8tvnr-a11y/spirit-guardian-2/actions/runs/45558473229) 先前交付時仍在執行；2026-11-26 重新查證已 completed/success。新整合包見 ../integrated-2026-11-26/。
